@@ -1,0 +1,25 @@
+image: openjdk:11
+
+before_script:
+  - gem install dpl
+
+stages:
+  - dev
+  - production
+
+dev:
+  type: deploy
+  stage: dev
+  image: ruby:latest
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_STAGING --api-key=$HEROKU_API_KEY
+  only:
+    - dev
+
+production:
+  type: deploy
+  stage: production
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+  only:
+    - master
