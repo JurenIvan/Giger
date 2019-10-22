@@ -5,6 +5,10 @@ before_script:
   - apt-get install -y ruby-dev
   - gem install dpl
 
+stages:
+  - dev
+  - production
+
 dev:
   type: deploy
   stage: dev
