@@ -9,7 +9,6 @@ targetCompatibility = '11'
 
 group = 'hr.fer.zemris.opp'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 configurations {
     developmentOnly
