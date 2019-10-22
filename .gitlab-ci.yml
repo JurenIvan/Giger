@@ -10,7 +10,6 @@ stages:
 dev:
   type: deploy
   stage: dev
-  image: ruby:latest
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_DEV --api-key=$HEROKU_API_KEY
   only:
