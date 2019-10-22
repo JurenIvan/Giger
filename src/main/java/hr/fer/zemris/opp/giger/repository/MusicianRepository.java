@@ -10,4 +10,5 @@ import java.util.List;
 public interface MusicianRepository extends JpaRepository<Musician, Long> {
 
     List<Musician> findByInstrument(String instrument);
+
 }
