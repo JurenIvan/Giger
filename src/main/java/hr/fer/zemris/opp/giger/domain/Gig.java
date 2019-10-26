@@ -4,6 +4,7 @@ import hr.fer.zemris.opp.giger.domain.enums.GigType;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Gig {
@@ -13,6 +14,7 @@ public class Gig {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "organizer_id")
     private Organizer organizer;
 
     private LocalDateTime dateTime;
@@ -21,17 +23,28 @@ public class Gig {
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
-    @Enumerated(EnumType.STRING)
     private GigType gigType;
-
     private boolean finalDealAchieved;
+    private boolean privateGig;
 
     @ManyToOne
     private Band finalBand;
 
-    private boolean privateGig;
+    @ManyToMany
+    @JoinTable(name = "review_gig",
+            joinColumns = {@JoinColumn(name = "fk_gig")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_review")})
+    private List<Review> reviews;
 
     public Gig() {
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Long getId() {

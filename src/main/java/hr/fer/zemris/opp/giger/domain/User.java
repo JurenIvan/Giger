@@ -26,11 +26,6 @@ public class User {
             joinColumns = {@JoinColumn(name = "fk_user")},
             inverseJoinColumns = {@JoinColumn(name = "fk_conversation")})
     private List<Conversation> conversations;
-    @ManyToMany
-    @JoinTable(name = "review_user",
-            joinColumns = {@JoinColumn(name = "fk_user")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_review")})
-    private List<Review> reviews;
 
     public User() {
     }
@@ -89,13 +84,5 @@ public class User {
 
     public void setConversations(List<Conversation> conversations) {
         this.conversations = conversations;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
     }
 }

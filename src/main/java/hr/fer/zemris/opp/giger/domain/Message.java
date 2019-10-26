@@ -9,12 +9,12 @@ public class Message {
 
     @Id
     private Long id;
+    private String content;
+    private LocalDateTime sentTime;
 
     @ManyToOne
     @JoinColumn(name = "fk_sender")
     private User sender;
-    private String content;
-    private LocalDateTime sentTime;
 
     @ManyToMany
     @JoinTable(name = "message_seen",

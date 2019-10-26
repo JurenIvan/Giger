@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,12 +12,12 @@ public class Post {
 
     @Id
     private Long id;
-
     private String content;
     private LocalDateTime publishedOn;
 
     @OneToMany
-    private List<Comment> commentList;
+    @JoinColumn(name = "fk_post")
+    private List<Comment> comments;
 
     public Post() {
     }
@@ -45,11 +46,11 @@ public class Post {
         this.publishedOn = publishedOn;
     }
 
-    public List<Comment> getCommentList() {
-        return commentList;
+    public List<Comment> getComments() {
+        return comments;
     }
 
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

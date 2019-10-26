@@ -10,7 +10,6 @@ public class Musician {
 
     @Id
     private Long id;
-
     private String bio;
 
     @ElementCollection(targetClass = Instrument.class)
@@ -31,8 +30,15 @@ public class Musician {
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
     private List<Gig> pastGigs;
 
-    private Integer totalScore;
-    private Integer reviewsCount;
+    @ManyToMany
+    @JoinTable(name = "review_musician",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_review")})
+    private List<Review> reviews;
+
+    @OneToMany
+    @JoinColumn(name = "fk_user")
+    private List<Post> posts;
 
     public Musician() {
     }
@@ -77,19 +83,4 @@ public class Musician {
         this.pastGigs = pastGigs;
     }
 
-    public Integer getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(Integer totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public Integer getReviewsCount() {
-        return reviewsCount;
-    }
-
-    public void setReviewsCount(Integer reviewsCount) {
-        this.reviewsCount = reviewsCount;
-    }
 }

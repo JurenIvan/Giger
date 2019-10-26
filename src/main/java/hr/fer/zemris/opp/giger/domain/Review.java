@@ -9,7 +9,6 @@ public class Review {
 
     @Id
     private Long id;
-
     private String content;
     private Integer grade;
 

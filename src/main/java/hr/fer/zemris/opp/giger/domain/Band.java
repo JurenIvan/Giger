@@ -24,7 +24,7 @@ public class Band {
     private List<Musician> members;
 
     @OneToMany
-    private List<Gig> previousExperience;
+    private List<Gig> gigs;
 
     @OneToMany
     @JoinColumn(name = "fk_band")
@@ -35,6 +35,12 @@ public class Band {
     @Column(name = "gig_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
+
+    @ManyToMany
+    @JoinTable(name = "review_band",
+            joinColumns = {@JoinColumn(name = "fk_band")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_review")})
+    private List<Review> reviews;
 
     public Band() {
     }
@@ -87,12 +93,12 @@ public class Band {
         this.members = members;
     }
 
-    public List<Gig> getPreviousExperience() {
-        return previousExperience;
+    public List<Gig> getGigs() {
+        return gigs;
     }
 
-    public void setPreviousExperience(List<Gig> previousExperience) {
-        this.previousExperience = previousExperience;
+    public void setGigs(List<Gig> gigs) {
+        this.gigs = gigs;
     }
 
     public List<Post> getPosts() {
@@ -109,5 +115,13 @@ public class Band {
 
     public void setAcceptableGigTypes(List<GigType> acceptableGigTypes) {
         this.acceptableGigTypes = acceptableGigTypes;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
