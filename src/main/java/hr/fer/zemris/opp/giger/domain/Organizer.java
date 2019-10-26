@@ -8,7 +8,6 @@ public class Organizer {
 
     @Id
     private Long id;
-
     private String managerName;
 
     @OneToMany

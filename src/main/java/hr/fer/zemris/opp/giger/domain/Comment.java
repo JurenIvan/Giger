@@ -9,11 +9,11 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String content;
+    private LocalDateTime postedOn;
 
     @ManyToOne
     private User author;
-    private String content;
-    private LocalDateTime postedOn;
 
     public Comment() {
     }

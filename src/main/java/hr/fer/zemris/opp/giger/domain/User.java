@@ -10,7 +10,6 @@ public class User {
 
     @Id
     private Long id;
-
     @Email
     private String email;
     private String phoneNumber;
