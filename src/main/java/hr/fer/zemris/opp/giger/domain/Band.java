@@ -2,20 +2,112 @@ package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 public class Band {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String name;
     private String bio;
     private LocalDate formedDate;
 
+    @ManyToOne
     private Musician leader;
+
+    @ManyToMany
     private List<Musician> members;
 
+    @OneToMany
     private List<Gig> previousExperience;
+
+    @OneToMany
+    @JoinColumn(name = "fk_band")
     private List<Post> posts;
 
+    @ElementCollection(targetClass = GigType.class)
+    @CollectionTable(name = "gig_type", joinColumns = @JoinColumn(name = "gig"))
+    @Column(name = "gig_type", nullable = false)
+    @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
+
+    public Band() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public LocalDate getFormedDate() {
+        return formedDate;
+    }
+
+    public void setFormedDate(LocalDate formedDate) {
+        this.formedDate = formedDate;
+    }
+
+    public Musician getLeader() {
+        return leader;
+    }
+
+    public void setLeader(Musician leader) {
+        this.leader = leader;
+    }
+
+    public List<Musician> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Musician> members) {
+        this.members = members;
+    }
+
+    public List<Gig> getPreviousExperience() {
+        return previousExperience;
+    }
+
+    public void setPreviousExperience(List<Gig> previousExperience) {
+        this.previousExperience = previousExperience;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public List<GigType> getAcceptableGigTypes() {
+        return acceptableGigTypes;
+    }
+
+    public void setAcceptableGigTypes(List<GigType> acceptableGigTypes) {
+        this.acceptableGigTypes = acceptableGigTypes;
+    }
 }

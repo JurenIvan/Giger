@@ -1,17 +1,95 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import hr.fer.zemris.opp.giger.domain.enums.Intrument;
+import hr.fer.zemris.opp.giger.domain.enums.Instrument;
 
+import javax.persistence.*;
 import java.util.List;
 
-public class Musician extends User {
+@Entity
+public class Musician {
+
+    @Id
+    private Long id;
 
     private String bio;
-    private List<Intrument> instruments;
 
+    @ElementCollection(targetClass = Instrument.class)
+    @CollectionTable(name = "instruments", joinColumns = @JoinColumn(name = "musician"))
+    @Column(name = "plays", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private List<Instrument> instruments;
+
+    @ManyToMany
+    @JoinTable(name = "musician_bands",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_band")})
     private List<Band> bands;
-    private List<Gig> pastExperience;
+
+    @ManyToMany
+    @JoinTable(name = "musician_gig",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
+    private List<Gig> pastGigs;
 
     private Integer totalScore;
     private Integer reviewsCount;
+
+    public Musician() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public List<Instrument> getInstruments() {
+        return instruments;
+    }
+
+    public void setInstruments(List<Instrument> instruments) {
+        this.instruments = instruments;
+    }
+
+    public List<Band> getBands() {
+        return bands;
+    }
+
+    public void setBands(List<Band> bands) {
+        this.bands = bands;
+    }
+
+    public List<Gig> getPastGigs() {
+        return pastGigs;
+    }
+
+    public void setPastGigs(List<Gig> pastGigs) {
+        this.pastGigs = pastGigs;
+    }
+
+    public Integer getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(Integer totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public Integer getReviewsCount() {
+        return reviewsCount;
+    }
+
+    public void setReviewsCount(Integer reviewsCount) {
+        this.reviewsCount = reviewsCount;
+    }
 }
