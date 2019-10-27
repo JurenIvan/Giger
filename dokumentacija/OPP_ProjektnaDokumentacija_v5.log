@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.10.4)  27 OCT 2019 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.10.4)  27 OCT 2019 10:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1560,13 +1560,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 [26
 
 
-]
-Overfull \hbox (0.39981pt too wide) in paragraph at lines 45--46
-[]\OT1/jkp/m/n/12 -predlaganje feature-a, do-go-vo-reno []sto se oba-vezno mora
- im-ple-men-
- []
-
-[27]
+] [27]
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
@@ -1589,10 +1583,6 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
 Package rerunfilecheck Info: File `OPP_ProjektnaDokumentacija_v5.out' has not c
 hanged.
 (rerunfilecheck)             Checksum: 26A8BCB67D725A514DBBD4F4C06AD182;1813.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  11346 strings out of 492623
@@ -1611,7 +1601,7 @@ fonts/jkpbn8a.pfb></usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><
 /usr/share/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/share/texmf
 -dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/share/texmf-dist/fonts/type1
 /public/kpfonts/jkpttmn8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (31 pages, 134629 bytes).
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (31 pages, 134620 bytes).
 PDF statistics:
  417 PDF objects out of 1000 (max. 8388607)
  372 compressed objects within 4 object streams
