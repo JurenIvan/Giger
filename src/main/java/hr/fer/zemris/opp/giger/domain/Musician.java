@@ -44,7 +44,19 @@ public class Musician {
     @JoinColumn(name = "fk_user")
     private List<Post> posts;
 
+    @OneToOne
+    @JoinColumn(name = "fk_calendar")
+    private Calendar calendar;
+
     public Musician() {
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
     }
 
     public List<Review> getReviews() {
