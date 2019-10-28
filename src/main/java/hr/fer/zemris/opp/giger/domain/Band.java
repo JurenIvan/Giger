@@ -28,6 +28,9 @@ public class Band {
     @ManyToMany(fetch = LAZY)
     private List<Musician> members;
 
+    @ManyToMany(fetch = LAZY)
+    private List<Musician> backUpMembers;
+
     @OneToMany
     private List<Gig> gigs;
 
@@ -50,6 +53,14 @@ public class Band {
     private List<Review> reviews;
 
     public Band() {
+    }
+
+    public List<Musician> getBackUpMembers() {
+        return backUpMembers;
+    }
+
+    public void setBackUpMembers(List<Musician> backUpMembers) {
+        this.backUpMembers = backUpMembers;
     }
 
     public Long getId() {
