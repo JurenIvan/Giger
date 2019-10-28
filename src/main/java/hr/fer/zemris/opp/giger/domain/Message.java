@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Message {
 
@@ -16,12 +18,12 @@ public class Message {
     @NotNull
     private LocalDateTime sentTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "fk_sender")
     @NotNull
     private User sender;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "message_seen",
             joinColumns = {@JoinColumn(name = "fk_message")},
             inverseJoinColumns = {@JoinColumn(name = "fk_user")})

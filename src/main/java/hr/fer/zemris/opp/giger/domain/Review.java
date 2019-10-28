@@ -2,6 +2,8 @@ package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Review {
 
@@ -11,7 +13,7 @@ public class Review {
     private String content;
     private Integer grade;
 
-    @ManyToOne
+    @ManyToOne(fetch = EAGER)
     private User author;
 
     public Review() {

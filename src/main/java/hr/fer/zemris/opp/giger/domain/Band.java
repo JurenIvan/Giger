@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Band {
 
@@ -19,17 +21,18 @@ public class Band {
     @NotNull
     private LocalDate formedDate;
 
-    @ManyToOne
-    @NotNull
+    @ManyToOne(fetch = LAZY)
     private Musician leader;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     private List<Musician> members;
 
     @OneToMany
     private List<Gig> gigs;
 
-    @OneToMany
+    private String pictureUrl;
+
+    @OneToMany(fetch = LAZY)
     @JoinColumn(name = "fk_band")
     private List<Post> posts;
 
@@ -39,7 +42,7 @@ public class Band {
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "review_band",
             joinColumns = {@JoinColumn(name = "fk_band")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})
@@ -54,6 +57,14 @@ public class Band {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 
     public String getName() {

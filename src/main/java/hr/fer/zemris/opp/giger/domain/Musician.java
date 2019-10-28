@@ -5,6 +5,8 @@ import hr.fer.zemris.opp.giger.domain.enums.Instrument;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Musician {
 
@@ -19,25 +21,25 @@ public class Musician {
     @Enumerated(EnumType.STRING)
     private List<Instrument> instruments;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "musician_bands",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_band")})
     private List<Band> bands;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "musician_gig",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
     private List<Gig> pastGigs;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "review_musician",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})
     private List<Review> reviews;
 
-    @OneToMany
+    @OneToMany(fetch = LAZY)
     @JoinColumn(name = "fk_user")
     private List<Post> posts;
 

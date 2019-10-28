@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Gig {
 
@@ -14,7 +16,7 @@ public class Gig {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "organizer_id")
     @NotNull
     private Organizer organizer;
@@ -29,10 +31,10 @@ public class Gig {
     private boolean finalDealAchieved;
     private boolean privateGig;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     private Band finalBand;
 
-    @ManyToMany
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "review_gig",
             joinColumns = {@JoinColumn(name = "fk_gig")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})

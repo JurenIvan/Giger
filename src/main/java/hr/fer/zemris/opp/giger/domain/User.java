@@ -5,6 +5,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -19,12 +21,14 @@ public class User {
     @NotNull
     private String passwordHash;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = LAZY)
     private Musician musician;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(fetch = LAZY)
     private Organizer organizer;
 
-    @ManyToMany
+    private String pictureUrl;
+
+    @ManyToMany(fetch = LAZY)
     @JoinTable(name = "conversation_user",
             joinColumns = {@JoinColumn(name = "fk_user")},
             inverseJoinColumns = {@JoinColumn(name = "fk_conversation")})
@@ -39,6 +43,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
     }
 
     public String getEmail() {

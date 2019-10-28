@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 public class Post {
 
@@ -16,7 +18,7 @@ public class Post {
     @NotNull
     private LocalDateTime publishedOn;
 
-    @OneToMany
+    @OneToMany(fetch = EAGER)
     @JoinColumn(name = "fk_post")
     private List<Comment> comments;
 
