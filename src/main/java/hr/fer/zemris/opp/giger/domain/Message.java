@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,12 +9,16 @@ import java.util.List;
 public class Message {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String content;
+    @NotNull
     private LocalDateTime sentTime;
 
     @ManyToOne
     @JoinColumn(name = "fk_sender")
+    @NotNull
     private User sender;
 
     @ManyToMany

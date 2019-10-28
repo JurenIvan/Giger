@@ -9,6 +9,7 @@ import java.util.List;
 public class Musician {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String bio;
 

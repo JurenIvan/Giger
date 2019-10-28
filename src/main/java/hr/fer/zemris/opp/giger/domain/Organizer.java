@@ -7,8 +7,9 @@ import java.util.List;
 public class Organizer {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String managerName;
+    private String managerName; //todo think about it
 
     @OneToMany
     @JoinColumn(name = "organizer_id")

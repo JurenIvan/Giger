@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -9,10 +10,13 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Email
+    @NotNull
     private String email;
     private String phoneNumber;
+    @NotNull
     private String passwordHash;
 
     @OneToOne(cascade = CascadeType.ALL)

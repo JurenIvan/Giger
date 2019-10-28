@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -9,10 +10,13 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String content;
+    @NotNull
     private LocalDateTime postedOn;
 
     @ManyToOne
+    @NotNull
     private User author;
 
     public Comment() {

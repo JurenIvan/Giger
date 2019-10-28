@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.domain;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,11 +13,14 @@ public class Band {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String name;
     private String bio;
+    @NotNull
     private LocalDate formedDate;
 
     @ManyToOne
+    @NotNull
     private Musician leader;
 
     @ManyToMany

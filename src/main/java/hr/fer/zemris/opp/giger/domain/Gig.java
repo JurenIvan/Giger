@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.domain;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,8 +16,9 @@ public class Gig {
 
     @ManyToOne
     @JoinColumn(name = "organizer_id")
+    @NotNull
     private Organizer organizer;
-
+    @NotNull
     private LocalDateTime dateTime;
     @Embedded
     private Location location;
