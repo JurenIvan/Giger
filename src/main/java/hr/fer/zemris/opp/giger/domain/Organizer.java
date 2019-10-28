@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.domain;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
@@ -13,11 +14,11 @@ public class Organizer {
     private Long id;
     private String managerName; //todo think about it
 
-    @OneToMany(fetch = LAZY)
+    @OneToMany(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "organizer_id")
     private List<Gig> history;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY, cascade = ALL)
     @JoinTable(name = "review_organizer",
             joinColumns = {@JoinColumn(name = "fk_organizer")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})

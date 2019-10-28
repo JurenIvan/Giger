@@ -23,7 +23,7 @@ public class Message {
     @NotNull
     private User sender;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY) //todo thing about it
     @JoinTable(name = "message_seen",
             joinColumns = {@JoinColumn(name = "fk_message")},
             inverseJoinColumns = {@JoinColumn(name = "fk_user")})

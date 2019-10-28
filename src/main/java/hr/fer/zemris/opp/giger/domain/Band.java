@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
@@ -42,7 +43,7 @@ public class Band {
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY, cascade = ALL)
     @JoinTable(name = "review_band",
             joinColumns = {@JoinColumn(name = "fk_band")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})

@@ -5,6 +5,7 @@ import hr.fer.zemris.opp.giger.domain.enums.Instrument;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
@@ -33,7 +34,7 @@ public class Musician {
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
     private List<Gig> pastGigs;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY, cascade = ALL)
     @JoinTable(name = "review_musician",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})

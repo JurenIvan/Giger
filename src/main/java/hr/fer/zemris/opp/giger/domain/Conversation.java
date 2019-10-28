@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.domain;
 import javax.persistence.*;
 import java.util.List;
 
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
@@ -13,13 +14,13 @@ public class Conversation {
     private Long id;
     private String name;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY) //todo think about it
     @JoinTable(name = "conversation_user",
             joinColumns = {@JoinColumn(name = "fk_conversation")},
             inverseJoinColumns = {@JoinColumn(name = "fk_user")})
     private List<User> participants;
 
-    @OneToMany(fetch = EAGER)
+    @OneToMany(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "fk_conversation")
     private List<Message> messages;
 
