@@ -1,8 +1,9 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.EAGER;
 
 @Entity
 public class Review {
@@ -12,6 +13,7 @@ public class Review {
     private Long id;
     private String content;
     private Integer grade;
+    private LocalDateTime created;
 
     @ManyToOne(fetch = EAGER)
     private User author;
@@ -25,6 +27,14 @@ public class Review {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LocalDateTime getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
     }
 
     public String getContent() {
