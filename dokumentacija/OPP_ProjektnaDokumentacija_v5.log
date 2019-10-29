@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.10.29)  29 OCT 2019 18:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.10.29)  29 OCT 2019 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1196,7 +1196,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...{Indeks slika i dijagrama}{26}{chapter*.5}
+l.29 ...{Indeks slika i dijagrama}{28}{chapter*.5}
                                                   % [1
 
 ])
@@ -1385,16 +1385,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Overfull \hbox (0.42142pt too wide) in paragraph at lines 180--181
+[]\OT1/jkp/m/n/12 Ne do-zvo-ljava ko-ris-niku kori[]stenje sus-tava ako su po-d
+aci ne is-pravni 
+ []
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
-) [13]
+) [15]
 \openout2 = `Arhitektura.aux'.
 
  (./Arhitektura.tex
@@ -1426,11 +1432,11 @@ Overfull \hbox (1.82492pt too wide) in paragraph at lines 47--47
 []\OT1/jkp/m/n/12 korisnickoIme|  
  []
 
-[14
+[16
 
 
 
-] [15]
+] [17]
 Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
@@ -1450,22 +1456,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
-[17]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
-) [19]
+) [21]
 \openout2 = `Implementacija.aux'.
 
  (./Implementacija.tex
@@ -1485,7 +1491,7 @@ Overfull \hbox (10.38434pt too wide) in paragraph at lines 1--1
 |[]\OT1/jkp/b/n/24.88 Implementacija i ko-risni[]cko su[]celje| 
  []
 
-[20
+[22
 
 
 
@@ -1499,12 +1505,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-[21] [22]
+[23] [24]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-[23])
+[25])
 \openout2 = `Zakljucak.aux'.
 
  (./Zakljucak.tex
@@ -1519,7 +1525,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[24
+[26
 
 
 
@@ -1538,7 +1544,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 12 http : / / www . ece . rutgers . edu / []marsic /
  []
 
-) [25
+) [27
 
 
 
@@ -1546,7 +1552,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 \tf@lof=\write5
 \openout5 = `OPP_ProjektnaDokumentacija_v5.lof'.
 
- [26
+ [28
 
 
 ]
@@ -1557,20 +1563,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[27
+[29
 
 
-] [28]
+] [30]
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-[29] [30]
+[31] [32]
 Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-) [31] 
+) [33] 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
@@ -1585,8 +1591,8 @@ hanged.
 (rerunfilecheck)             Checksum: 26A8BCB67D725A514DBBD4F4C06AD182;1813.
  ) 
 Here is how much of TeX's memory you used:
- 11347 strings out of 492615
- 160773 string characters out of 6131389
+ 11366 strings out of 492615
+ 160906 string characters out of 6131389
  326740 words of memory out of 5000000
  14854 multiletter control sequences out of 15000+600000
  53357 words of font info for 122 fonts, out of 8000000 for 9000
@@ -1602,10 +1608,10 @@ type1/public/kpfonts/jkpmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/kpfonts/jkpmit8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfont
 s/jkpmn8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfonts/jkpttmn
 8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (32 pages, 136099 bytes).
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (34 pages, 139547 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 387 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 464 PDF objects out of 1000 (max. 8388607)
+ 415 compressed objects within 5 object streams
+ 129 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

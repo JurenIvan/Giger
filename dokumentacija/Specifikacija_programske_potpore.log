@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.10.29)  29 OCT 2019 18:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.10.29)  29 OCT 2019 19:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2483,8 +2483,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.99 					\noindent
-                    \underbar{\textbf{UC9 - Slanje poruka}}
+l.99 				\noindent
+                   \underbar{\textbf{UC2 - Pregled profila benda}}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2495,14 +2495,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 					\begin{packed_item}
-                              
+l.100 				\begin{packed_item}
+                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (103.18692pt too wide) in paragraph at lines 99--101
+Overfull \hbox (142.93674pt too wide) in paragraph at lines 99--101
 $[]$
  []
 
@@ -2514,43 +2514,17 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.102 						\item \textbf
-                         {Glavni sudionik: }$<$Administrator, glazbenik, kor...
-
+                         {Glavni sudionik: }Javnost
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no A in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no i in font nullfont!
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
 Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no z in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no k in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no k in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no k in font nullfont!
 
 Overfull \hbox (33.15952pt too wide) in paragraph at lines 102--103
 \OT1/cmr/bx/n/10 Glavni
@@ -2563,17 +2537,7 @@ Overfull \hbox (14.75824pt too wide) in paragraph at lines 102--103
 
 
 Overfull \hbox (34.18037pt too wide) in paragraph at lines 102--103
-\OT1/cmr/bx/n/10 dionik:
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 102--103
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 102--103
-\OML/cmm/m/it/10 >$ 
+\OT1/cmr/bx/n/10 dionik: 
  []
 
 
@@ -2584,63 +2548,34 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.103 						\item  \textbf
-                          {Cilj:} $<$Komunnikacija između korisnika$>$
+                          {Cilj:} Pregledati profil benda
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no K in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no k in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no j in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no z in font nullfont!
-Missing character: There is no m in font nullfont!
-Missing character: There is no e in font nullfont!
-
-! LaTeX Error: Command \dj unavailable in encoding .
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 ...m  \textbf{Cilj:} $<$Komunnikacija izmeđ
-                                                  u korisnika$>$
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no u in font nullfont!
-Missing character: There is no k in font nullfont!
-Missing character: There is no o in font nullfont!
+Missing character: There is no P in font nullfont!
 Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
 Missing character: There is no i in font nullfont!
-Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no k in font nullfont!
+Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
 
 Overfull \hbox (21.40266pt too wide) in paragraph at lines 103--104
 \OT1/cmr/bx/n/10 Cilj:
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 103--104
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 103--104
-\OML/cmm/m/it/10 >$ 
  []
 
 
@@ -2651,11 +2586,11 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.104 						\item  \textbf
-                          {Sudionici:} $<$Baza podataka$>$
+                          {Sudionici:} baza podataka,bend
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no B in font nullfont!
+Missing character: There is no b in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no z in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -2667,19 +2602,14 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no a in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
 
 Overfull \hbox (49.19418pt too wide) in paragraph at lines 104--105
-\OT1/cmr/bx/n/10 Sudionici:
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 104--105
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 104--105
-\OML/cmm/m/it/10 >$ 
+\OT1/cmr/bx/n/10 Sudionici: 
  []
 
 
@@ -2690,43 +2620,14 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.105 						\item  \textbf
-                          {Preduvjet:} $<$Korisnik je prijavljen$>$
+                          {Preduvjet:} /
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no K in font nullfont!
-Missing character: There is no o in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no k in font nullfont!
-Missing character: There is no j in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no j in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no v in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no j in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
+Missing character: There is no / in font nullfont!
 
 Overfull \hbox (53.16641pt too wide) in paragraph at lines 105--106
-\OT1/cmr/bx/n/10 Preduvjet:
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 105--106
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 105--106
-\OML/cmm/m/it/10 >$ 
+\OT1/cmr/bx/n/10 Preduvjet: 
  []
 
 
@@ -2798,8 +2699,2748 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.110 							\item $
-                    <$Korisnik odabire "poruke"$>$
+l.109 							\item J
+                    avnos odabire profil benda koji želi pregledati
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 109--110
+\/cmr/m/n/10 ^^Tz 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 							\item A
+                    plikacija prikazuje profil be
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 							\item A
+                    plikacija korisniku prikaže recenziju eventa
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 						\end{packed_enum}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 111--113
+\/cmr/m/n/10 ^^Tz
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 				\noindent
+                    \underbar{\textbf{UC3 - Pregled recenzija}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 				\begin{packed_item}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (120.89522pt too wide) in paragraph at lines 117--119
+$[]$
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.120 						\item \textbf
+                         {Glavni sudionik: }Javnost
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+
+Overfull \hbox (33.15952pt too wide) in paragraph at lines 120--121
+\OT1/cmr/bx/n/10 Glavni
+ []
+
+
+Overfull \hbox (14.75824pt too wide) in paragraph at lines 120--121
+\OT1/cmr/bx/n/10 su-
+ []
+
+
+Overfull \hbox (34.18037pt too wide) in paragraph at lines 120--121
+\OT1/cmr/bx/n/10 dionik: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121 						\item  \textbf
+                          {Cilj:} Omogućiti pregled recenzija javnosti
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no O in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (21.40266pt too wide) in paragraph at lines 121--122
+\OT1/cmr/bx/n/10 Cilj:
+ []
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 121--122
+\/cmr/m/n/10 ^^Sc
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.122 						\item  \textbf
+                          {Sudionici:} baza podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (49.19418pt too wide) in paragraph at lines 122--123
+\OT1/cmr/bx/n/10 Sudionici: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.123 						\item  \textbf
+                          {Preduvjet:} /
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no / in font nullfont!
+
+Overfull \hbox (53.16641pt too wide) in paragraph at lines 123--124
+\OT1/cmr/bx/n/10 Preduvjet: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.124 						\item  \textbf
+                          {Opis osnovnog tijeka:}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 124--125
+\OT1/cmr/bx/n/10 Opis
+ []
+
+
+Overfull \hbox (14.11935pt too wide) in paragraph at lines 124--125
+\OT1/cmr/bx/n/10 os-
+ []
+
+
+Overfull \hbox (35.77759pt too wide) in paragraph at lines 124--125
+\OT1/cmr/bx/n/10 novnog
+ []
+
+
+Overfull \hbox (11.49994pt too wide) in paragraph at lines 124--125
+\OT1/cmr/bx/n/10 ti-
+ []
+
+
+Overfull \hbox (22.99986pt too wide) in paragraph at lines 124--125
+\OT1/cmr/bx/n/10 jeka: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126 						\item[]
+                    \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.126 						\item[] \begin{packed_enum}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 							\item J
+                    avna osoba pristupi popisu recenzija evenata
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 							\item O
+                    soba odabere recenziju koju želi vidjeti
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no O in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 129--130
+\/cmr/m/n/10 ^^Tz 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 							\item A
+                    plikacija korisniku prikaže recenziju eventa
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 						\end{packed_enum}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 130--133
+\/cmr/m/n/10 ^^Tz
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 				\noindent
+                    \underbar{\textbf{UC4 - Registracija}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 				\begin{packed_item}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (93.98695pt too wide) in paragraph at lines 135--137
+$[]$
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 						\item \textbf
+                         {Glavni sudionik: }Korisnik
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+
+Overfull \hbox (33.15952pt too wide) in paragraph at lines 138--139
+\OT1/cmr/bx/n/10 Glavni
+ []
+
+
+Overfull \hbox (14.75824pt too wide) in paragraph at lines 138--139
+\OT1/cmr/bx/n/10 su-
+ []
+
+
+Overfull \hbox (34.18037pt too wide) in paragraph at lines 138--139
+\OT1/cmr/bx/n/10 dionik: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 						\item  \textbf
+                          {Cilj:} Registrirati se
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no R in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (21.40266pt too wide) in paragraph at lines 139--140
+\OT1/cmr/bx/n/10 Cilj: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 						\item  \textbf
+                          {Sudionici:} Baza podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no B in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (49.19418pt too wide) in paragraph at lines 140--141
+\OT1/cmr/bx/n/10 Sudionici: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 						\item  \textbf
+                          {Preduvjet:} /
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no / in font nullfont!
+
+Overfull \hbox (53.16641pt too wide) in paragraph at lines 141--142
+\OT1/cmr/bx/n/10 Preduvjet: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.142 						\item  \textbf
+                          {Opis osnovnog tijeka:}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 142--143
+\OT1/cmr/bx/n/10 Opis
+ []
+
+
+Overfull \hbox (14.11935pt too wide) in paragraph at lines 142--143
+\OT1/cmr/bx/n/10 os-
+ []
+
+
+Overfull \hbox (35.77759pt too wide) in paragraph at lines 142--143
+\OT1/cmr/bx/n/10 novnog
+ []
+
+
+Overfull \hbox (11.49994pt too wide) in paragraph at lines 142--143
+\OT1/cmr/bx/n/10 ti-
+ []
+
+
+Overfull \hbox (22.99986pt too wide) in paragraph at lines 142--143
+\OT1/cmr/bx/n/10 jeka: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 						\item[]
+                    \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.144 						\item[] \begin{packed_enum}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.146 							\item K
+                    orisnik odabire opciju za registraciju
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.147 							\item K
+                    orisnik unosi potrebne korisničke podatke
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 147--148
+\/cmr/m/n/10 ^^Tc 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.148 							\item K
+                    orisnik prima obavijest o uspješnoj registraciji
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no i in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 						\end{packed_enum}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 148--150
+\/cmr/m/n/10 ^^Ts
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.151 						\item[]
+                    \begin{packed_item}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.151 						\item[] \begin{packed_item}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 							\item[1]
+                      Odabir već zauzetog korisničkog imena i/ili e-maila,...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no O in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 153--154
+\/cmr/m/n/10 ^^Sc
+ []
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 153--154
+\/cmr/m/n/10 ^^Tc
+ []
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 153--154
+\/cmr/m/n/10 ^^Tz 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.154 							\item[]
+                     \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.154 							\item[] \begin{packed_enum}
+                                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.156 								\item  S
+                      ustav obavještava korisnika o neuspjelom upisu i vra�...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no S in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no . in font nullfont!
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 156--157
+\/cmr/m/n/10 ^^Ts
+ []
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 156--157
+\/cmr/m/n/10 ^^Sc
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 								\item K
+                     orisnik mijenja potrebne podatke ili odustaje od regist...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 							\end{packed_enum}
+                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 						\end{packed_item}
+                             						
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.161 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.163 				\newpage
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[2]
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.164 				\noindent
+                    \underbar{\textbf{UC5 - Prijava u sustav}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 				\begin{packed_item}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (115.48819pt too wide) in paragraph at lines 164--166
+$[]$
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.167 						\item \textbf
+                         {Glavni sudionik: } Administrator, korisnik
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+
+Overfull \hbox (33.15952pt too wide) in paragraph at lines 167--168
+\OT1/cmr/bx/n/10 Glavni
+ []
+
+
+Overfull \hbox (14.75824pt too wide) in paragraph at lines 167--168
+\OT1/cmr/bx/n/10 su-
+ []
+
+
+Overfull \hbox (34.18037pt too wide) in paragraph at lines 167--168
+\OT1/cmr/bx/n/10 dionik:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.168 						\item  \textbf
+                          {Cilj:} Korištenje sustava
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (21.40266pt too wide) in paragraph at lines 168--169
+\OT1/cmr/bx/n/10 Cilj:
+ []
+
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 168--169
+\/cmr/m/n/10 ^^Ts 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.169 						\item  \textbf
+                          {Sudionici:} baza podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (49.19418pt too wide) in paragraph at lines 169--170
+\OT1/cmr/bx/n/10 Sudionici: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.170 						\item  \textbf
+                          {Preduvjet:} Autorizacija korisničkog imena i loz...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (53.16641pt too wide) in paragraph at lines 170--171
+\OT1/cmr/bx/n/10 Preduvjet:
+ []
+
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 170--171
+\/cmr/m/n/10 ^^Tc
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.171 						\item  \textbf
+                          {Opis osnovnog tijeka:}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 171--172
+\OT1/cmr/bx/n/10 Opis
+ []
+
+
+Overfull \hbox (14.11935pt too wide) in paragraph at lines 171--172
+\OT1/cmr/bx/n/10 os-
+ []
+
+
+Overfull \hbox (35.77759pt too wide) in paragraph at lines 171--172
+\OT1/cmr/bx/n/10 novnog
+ []
+
+
+Overfull \hbox (11.49994pt too wide) in paragraph at lines 171--172
+\OT1/cmr/bx/n/10 ti-
+ []
+
+
+Overfull \hbox (22.99986pt too wide) in paragraph at lines 171--172
+\OT1/cmr/bx/n/10 jeka: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 						\item[]
+                    \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 						\item[] \begin{packed_enum}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.175 							\item K
+                    orisnik unosi korisničko ime i lozinku
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 175--176
+\/cmr/m/n/10 ^^Tc
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.176 							\item B
+                    aza autorizira unesene podatke
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no B in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 							\item[]
+                     \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 							\item[] \begin{packed_enum}
+                                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.179 								\item D
+                     ozvoljava korisniku korištenje sustava ako su podaci i...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no D in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 179--180
+\/cmr/m/n/10 ^^Ts
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.180 								\item   N
+                       e dozvoljava korisniku korištenje sustava ako su pod...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no N in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 180--181
+\/cmr/m/n/10 ^^Ts
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.182 							\end{packed_enum}
+                              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.183 						\end{packed_enum}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 				\newline
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 				\noindent
+                    \underbar{\textbf{UC6 - Uvid u popis dodanih instrumenata}}
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.189 				\begin{packed_item}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (214.22377pt too wide) in paragraph at lines 188--190
+$[]$
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.191 						\item \textbf
+                         {Glavni sudionik: }Administrator
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+
+Overfull \hbox (33.15952pt too wide) in paragraph at lines 191--192
+\OT1/cmr/bx/n/10 Glavni
+ []
+
+
+Overfull \hbox (14.75824pt too wide) in paragraph at lines 191--192
+\OT1/cmr/bx/n/10 su-
+ []
+
+
+Overfull \hbox (34.18037pt too wide) in paragraph at lines 191--192
+\OT1/cmr/bx/n/10 dionik: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.192 						\item  \textbf
+                          {Cilj:} Pregled dodanih instrumenata od strane gla...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no P in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no U in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no G in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no ) in font nullfont!
+
+Overfull \hbox (21.40266pt too wide) in paragraph at lines 192--193
+\OT1/cmr/bx/n/10 Cilj:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.193 						\item  \textbf
+                          {Sudionici:} baza podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (49.19418pt too wide) in paragraph at lines 193--194
+\OT1/cmr/bx/n/10 Sudionici: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.194 						\item  \textbf
+                          {Preduvjet:} Glazbenici su dodali svoje instrument...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no G in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (53.16641pt too wide) in paragraph at lines 194--195
+\OT1/cmr/bx/n/10 Preduvjet:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 						\item  \textbf
+                          {Opis osnovnog tijeka:}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 195--196
+\OT1/cmr/bx/n/10 Opis
+ []
+
+
+Overfull \hbox (14.11935pt too wide) in paragraph at lines 195--196
+\OT1/cmr/bx/n/10 os-
+ []
+
+
+Overfull \hbox (35.77759pt too wide) in paragraph at lines 195--196
+\OT1/cmr/bx/n/10 novnog
+ []
+
+
+Overfull \hbox (11.49994pt too wide) in paragraph at lines 195--196
+\OT1/cmr/bx/n/10 ti-
+ []
+
+
+Overfull \hbox (22.99986pt too wide) in paragraph at lines 195--196
+\OT1/cmr/bx/n/10 jeka: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 						\item[]
+                    \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.197 						\item[] \begin{packed_enum}
+                                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 							\item A
+                    dministrator odabire pregled dodanih instrumenata
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.200 							\item I
+                    spis dodanih instrumenata
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no I in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{packed_enum}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 						\end{packed_enum}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.204 				\newline
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206 				\noindent
+                    \underbar{\textbf{UC9 - Slanje poruka}}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_item undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.207 				\begin{packed_item}
+                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (103.18692pt too wide) in paragraph at lines 206--208
+$[]$
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.209 					\item \textbf
+                        {Glavni sudionik: }Administrator, glazbenik, korisnik
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no A in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+
+Overfull \hbox (33.15952pt too wide) in paragraph at lines 209--210
+\OT1/cmr/bx/n/10 Glavni
+ []
+
+
+Overfull \hbox (14.75824pt too wide) in paragraph at lines 209--210
+\OT1/cmr/bx/n/10 su-
+ []
+
+
+Overfull \hbox (34.18037pt too wide) in paragraph at lines 209--210
+\OT1/cmr/bx/n/10 dionik:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.210 					\item  \textbf
+                         {Cilj:} Komunnikacija između korisnika
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+
+! LaTeX Error: Command \dj unavailable in encoding .
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.210 ...item  \textbf{Cilj:} Komunnikacija izmeđ
+                                                  u korisnika
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no u in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (21.40266pt too wide) in paragraph at lines 210--211
+\OT1/cmr/bx/n/10 Cilj:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.211 					\item  \textbf
+                         {Sudionici:} Baza podataka
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no B in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no a in font nullfont!
+
+Overfull \hbox (49.19418pt too wide) in paragraph at lines 211--212
+\OT1/cmr/bx/n/10 Sudionici: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.212 					\item  \textbf
+                         {Preduvjet:} Korisnik je prijavljen
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no K in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no j in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+
+Overfull \hbox (53.16641pt too wide) in paragraph at lines 212--213
+\OT1/cmr/bx/n/10 Preduvjet:
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 					\item  \textbf
+                         {Opis osnovnog tijeka:}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 213--214
+\OT1/cmr/bx/n/10 Opis
+ []
+
+
+Overfull \hbox (14.11935pt too wide) in paragraph at lines 213--214
+\OT1/cmr/bx/n/10 os-
+ []
+
+
+Overfull \hbox (35.77759pt too wide) in paragraph at lines 213--214
+\OT1/cmr/bx/n/10 novnog
+ []
+
+
+Overfull \hbox (11.49994pt too wide) in paragraph at lines 213--214
+\OT1/cmr/bx/n/10 ti-
+ []
+
+
+Overfull \hbox (22.99986pt too wide) in paragraph at lines 213--214
+\OT1/cmr/bx/n/10 jeka: 
+ []
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.215 					\item[]
+                   \begin{packed_enum}
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Environment packed_enum undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.215 					\item[] \begin{packed_enum}
+                                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.217 							\item K
+                    orisnik odabire "poruke"
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2827,24 +5468,14 @@ Missing character: There is no k in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no " in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 110--111
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 110--111
-\OML/cmm/m/it/10 >$ 
- []
-
-
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.111 							\item $
-                    <$Aplikacija prikazuje pregled osoba s kojima se već vo...
+l.218 							\item A
+                    plikacija prikazuje pregled osoba s kojima se već vodio...
 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2905,18 +5536,8 @@ Missing character: There is no v in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no r in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 111--112
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (4.44444pt too wide) in paragraph at lines 111--112
-\/cmr/m/n/10 ^^Sc
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 111--112
-\OML/cmm/m/it/10 >$ 
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 218--219
+\/cmr/m/n/10 ^^Sc 
  []
 
 
@@ -2926,8 +5547,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.112 							\item $
-                    <$Korisnik odabire postojeći razgovor i prikazuju mu se...
+l.219 							\item K
+                    orisnik odabire postojeći razgovor i prikazuju mu se pr...
 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2989,23 +5610,13 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 112--113
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (4.44444pt too wide) in paragraph at lines 112--113
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 219--220
 \/cmr/m/n/10 ^^Sc
  []
 
 
-Overfull \hbox (3.94444pt too wide) in paragraph at lines 112--113
-\/cmr/m/n/10 ^^Ts
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 112--113
-\OML/cmm/m/it/10 >$ 
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 219--220
+\/cmr/m/n/10 ^^Ts 
  []
 
 
@@ -3015,8 +5626,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.113 							\item $
-                    <$Korisnik odabire "nova poruka" te pronalazi korisnika ...
+l.220 							\item K
+                    orisnik odabire "nova poruka" te pronalazi korisnika koj...
 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3091,18 +5702,8 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no u in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 113--114
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (4.44444pt too wide) in paragraph at lines 113--114
-\/cmr/m/n/10 ^^Tz
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 113--114
-\OML/cmm/m/it/10 >$ 
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 220--221
+\/cmr/m/n/10 ^^Tz 
  []
 
 
@@ -3112,8 +5713,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.114 							\item $
-                    <$Korisnik odabire polje za pisanje poruke$>$
+l.221 							\item K
+                    orisnik odabire polje za pisanje poruke
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3153,24 +5754,14 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 114--115
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 114--115
-\OML/cmm/m/it/10 >$ 
- []
-
-
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 							\item $
-                    <$Korisnik napiše željenu poruku$>$
+l.222 							\item K
+                    orisnik napiše željenu poruku
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3200,23 +5791,13 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no u in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 115--116
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (3.94444pt too wide) in paragraph at lines 115--116
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 222--223
 \/cmr/m/n/10 ^^Ts
  []
 
 
-Overfull \hbox (4.44444pt too wide) in paragraph at lines 115--116
-\/cmr/m/n/10 ^^Tz
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 115--116
-\OML/cmm/m/it/10 >$ 
+Overfull \hbox (4.44444pt too wide) in paragraph at lines 222--223
+\/cmr/m/n/10 ^^Tz 
  []
 
 
@@ -3226,8 +5807,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.116 							\item $
-                    <$Korisnik odabere "Pošalji" za slanje poruke$>$
+l.223 							\item K
+                    orisnik odabere "Pošalji" za slanje poruke
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3275,25 +5856,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.117 						\end{packed_enum}
-                             
+l.224 					\end{packed_enum}
+                            
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 116--118
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (3.94444pt too wide) in paragraph at lines 116--118
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 223--225
 \/cmr/m/n/10 ^^Ts
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 116--118
-\OML/cmm/m/it/10 >$
  []
 
 
@@ -3303,28 +5874,28 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.119 						\item  \textbf
-                          {Opis mogućih odstupanja:}
+l.226 					\item  \textbf
+                         {Opis mogućih odstupanja:}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (22.7582pt too wide) in paragraph at lines 119--120
+Overfull \hbox (22.7582pt too wide) in paragraph at lines 226--227
 \OT1/cmr/bx/n/10 Opis
  []
 
 
-Overfull \hbox (42.16644pt too wide) in paragraph at lines 119--120
+Overfull \hbox (42.16644pt too wide) in paragraph at lines 226--227
 \OT1/cmr/bx/n/10 mogu^^Scih
  []
 
 
-Overfull \hbox (31.6887pt too wide) in paragraph at lines 119--120
+Overfull \hbox (31.6887pt too wide) in paragraph at lines 226--227
 \OT1/cmr/bx/n/10 odstu-
  []
 
 
-Overfull \hbox (30.66646pt too wide) in paragraph at lines 119--120
+Overfull \hbox (30.66646pt too wide) in paragraph at lines 226--227
 \OT1/cmr/bx/n/10 panja: 
  []
 
@@ -3335,8 +5906,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.121 						\item[]
-                    \begin{packed_item}
+l.228 					\item[]
+                   \begin{packed_item}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3347,8 +5918,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.121 						\item[] \begin{packed_item}
-                                       
+l.228 					\item[] \begin{packed_item}
+                                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -3360,8 +5931,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.123 							\item[2.a]
-                        $<$Korisnik ima novih poruka$>$
+l.230 						\item[2.a]
+                       Korisnik ima novih poruka
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3388,24 +5959,14 @@ Missing character: There is no u in font nullfont!
 Missing character: There is no k in font nullfont!
 Missing character: There is no a in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 123--124
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 123--124
-\OML/cmm/m/it/10 >$ 
- []
-
-
 ! LaTeX Error: Lonely \item--perhaps a missing list environment.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.124 							\item[]
-                     \begin{packed_enum}
+l.231 						\item[]
+                    \begin{packed_enum}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -3416,8 +5977,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.124 							\item[] \begin{packed_enum}
-                                        
+l.231 						\item[] \begin{packed_enum}
+                                       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -3429,8 +5990,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.126 								\item $
-                     <$Ukoliko postoji nova poruka, ime pošiljatelja je pod...
+l.232 							\item U
+                    koliko postoji nova poruka, ime pošiljatelja je podebljano
 
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3487,41 +6048,13 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 126--127
-\OML/cmm/m/it/10 <$
- []
-
-
-Overfull \hbox (3.94444pt too wide) in paragraph at lines 126--127
-\/cmr/m/n/10 ^^Ts
- []
-
-
-Overfull \hbox (7.7778pt too wide) in paragraph at lines 126--127
-\OML/cmm/m/it/10 >$ 
- []
-
-
 ! LaTeX Error: \begin{document} ended by \end{packed_enum}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.128 							\end{packed_enum}
-                              
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: \begin{document} ended by \end{packed_item}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 						\end{packed_item}
+l.233 						\end{packed_enum}
                              
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3534,14 +6067,32 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.131 					\end{packed_item}
+l.234 					\end{packed_item}
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+! LaTeX Error: \begin{document} ended by \end{packed_item}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 				\end{packed_item}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (3.94444pt too wide) in paragraph at lines 232--236
+\/cmr/m/n/10 ^^Ts
+ []
+
 ! Undefined control sequence.
-l.134 				\subsubsection
+l.238 				\subsubsection
                         {Dijagrami obrazaca uporabe}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3556,7 +6107,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.134 				\subsubsection{D
+l.238 				\subsubsection{D
                           ijagrami obrazaca uporabe}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3586,7 +6137,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no b in font nullfont!
 Missing character: There is no e in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 134--135
+Overfull \hbox (20.0pt too wide) in paragraph at lines 238--239
 []
  []
 
@@ -3597,208 +6148,208 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.136 ...ije i skupovima srodnih funkcionalnosti.}
+l.243 ...ije i skupovima srodnih funkcionalnosti.}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (59.36641pt too wide) in paragraph at lines 136--137
+Overfull \hbox (59.36641pt too wide) in paragraph at lines 243--244
 []\OT1/cmr/m/it/10 Prikazati
  []
 
 
-Overfull \hbox (24.53319pt too wide) in paragraph at lines 136--137
+Overfull \hbox (24.53319pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 odnos
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 136--137
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 ak-
  []
 
 
-Overfull \hbox (17.24986pt too wide) in paragraph at lines 136--137
+Overfull \hbox (17.24986pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 tora
  []
 
 
-Overfull \hbox (3.06665pt too wide) in paragraph at lines 136--137
+Overfull \hbox (3.06665pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 i
  []
 
 
-Overfull \hbox (36.9275pt too wide) in paragraph at lines 136--137
+Overfull \hbox (36.9275pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 obrazaca
  []
 
 
-Overfull \hbox (32.58307pt too wide) in paragraph at lines 136--137
+Overfull \hbox (32.58307pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 uporabe
  []
 
 
-Overfull \hbox (22.99983pt too wide) in paragraph at lines 136--137
+Overfull \hbox (22.99983pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 odgo-
  []
 
 
-Overfull \hbox (42.80527pt too wide) in paragraph at lines 136--137
+Overfull \hbox (42.80527pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 varaju^^Scim
  []
 
 
-Overfull \hbox (22.67207pt too wide) in paragraph at lines 136--137
+Overfull \hbox (22.67207pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 UML
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 136--137
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 136--137
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (37.94975pt too wide) in paragraph at lines 136--137
+Overfull \hbox (37.94975pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 gramom.
  []
 
 
-Overfull \hbox (18.16655pt too wide) in paragraph at lines 136--137
+Overfull \hbox (18.16655pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 Nije
  []
 
 
-Overfull \hbox (25.81097pt too wide) in paragraph at lines 136--137
+Overfull \hbox (25.81097pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nu^^Tzno
  []
 
 
-Overfull \hbox (23.12761pt too wide) in paragraph at lines 136--137
+Overfull \hbox (23.12761pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nacr-
  []
 
 
-Overfull \hbox (14.82211pt too wide) in paragraph at lines 136--137
+Overfull \hbox (14.82211pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 tati
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 136--137
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 sve
  []
 
 
-Overfull \hbox (10.73328pt too wide) in paragraph at lines 136--137
+Overfull \hbox (10.73328pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 na
  []
 
 
-Overfull \hbox (15.84431pt too wide) in paragraph at lines 136--137
+Overfull \hbox (15.84431pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 jed-
  []
 
 
-Overfull \hbox (18.91101pt too wide) in paragraph at lines 136--137
+Overfull \hbox (18.91101pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nom
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 136--137
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 136--137
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (30.02757pt too wide) in paragraph at lines 136--137
+Overfull \hbox (30.02757pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 gramu.
  []
 
 
-Overfull \hbox (22.2554pt too wide) in paragraph at lines 136--137
+Overfull \hbox (22.2554pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 Mod-
  []
 
 
-Overfull \hbox (13.7999pt too wide) in paragraph at lines 136--137
+Overfull \hbox (13.7999pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 eli-
  []
 
 
-Overfull \hbox (15.20543pt too wide) in paragraph at lines 136--137
+Overfull \hbox (15.20543pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 rati
  []
 
 
-Overfull \hbox (9.71104pt too wide) in paragraph at lines 136--137
+Overfull \hbox (9.71104pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 po
  []
 
 
-Overfull \hbox (16.4832pt too wide) in paragraph at lines 136--137
+Overfull \hbox (16.4832pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 raz-
  []
 
 
-Overfull \hbox (6.6444pt too wide) in paragraph at lines 136--137
+Overfull \hbox (6.6444pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 i-
  []
 
 
-Overfull \hbox (24.0221pt too wide) in paragraph at lines 136--137
+Overfull \hbox (24.0221pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nama
  []
 
 
-Overfull \hbox (13.79991pt too wide) in paragraph at lines 136--137
+Overfull \hbox (13.79991pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 ap-
  []
 
 
-Overfull \hbox (24.40535pt too wide) in paragraph at lines 136--137
+Overfull \hbox (24.40535pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 strak-
  []
 
 
-Overfull \hbox (15.33322pt too wide) in paragraph at lines 136--137
+Overfull \hbox (15.33322pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 cije
  []
 
 
-Overfull \hbox (3.06665pt too wide) in paragraph at lines 136--137
+Overfull \hbox (3.06665pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 i
  []
 
 
-Overfull \hbox (44.72194pt too wide) in paragraph at lines 136--137
+Overfull \hbox (44.72194pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 skupovima
  []
 
 
-Overfull \hbox (21.08316pt too wide) in paragraph at lines 136--137
+Overfull \hbox (21.08316pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 srod-
  []
 
 
-Overfull \hbox (13.79993pt too wide) in paragraph at lines 136--137
+Overfull \hbox (13.79993pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nih
  []
 
 
-Overfull \hbox (48.2997pt too wide) in paragraph at lines 136--137
+Overfull \hbox (48.2997pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 funkcional-
  []
 
 
-Overfull \hbox (24.27763pt too wide) in paragraph at lines 136--137
+Overfull \hbox (24.27763pt too wide) in paragraph at lines 243--244
 \OT1/cmr/m/it/10 nosti. 
  []
 
@@ -3814,15 +6365,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.137 				\eject
-                		
+l.244 				\eject
+                				
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[2]
+[3]
 ! Undefined control sequence.
-l.139 			\subsection
+l.247 			\subsection
                     {Sekvencijski dijagrami}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3837,7 +6388,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 			\subsection{S
+l.247 			\subsection{S
                       ekvencijski dijagrami}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3864,7 +6415,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 139--140
+Overfull \hbox (20.0pt too wide) in paragraph at lines 247--248
 []
  []
 
@@ -3875,33 +6426,33 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.141 				\textbf{\textit{dio 1. revizije}}
+l.249 				\textbf{\textit{dio 1. revizije}}
                                            \\
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (35.37761pt too wide) in paragraph at lines 141--142
+Overfull \hbox (35.37761pt too wide) in paragraph at lines 249--250
 []\OT1/cmr/bx/it/10 dio
  []
 
 
-Overfull \hbox (9.46657pt too wide) in paragraph at lines 141--142
+Overfull \hbox (9.46657pt too wide) in paragraph at lines 249--250
 \OT1/cmr/bx/it/10 1.
  []
 
 
-Overfull \hbox (13.89432pt too wide) in paragraph at lines 141--142
+Overfull \hbox (13.89432pt too wide) in paragraph at lines 249--250
 \OT1/cmr/bx/it/10 re-
  []
 
 
-Overfull \hbox (17.92761pt too wide) in paragraph at lines 141--142
+Overfull \hbox (17.92761pt too wide) in paragraph at lines 249--250
 \OT1/cmr/bx/it/10 viz-
  []
 
 
-Overfull \hbox (13.28322pt too wide) in paragraph at lines 141--142
+Overfull \hbox (13.28322pt too wide) in paragraph at lines 249--250
 \OT1/cmr/bx/it/10 ije 
  []
 
@@ -3912,258 +6463,258 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.143 ...jagram napisati detaljni opis dijagrama.}
+l.251 ...jagram napisati detaljni opis dijagrama.}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (56.18307pt too wide) in paragraph at lines 143--144
+Overfull \hbox (56.18307pt too wide) in paragraph at lines 251--252
 []\OT1/cmr/m/it/10 Nacrtati
  []
 
 
-Overfull \hbox (31.68864pt too wide) in paragraph at lines 143--144
+Overfull \hbox (31.68864pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 sekven-
  []
 
 
-Overfull \hbox (11.24435pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.24435pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ci-
  []
 
 
-Overfull \hbox (16.35544pt too wide) in paragraph at lines 143--144
+Overfull \hbox (16.35544pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 jske
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (26.19424pt too wide) in paragraph at lines 143--144
+Overfull \hbox (26.19424pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 grame
  []
 
 
-Overfull \hbox (15.84435pt too wide) in paragraph at lines 143--144
+Overfull \hbox (15.84435pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 koji
  []
 
 
-Overfull \hbox (21.46652pt too wide) in paragraph at lines 143--144
+Overfull \hbox (21.46652pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 mod-
  []
 
 
-Overfull \hbox (13.7999pt too wide) in paragraph at lines 143--144
+Overfull \hbox (13.7999pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 eli-
  []
 
 
-Overfull \hbox (17.24988pt too wide) in paragraph at lines 143--144
+Overfull \hbox (17.24988pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 raju
  []
 
 
-Overfull \hbox (14.31102pt too wide) in paragraph at lines 143--144
+Overfull \hbox (14.31102pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 na-
  []
 
 
-Overfull \hbox (33.22202pt too wide) in paragraph at lines 143--144
+Overfull \hbox (33.22202pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 jva^^Tznije
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (24.53316pt too wide) in paragraph at lines 143--144
+Overfull \hbox (24.53316pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 jelove
  []
 
 
-Overfull \hbox (17.12212pt too wide) in paragraph at lines 143--144
+Overfull \hbox (17.12212pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 sus-
  []
 
 
-Overfull \hbox (18.14432pt too wide) in paragraph at lines 143--144
+Overfull \hbox (18.14432pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 tava
  []
 
 
-Overfull \hbox (25.0832pt too wide) in paragraph at lines 143--144
+Overfull \hbox (25.0832pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 (max.
  []
 
 
-Overfull \hbox (5.11108pt too wide) in paragraph at lines 143--144
+Overfull \hbox (5.11108pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 4
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (33.86089pt too wide) in paragraph at lines 143--144
+Overfull \hbox (33.86089pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 grama).
  []
 
 
-Overfull \hbox (20.72208pt too wide) in paragraph at lines 143--144
+Overfull \hbox (20.72208pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 Uko-
  []
 
 
-Overfull \hbox (15.33324pt too wide) in paragraph at lines 143--144
+Overfull \hbox (15.33324pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 liko
  []
 
 
-Overfull \hbox (17.37766pt too wide) in paragraph at lines 143--144
+Overfull \hbox (17.37766pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 pos-
  []
 
 
-Overfull \hbox (14.56657pt too wide) in paragraph at lines 143--144
+Overfull \hbox (14.56657pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 toji
  []
 
 
-Overfull \hbox (13.7999pt too wide) in paragraph at lines 143--144
+Overfull \hbox (13.7999pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ne-
  []
 
 
-Overfull \hbox (36.03311pt too wide) in paragraph at lines 143--144
+Overfull \hbox (36.03311pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 doumica
  []
 
 
-Overfull \hbox (14.82213pt too wide) in paragraph at lines 143--144
+Overfull \hbox (14.82213pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 oko
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 143--144
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 od-
  []
 
 
-Overfull \hbox (24.66093pt too wide) in paragraph at lines 143--144
+Overfull \hbox (24.66093pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 abira,
  []
 
 
-Overfull \hbox (16.4832pt too wide) in paragraph at lines 143--144
+Overfull \hbox (16.4832pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 raz-
  []
 
 
-Overfull \hbox (15.84435pt too wide) in paragraph at lines 143--144
+Overfull \hbox (15.84435pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 jas-
  []
 
 
-Overfull \hbox (15.07768pt too wide) in paragraph at lines 143--144
+Overfull \hbox (15.07768pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 niti
  []
 
 
-Overfull \hbox (4.08887pt too wide) in paragraph at lines 143--144
+Overfull \hbox (4.08887pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 s
  []
 
 
-Overfull \hbox (19.93321pt too wide) in paragraph at lines 143--144
+Overfull \hbox (19.93321pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 asis-
  []
 
 
-Overfull \hbox (17.12209pt too wide) in paragraph at lines 143--144
+Overfull \hbox (17.12209pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ten-
  []
 
 
-Overfull \hbox (19.67766pt too wide) in paragraph at lines 143--144
+Overfull \hbox (19.67766pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 tom.
  []
 
 
-Overfull \hbox (11.52216pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.52216pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 Uz
  []
 
 
-Overfull \hbox (21.46652pt too wide) in paragraph at lines 143--144
+Overfull \hbox (21.46652pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 svaki
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (21.59428pt too wide) in paragraph at lines 143--144
+Overfull \hbox (21.59428pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 gram
  []
 
 
-Overfull \hbox (34.4998pt too wide) in paragraph at lines 143--144
+Overfull \hbox (34.4998pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 napisati
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 143--144
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 de-
  []
 
 
-Overfull \hbox (22.74431pt too wide) in paragraph at lines 143--144
+Overfull \hbox (22.74431pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 taljni
  []
 
 
-Overfull \hbox (17.37769pt too wide) in paragraph at lines 143--144
+Overfull \hbox (17.37769pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 opis
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 di-
  []
 
 
-Overfull \hbox (11.75548pt too wide) in paragraph at lines 143--144
+Overfull \hbox (11.75548pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 ja-
  []
 
 
-Overfull \hbox (29.77202pt too wide) in paragraph at lines 143--144
+Overfull \hbox (29.77202pt too wide) in paragraph at lines 251--252
 \OT1/cmr/m/it/10 grama. 
  []
 
@@ -4179,15 +6730,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.144 				\eject
+l.252 				\eject
                 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[3]
+[4]
 ! Undefined control sequence.
-l.146 		\section
+l.254 		\section
                 {Ostali zahtjevi}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4202,7 +6753,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 		\section{O
+l.254 		\section{O
                   stali zahtjevi}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4222,7 +6773,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no v in font nullfont!
 Missing character: There is no i in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 146--147
+Overfull \hbox (20.0pt too wide) in paragraph at lines 254--255
 []
  []
 
@@ -4233,33 +6784,33 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.148 			\textbf{\textit{dio 1. revizije}}
+l.256 			\textbf{\textit{dio 1. revizije}}
                                           \\
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (35.37761pt too wide) in paragraph at lines 148--149
+Overfull \hbox (35.37761pt too wide) in paragraph at lines 256--257
 []\OT1/cmr/bx/it/10 dio
  []
 
 
-Overfull \hbox (9.46657pt too wide) in paragraph at lines 148--149
+Overfull \hbox (9.46657pt too wide) in paragraph at lines 256--257
 \OT1/cmr/bx/it/10 1.
  []
 
 
-Overfull \hbox (13.89432pt too wide) in paragraph at lines 148--149
+Overfull \hbox (13.89432pt too wide) in paragraph at lines 256--257
 \OT1/cmr/bx/it/10 re-
  []
 
 
-Overfull \hbox (17.92761pt too wide) in paragraph at lines 148--149
+Overfull \hbox (17.92761pt too wide) in paragraph at lines 256--257
 \OT1/cmr/bx/it/10 viz-
  []
 
 
-Overfull \hbox (13.28322pt too wide) in paragraph at lines 148--149
+Overfull \hbox (13.28322pt too wide) in paragraph at lines 256--257
 \OT1/cmr/bx/it/10 ije 
  []
 
@@ -4270,513 +6821,513 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 ...je navesti u jednoj ili dvije rečenice.}
+l.258 ...je navesti u jednoj ili dvije rečenice.}
                                                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (85.44405pt too wide) in paragraph at lines 150--151
+Overfull \hbox (85.44405pt too wide) in paragraph at lines 258--259
 []\OT1/cmr/m/it/10 Nefunkcionalni
  []
 
 
-Overfull \hbox (12.7777pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za-
  []
 
 
-Overfull \hbox (12.01102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ht-
  []
 
 
-Overfull \hbox (15.33322pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.33322pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jevi
  []
 
 
-Overfull \hbox (3.06665pt too wide) in paragraph at lines 150--151
+Overfull \hbox (3.06665pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 i
  []
 
 
-Overfull \hbox (12.7777pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za-
  []
 
 
-Overfull \hbox (12.01102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ht-
  []
 
 
-Overfull \hbox (15.33322pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.33322pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jevi
  []
 
 
-Overfull \hbox (33.22202pt too wide) in paragraph at lines 150--151
+Overfull \hbox (33.22202pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 domene
  []
 
 
-Overfull \hbox (24.14984pt too wide) in paragraph at lines 150--151
+Overfull \hbox (24.14984pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 prim-
  []
 
 
-Overfull \hbox (17.88876pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.88876pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jene
  []
 
 
-Overfull \hbox (18.911pt too wide) in paragraph at lines 150--151
+Overfull \hbox (18.911pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 dop-
  []
 
 
-Overfull \hbox (14.56657pt too wide) in paragraph at lines 150--151
+Overfull \hbox (14.56657pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 un-
  []
 
 
-Overfull \hbox (16.86658pt too wide) in paragraph at lines 150--151
+Overfull \hbox (16.86658pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 juju
  []
 
 
-Overfull \hbox (54.9441pt too wide) in paragraph at lines 150--151
+Overfull \hbox (54.9441pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 funkcionalne
  []
 
 
-Overfull \hbox (12.7777pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za-
  []
 
 
-Overfull \hbox (12.01102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ht-
  []
 
 
-Overfull \hbox (19.93318pt too wide) in paragraph at lines 150--151
+Overfull \hbox (19.93318pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jeve.
  []
 
 
-Overfull \hbox (16.35547pt too wide) in paragraph at lines 150--151
+Overfull \hbox (16.35547pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 Oni
  []
 
 
-Overfull \hbox (31.17761pt too wide) in paragraph at lines 150--151
+Overfull \hbox (31.17761pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 opisuju
  []
 
 
-Overfull \hbox (22.4664pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.4664pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 kako
  []
 
 
-Overfull \hbox (10.19156pt too wide) in paragraph at lines 150--151
+Overfull \hbox (10.19156pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 se
  []
 
 
-Overfull \hbox (20.0887pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.0887pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 sus-
  []
 
 
-Overfull \hbox (15.08316pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.08316pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 tav
  []
 
 
-Overfull \hbox (24.24417pt too wide) in paragraph at lines 150--151
+Overfull \hbox (24.24417pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 treba
  []
 
 
-Overfull \hbox (41.8301pt too wide) in paragraph at lines 150--151
+Overfull \hbox (41.8301pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 pona^^Tsati
  []
 
 
-Overfull \hbox (3.06665pt too wide) in paragraph at lines 150--151
+Overfull \hbox (3.06665pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 i
  []
 
 
-Overfull \hbox (17.88878pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.88878pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 koja
  []
 
 
-Overfull \hbox (57.64938pt too wide) in paragraph at lines 150--151
+Overfull \hbox (57.64938pt too wide) in paragraph at lines 258--259
 \OT1/cmr/bx/it/10 ograni^^Tcenja
  []
 
 
-Overfull \hbox (20.82758pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.82758pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 treba
  []
 
 
-Overfull \hbox (36.28864pt too wide) in paragraph at lines 150--151
+Overfull \hbox (36.28864pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 po^^Tstivati
  []
 
 
-Overfull \hbox (21.08316pt too wide) in paragraph at lines 150--151
+Overfull \hbox (21.08316pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 (per-
  []
 
 
-Overfull \hbox (15.9721pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.9721pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 for-
  []
 
 
-Overfull \hbox (30.66649pt too wide) in paragraph at lines 150--151
+Overfull \hbox (30.66649pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 manse,
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ko-
  []
 
 
-Overfull \hbox (34.372pt too wide) in paragraph at lines 150--151
+Overfull \hbox (34.372pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 risni^^Tcko
  []
 
 
-Overfull \hbox (37.31087pt too wide) in paragraph at lines 150--151
+Overfull \hbox (37.31087pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 iskustvo,
  []
 
 
-Overfull \hbox (22.7443pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.7443pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 pouz-
  []
 
 
-Overfull \hbox (31.43315pt too wide) in paragraph at lines 150--151
+Overfull \hbox (31.43315pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 danost,
  []
 
 
-Overfull \hbox (21.72208pt too wide) in paragraph at lines 150--151
+Overfull \hbox (21.72208pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 stan-
  []
 
 
-Overfull \hbox (22.10541pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.10541pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 dardi
  []
 
 
-Overfull \hbox (38.84415pt too wide) in paragraph at lines 150--151
+Overfull \hbox (38.84415pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 kvalitete,
  []
 
 
-Overfull \hbox (15.33322pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.33322pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 sig-
  []
 
 
-Overfull \hbox (44.08307pt too wide) in paragraph at lines 150--151
+Overfull \hbox (44.08307pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 urnost...).
  []
 
 
-Overfull \hbox (25.82205pt too wide) in paragraph at lines 150--151
+Overfull \hbox (25.82205pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 Prim-
  []
 
 
-Overfull \hbox (14.94989pt too wide) in paragraph at lines 150--151
+Overfull \hbox (14.94989pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jeri
  []
 
 
-Overfull \hbox (25.81093pt too wide) in paragraph at lines 150--151
+Overfull \hbox (25.81093pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 takvih
  []
 
 
-Overfull \hbox (12.7777pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za-
  []
 
 
-Overfull \hbox (12.01102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ht-
  []
 
 
-Overfull \hbox (17.37766pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.37766pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jeva
  []
 
 
-Overfull \hbox (5.36664pt too wide) in paragraph at lines 150--151
+Overfull \hbox (5.36664pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 u
  []
 
 
-Overfull \hbox (28.64427pt too wide) in paragraph at lines 150--151
+Overfull \hbox (28.64427pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 Va^^Tsem
  []
 
 
-Overfull \hbox (17.50542pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.50542pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 pro-
  []
 
 
-Overfull \hbox (20.9554pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.9554pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jektu
  []
 
 
-Overfull \hbox (22.7443pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.7443pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 mogu
  []
 
 
-Overfull \hbox (17.1221pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.1221pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 biti:
  []
 
 
-Overfull \hbox (36.41643pt too wide) in paragraph at lines 150--151
+Overfull \hbox (36.41643pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 podr^^Tzani
  []
 
 
-Overfull \hbox (22.48874pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.48874pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jezici
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ko-
  []
 
 
-Overfull \hbox (38.46083pt too wide) in paragraph at lines 150--151
+Overfull \hbox (38.46083pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 risni^^Tckog
  []
 
 
-Overfull \hbox (32.45535pt too wide) in paragraph at lines 150--151
+Overfull \hbox (32.45535pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 su^^Tcelja,
  []
 
 
-Overfull \hbox (15.46098pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.46098pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 vri-
  []
 
 
-Overfull \hbox (20.4443pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.4443pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jeme
  []
 
 
-Overfull \hbox (29.64426pt too wide) in paragraph at lines 150--151
+Overfull \hbox (29.64426pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 odziva,
  []
 
 
-Overfull \hbox (14.31102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (14.31102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 na-
  []
 
 
-Overfull \hbox (19.93318pt too wide) in paragraph at lines 150--151
+Overfull \hbox (19.93318pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jve^^Sci
  []
 
 
-Overfull \hbox (30.4109pt too wide) in paragraph at lines 150--151
+Overfull \hbox (30.4109pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 mogu^^Sci
  []
 
 
-Overfull \hbox (36.41643pt too wide) in paragraph at lines 150--151
+Overfull \hbox (36.41643pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 podr^^Tzani
  []
 
 
-Overfull \hbox (16.4832pt too wide) in paragraph at lines 150--151
+Overfull \hbox (16.4832pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 broj
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ko-
  []
 
 
-Overfull \hbox (14.94989pt too wide) in paragraph at lines 150--151
+Overfull \hbox (14.94989pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ris-
  []
 
 
-Overfull \hbox (21.46654pt too wide) in paragraph at lines 150--151
+Overfull \hbox (21.46654pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 nika,
  []
 
 
-Overfull \hbox (37.94974pt too wide) in paragraph at lines 150--151
+Overfull \hbox (37.94974pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 podr^^Tzane
  []
 
 
-Overfull \hbox (54.68854pt too wide) in paragraph at lines 150--151
+Overfull \hbox (54.68854pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 web/mobilne
  []
 
 
-Overfull \hbox (19.67764pt too wide) in paragraph at lines 150--151
+Overfull \hbox (19.67764pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 plat-
  []
 
 
-Overfull \hbox (28.23871pt too wide) in paragraph at lines 150--151
+Overfull \hbox (28.23871pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 forme,
  []
 
 
-Overfull \hbox (16.4832pt too wide) in paragraph at lines 150--151
+Overfull \hbox (16.4832pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 raz-
  []
 
 
-Overfull \hbox (13.79993pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.79993pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ina
  []
 
 
-Overfull \hbox (27.59981pt too wide) in paragraph at lines 150--151
+Overfull \hbox (27.59981pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za^^Tstite
  []
 
 
-Overfull \hbox (21.59428pt too wide) in paragraph at lines 150--151
+Overfull \hbox (21.59428pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 (pro-
  []
 
 
-Overfull \hbox (23.76651pt too wide) in paragraph at lines 150--151
+Overfull \hbox (23.76651pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 tokoli
  []
 
 
-Overfull \hbox (13.28879pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ko-
  []
 
 
-Overfull \hbox (17.12212pt too wide) in paragraph at lines 150--151
+Overfull \hbox (17.12212pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 mu-
  []
 
 
-Overfull \hbox (36.79976pt too wide) in paragraph at lines 150--151
+Overfull \hbox (36.79976pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 nikacije,
  []
 
 
-Overfull \hbox (20.57207pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.57207pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 krip-
  []
 
 
-Overfull \hbox (9.96658pt too wide) in paragraph at lines 150--151
+Overfull \hbox (9.96658pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ti-
  []
 
 
-Overfull \hbox (44.59416pt too wide) in paragraph at lines 150--151
+Overfull \hbox (44.59416pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ranje...)...
  []
 
 
-Overfull \hbox (22.99985pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.99985pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 Svaki
  []
 
 
-Overfull \hbox (22.74428pt too wide) in paragraph at lines 150--151
+Overfull \hbox (22.74428pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 takav
  []
 
 
-Overfull \hbox (12.7777pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.7777pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 za-
  []
 
 
-Overfull \hbox (12.01102pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.01102pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ht-
  []
 
 
-Overfull \hbox (12.26657pt too wide) in paragraph at lines 150--151
+Overfull \hbox (12.26657pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jev
  []
 
 
-Overfull \hbox (36.67194pt too wide) in paragraph at lines 150--151
+Overfull \hbox (36.67194pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 potrebno
  []
 
 
-Overfull \hbox (7.66661pt too wide) in paragraph at lines 150--151
+Overfull \hbox (7.66661pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 je
  []
 
 
-Overfull \hbox (30.4109pt too wide) in paragraph at lines 150--151
+Overfull \hbox (30.4109pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 navesti
  []
 
 
-Overfull \hbox (5.36664pt too wide) in paragraph at lines 150--151
+Overfull \hbox (5.36664pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 u
  []
 
 
-Overfull \hbox (15.84431pt too wide) in paragraph at lines 150--151
+Overfull \hbox (15.84431pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 jed-
  []
 
 
-Overfull \hbox (13.79993pt too wide) in paragraph at lines 150--151
+Overfull \hbox (13.79993pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 noj
  []
 
 
-Overfull \hbox (8.68884pt too wide) in paragraph at lines 150--151
+Overfull \hbox (8.68884pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 ili
  []
 
 
-Overfull \hbox (20.4443pt too wide) in paragraph at lines 150--151
+Overfull \hbox (20.4443pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 dvije
  []
 
 
-Overfull \hbox (37.94968pt too wide) in paragraph at lines 150--151
+Overfull \hbox (37.94968pt too wide) in paragraph at lines 258--259
 \OT1/cmr/m/it/10 re^^Tcenice. 
  []
 
@@ -4790,7 +7341,7 @@ Overfull \hbox (37.94968pt too wide) in paragraph at lines 150--151
 Here is how much of TeX's memory you used:
  31 strings out of 492615
  495 string characters out of 6131389
- 67125 words of memory out of 5000000
+ 68125 words of memory out of 5000000
  4038 multiletter control sequences out of 15000+600000
  4653 words of font info for 17 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
