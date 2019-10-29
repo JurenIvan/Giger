@@ -95,18 +95,130 @@
 							
 						\end{packed_item}
 					\end{packed_item}
-					
-					\noindent \underbar{\textbf{UC9 - Slanje poruka}}
-					\begin{packed_item}
+				
+				\newpage
+
+				\noindent \underbar{\textbf{UC2 - Pregled profila benda}}
+				\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Administrator, glazbenik, korisnik
-						\item  \textbf{Cilj:} Komunnikacija između korisnika
-						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen
+						\item \textbf{Glavni sudionik: }Javnost
+						\item  \textbf{Cilj:} Pregledati profil benda
+						\item  \textbf{Sudionici:} baza podataka,bend
+						\item  \textbf{Preduvjet:} /
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							\item Javnos odabire profil benda koji želi pregledati
+							\item Aplikacija prikazuje profil be
+							\item Aplikacija korisniku prikaže recenziju eventa
+						\end{packed_enum}
+				
+				\end{packed_item}
+				
+				\newline
+				
+				\noindent \underbar{\textbf{UC3 - Pregled recenzija}}
+				\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: }Javnost
+						\item  \textbf{Cilj:} Omogućiti pregled recenzija javnosti
+						\item  \textbf{Sudionici:} baza podataka
+						\item  \textbf{Preduvjet:} /
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
+							\item Javna osoba pristupi popisu recenzija evenata
+							\item Osoba odabere recenziju koju želi vidjeti
+							\item Aplikacija korisniku prikaže recenziju eventa
+						\end{packed_enum}
+				\end{packed_item}
+				
+				\newline
+				
+				\noindent \underbar{\textbf{UC4 - Registracija}}
+				\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: }Korisnik
+						\item  \textbf{Cilj:} Registrirati se
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} /
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Korisnik odabire opciju za registraciju
+							\item Korisnik unosi potrebne korisničke podatke
+							\item Korisnik prima obavijest o uspješnoj registraciji
+						\end{packed_enum}
+						
+						\item[] \begin{packed_item}
+	
+							\item[1] Odabir već zauzetog korisničkog imena i/ili e-maila, unos podataka u        nedozvoljenom format ili pružanje neispravnog e-maila.
+							\item[] \begin{packed_enum}
+								
+								\item  Sustav obavještava korisnika o neuspjelom upisu i vraća ga na stranicu za registraciju.
+								\item Korisnik mijenja potrebne podatke ili odustaje od registracije.
+
+							\end{packed_enum}						
+						\end{packed_item}
+
+				\newline
+				
+				\newpage
+				\noindent \underbar{\textbf{UC5 - Prijava u sustav}}
+				\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: } Administrator, korisnik
+						\item  \textbf{Cilj:} Korištenje sustava
+						\item  \textbf{Sudionici:} baza podataka
+						\item  \textbf{Preduvjet:} Autorizacija korisničkog imena i lozinke
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Korisnik unosi korisničko ime i lozinku
+							\item Baza autorizira unesene podatke
+							\item[] \begin{packed_enum}
+								
+								\item Dozvoljava korisniku korištenje sustava ako su podaci ispravni
+								\item   Ne dozvoljava korisniku korištenje sustava ako su podaci ne ispravni
+								
+							\end{packed_enum}
+						\end{packed_enum}
+				\end{packed_item}
+				
+				\newline
+				
+				\noindent \underbar{\textbf{UC6 - Uvid u popis dodanih instrumenata}}
+				\begin{packed_item}
+	
+						\item \textbf{Glavni sudionik: }Administrator
+						\item  \textbf{Cilj:} Pregled dodanih instrumenata od strane glazbenika.Uklanjanje nepotrebnih zapisa u bazi podataka (npr. "Gitara", "gitara")
+						\item  \textbf{Sudionici:} baza podataka
+						\item  \textbf{Preduvjet:} Glazbenici su dodali svoje instrumente i ti instrumenti su zapisani u bazi podataka
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+	
+							\item Administrator odabire pregled dodanih instrumenata
+							\item Ispis dodanih instrumenata
+						\end{packed_enum}
+				\end{packed_item}
+				
+				\newline
+
+				\noindent \underbar{\textbf{UC9 - Slanje poruka}}
+				\begin{packed_item}
+
+					\item \textbf{Glavni sudionik: }Administrator, glazbenik, korisnik
+					\item  \textbf{Cilj:} Komunnikacija između korisnika
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} Korisnik je prijavljen
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+
 							\item Korisnik odabire "poruke"
 							\item Aplikacija prikazuje pregled osoba s kojima se već vodio razgovor
 							\item Korisnik odabire postojeći razgovor i prikazuju mu se prošle poruke
@@ -114,27 +226,28 @@
 							\item Korisnik odabire polje za pisanje poruke
 							\item Korisnik napiše željenu poruku
 							\item Korisnik odabere "Pošalji" za slanje poruke
+					\end{packed_enum}
+				
+				\item  \textbf{Opis mogućih odstupanja:}
+				
+				\item[] \begin{packed_item}
+
+					\item[2.a] Korisnik ima novih poruka
+					\item[] \begin{packed_enum}
+						\item Ukoliko postoji nova poruka, ime pošiljatelja je podebljano
 						\end{packed_enum}
-						
-						\item  \textbf{Opis mogućih odstupanja:}
-						
-						\item[] \begin{packed_item}
-	
-							\item[2.a] Korisnik ima novih poruka
-							\item[] \begin{packed_enum}
-								
-								\item Ukoliko postoji nova poruka, ime pošiljatelja je podebljano
-								
-							\end{packed_enum}
-							
-						\end{packed_item}
-					\end{packed_item}
+				\end{packed_item}
+				
+				
+				
+				\subsubsection{Dijagrami obrazaca uporabe}
+				
+				
 				
 					
-				\subsubsection{Dijagrami obrazaca uporabe}
-					
 					\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
-				\eject		
+				\eject				
+				
 				
 			\subsection{Sekvencijski dijagrami}
 				
