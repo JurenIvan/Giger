@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2019.10.29)  29 OCT 2019 19:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.24)  29 OCT 2019 21:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **OPP_ProjektnaDokumentacija_v5.tex
 (./OPP_ProjektnaDokumentacija_v5.tex
-LaTeX2e <2018-12-01>
-(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2018/09/03 v1.4i Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+LaTeX2e <2019-10-01> patch level 1
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2019/08/27 v1.4j Standard LaTeX document class
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2019/08/27 v1.4j Standard LaTeX file (size option)
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -23,69 +23,70 @@ File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2018/11/13 3.27 The Babel package
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2019/10/15 3.35 The Babel package
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
-File: switch.def 2018/11/13 3.27 Babel switching mechanism
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2019/10/15 3.35 Babel switching mechanism
 )
-(/usr/share/texlive/texmf-dist/tex/generic/babel-croatian/croatian.ldf
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/babel-croatian/croatian.ldf
 Language: croatian 2014/03/31 v1.3m Croatian support from the babel system
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2018/11/13 3.27 Babel common definitions
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2019/10/15 3.35 Babel common definitions
 \babel@savecnt=\count89
 \U@D=\dimen103
 
-(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count90
 )))
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks14
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2018/12/01 v2.17b AMS math features
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2019/04/01 v2.17c AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks15
 \ex@=\dimen104
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count91
-LaTeX Info: Redefining \frac on input line 223.
+LaTeX Info: Redefining \frac on input line 227.
 \uproot@=\count92
 \leftroot@=\count93
-LaTeX Info: Redefining \overline on input line 385.
+LaTeX Info: Redefining \overline on input line 389.
 \classnum@=\count94
 \DOTSCASE@=\count95
-LaTeX Info: Redefining \ldots on input line 482.
-LaTeX Info: Redefining \dots on input line 485.
-LaTeX Info: Redefining \cdots on input line 606.
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 \macc@depth=\count96
 \c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
@@ -106,10 +107,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2844.
-LaTeX Info: Redefining \] on input line 2845.
+LaTeX Info: Redefining \[ on input line 2855.
+LaTeX Info: Redefining \] on input line 2856.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/txfonts.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/txfonts/txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -192,9 +193,14 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 \symlargesymbolsA=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 (Font)                  U/txexa/m/n --> U/txexa/bx/n on input line 129.
+LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 164.
+LaTeX Font Info:    Redeclaring math delimiter \ulcorner on input line 475.
+LaTeX Font Info:    Redeclaring math delimiter \urcorner on input line 476.
+LaTeX Font Info:    Redeclaring math delimiter \llcorner on input line 482.
+LaTeX Font Info:    Redeclaring math delimiter \lrcorner on input line 483.
 LaTeX Info: Redefining \not on input line 1043.
 )
-(/usr/share/texlive/texmf-dist/tex/generic/mathdots/mathdots.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/mathdots/mathdots.sty
 Package: mathdots 2014/06/11 v0.9 Improve and add various macros for dots in ma
 th.
 \MDo@unit=\dimen113
@@ -203,8 +209,8 @@ th.
 \MDopostkern=\muskip12
 \MDodotkern=\muskip13
 )
-(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box30
 \beforetitleunit=\skip46
 \aftertitleunit=\skip47
@@ -215,8 +221,8 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen117
 \titlewidthfirst=\dimen118
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen119
 \ar@mcellbox=\box31
 \extrarowheight=\dimen120
@@ -225,15 +231,15 @@ Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
 \backup@length=\skip49
 \ar@cellbox=\box32
 )
-(/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count103
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2019/02/06 v4.12 Multi-page Table package (DPC)
 \LTleft=\skip50
 \LTright=\skip51
 \LTpre=\skip52
@@ -250,10 +256,10 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
 \c@LT@chunks=\count108
 \LT@p@ftn=\toks22
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tabu/tabu.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/tabu/tabu.sty
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 
-(/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box37
 \sift@deathcycles=\count109
@@ -283,62 +289,62 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@vleads=\box41
 \tabu@cellskip=\skip54
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
 \everycr=\toks25
 \minrowclearance=\skip55
 )
-(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
 
-(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
 
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
 \XKV@depth=\count116
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 -ends (calc, etex, pgfmath)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
 Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/10/08 v1.3c Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 105.
 )
 \Gin@req@height=\dimen133
 \Gin@req@width=\dimen134
 )
-(/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box42
 )
@@ -348,7 +354,7 @@ Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \tc@ury=\dimen138
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
-(/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen139
@@ -360,21 +366,21 @@ File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 \adjbox@pdepth=\dimen145
 \adjbox@ptotalheight=\dimen146
 
-(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 \c@checkoddpage=\count117
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2018/04/16 v5.8 Page Geometry
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count118
@@ -390,10 +396,10 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen154
 \Gm@dimlist=\toks28
 )
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/kpfonts.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/kpfonts.sty
 Package: kpfonts  2010/08/20 v3.31
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -409,13 +415,13 @@ Package textcomp Info: Sub-encoding information:
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 Package textcomp Info: Changing ? sub-encoding to TS1/0 on input line 80.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
-File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2019/07/11 v1.2j UTF-8 support for inputenc
    defining Unicode char U+00A2 (decimal 162)
    defining Unicode char U+00A3 (decimal 163)
    defining Unicode char U+00A4 (decimal 164)
@@ -485,6 +491,8 @@ File: ts1enc.dfu 2018/10/05 v1.2f UTF-8 support for inputenc
    defining Unicode char U+25E6 (decimal 9702)
    defining Unicode char U+25EF (decimal 9711)
    defining Unicode char U+266A (decimal 9834)
+   defining Unicode char U+27E8 (decimal 10216)
+   defining Unicode char U+27E9 (decimal 10217)
    defining Unicode char U+FEFF (decimal 65279)
 ))
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -880,17 +888,25 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `sf'
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `boldsf'
 
 (Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 620.
+LaTeX Font Info:    Redeclaring math delimiter \ulcorner on input line 824.
+LaTeX Font Info:    Redeclaring math delimiter \urcorner on input line 825.
+LaTeX Font Info:    Redeclaring math delimiter \llcorner on input line 831.
+LaTeX Font Info:    Redeclaring math delimiter \lrcorner on input line 832.
+LaTeX Font Info:    Redeclaring math delimiter \lbag on input line 1041.
+LaTeX Font Info:    Redeclaring math delimiter \rbag on input line 1042.
+LaTeX Font Info:    Redeclaring math delimiter \llbracket on input line 1093.
+LaTeX Font Info:    Redeclaring math delimiter \rrbracket on input line 1094.
 LaTeX Font Info:    Redeclaring math symbol \n@tch@r on input line 1578.
 LaTeX Info: Redefining \not on input line 1580.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2019/09/28 v7.00a Hypertext links for LaTeX
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
@@ -903,7 +919,7 @@ Package hobsub Info: Skipping package `ifpdf' (already loaded).
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -924,72 +940,72 @@ Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen155
 \Hy@linkcounter=\count125
 \Hy@pagecounter=\count126
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2019/09/28 v7.00a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count127
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4519.
-Package hyperref Info: Link nesting OFF on input line 4524.
-Package hyperref Info: Hyper index ON on input line 4527.
-Package hyperref Info: Plain pages OFF on input line 4534.
-Package hyperref Info: Backreferencing OFF on input line 4539.
+Package hyperref Info: Hyper figures OFF on input line 4540.
+Package hyperref Info: Link nesting OFF on input line 4545.
+Package hyperref Info: Hyper index ON on input line 4548.
+Package hyperref Info: Plain pages OFF on input line 4555.
+Package hyperref Info: Backreferencing OFF on input line 4560.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4772.
+Package hyperref Info: Bookmarks ON on input line 4793.
 \c@Hy@tempcnt=\count128
 
-(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip14
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5125.
+LaTeX Info: Redefining \url on input line 5152.
 \XeTeXLinkMargin=\dimen156
 \Fld@menulength=\count129
 \Field@Width=\dimen157
 \Fld@charsize=\dimen158
-Package hyperref Info: Hyper figures OFF on input line 6380.
-Package hyperref Info: Link nesting OFF on input line 6385.
-Package hyperref Info: Hyper index ON on input line 6388.
-Package hyperref Info: backreferencing OFF on input line 6395.
-Package hyperref Info: Link coloring OFF on input line 6400.
-Package hyperref Info: Link coloring with OCG OFF on input line 6405.
-Package hyperref Info: PDF/A mode OFF on input line 6410.
-LaTeX Info: Redefining \ref on input line 6450.
-LaTeX Info: Redefining \pageref on input line 6454.
+Package hyperref Info: Hyper figures OFF on input line 6423.
+Package hyperref Info: Link nesting OFF on input line 6428.
+Package hyperref Info: Hyper index ON on input line 6431.
+Package hyperref Info: backreferencing OFF on input line 6438.
+Package hyperref Info: Link coloring OFF on input line 6443.
+Package hyperref Info: Link coloring with OCG OFF on input line 6448.
+Package hyperref Info: PDF/A mode OFF on input line 6453.
+LaTeX Info: Redefining \ref on input line 6493.
+LaTeX Info: Redefining \pageref on input line 6497.
 \Hy@abspage=\count130
 \c@Item=\count131
 \c@Hfootnote=\count132
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2019/09/28 v7.00a Hyperref driver for pdfTeX
 \Fld@listcount=\count133
 \c@bookmark@seq@number=\count134
 
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip56
 )
-(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
 \f@nch@headwidth=\skip57
@@ -1002,7 +1018,7 @@ s
 \f@nch@O@olf=\skip64
 \f@nch@O@orf=\skip65
 )
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count135
 \float@exts=\toks29
@@ -1010,7 +1026,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box44
 )
-(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
 \@float@every@table=\toks31
@@ -1023,8 +1039,10 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 39.
 \openout1 = `OPP_ProjektnaDokumentacija_v5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 74.
-LaTeX Font Info:    Try loading font information for OML+jkp on input line 74.
- (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omljkp.fd
+LaTeX Font Info:    Trying to load font information for OML+jkp on input line 7
+4.
+
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 74.
@@ -1033,46 +1051,50 @@ LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 74.
-LaTeX Font Info:    Try loading font information for OMS+jkp on input line 74.
+LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 7
+4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omsjkp.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 74.
-LaTeX Font Info:    Try loading font information for OMX+jkp on input line 74.
+LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 7
+4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omxjkp.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 74.
-LaTeX Font Info:    Try loading font information for U+jkpexa on input line 74.
+LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
+74.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 74.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 7
+4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 74.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
 LaTeX Font Info:    ... okay on input line 74.
-LaTeX Font Info:    Try loading font information for OT1+jkp on input line 74.
+LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 7
+4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 74.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(e:/FER/TeX Live/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count136
 \scratchdimen=\dimen159
@@ -1085,10 +1107,10 @@ Package lastpage Info: Please have a look at the pageslts package at
 \MPnumerator=\count140
 \makeMPintoPDFobject=\count141
 \everyMPtoPDFconversion=\toks33
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+) (e:/FER/TeX Live/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1098,7 +1120,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
@@ -1138,10 +1160,10 @@ e
 
 \AtBeginShipoutBox=\box46
 Package hyperref Info: Link coloring ON on input line 74.
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+(e:/FER/TeX Live/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count142
@@ -1154,38 +1176,39 @@ LaTeX Info: Redefining \nameref on input line 74.
 \@outlinefile=\write3
 \openout3 = `OPP_ProjektnaDokumentacija_v5.out'.
 
-LaTeX Font Info:    Try loading font information for U+jkpsya on input line 95.
+LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
+95.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+jkpsyb on input line 95.
+LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
+95.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 95.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 9
+5.
 
-(/usr/share/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+jkpmia on input line 95.
+LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
+95.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 95.
+LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
+95.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./OPP_ProjektnaDokumentac
-ija_v5.toc
+{e:/FER/TeX Live/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./OPP_ProjektnaDokumentacija_v5.toc
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
@@ -1312,8 +1335,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+jkp on input line 7.
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
+LaTeX Font Info:    Trying to load font information for TS1+jkp on input line 7
+.
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 ) [5
 
@@ -1324,9 +1348,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+jkptt on input line 24
-.
-(/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
+LaTeX Font Info:    Trying to load font information for OT1+jkptt on input line
+ 24.
+(e:/FER/TeX Live/texlive/texmf-dist/tex/latex/kpfonts/ot1jkptt.fd
 File: ot1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for OT1/jkptt.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 26--27
@@ -1391,12 +1415,12 @@ aci ne is-pravni
  []
 
 [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
+Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
 
@@ -1591,27 +1615,27 @@ hanged.
 (rerunfilecheck)             Checksum: 26A8BCB67D725A514DBBD4F4C06AD182;1813.
  ) 
 Here is how much of TeX's memory you used:
- 11366 strings out of 492615
- 160906 string characters out of 6131389
- 326740 words of memory out of 5000000
- 14854 multiletter control sequences out of 15000+600000
+ 12148 strings out of 492167
+ 170557 string characters out of 6125338
+ 333801 words of memory out of 5000000
+ 16083 multiletter control sequences out of 15000+600000
  53357 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,43p,895b,606s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,12n,45p,895b,600s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/kpfonts/jkpmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/kpfonts/jkpmit8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfont
-s/jkpmn8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfonts/jkpttmn
-8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (34 pages, 139547 bytes).
+{e:/FER/TeX Live/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}<e:/FER/TeX Liv
+e/texlive/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><e:/FER/TeX Live/t
+exlive/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><e:/FER/TeX Live/texli
+ve/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><e:/FER/TeX Live/texlive/tex
+mf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb><e:/FER/TeX Live/texlive/texmf-
+dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><e:/FER/TeX Live/texlive/texmf-dist
+/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (34 pages, 140255 bytes).
 PDF statistics:
- 464 PDF objects out of 1000 (max. 8388607)
- 415 compressed objects within 5 object streams
- 129 named destinations out of 1000 (max. 500000)
+ 467 PDF objects out of 1000 (max. 8388607)
+ 418 compressed objects within 5 object streams
+ 132 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
