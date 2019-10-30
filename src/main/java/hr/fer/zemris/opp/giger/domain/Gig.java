@@ -1,20 +1,23 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.*;
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.*;
 
 @Entity
+@Data
 public class Gig {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = LAZY)
@@ -40,103 +43,4 @@ public class Gig {
             joinColumns = {@JoinColumn(name = "fk_gig")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})
     private List<Review> reviews;
-
-    public Gig() {
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Organizer getOrganizer() {
-        return organizer;
-    }
-
-    public void setOrganizer(Organizer organizer) {
-        this.organizer = organizer;
-    }
-
-    public LocalDateTime getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getExpectedDuration() {
-        return expectedDuration;
-    }
-
-    public void setExpectedDuration(String expectedDuration) {
-        this.expectedDuration = expectedDuration;
-    }
-
-    public Integer getProposedPrice() {
-        return proposedPrice;
-    }
-
-    public void setProposedPrice(Integer proposedPrice) {
-        this.proposedPrice = proposedPrice;
-    }
-
-    public GigType getGigType() {
-        return gigType;
-    }
-
-    public void setGigType(GigType gigType) {
-        this.gigType = gigType;
-    }
-
-    public boolean isFinalDealAchieved() {
-        return finalDealAchieved;
-    }
-
-    public void setFinalDealAchieved(boolean finalDealAchieved) {
-        this.finalDealAchieved = finalDealAchieved;
-    }
-
-    public Band getFinalBand() {
-        return finalBand;
-    }
-
-    public void setFinalBand(Band finalBand) {
-        this.finalBand = finalBand;
-    }
-
-    public boolean isPrivateGig() {
-        return privateGig;
-    }
-
-    public void setPrivateGig(boolean privateGig) {
-        this.privateGig = privateGig;
-    }
 }

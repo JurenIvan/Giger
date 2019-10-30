@@ -1,19 +1,23 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.*;
 
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Data
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     @Email
     @NotNull
@@ -21,12 +25,6 @@ public class User {
     private String phoneNumber;
     @NotNull
     private String passwordHash;
-
-    @OneToOne(fetch = LAZY, cascade = ALL)
-    private Musician musician;
-    @OneToOne(fetch = LAZY, cascade = ALL)
-    private Organizer organizer;
-
     private String pictureUrl;
 
     @ManyToMany(fetch = LAZY)
@@ -34,71 +32,4 @@ public class User {
             joinColumns = {@JoinColumn(name = "fk_user")},
             inverseJoinColumns = {@JoinColumn(name = "fk_conversation")})
     private List<Conversation> conversations;
-
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPictureUrl() {
-        return pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    public Musician getMusician() {
-        return musician;
-    }
-
-    public void setMusician(Musician musician) {
-        this.musician = musician;
-    }
-
-    public Organizer getOrganizer() {
-        return organizer;
-    }
-
-    public void setOrganizer(Organizer organizer) {
-        this.organizer = organizer;
-    }
-
-    public List<Conversation> getConversations() {
-        return conversations;
-    }
-
-    public void setConversations(List<Conversation> conversations) {
-        this.conversations = conversations;
-    }
 }

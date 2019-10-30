@@ -1,12 +1,15 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-import static javax.persistence.GenerationType.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
+@Data
 public class Comment {
 
     @Id
@@ -20,39 +23,4 @@ public class Comment {
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private User author;
-
-    public Comment() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDateTime getPostedOn() {
-        return postedOn;
-    }
-
-    public void setPostedOn(LocalDateTime postedOn) {
-        this.postedOn = postedOn;
-    }
 }

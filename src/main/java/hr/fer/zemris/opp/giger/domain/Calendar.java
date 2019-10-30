@@ -1,49 +1,23 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
+@Data
 public class Calendar {
 
     @Id
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @ElementCollection
-    @CollectionTable(name = "Calendar_gig", joinColumns = @JoinColumn(name = "calendar_id"))
-    @Column(name = "gigDate")
-    private List<LocalDate> gigDates;
+    @CollectionTable(name = "calendar_occasions", joinColumns = @JoinColumn(name = "calendar_id"))
+    private List<Occasion> gigDates;
 
-    @ElementCollection
-    @CollectionTable(name = "Calendar_private", joinColumns = @JoinColumn(name = "calendar_id"))
-    @Column(name = "privateDate")
-    private List<LocalDate> privateDates;
-
-    public Calendar() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<LocalDate> getGigDates() {
-        return gigDates;
-    }
-
-    public void setGigDates(List<LocalDate> gigDates) {
-        this.gigDates = gigDates;
-    }
-
-//    public List<LocalDate> getPrivateDates() {
-//        return privateDates;
-//    }
-//
-//    public void setPrivateDates(List<LocalDate> privateDates) {
-//        this.privateDates = privateDates;
-//    }
 }
