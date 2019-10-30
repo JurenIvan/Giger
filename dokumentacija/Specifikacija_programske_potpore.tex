@@ -95,6 +95,22 @@
 							
 						\end{packed_item}
 					\end{packed_item}
+				
+				\noindent \underbar{\textbf{UC1 - Pristup listi javnih događaja}}
+				\begin{packed_item}
+					
+					\item \textbf{Glavni sudionik: } Javnost
+					\item  \textbf{Cilj:} Vidjeti listu javnih događaja u blizini
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} -
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+						\item Javnost odlazi na stranicu aplikacije
+						\item Na početnoj stranici nalazi se prikaz javnih nastupa bendova
+					\end{packed_enum}
+					
+				\end{packed_item}
 
 				\noindent \underbar{\textbf{UC2 - Pregled profila benda}}
 				\begin{packed_item}
@@ -199,7 +215,38 @@
 							\item Ispis dodanih instrumenata
 						\end{packed_enum}
 				\end{packed_item}
+			
+			\noindent \underbar{\textbf{UC7 - Blokiranje korisnika koji sustav koriste na neprikladan način}}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Blokirati korisnike koji krše uvjete korištenja aplikacije ili se ne odnose prikladno prema drugim korisnicima
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Korisnik je prekršio jedan od uvjeta korištenja aplikacije ili se neprikladno odnosi prema drugim korisnicima, također administrator je prijavljen u sustav
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator uočava korisnika koji krši opća pravila korištenja sustava
+					\item Administrator blokira korisnički račun određenoga korisnika na neodređeno vrijeme
+				\end{packed_enum}
+			\end{packed_item}
 
+			\noindent \underbar{\textbf{UC8 - Dodavanje događaja}}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Dodati događaje koji su kreirani van sustava u sustav
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Administrator je prijavljen u sustav
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator odabire opciju za dodavanje događaja u sustav
+					\item Administrator dodaje događaj u sustav
+				\end{packed_enum}
+			\end{packed_item}
 
 				\noindent \underbar{\textbf{UC9 - Slanje poruka}}
 				\begin{packed_item}
@@ -237,7 +284,7 @@
 				
 				\item \textbf{Glavni sudionik: }Korisnik
 				\item  \textbf{Cilj:} Omogućiti korisnicima aplikacije pisanje recenzija o bendovima
-				\item  \textbf{Sudionici:} Baza podataka, bend
+				\item  \textbf{Sudionici:} Baza podataka
 				\item  \textbf{Preduvjet:} Korisnik mora biti prijavljen
 				\item  \textbf{Opis osnovnog tijeka:} 
 				
@@ -288,7 +335,7 @@
 	    		
 	    		\item \textbf{Glavni sudionik: } Korisnik
 	    		\item  \textbf{Cilj:} Poboljšati interakciju između korisnika i glazbenika 
-	    		\item  \textbf{Sudionici:} Baza podataka, glazbenik
+	    		\item  \textbf{Sudionici:} Baza podataka
 	    		\item  \textbf{Preduvjet:} Korisnik je prijavljen i glazbenik je stvorio objavu
 	    		\item  \textbf{Opis osnovnog tijeka:} 
 	    		
@@ -301,13 +348,99 @@
 	    			\item Objava je vidljiva glazbeniku
 	    		\end{packed_enum}
 	    	\end{packed_item}
+    	
+    	\noindent \underbar{\textbf{UC14 - Uređivanje profila korisnika}}
+    	\begin{packed_item}
+    		
+    		\item \textbf{Glavni sudionik: }
+    		Korisnik 
+    		\item  \textbf{Cilj:} Prilagoditi profil prema želji korisnika
+    		\item  \textbf{Sudionici:} Baza podataka
+    		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+    		\item  \textbf{Opis osnovnog tijeka:}
+    		
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik odabire opciju za uređivanje profila 
+    			\item Korisnik po želji bira određene opcije vezane za korisnički profil 
+    			\item Korisnik odabirom opcije za spremanje potvrđuje i sprema načinjene promjene
+    			
+    		\end{packed_enum}
+    	\end{packed_item}
+    	
+    	\noindent \underbar{\textbf{UC15 - Stvaranje profila organizatora}}
+    	\begin{packed_item}
+    		
+    		\item \textbf{Glavni sudionik: }
+    		Korisnik 
+    		\item  \textbf{Cilj:} Stvaranje profila organizatora
+    		\item  \textbf{Sudionici:} Baza podataka
+    		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+    		\item  \textbf{Opis osnovnog tijeka:}
+    		
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik odabire opciju za stvaranje profila organizatora
+    			\item Korisnik popunjava polja koja je potrebno ispuniti kako bi se postalo korisnik 
+    			\item Korisnik odabirom opcije za potvrđivanje postaje organizator
+    			
+    		\end{packed_enum}
+    		
+    		\item  \textbf{Opis mogućih odstupanja:}
+    		
+    		\item[] \begin{packed_item}
+    			
+    			\item[3.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
+    			\item[] \begin{packed_enum}
+    				
+    				\item Korisnik ponovno unosi obavezne podatke
+    				\item Korisnik odustaje od stvaranja profila
+    				
+    			\end{packed_enum}
+    			
+    		\end{packed_item}
+    	\end{packed_item}
+    
+    \noindent \underbar{\textbf{UC16 - Učitavanje slike korisničkog profila}}
+    \begin{packed_item}
+    	
+    	\item \textbf{Glavni sudionik: }
+    	Korisnik 
+    	\item  \textbf{Cilj:} Unijeti korisničku sliku na profil korisnika
+    	\item  \textbf{Sudionici:} Baza podataka
+    	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+    	\item  \textbf{Opis osnovnog tijeka:}
+    	
+    	\item[] \begin{packed_enum}
+    		
+    		\item Korisnik odabire opciju za uređivanje profila
+    		\item Korisnik odabire opciju za učitavanje slike
+    		\item Slika se učitava u sustav
+    		\item Slika je vidljiva na profilu korisnika
+    		
+    	\end{packed_enum}
+    	
+    	\item  \textbf{Opis mogućih odstupanja:}
+    	
+    	\item[] \begin{packed_item}
+    		
+    		\item[2.a] Došlo je do pogreške prilikom učitavanja
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik može ponoviti unos 
+    			\item korisnik odustaje od unosa slike
+    			
+    		\end{packed_enum}
+    		
+    	\end{packed_item}
+    \end{packed_item}
 
 			\noindent \underbar{\textbf{UC17 - Stvaranje profila glazbenika}}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: } Korisnik
 				\item  \textbf{Cilj:} Omogućiti korisniku da se registrira kao glazbenik 
-				\item  \textbf{Sudionici:} Baza podataka, glazbenik
+				\item  \textbf{Sudionici:} Baza podataka
 				\item  \textbf{Preduvjet:} Korisnik je prijavljen
 				\item  \textbf{Opis osnovnog tijeka:} 
 				
@@ -336,7 +469,54 @@
 		   		
 		   	\end{packed_enum}
 		   \end{packed_item}	 
+	
+	\noindent \underbar{\textbf{UC19 - Uređivanje profila glazbenika}}
+	\begin{packed_item}
 		
+		\item \textbf{Glavni sudionik: } Glazbenik
+		\item  \textbf{Cilj:} Urediti profil glazbenika
+		\item  \textbf{Sudionici:} Baza podataka
+		\item  \textbf{Preduvjet:} Glazbenik treba biti prijavljen u sustav
+		\item  \textbf{Opis osnovnog tijeka:}
+		
+		\item[] \begin{packed_enum}
+			
+			\item Glazbenik bira opciju za uređivanje profila
+			\item Glazbenik uređuje profil
+			\item Glazbenik na kraju odabire opciju za spremanje promjena
+		\end{packed_enum}
+		
+		
+	\end{packed_item}
+	
+	\noindent \underbar{\textbf{UC20 - Dodavanje liste instrumenata}}
+	\begin{packed_item}
+		
+		\item \textbf{Glavni sudionik: } Glazbenik
+		\item  \textbf{Cilj:} Dodati listu instrumenata koje svira
+		\item  \textbf{Sudionici:} Baza podataka
+		\item  \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
+		\item  \textbf{Opis osnovnog tijeka:}
+		
+		\item[] \begin{packed_enum}
+			
+			\item Korisnik iz padajućeg izbornika bira instrumente
+			\item Kada je gotov klikom na opciju za spremanje sprema odabrane instrumente 
+		\end{packed_enum}
+		
+		\item  \textbf{Opis mogućih odstupanja:}
+		
+		\item[] \begin{packed_item}
+			
+			\item[1.a] Instrument koji glazbenik svira ne postoji među ponuđenim instrumentima
+			\item[] \begin{packed_enum}
+				
+				\item Korisnik u polje predviđeno za dodavanje instrumenata upisuje instrument koji onda mora odobriti administrator
+				
+			\end{packed_enum}
+			
+		\end{packed_item}
+	\end{packed_item}
 		
 				
 				\subsubsection{Dijagrami obrazaca uporabe}
