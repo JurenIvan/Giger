@@ -1,47 +1,42 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
-public class Musician {
+@Data
+public class Musician extends User {
 
-    @Id
-    @GeneratedValue(strategy = AUTO)
-    private long id;
+    private String bio;
+    private boolean publicCalendar;
 
-    private String instrument;
-    private String name;
+    @ElementCollection(targetClass = Instrument.class)
+    @CollectionTable(name = "instruments", joinColumns = @JoinColumn(name = "musician"))
+    @Column(name = "plays", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private List<Instrument> instruments;
 
-    public Musician() {
-    }
+    @ManyToMany(fetch = LAZY)
+    @JoinTable(name = "musician_bands",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_band")})
+    private List<Band> bands;
 
-    public String getName() {
-        return name;
-    }
+    @ManyToMany(fetch = LAZY)
+    @JoinTable(name = "musician_gig_history",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
+    private List<Gig> pastGigs;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @OneToMany(fetch = LAZY)
+    @JoinColumn(name = "fk_user")
+    private List<Post> posts;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getInstrument() {
-        return instrument;
-    }
-
-    public void setInstrument(String instrument) {
-        this.instrument = instrument;
-    }
+    @ElementCollection
+    @CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
+    private List<Occasion> occasions;
 }
