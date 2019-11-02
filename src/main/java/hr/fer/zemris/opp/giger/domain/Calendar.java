@@ -16,8 +16,4 @@ public class Calendar {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @ElementCollection
-    @CollectionTable(name = "calendar_occasions", joinColumns = @JoinColumn(name = "calendar_id"))
-    private List<Occasion> gigDates;
-
 }

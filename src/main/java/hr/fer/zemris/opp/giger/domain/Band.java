@@ -30,6 +30,9 @@ public class Band {
     private Musician leader;
 
     @ManyToMany(fetch = LAZY)
+    @JoinTable(name = "musician_bands",
+            joinColumns = {@JoinColumn(name = "fk_musician")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_band")})
     private List<Musician> members;
 
     @ManyToMany(fetch = LAZY)
@@ -39,6 +42,10 @@ public class Band {
     private List<Musician> invited;
 
     @OneToMany
+    @JoinTable(name = "band_gig_history",
+            joinColumns = {@JoinColumn(name = "fk_band")},
+            inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
+
     private List<Gig> historyGigs;
 
     private String pictureUrl;

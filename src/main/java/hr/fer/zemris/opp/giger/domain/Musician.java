@@ -27,7 +27,7 @@ public class Musician extends User {
     private List<Band> bands;
 
     @ManyToMany(fetch = LAZY)
-    @JoinTable(name = "musician_gig",
+    @JoinTable(name = "musician_gig_history",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
     private List<Gig> pastGigs;
@@ -36,7 +36,7 @@ public class Musician extends User {
     @JoinColumn(name = "fk_user")
     private List<Post> posts;
 
-    @OneToOne
-    @JoinColumn(name = "fk_calendar")
-    private Calendar calendar;
+    @ElementCollection
+    @CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
+    private List<Occasion> occasions;
 }
