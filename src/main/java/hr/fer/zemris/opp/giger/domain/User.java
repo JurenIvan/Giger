@@ -23,6 +23,7 @@ public class User {
     @NotNull
     @Column(unique = true)
     private String email;
+    private Boolean verified;
     @Column(unique = true)
     private String username;
     private String phoneNumber;

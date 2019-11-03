@@ -15,6 +15,7 @@ import java.util.function.Function;
 public class JwtUtil {
 
     public static final int JWT_TIMEOUT = 1000 * 60 * 60;
+
     private String SECRET_KEY = "secret";
 
     public String extractUsername(String token) {
