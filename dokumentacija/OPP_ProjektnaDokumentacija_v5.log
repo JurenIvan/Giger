@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.15)  30 OCT 2019 01:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.15)  4 NOV 2019 00:29
 entering extended mode
 **./OPP_ProjektnaDokumentacija_v5.tex
 (OPP_ProjektnaDokumentacija_v5.tex
@@ -1199,7 +1199,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...{Indeks slika i dijagrama}{32}{chapter*.5}
+l.29 ...{Indeks slika i dijagrama}{33}{chapter*.5}
                                                   % [1
 
 ])
@@ -1249,7 +1249,7 @@ Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
 
 
 Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
-[]\OT1/jkp/m/n/12 26.08.2013.|  
+[]\OT1/jkp/m/n/12 04.11.2019.|  
  []
 
 
@@ -1317,10 +1317,10 @@ Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
 []\OT1/jkp/m/n/12 28.09.2013.|  
  []
 
-[3
+) [3
 
 
-]) [4]
+] [4]
 \openout2 = `Opis_projektnog_zadatka.aux'.
 
  (Opis_projektnog_zadatka.tex
@@ -1398,34 +1398,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
-[10] [11]
-Overfull \hbox (0.42142pt too wide) in paragraph at lines 196--197
+[11] [12]
+Overfull \hbox (0.42142pt too wide) in paragraph at lines 227--228
 []\OT1/jkp/m/n/12 Ne do-zvo-ljava ko-ris-niku kori[]stenje sus-tava ako su po-d
 aci ne is-pravni 
  []
 
 
-Overfull \hbox (21.7212pt too wide) in paragraph at lines 231--232
+Overfull \hbox (21.7212pt too wide) in paragraph at lines 262--263
 []\OT1/jkp/m/n/12 Administrator blo-kira ko-risni[]cki ra[]cun odre[]denoga ko-
 ris-nika na neodre[]deno
  []
 
-[12] [13] [14] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+[13] [14] [15] [16] [17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 540--541
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
-) [19]
+) [20]
 \openout2 = `Arhitektura.aux'.
 
  (Arhitektura.tex
@@ -1457,11 +1457,11 @@ Overfull \hbox (1.82492pt too wide) in paragraph at lines 47--47
 []\OT1/jkp/m/n/12 korisnickoIme|  
  []
 
-[20
+[21
 
 
 
-] [21]
+] [22]
 Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
@@ -1481,22 +1481,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-[22]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
-[23]
+[24]
 Underfull \hbox (badness 10000) in paragraph at lines 84--85
 
  []
 
-[24]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
-) [25]
+) [26]
 \openout2 = `Implementacija.aux'.
 
  (Implementacija.tex
@@ -1516,7 +1516,7 @@ Overfull \hbox (10.38434pt too wide) in paragraph at lines 1--1
 |[]\OT1/jkp/b/n/24.88 Implementacija i ko-risni[]cko su[]celje| 
  []
 
-[26
+[27
 
 
 
@@ -1530,12 +1530,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-[27] [28]
+[28] [29]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-[29])
+[30])
 \openout2 = `Zakljucak.aux'.
 
  (Zakljucak.tex
@@ -1550,7 +1550,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[30
+[31
 
 
 
@@ -1569,7 +1569,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 12 http : / / www . ece . rutgers . edu / []marsic /
  []
 
-) [31
+) [32
 
 
 
@@ -1577,7 +1577,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 \tf@lof=\write5
 \openout5 = `OPP_ProjektnaDokumentacija_v5.lof'.
 
- [32
+ [33
 
 
 ]
@@ -1588,20 +1588,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[33
+[34
 
 
-] [34]
+] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
-[35] [36]
+[36] [37]
 Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-) [37] 
+) [38] 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
@@ -1616,9 +1616,9 @@ hanged.
 (rerunfilecheck)             Checksum: 3159DB34457840C2A901E6B3DAB8792E;1840.
  ) 
 Here is how much of TeX's memory you used:
- 11449 strings out of 492945
- 163664 string characters out of 3135513
- 328320 words of memory out of 3000000
+ 11465 strings out of 492945
+ 163791 string characters out of 3135513
+ 328325 words of memory out of 3000000
  14869 multiletter control sequences out of 15000+200000
  53357 words of font info for 122 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1633,9 +1633,9 @@ pData/Roaming/MiKTeX/2.9/fonts/type1/public/kpfonts/jkpbn8a.pfb><C:/Users/Mario
 o/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/kpfonts/jkpmit8a.pfb><C:/Users/
 Mario/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/kpfonts/jkpmn8a.pfb><C:/Use
 rs/Mario/AppData/Roaming/MiKTeX/2.9/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (38 pages, 197437 bytes).
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (39 pages, 201028 bytes).
 PDF statistics:
- 535 PDF objects out of 1000 (max. 8388607)
- 178 named destinations out of 1000 (max. 500000)
+ 559 PDF objects out of 1000 (max. 8388607)
+ 194 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 
