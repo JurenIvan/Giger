@@ -544,9 +544,28 @@
 				
 				\item Korisnik u polje predviđeno za dodavanje instrumenata upisuje instrument koji onda mora odobriti administrator
 				
-			\end{packed_enum}
-			
+			\end{packed_enum}	
 		\end{packed_item}
+		
+	\end{packed_item}
+
+	\noindent \underbar{\textbf{UC21 - Dodavanje post-ova}}
+	\begin{packed_item}
+		
+		\item \textbf{Glavni sudionik: } Glazbenik
+		\item  \textbf{Cilj:} Urediti profil glazbenika
+		\item  \textbf{Sudionici:} Baza podataka
+		\item  \textbf{Preduvjet:} Glazbenik treba biti prijavljen u sustav
+		\item  \textbf{Opis osnovnog tijeka:}
+		
+		\item[] \begin{packed_enum}
+			
+			\item Glazbenik bira opciju za uređivanje profila
+			\item Glazbenik uređuje profil
+			\item Glazbenik na kraju odabire opciju za spremanje promjena
+		\end{packed_enum}
+		
+		
 	\end{packed_item}
 		
 				
@@ -571,7 +590,14 @@
 			\textbf{\textit{dio 1. revizije}}\\
 		 
 			 \textit{Nefunkcionalni zahtjevi i zahtjevi domene primjene dopunjuju funkcionalne zahtjeve. Oni opisuju \textbf{kako se sustav treba ponašati} i koja \textbf{ograničenja} treba poštivati (performanse, korisničko iskustvo, pouzdanost, standardi kvalitete, sigurnost...). Primjeri takvih zahtjeva u Vašem projektu mogu biti: podržani jezici korisničkog sučelja, vrijeme odziva, najveći mogući podržani broj korisnika, podržane web/mobilne platforme, razina zaštite (protokoli komunikacije, kriptiranje...)... Svaki takav zahtjev potrebno je navesti u jednoj ili dvije rečenice.}
-			 
+			 \begin{itemize}
+			 	\item  Sustav treba omogućiti rad više korisnika u isto vrijeme
+			 	\item  Neispravno korištenje sučelja ne smije na neki način promijeniti ili obustaviti rad sustava
+			 	\item  Sustav mora biti jednostavan za uporabu, tj. mora biti intuitivan
+			 	\item  Sustav mora biti u stanju brzo obraditi dobivene podatke kako korisnik ne bi puno čekao promjenu
+			 	\item  Sustav treba biti implementiran kao web aplikacija, s time da bi joj većina korisnika pristupala preko mobilnih uređaja
+			 	\item  Treba osigurati sigurnost aplikacije, tj. lozinke moraju biti enkriptirane te mora biti osigurana sigurnost veze između korisnika aplikacije i baze podataka 
+			 \end{itemize}
 			 
 			 
 	
