@@ -1,4 +1,4 @@
-package hr.fer.zemris.opp.giger.controller;
+package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.service.UserService;
@@ -7,12 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
-@RestController
+@RestController("/register")
 public class RegistrationController {
 
     private UserService userService;
 
-    @PostMapping(value = "/register")
+    @PostMapping()
     public ResponseEntity<?> registerUser(@RequestBody RegisterRequestDto registerRequestDto) throws Exception {
         userService.saveUser(registerRequestDto);
         userService.sendEmail(registerRequestDto.getEmail(), registerRequestDto.getUsername());
@@ -24,5 +24,10 @@ public class RegistrationController {
         if (userService.verifyEmail(username, token))
             return "verified-email";
         return "error";
+    }
+
+    @GetMapping("/nickname-available")
+    public boolean isNicknameAvailable(String nickname) {
+        return userService.isUserNameAvailable(nickname);
     }
 }

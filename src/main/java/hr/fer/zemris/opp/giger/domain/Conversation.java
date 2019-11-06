@@ -8,7 +8,7 @@ import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
@@ -18,6 +18,7 @@ public class Conversation {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String name;
+    private String pictureUrl;
 
     @ManyToMany(fetch = LAZY) //todo think about it
     @JoinTable(name = "conversation_user",

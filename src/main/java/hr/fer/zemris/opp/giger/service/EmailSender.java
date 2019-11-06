@@ -1,4 +1,4 @@
-package hr.fer.zemris.opp.giger.utils;
+package hr.fer.zemris.opp.giger.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,8 @@ public class EmailSender {
         return message;
     }
 
-    public void sendRegistrationConfirmationMessage(String to, int token, String username, String text) {
-        sendMessage(to, "Please verify this account", text);
+    public void sendRegistrationConfirmationMessage(String to, int token, String username) {
+        sendMessage(to, "Please verify this account", "To verify your registration click the following link " + baseUrl +
+                "/verification?token=" + token + "&username=" + username);
     }
 }
