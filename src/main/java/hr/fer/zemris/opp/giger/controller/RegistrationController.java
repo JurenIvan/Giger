@@ -25,4 +25,7 @@ public class RegistrationController {
             return "verified-email";
         return "error";
     }
+
+
+
 }
