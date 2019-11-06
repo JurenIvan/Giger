@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "users")
@@ -21,7 +21,11 @@ public class User {
     private Long id;
     @Email
     @NotNull
+    @Column(unique = true)
     private String email;
+    private Boolean verified;
+    @Column(unique = true)
+    private String username;
     private String phoneNumber;
     @NotNull
     private String passwordHash;
