@@ -33,16 +33,17 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
                 .antMatchers(HttpMethod.POST, "/register").permitAll()
-                .antMatchers(HttpMethod.GET, "/verification").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                .antMatchers(HttpMethod.GET, "/register/nickname-available").permitAll()
+                .antMatchers(HttpMethod.GET, "/register/verification").permitAll()
+                .antMatchers(HttpMethod.POST, "/register/resend-verification-email").permitAll()
+                .anyRequest().authenticated();
+
+        httpSecurity
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling()
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .exceptionHandling();
 
-
-        httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-
+        httpSecurity
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class EmailSender {
     }
 
     public void sendRegistrationConfirmationMessage(String to, int token, String username) {
-        sendMessage(to, "Please verify this account", "To verify your registration click the following link " + baseUrl +
-                "/verification?token=" + token + "&username=" + username);
+        sendMessage(to, "Please verify this account", "To verify your registration click the following link " + baseUrl + contextPath +
+                "/register/verification?token=" + token + "&username=" + username);
     }
 }
