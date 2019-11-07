@@ -15,22 +15,48 @@
 		\textit{Za pomoć pogledati reference navedene u poglavlju „Popis literature“, a po potrebi konzultirati sadržaj na internetu koji nudi dobre smjernice u tom pogledu.}
 		\eject
 		
-		Cilj ovog projekta je razviti programsku podršku za stvaranje web aplikacije Giger koja je namijenjena glazbenicima, ljudima kojima su potrebne usluge glazbenika (organizatori proslava, menadžeri) te ljudima koji su zainteresirani za obližnje događaje. To su ujedno i tri uloge unutar aplikacije vidljive korisnicima (Glazbenik, Organizator, Javnost). Uz te tri uloge, postoji i uloga Admin koja može ubaciti događaje koji će se prikažati u preporukama.
+		Cilj ovog projekta je razviti programsku podršku za stvaranje web aplikacije \textit{Giger} koja je namijenjena glazbenicima, ljudima kojima su potrebne usluge glazbenika (organizatori proslava, menadžeri) te ljudima koji su zainteresirani za obližnje događaje. To su ujedno i tri uloge unutar aplikacije vidljive korisnicima (Glazbenik, Organizator, Javnost). Uz te tri uloge, postoji i uloga Admin koja može ubaciti događaje koji će se prikazati u preporukama.
+		\\
 		
 		Organizacija osobnog kalendara i dogovaranje termina koji zahtijevaju prisustvovanje više ljudi je težak zadatak, a s tim se problemom na gotovo dnevnoj razini susreću glazbenici kada dogovaraju nastupe. Isto tako, ljudi koji organiziraju razne proslave za koje trebaju glazbenike, kao i ljudi koji žele otići na neku živu svirku, ponekad ne znaju kakva je glazbena ponuda u njihovoj okolini, a ako su i čuli za neki događaj u blizini, ne postoji jedinstveno mjesto gdje mogu pročitati recenzije o glazbenicima, bendu ili organizatoru da budu sigurni u kvalitetu događaja.
+		\textit{Giger} je platforma koja rješava navedene probleme integrirajući kalendar glazbenika sa servisom namijenjenim za sastajanje bendova i organizatora nastupa. 
+		\\
 		
-		Giger je platforma koja rješava navedene probleme integrirajući kalendar glazbenika sa servisom namijenjenim za sastajanje bendova i organizatora nastupa. Česta je situacija da je jedan glazbenik član više bendova, pa tako dostupnost svakog benda ovisi o dostupnosti svih njegovih članova, a kalendar svakog glazbenika ujedinjuje sve obaveze iz bendova u kojima je član pa dostupnost benda postaje trivijalna informacija. Organizatori nastupa koji traže glazbenike imaju mogućnost filtrirati grupe prema vrsti glazbe, tipu nastupa, lokaciji i dr. Nakon što organizator dobije listu raspoloživih bendova, može pregledati njihove profile. Profil benda prikazuje osnovne informacije o bendu, razne novosti koje uređuju njegovi članovi, popis nadolazećih javnih nastupa te recenzije korisnika. Organizator ima mogućnost kontaktiranja benda putem poruka ugrađenih u aplikaciju. Imajući takav skup podataka, Giger svojim korisnicima, običnim ljudima željnih zabave, može preporučiti nadolazeće događaje u njihovoj blizini, a pošto su developeri koji razvijaju Giger ljudi od izvrsnog glazbenog ukusa, među preporukama nadolazećih evenata moći će se naći i događaji koji nisu ostvareni izravno putem aplikacije.
+		Česta je situacija da je jedan glazbenik član više bendova, pa tako dostupnost svakog benda ovisi o dostupnosti svih njegovih članova.  Kalendar svakog glazbenika ujedinjuje sve obaveze iz bendova u kojima je član pa dostupnost benda postaje trivijalna informacija. 
+		\\
+		
+		Organizatori nastupa koji traže glazbenike imaju mogućnost filtrirati grupe prema vrsti glazbe, tipu nastupa, lokaciji i dr. Nakon što organizator dobije listu raspoloživih bendova, može pregledavati njihove profile. Profil benda prikazuje osnovne informacije o bendu, razne novosti koje uređuju njegovi članovi, popis nadolazećih javnih nastupa te recenzije korisnika. Organizator ima mogućnost kontaktiranja benda putem poruka ugrađenih u aplikaciju. Imajući takav skup podataka, \textit{Giger} svojim korisnicima, običnim ljudima željnim zabave, može preporučiti nadolazeće događaje u njihovoj blizini, a pošto su developeri koji razvijaju \textit{Giger} ljudi od izvrsnog glazbenog ukusa, među preporukama nadolazećih događaja moći će se naći i oni koji nisu ostvareni izravno putem aplikacije.
 		
 		\section{Slična rješenja problema}
 		
 		\subsection{Amy}
 		
-		Amy je mobilna aplikacija koja nakon registracije nudi različite opcije vrste korisnika (glazbenik, DJ i slično). Nakon odabira vrste korisnika nudi i unos instrumenata koje korisnik svira te odabir razine profesionalnosti na pojedinom instrumentu. Također, nudi i odabir glazbenih žanrova, kalendar s obavezama te pregledavanje glazbenika u blizini.  
+		\textit{Amy} je mobilna aplikacija koja nakon registracije nudi različite opcije vrste korisnika (glazbenik, DJ i slično). Nakon odabira vrste korisnika nudi i unos instrumenata koje korisnik svira te odabir razine profesionalnosti na pojedinom instrumentu. Također, nudi i odabir glazbenih žanrova, kalendar s obavezama te pregledavanje glazbenika u blizini. Aplikacija ima jako puno potencijala, ali se često ruši što utječe na iskustvo korisnika. 
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=5cm]{slike/Amy.JPEG}
+			\includegraphics[width=5cm]{slike/Amy2.JPEG}
+			\end{center}
+			\caption{Izgled \textit{Amy} aplikacije}
+			\label{fig:promjene2}
+		\end{figure}
+		
 		
 		
 	    \subsection{BandFriend}
 		
-		BandFriend je mobilna aplikacija koja prilikom registracije traži dosta informacija o korisniku. Nakon izrade profila, mogu se pretraživati novi glazbenici, glazbenici najsličniji trenutnom korisniku, po lokaciji i slično. Aplikacija nudi i razgovor porukama s drugim korisnicima.
+		\textit{BandFriend} je mobilna aplikacija koja prilikom registracije traži dosta informacija o korisniku. Nakon izrade profila, mogu se pretraživati novi glazbenici, glazbenici najsličniji trenutnom korisniku, najbliži po lokaciji i slično. Aplikacija nudi i razgovor porukama s drugim korisnicima. Neke korisnike tolika lista zahtjeva prilikom registracije može odbiti te će \textit{Giger} tražiti samo korisničko ime i lozinku, a kasnije svaki korisnik, ukoliko to želi, može dodati više informacija o sebi. Također, \textit{BandFriend} ne nudi kalendar s obavezama korisnika, stvaranje bendova ili događaja.
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[height=10cm]{slike/BandFriend.JPEG}
+				\includegraphics[height=10cm]{slike/BandFriend2.JPEG}
+			\end{center}
+			\caption{Izgled \textit{BandFriend} aplikacije}
+			\label{fig:promjene2}
+		\end{figure}
+		
 		\section{Primjeri u LaTeXu}
 		
 		\textit{Ovo potpoglavlje izbrisati.}\\
