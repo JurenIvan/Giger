@@ -1,30 +1,32 @@
 \BOOKMARK [0][-]{chapter.1}{Dnevnik promjena dokumentacije}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Opis projektnog zadatka}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Slicna rje\235enja problema}{chapter.2}% 3
-\BOOKMARK [2][-]{subsection.2.1.1}{Amy}{section.2.1}% 4
-\BOOKMARK [2][-]{subsection.2.1.2}{BandFriend}{section.2.1}% 5
-\BOOKMARK [1][-]{section.2.2}{Primjeri u LaTeXu}{chapter.2}% 6
-\BOOKMARK [0][-]{chapter.3}{Specifikacija programske potpore}{}% 7
-\BOOKMARK [1][-]{section.3.1}{Funkcionalni zahtjevi}{chapter.3}% 8
-\BOOKMARK [2][-]{subsection.3.1.1}{Obrasci uporabe}{section.3.1}% 9
-\BOOKMARK [2][-]{subsection.3.1.2}{Sekvencijski dijagrami}{section.3.1}% 10
-\BOOKMARK [1][-]{section.3.2}{Ostali zahtjevi}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter.4}{Arhitektura i dizajn sustava}{}% 12
-\BOOKMARK [1][-]{section.4.1}{Baza podataka}{chapter.4}% 13
-\BOOKMARK [2][-]{subsection.4.1.1}{Opis tablica}{section.4.1}% 14
-\BOOKMARK [2][-]{subsection.4.1.2}{Dijagram baze podataka}{section.4.1}% 15
-\BOOKMARK [1][-]{section.4.2}{Dijagram razreda}{chapter.4}% 16
-\BOOKMARK [1][-]{section.4.3}{Dijagram stanja}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.4}{Dijagram aktivnosti}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.5}{Dijagram komponenti}{chapter.4}% 19
-\BOOKMARK [0][-]{chapter.5}{Implementacija i korisnicko sucelje}{}% 20
-\BOOKMARK [1][-]{section.5.1}{Kori\235tene tehnologije i alati}{chapter.5}% 21
-\BOOKMARK [1][-]{section.5.2}{Ispitivanje programskog rje\235enja}{chapter.5}% 22
-\BOOKMARK [2][-]{subsection.5.2.1}{Ispitivanje komponenti}{section.5.2}% 23
-\BOOKMARK [2][-]{subsection.5.2.2}{Ispitivanje sustava}{section.5.2}% 24
-\BOOKMARK [1][-]{section.5.3}{Dijagram razmje\235taja}{chapter.5}% 25
-\BOOKMARK [1][-]{section.5.4}{Upute za pu\235tanje u pogon}{chapter.5}% 26
-\BOOKMARK [0][-]{chapter.6}{Zakljucak i buduci rad}{}% 27
-\BOOKMARK [0][-]{chapter*.4}{Popis literature}{}% 28
-\BOOKMARK [0][-]{chapter*.5}{Indeks slika i dijagrama}{}% 29
-\BOOKMARK [0][-]{chapter*.6}{Dodatak: Prikaz aktivnosti grupe}{}% 30
+\BOOKMARK [1][-]{section.2.1}{Tijek i opseg aplikacije}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Opcionalna pro\235irenja aplikacije}{section.2.1}% 4
+\BOOKMARK [1][-]{section.2.2}{Slicna rje\235enja problema}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.1}{Amy}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.2}{BandFriend}{section.2.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Primjeri u LaTeXu}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{Specifikacija programske potpore}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Funkcionalni zahtjevi}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{Obrasci uporabe}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{Sekvencijski dijagrami}{section.3.1}% 12
+\BOOKMARK [1][-]{section.3.2}{Ostali zahtjevi}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Arhitektura i dizajn sustava}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Baza podataka}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.1.1}{Opis tablica}{section.4.1}% 16
+\BOOKMARK [2][-]{subsection.4.1.2}{Dijagram baze podataka}{section.4.1}% 17
+\BOOKMARK [1][-]{section.4.2}{Dijagram razreda}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.3}{Dijagram stanja}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.4}{Dijagram aktivnosti}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.5}{Dijagram komponenti}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Implementacija i korisnicko sucelje}{}% 22
+\BOOKMARK [1][-]{section.5.1}{Kori\235tene tehnologije i alati}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.2}{Ispitivanje programskog rje\235enja}{chapter.5}% 24
+\BOOKMARK [2][-]{subsection.5.2.1}{Ispitivanje komponenti}{section.5.2}% 25
+\BOOKMARK [2][-]{subsection.5.2.2}{Ispitivanje sustava}{section.5.2}% 26
+\BOOKMARK [1][-]{section.5.3}{Dijagram razmje\235taja}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.4}{Upute za pu\235tanje u pogon}{chapter.5}% 28
+\BOOKMARK [0][-]{chapter.6}{Zakljucak i buduci rad}{}% 29
+\BOOKMARK [0][-]{chapter*.4}{Popis literature}{}% 30
+\BOOKMARK [0][-]{chapter*.5}{Indeks slika i dijagrama}{}% 31
+\BOOKMARK [0][-]{chapter*.6}{Dodatak: Prikaz aktivnosti grupe}{}% 32
