@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.config.security;
 import hr.fer.zemris.opp.giger.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<GrantedAuthority> authorityList = new ArrayList<>();
-        var user = userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("sad"));
+        var user = userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
         authorityList.add(() -> "USER");
 
         if (user.getMusician() != null)
@@ -30,5 +31,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             authorityList.add(() -> "ORGANIZER");
 
         return new User(user.getUsername(), user.getPasswordHash(), authorityList);
+    }
+
+    public hr.fer.zemris.opp.giger.domain.User getLoggedUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
     }
 }

@@ -13,29 +13,28 @@ public class Musician {
 
     @Id
     private Long id;
-
     private String bio;
     private boolean publicCalendar;
 
-    @ElementCollection(targetClass = Instrument.class)
+    @ElementCollection
     @CollectionTable(name = "instruments", joinColumns = @JoinColumn(name = "musician"))
     @Column(name = "plays", nullable = false)
     @Enumerated(EnumType.STRING)
     private List<Instrument> instruments;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany
     @JoinTable(name = "musician_bands",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_band")})
     private List<Band> bands;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany
     @JoinTable(name = "musician_gig_history",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
     private List<Gig> pastGigs;
 
-    @OneToMany(fetch = LAZY)
+    @OneToMany
     @JoinColumn(name = "fk_user")
     private List<Post> posts;
 

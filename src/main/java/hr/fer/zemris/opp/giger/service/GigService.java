@@ -30,7 +30,6 @@ public class GigService {
         gig.setDescription(gigCreationDto.getDescription());
         gig.setDateTime(gigCreationDto.getDateTime());
 
-
         return gigRepository.save(gig);
     }
 }
