@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import lombok.Data;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -12,7 +13,6 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "users")
-@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 public class User {
 
@@ -31,7 +31,15 @@ public class User {
     private String passwordHash;
     private String pictureUrl;
 
-    @ManyToMany(fetch = LAZY)
+    @OneToOne(fetch = LAZY)
+    @JsonIgnore
+    private Musician musician;
+
+    @OneToOne(fetch = LAZY)
+    @JsonIgnore
+    private Organizer organizer;
+
+    @ManyToMany
     @JoinTable(name = "conversation_user",
             joinColumns = {@JoinColumn(name = "fk_user")},
             inverseJoinColumns = {@JoinColumn(name = "fk_conversation")})

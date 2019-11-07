@@ -5,25 +5,29 @@ import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/reviews")
 public class ReviewController {
 
-    public void createReview(Review review){
-
+    @PostMapping("/create")
+    public void createReview(Review review) {
     }
 
-    public ReviewsDto getReviewsForBand(Band band){
+    @GetMapping("/band/{bandId}")
+    public ReviewsDto getReviewsForBand(Band band) {
         return null;
     }
 
-    public void getReviewsForOrganizer(Organizer organizer){
-
+    @GetMapping("/organizer/{organizerId}")
+    public void getReviewsForOrganizer(Organizer organizer) {
     }
 
-    public void getReviewsForGig(Gig gig){
-
+    @GetMapping("/gig/{gigId}")
+    public void getReviewsForGig(Gig gig) {
     }
-
 }

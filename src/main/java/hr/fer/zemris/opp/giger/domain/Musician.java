@@ -9,7 +9,10 @@ import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Data
-public class Musician extends User {
+public class Musician {
+
+    @Id
+    private Long id;
 
     private String bio;
     private boolean publicCalendar;
@@ -39,4 +42,7 @@ public class Musician extends User {
     @ElementCollection
     @CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
     private List<Occasion> occasions;
+
+    @OneToOne(fetch = LAZY)
+    private User user;
 }

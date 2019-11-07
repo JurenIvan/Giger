@@ -3,33 +3,42 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.User;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/band-administration")
+@RestController
+@RequestMapping("/band-administration")
 public class BandAdministrationController {
 
-    public void createBand(Band band){
+    @PostMapping("/create")
+    public void createBand(Band band) {
     }
 
-    public void inviteUser(Musician musician){
+    @PostMapping("/invite/")
+    public void inviteUser(Musician musician, Band band) {
     }
 
+    @PostMapping("/join")
     public void joinBand(Band band) {
     }
 
-    public void leaveBand(Band band){
+    @PostMapping("/leave/{bandId}")
+    public void leaveBand() {
     }
 
-    public void kickUser(Band band,Musician musician){
+    @PostMapping("/kick")
+    public void kickUser(Band band, Musician musician) {
     }
 
-    public void editProfile(Band band){
-
+    @PostMapping("/edit")
+    public void editProfile(Band band) {
     }
 
-    public List<User> seeInvitations(Band band) {
+    @PostMapping("/invites/{bandId}")
+    public List<User> seeInvitations() {
         return null;
     }
 }

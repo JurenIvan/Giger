@@ -16,7 +16,6 @@ public class GigService {
 
     private GigRepository gigRepository;
 
-
     public List<Gig> listGigsByType(GigType gigType) {
         return gigRepository.findAllByGigTypeAndPrivateGig(gigType, false);
     }

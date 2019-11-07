@@ -3,24 +3,29 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Occasion;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 @RestController
-public class MusicianController  {
+@RequestMapping("/musicians")
+public class MusicianController {
 
-    public List<Occasion> listOccasionsForMusician(Musician musician){
+    public List<Occasion> listOccasionsForMusician(Musician musician) {
         return null;
     }
 
-    public void editProfile(){
-
+    @PostMapping("/edit")
+    public void editProfile() {
     }
 
-   public MusicianProfileDto showProfile(Musician musician){
+    @GetMapping("/show/{musicianId}")
+    public MusicianProfileDto showProfile(Musician musician) {
         return null;
-   }
-
+    }
 
 
 }

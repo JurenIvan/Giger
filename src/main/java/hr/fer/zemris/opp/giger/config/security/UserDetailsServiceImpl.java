@@ -1,7 +1,5 @@
 package hr.fer.zemris.opp.giger.config.security;
 
-import hr.fer.zemris.opp.giger.repository.MusicianRepository;
-import hr.fer.zemris.opp.giger.repository.OrganizerRepository;
 import hr.fer.zemris.opp.giger.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,17 +17,17 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private UserRepository userRepository;
-    private MusicianRepository musicianRepository;
-    private OrganizerRepository organizerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<GrantedAuthority> authorityList = new ArrayList<>();
-        var user = userRepository.findAllByUsername(username).orElseThrow(() -> new UsernameNotFoundException("sad"));
+        var user = userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("sad"));
         authorityList.add(() -> "USER");
 
-        musicianRepository.findById(user.getId()).ifPresent(e -> authorityList.add(() -> "MUSICIAN"));
-        organizerRepository.findById(user.getId()).ifPresent(e -> authorityList.add(() -> "ORGANIZER"));
+        if (user.getMusician() != null)
+            authorityList.add(() -> "MUSICIAN");
+        if (user.getOrganizer() != null)
+            authorityList.add(() -> "ORGANIZER");
 
         return new User(user.getUsername(), user.getPasswordHash(), authorityList);
     }

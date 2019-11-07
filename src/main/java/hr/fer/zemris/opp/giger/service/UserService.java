@@ -8,13 +8,13 @@ import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
 import hr.fer.zemris.opp.giger.repository.UserRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -78,7 +78,7 @@ public class UserService {
         List<Band> bandsWithSimilarName = bandRepository.findAllByNameLike(findUsersDto.getName());
         List<Musician> musiciansFromBands = musicianRepository.findAllByBandsIn(bandsWithSimilarName);
 
-        usersWithSimilarName.addAll(musiciansFromBands);
+        usersWithSimilarName.addAll(musiciansFromBands.stream().map(Musician::getUser).collect(Collectors.toList()));
         return usersWithSimilarName;
     }
 }
