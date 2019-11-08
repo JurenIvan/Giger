@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.24)  8 NOV 2019 23:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.24)  8 NOV 2019 23:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,12 +1292,12 @@ Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
 
 
 Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
-[]\OT1/jkp/m/n/12 09.09.2013.|  
+[]\OT1/jkp/m/n/12 08.11.2019.|  
  []
 
 
-Overfull \hbox (6.59265pt too wide) in paragraph at lines 39--39
-[]\OT1/jkp/m/n/12 10.09.2013.|  
+Overfull \hbox (3.47266pt too wide) in paragraph at lines 39--39
+[]\OT1/jkp/m/n/12 08.11.2019|  
  []
 
 
@@ -1558,28 +1558,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
 
 ] [31]
-Overfull \hbox (5.08893pt too wide) in paragraph at lines 134--134
-[]\OT1/jkp/m/n/12 manager[]name|  
- []
-
-
-Overfull \hbox (5.1849pt too wide) in paragraph at lines 150--150
-[]\OT1/jkp/m/n/12 password[]hash|  
- []
-
-
-Overfull \hbox (4.7769pt too wide) in paragraph at lines 150--150
-[]\OT1/jkp/m/n/12 phone[]number|  
- []
-
-
-Overfull \hbox (8.31691pt too wide) in paragraph at lines 163--163
-[]\OT1/jkp/m/n/12 fk[]conversation|  
- []
-
-
-Overfull \hbox (3.28891pt too wide) in paragraph at lines 192--192
-[]\OT1/jkp/m/n/12 fk[]converation|  
+Overfull \hbox (1.98155pt too wide) in paragraph at lines 192--192
+[]\OT1/jkp/m/n/12 TIMESTAMP|  
  []
 
 [32] [33]
@@ -1587,7 +1567,17 @@ Overfull \hbox (1.98155pt too wide) in paragraph at lines 324--324
 []\OT1/jkp/m/n/12 TIMESTAMP|  
  []
 
-[34] [35]
+
+Overfull \hbox (1.98155pt too wide) in paragraph at lines 353--353
+[]\OT1/jkp/m/n/12 TIMESTAMP|  
+ []
+
+[34]
+Overfull \hbox (1.98155pt too wide) in paragraph at lines 369--369
+[]\OT1/jkp/m/n/12 TIMESTAMP|  
+ []
+
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
@@ -1748,7 +1738,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  12367 strings out of 492167
  172678 string characters out of 6125338
- 334944 words of memory out of 5000000
+ 334965 words of memory out of 5000000
  16135 multiletter control sequences out of 15000+600000
  53357 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1763,7 +1753,7 @@ ve/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><e:/FER/TeX Live/texlive/tex
 mf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb><e:/FER/TeX Live/texlive/texmf-
 dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><e:/FER/TeX Live/texlive/texmf-dist
 /fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (52 pages, 707572 bytes).
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (52 pages, 707992 bytes).
 PDF statistics:
  768 PDF objects out of 1000 (max. 8388607)
  695 compressed objects within 7 object streams
