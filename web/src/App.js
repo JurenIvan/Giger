@@ -1,25 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Header from "./components/Header";
+import Login from "./components/Login";
 import './App.css';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [loadingUser, setLoadingUser] = React.useState(true);
+
+  React.useEffect(() => {
+    fetch("/user")
+      .then(response => {
+         if (response.status !== 401) {
+           setLoadingUser(false);
+           setIsLoggedIn(true);
+         } else {
+           setLoadingUser(false);
+         }
+       })
+  }, []);
+
+  if (loadingUser) {
+    return <div>Loading...</div>
+  }
+
+  function onLogin() {
+    setIsLoggedIn(true)
+  }
+
+  function onLogut() {
+    setIsLoggedIn(false);
+  }
+
+  if (!isLoggedIn) {
+    return (
+      <div className="App">
+        <Login onLogin={onLogin}/>
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header onLogout={onLogut}/>
+      <div className="App">
+        <Switch>
+          <Route path='/Logout' exact component={Login}/>
+          <Route path='/Login' exact component={Login}/>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
