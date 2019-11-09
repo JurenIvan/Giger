@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -12,6 +13,6 @@ import java.util.List;
 public class MusicianDto {
 
     public String bio;
-    private List<Long> instrumentIdList;
+    private List<Long> instrumentIdList = new ArrayList<>();
     private boolean publicCalendar;
 }
