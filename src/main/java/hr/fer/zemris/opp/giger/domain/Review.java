@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
-import static javax.persistence.FetchType.EAGER;
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -18,13 +18,13 @@ public class Review {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String contentOfReviewForMusician;
+    private String contentOfReviewForBand;
     private String contentOfReviewForOrganizer;
-    private Integer gradeMusician;
+    private Integer gradeBand;
     private Integer gradeOrganizer;
 
     private LocalDateTime created;
 
-    @ManyToOne(fetch = EAGER)
-    private User author;
+    @ManyToOne(fetch = LAZY)
+    private Person author;
 }

@@ -16,5 +16,4 @@ public class Occasion {
     private LocalDate localDate;
     private String description;
     private boolean personalOccasion;
-
 }

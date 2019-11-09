@@ -24,5 +24,5 @@ public class Message {
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "fk_sender")
     @NotNull
-    private User sender;
+    private Person sender;
 }

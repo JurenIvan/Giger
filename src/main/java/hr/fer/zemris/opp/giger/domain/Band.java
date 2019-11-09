@@ -24,6 +24,7 @@ public class Band {
     private String bio;
     @NotNull
     private LocalDate formedDate;
+    private String pictureUrl;
 
     //todo members
     @ManyToOne(fetch = LAZY)
@@ -40,15 +41,6 @@ public class Band {
 
     @ManyToMany(fetch = LAZY)
     private List<Musician> invited;
-
-    @OneToMany
-    @JoinTable(name = "band_gig_history",
-            joinColumns = {@JoinColumn(name = "fk_band")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
-
-    private List<Gig> historyGigs;
-
-    private String pictureUrl;
 
     @OneToMany(fetch = LAZY)
     @JoinColumn(name = "fk_band")

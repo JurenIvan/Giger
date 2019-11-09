@@ -22,5 +22,5 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
-    private User author;
+    private Person author;
 }
