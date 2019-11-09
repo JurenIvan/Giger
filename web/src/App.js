@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Login from "./components/Login";
+import register from "./components/register";
 import './App.css';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Switch>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
+          <Route path='/register' exact component={register}/>
         </Switch>
       </div>
     </BrowserRouter>
