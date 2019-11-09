@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -33,4 +34,17 @@ public class Musician {
     @ElementCollection
     @CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
     private List<Occasion> occasions;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Musician)) return false;
+        Musician musician = (Musician) o;
+        return Objects.equals(id, musician.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

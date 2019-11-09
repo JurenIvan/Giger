@@ -4,6 +4,7 @@ import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandProfileDto;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,8 +29,10 @@ public class Band {
     private String bio;
     @NotNull
     private LocalDate formedDate;
+    @Length(max = 10000)
     private String pictureUrl;
     private Location home;
+    private double maxDistance;
 
     //todo members
     @ManyToOne(fetch = LAZY)

@@ -21,8 +21,8 @@ public class BandAdministrationController {
     private BandService bandService;
 
     @PostMapping("/create")
-    public void createBand(BandCreationDto band) {
-        bandService.createBand(band);
+    public void createBand(@RequestBody BandCreationDto bandCreationDto) {
+        bandService.createBand(bandCreationDto);
     }
 
     @PostMapping("/invite")
@@ -46,12 +46,12 @@ public class BandAdministrationController {
     }
 
     @PostMapping("/kick")
-    public void kickMusician(KickDto kickDto) {
+    public void kickMusician(@RequestBody KickDto kickDto) {
         bandService.kickMusician(kickDto);
     }
 
     @PostMapping("/edit")
-    public void editProfile(BandProfileDto bandProfileDto) {
+    public void editProfile(@RequestBody BandProfileDto bandProfileDto) {
         bandService.editProfile(bandProfileDto);
     }
 
