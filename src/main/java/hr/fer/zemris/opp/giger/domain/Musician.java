@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -47,4 +48,5 @@ public class Musician {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

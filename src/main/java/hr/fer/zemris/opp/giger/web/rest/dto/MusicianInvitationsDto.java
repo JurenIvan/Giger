@@ -10,10 +10,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MusicianProfileDto {
+public class MusicianInvitationsDto {
 
+    private long id;
     private String name;
-    private List<Instrument> instrumentList;
     private String pictureUrl;
-
+    private String bio;
+    private List<Instrument> instrumentList;
 }

@@ -1,11 +1,8 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.service.BandService;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.KickDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianInvitationsDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -51,17 +48,17 @@ public class BandAdministrationController {
     }
 
     @PostMapping("/edit")
-    public void editProfile(@RequestBody BandProfileDto bandProfileDto) {
-        bandService.editProfile(bandProfileDto);
-    }
-
-    @PostMapping("/invites/{bandId}")
-    public List<Musician> listInvitations(@PathVariable long bandId) {
-        return bandService.listInvitations(bandId);
+    public void editProfile(@RequestBody BandEditProfileDto bandEditProfileDto) {
+        bandService.editProfile(bandEditProfileDto);
     }
 
     @PostMapping("/change-leader")
     public void changeLeader(@RequestBody MusicianBandDto musicianBandDto) {
         bandService.changeLeader(musicianBandDto);
+    }
+
+    @PostMapping("/invites/{bandId}")
+    public List<MusicianInvitationsDto> listInvitations(@PathVariable long bandId) {
+        return bandService.listInvitations(bandId);
     }
 }

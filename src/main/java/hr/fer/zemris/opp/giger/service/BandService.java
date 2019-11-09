@@ -5,18 +5,19 @@ import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.KickDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
+import hr.fer.zemris.opp.giger.repository.PersonRepository;
+import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.BAND_NAME_NOT_UNIQUE;
+import static java.util.stream.Collectors.toList;
 
 @Service
 @AllArgsConstructor
@@ -25,6 +26,7 @@ public class BandService {
     private BandRepository bandRepository;
     private UserDetailsServiceImpl userDetailsService;
     private MusicianRepository musicianRepository;
+    private PersonRepository personRepository;
 
     public void createBand(BandCreationDto bandCreationDto) {
         if (bandRepository.findByName(bandCreationDto.getName()).isPresent()) {
@@ -101,25 +103,30 @@ public class BandService {
         bandRepository.save(band);
     }
 
-    public void editProfile(BandProfileDto bandProfileDto) {
-        Band band = bandRepository.findById(bandProfileDto.getBandId()).orElseThrow(() -> new GigerException(ErrorCode.NO_SUCH_BAND));
+    public void editProfile(BandEditProfileDto bandEditProfileDto) {
+        Band band = bandRepository.findById(bandEditProfileDto.getBandId()).orElseThrow(() -> new GigerException(ErrorCode.NO_SUCH_BAND));
         Musician loggedMusician = userDetailsService.getLoggedMusician();
 
         if (!band.getMembers().contains(loggedMusician))
             throw new GigerException(ErrorCode.ONLY_MEMBERS_CAN_EDIT_BAND);
 
-        band.editProfile(bandProfileDto);
+        band.editProfile(bandEditProfileDto);
         bandRepository.save(band);
     }
 
-    public List<Musician> listInvitations(long bandId) {
+    public List<MusicianInvitationsDto> listInvitations(long bandId) {
         Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(ErrorCode.NO_SUCH_BAND));
         Musician loggedMusician = userDetailsService.getLoggedMusician();
 
         if (!band.getMembers().contains(loggedMusician))
             throw new GigerException(ErrorCode.ONLY_MEMBERS_CAN_SEE_INVITATIONS);
 
-        return band.getInvited();
+        List<MusicianInvitationsDto> result = new ArrayList<>();
+        for (var musician : band.getInvited()) {
+            Person person = personRepository.getOne(musician.getId());
+            result.add(new MusicianInvitationsDto(musician.getId(), person.getUsername(), person.getPictureUrl(), musician.getBio(), musician.getInstruments()));
+        }
+        return result;
     }
 
 
@@ -135,5 +142,15 @@ public class BandService {
         band.setLeader(newLeader);
 
         bandRepository.save(band);
+    }
+
+    //needs some kind of smart algorithm to
+    public List<BandPreviewDto> listAvailableBands(FilterBandDto filterBandDto) {
+        return bandRepository.findAllByOccasionsNotBetween(filterBandDto.getSpecificDateFirst(), filterBandDto.getSpecificDateSecond())
+                .stream().map(e -> e.toBandPreview()).collect(toList());
+    }
+
+    public List<BandPreviewDto> listBands(String name) {
+        return bandRepository.findAllByNameLike(name).stream().map(e -> e.toBandPreview()).collect(toList());
     }
 }

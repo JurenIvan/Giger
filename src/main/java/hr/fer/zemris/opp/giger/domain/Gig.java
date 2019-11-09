@@ -39,9 +39,6 @@ public class Gig {
     private boolean finalDealAchieved;
     private boolean privateGig;
 
-    @ManyToOne(fetch = LAZY)
-    private Band finalBand;
-
     @ManyToMany(fetch = LAZY, cascade = ALL)
     @JoinTable(name = "review_gig",
             joinColumns = {@JoinColumn(name = "fk_gig")},

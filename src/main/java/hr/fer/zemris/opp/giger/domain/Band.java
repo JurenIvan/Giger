@@ -2,7 +2,8 @@ package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandProfileDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -63,6 +64,10 @@ public class Band {
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
 
+    @ElementCollection
+    @CollectionTable(name = "band_occasions", joinColumns = @JoinColumn(name = "band_id"))
+    private List<Occasion> occasions;
+
     public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {
         Band band = new Band();
 
@@ -105,16 +110,21 @@ public class Band {
         backUpMembers.remove(loggedMusician);
     }
 
-    public void editProfile(BandProfileDto bandProfileDto) {
-        if (bandProfileDto.getBio() != null) {
-            this.bio = bandProfileDto.getBio();
+    public void editProfile(BandEditProfileDto bandEditProfileDto) {
+        if (bandEditProfileDto.getBio() != null) {
+            this.bio = bandEditProfileDto.getBio();
         }
-        if (bandProfileDto.getPictureUrl() != null) {
-            this.pictureUrl = bandProfileDto.getPictureUrl();
+        if (bandEditProfileDto.getPictureUrl() != null) {
+            this.pictureUrl = bandEditProfileDto.getPictureUrl();
         }
-        if (bandProfileDto.getLocation() != null) {
-            this.home = bandProfileDto.getLocation();
+        if (bandEditProfileDto.getLocation() != null) {
+            this.home = bandEditProfileDto.getLocation();
         }
-        bandProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));
+        bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));
     }
+
+    public BandPreviewDto toBandPreview() {
+        return new BandPreviewDto(id, name, pictureUrl, acceptableGigTypes);
+    }
+
 }

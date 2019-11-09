@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.PersonDto;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -21,4 +22,8 @@ public class Person {
     private String phoneNumber;
     @Length(max = 10000)
     private String pictureUrl;
+
+    public PersonDto toDto() {
+        return new PersonDto(id, username, pictureUrl);
+    }
 }

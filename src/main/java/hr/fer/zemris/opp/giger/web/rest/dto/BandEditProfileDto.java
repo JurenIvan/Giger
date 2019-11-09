@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class BandProfileDto {
+public class BandEditProfileDto {
 
     private Long bandId;
     private String bio;
