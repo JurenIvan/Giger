@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import hr.fer.zemris.opp.giger.web.rest.dto.MessageDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MessagePreview;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,11 +37,7 @@ public class Message {
     private Band senderBand;
 
 
-    public MessageDto toMessageDto() {
-        if (sender != null) {
-            return new MessageDto(id, content, sentTime, sender.getUsername(), sender.getPictureUrl());
-        } else {
-            return new MessageDto(id, content, senderBand.getName(), sentTime, sender.getPictureUrl());
-        }
+    public MessagePreview toDto() {
+        return new MessagePreview(id, content, sentTime, sender.toDto(), senderBand.toDto());
     }
 }

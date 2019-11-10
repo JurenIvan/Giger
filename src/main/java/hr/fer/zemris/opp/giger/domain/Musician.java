@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -47,6 +47,10 @@ public class Musician {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public MusicianPreviewDto toDto() {
+        return new MusicianPreviewDto(id, bio, publicCalendar, instruments);
     }
 
 }

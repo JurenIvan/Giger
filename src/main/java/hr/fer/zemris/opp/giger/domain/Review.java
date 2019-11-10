@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -27,4 +28,8 @@ public class Review {
 
     @ManyToOne(fetch = LAZY)
     private Person author;
+
+    public ReviewPreviewDto toDto() {
+        return new ReviewPreviewDto(id, contentOfReviewForBand, contentOfReviewForOrganizer, gradeBand, gradeOrganizer, created, author.toDto());
+    }
 }

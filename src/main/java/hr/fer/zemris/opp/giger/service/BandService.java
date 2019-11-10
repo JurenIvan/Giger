@@ -5,6 +5,7 @@ import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.Occasion;
 import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
@@ -146,11 +147,17 @@ public class BandService {
 
     //needs some kind of smart algorithm to
     public List<BandPreviewDto> listAvailableBands(FilterBandDto filterBandDto) {
-        return bandRepository.findAllByOccasionsNotBetween(filterBandDto.getSpecificDateFirst(), filterBandDto.getSpecificDateSecond())
-                .stream().map(e -> e.toBandPreview()).collect(toList());
+        Occasion o1 = new Occasion();
+        Occasion o2 = new Occasion();
+        o1.setLocalDate(filterBandDto.getSpecificDateFirst());
+        o2.setLocalDate(filterBandDto.getSpecificDateSecond());
+
+
+        return bandRepository.findAll()
+                .stream().map(e -> e.toDto()).collect(toList());
     }
 
     public List<BandPreviewDto> listBands(String name) {
-        return bandRepository.findAllByNameLike(name).stream().map(e -> e.toBandPreview()).collect(toList());
+        return bandRepository.findAllByNameLike(name).stream().map(e -> e.toDto()).collect(toList());
     }
 }

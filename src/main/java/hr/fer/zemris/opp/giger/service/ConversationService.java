@@ -9,7 +9,7 @@ import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.ConversationRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.ConversationDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -35,7 +35,7 @@ public class ConversationService {
     }
 
 
-    public ConversationDto loadConversation(Long conversationId) {
+    public ConversationPreviewDto loadConversation(Long conversationId) {
         Conversation conversation = conversationRepository.findConversationById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
         Person loggedInPerson = userDetailsService.getLoggedPerson();
@@ -69,18 +69,18 @@ public class ConversationService {
         throw new GigerException(NOT_IN_A_CONVERSATION);
     }
 
-    public List<ConversationDto> loadAllPersonalConversations() {
+    public List<ConversationPreviewDto> loadAllPersonalConversations() {
         Person person = userDetailsService.getLoggedPerson();
         return conversationRepository.findAllByParticipantsContaining(person).stream().map(e -> e.toDto()).collect(toList());
     }
 
-    public List<ConversationDto> loadAllBandsConversations() {
+    public List<ConversationPreviewDto> loadAllBandsConversations() {
         Musician musician = userDetailsService.getLoggedMusician();
         List<Band> bands = bandRepository.findAllByMembersContaining(musician);
         return conversationRepository.findAllByBandIn(bands).stream().map(e -> e.toDto()).collect(toList());
     }
 
-    public List<ConversationDto> loadAllBandConversations(long bandId) {
+    public List<ConversationPreviewDto> loadAllBandConversations(long bandId) {
         Musician musician = userDetailsService.getLoggedMusician();
         Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
         if (!band.getMembers().contains(musician))

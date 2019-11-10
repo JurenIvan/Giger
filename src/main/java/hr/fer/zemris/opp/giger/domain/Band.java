@@ -79,6 +79,7 @@ public class Band {
         band.setPictureUrl(bandCreationDto.getPictureUrl());
         band.setLeader(loggedMusician);
         band.setMembers(List.of(loggedMusician));
+
         return band;
     }
 
@@ -123,7 +124,7 @@ public class Band {
         bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));
     }
 
-    public BandPreviewDto toBandPreview() {
+    public BandPreviewDto toDto() {
         return new BandPreviewDto(id, name, pictureUrl, acceptableGigTypes);
     }
 

@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.service;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.GigRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
 import lombok.AllArgsConstructor;
@@ -15,13 +16,14 @@ import java.util.List;
 public class GigService {
 
     private GigRepository gigRepository;
+    private BandRepository bandRepository;
 
     public List<Gig> listGigsByType(GigType gigType) {
         return gigRepository.findAllByGigTypeAndPrivateGig(gigType, false);
     }
 
     public List<Gig> listGigsByBand(Band band) {
-        return gigRepository.findAllByFinalBandAndPrivateGig(band, false);
+        return null;
     }
 
     public Gig createGig(GigCreationDto gigCreationDto) {

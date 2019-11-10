@@ -4,8 +4,7 @@ import hr.fer.zemris.opp.giger.domain.Conversation;
 import hr.fer.zemris.opp.giger.domain.Message;
 import hr.fer.zemris.opp.giger.service.ConversationService;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.ConversationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.ConversationRequestDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +23,7 @@ public class ConversationController {
     }
 
     @PostMapping("{conversationId}")
-    public ConversationDto loadConversation(@PathVariable Long conversationId) {
+    public ConversationPreviewDto loadConversation(@PathVariable Long conversationId) {
         return conversationService.loadConversation(conversationId);
     }
 
@@ -33,7 +32,7 @@ public class ConversationController {
     }
 
     @GetMapping("/get")
-    public List<ConversationDto> loadAllConversations() {
+    public List<ConversationPreviewDto> loadAllConversations() {
         return null;
     }
 

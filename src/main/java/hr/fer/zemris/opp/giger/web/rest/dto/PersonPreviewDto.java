@@ -4,16 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class ConversationDto {
+public class PersonPreviewDto {
 
-    private List<PersonDto> participantsId;
-    private BandPreviewDto bandId;
+    private long id;
+    private String name;
     private String pictureUrl;
-    private List<MessageDto> messages;
 
 }

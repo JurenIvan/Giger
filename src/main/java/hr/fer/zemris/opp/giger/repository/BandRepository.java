@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.repository;
 
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.Occasion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +17,8 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 
     Optional<Band> findByName(String name);
 
-    List<Band> findAllByOccasionsNotBetween(LocalDate before, LocalDate after);
+    List<Band> findAll();
 
     List<Band> findAllByMembersContaining(Musician musician);
+
 }

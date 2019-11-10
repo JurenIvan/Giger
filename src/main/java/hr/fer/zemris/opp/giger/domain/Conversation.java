@@ -1,7 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.ConversationDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,15 +50,15 @@ public class Conversation {
         return new Conversation(null, other.getTitle(), other.getPictureUrl(), List.of(creator), null, null);
     }
 
-    public ConversationDto toDto() {
-        return new ConversationDto(participants.stream().map(e -> e.toDto()).collect(toList()), band.toBandPreview(), pictureUrl, messages.stream().map(e -> e.toMessageDto()).collect(toList()));
-    }
-
     public void removeParticipants(Person person) {
         participants.remove(person);
     }
 
     public void addMessage(NewMessageDto newMessageDto, Person sender, Band senderBand) {
         this.messages.add(new Message(null, newMessageDto.getContent(), LocalDateTime.now(), sender, senderBand));
+    }
+
+    public ConversationPreviewDto toDto() {
+        return new ConversationPreviewDto(participants.stream().map(e -> e.toDto()).collect(toList()), band.toDto(), pictureUrl, messages.stream().map(e -> e.toDto()).collect(toList()));
     }
 }

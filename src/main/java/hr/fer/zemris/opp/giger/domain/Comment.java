@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.CommentPreviewDto;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,4 +24,8 @@ public class Comment {
     @ManyToOne(fetch = FetchType.EAGER)
     @NotNull
     private Person author;
+
+    public CommentPreviewDto toDto() {
+        return new CommentPreviewDto(id, content, postedOn, author.toDto());
+    }
 }
