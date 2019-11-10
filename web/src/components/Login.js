@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import * as Helpers from '../Utils/HelperMethods'
+import {Link} from "react-router-dom";
 
 
 export default class Login extends Component {
@@ -8,13 +10,15 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: "",
-      password: ""
+      username: "",
+      password: "",
+      token: ""
     };
+    this.handleLoginToken = this.handleLoginToken.bind(this);
   }
 
   validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
+    return this.state.username.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
@@ -23,9 +27,25 @@ export default class Login extends Component {
     });
   }
 
+  handleLoginToken(value) {
+    let substringJson = value.length - 4
+    this.setState({token: value.substring(14, substringJson)})
+  } 
+
+ 
+
   handleSubmit = event => {
     event.preventDefault();
+  
+    (async () => {     
+       await Helpers.sendLoginInfo(this.state.username, this.state.password, this.handleLoginToken);
+    })();
+  
   }
+
+   
+  
+
 
   render() {
     return (
@@ -33,14 +53,14 @@ export default class Login extends Component {
         <div className="Login">
           <Form onSubmit={this.handleSubmit}>
             <div className = "col-1">
-                <Form.Label controlId="email" > E-mail: </Form.Label>
+                <Form.Label controlId="username" > username: </Form.Label>
             </div>
             <div className = "col-6">
-            <Form.Group controlId="email" bsSize="large">
+            <Form.Group controlId="username">
                 <Form.Control
                   autoFocus
-                  type="email"
-                  value={this.state.email}
+                  type="text"
+                  value={this.state.username}
                   onChange={this.handleChange}
                 />
               </Form.Group>
@@ -75,20 +95,17 @@ export default class Login extends Component {
                 block
                 bsSize="large"
               >
-                Register
-              </Button>
-            </div>
-
-            <div className = "col-8">
-              <Button
-                block
-                bsSize="large"
-              >
                 Continue as Guest
               </Button>
             </div>
           </Form>
-        </div> 
+        </div>
+        {
+          this.state.token == '' ? null:
+          <div className="container"> 
+           {this.state.token}
+          </div>
+        }
       </div>
     );
   }

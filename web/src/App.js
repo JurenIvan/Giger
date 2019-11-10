@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import register from "./components/register";
 import './App.css';
+import Home from './components/Home';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -46,6 +47,7 @@ function App() {
       <Header onLogout={onLogut}/>
       <div className="App">
         <Switch>
+          <Route path='/home' exact component={Home}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={register}/>
