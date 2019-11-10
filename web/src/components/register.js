@@ -49,18 +49,18 @@ export default class register extends React.Component{
         return (
             <div className="container" >
             
-            <div class="register">
+            <div className="register">
 
             <h1>Hello, welcome to Giger!</h1>
             <Form onSubmit={this.handleSubmit}>
 
 
             
-                <div class="col-1">
+                <div className="col-1">
                     <Form.Label controlId="firstName" > First name: </Form.Label>
                 </div> 
 
-                <div class="col-6">
+                <div className="col-6">
                     <Form.Group controlId="firstName" bsSize="large">
                     <Form.Control
                     autoFocus
@@ -71,11 +71,11 @@ export default class register extends React.Component{
                     </Form.Group>
                 </div>
 
-                <div class="col-1">
+                <div className="col-1">
                     <Form.Label controlId="lastName" > Last name: </Form.Label>
                 </div> 
 
-                <div class="col-6">
+                <div className="col-6">
                     <Form.Group controlId="lastName" bsSize="large">
                     <Form.Control
                     autoFocus
@@ -87,11 +87,11 @@ export default class register extends React.Component{
                 </div>
 
 
-                <div class="col-1">
+                <div className="col-1">
                     <Form.Label controlId="userName" > Username: </Form.Label>
                 </div> 
 
-                <div class="col-6">
+                <div className="col-6">
                     <Form.Group controlId="userName" bsSize="large">
                     <Form.Control
                     autoFocus
@@ -102,11 +102,11 @@ export default class register extends React.Component{
                     </Form.Group>
                 </div>
 
-                <div class="col-1">
+                <div className="col-1">
                     <Form.Label controlId="eMail" > Email: </Form.Label>
                 </div> 
 
-                <div class="col-6">
+                <div className="col-6">
                     <Form.Group controlId="eMail" bsSize="large">
                     <Form.Control
                     autoFocus
@@ -118,11 +118,11 @@ export default class register extends React.Component{
                     </Form.Group>
                 </div>
 
-                <div class="col-1">
+                <div className="col-1">
                     <Form.Label controlId="password" > Password: </Form.Label>
                 </div> 
 
-                <div class="col-6">
+                <div className="col-6">
                     <Form.Group controlId="password" bsSize="large">
                     <Form.Control
                     autoFocus

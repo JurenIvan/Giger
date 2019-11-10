@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import register from "./components/register";
 import './App.css';
 import Home from './components/Home';
+import Cookies from 'js-cookie'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -47,7 +48,10 @@ function App() {
       <Header onLogout={onLogut}/>
       <div className="App">
         <Switch>
-          <Route path='/home' exact component={Home}/>
+          <Route path='/home'
+            render={() => (
+              Cookies.get('Bearer')?
+              <Home/> : alert("Please log in!"))}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={register}/>

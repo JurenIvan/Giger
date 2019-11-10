@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import * as Helpers from '../Utils/HelperMethods'
 import {Link} from "react-router-dom";
+import Cookies from 'js-cookie';
 
 
 export default class Login extends Component {
@@ -28,8 +29,9 @@ export default class Login extends Component {
   }
 
   handleLoginToken(value) {
-    let substringJson = value.length - 4
-    this.setState({token: value.substring(14, substringJson)})
+    let substringJson = value.length - 4;
+    Cookies.set('Bearer',value.substring(14, substringJson));
+    console.log(Cookies.get());
   } 
 
  

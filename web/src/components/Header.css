@@ -4,19 +4,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: solid 1px #cccccc;
-    background-color: white;
+    background-image: url("../images/background.jpg");
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    height: 100px;
 }
 
 .Header a {
     color: black;
     padding: 5px 10px;
     margin: 0 10px;
+    text-decoration-style: solid;
     text-decoration: none;
 }
 
 .Header a:hover {
-    background: #dddddd;
+    background:lightblue;
 }
 
 .Header button {
