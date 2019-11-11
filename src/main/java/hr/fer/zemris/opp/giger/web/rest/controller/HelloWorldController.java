@@ -1,4 +1,4 @@
-package hr.fer.zemris.opp.giger.controller;
+package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

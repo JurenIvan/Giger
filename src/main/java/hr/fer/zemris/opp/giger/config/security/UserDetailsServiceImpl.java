@@ -1,28 +1,40 @@
 package hr.fer.zemris.opp.giger.config.security;
 
-import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.repository.UserRepository;
-import hr.fer.zemris.opp.giger.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private UserRepository userRepository;
-    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        var user = userRepository.findAllByUsername(username).orElseThrow(() -> new UsernameNotFoundException("sad"));
-        return new User(user.getUsername(), user.getPasswordHash(), new ArrayList());
+        List<GrantedAuthority> authorityList = new ArrayList<>();
+        var user = userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
+        authorityList.add(() -> "USER");
+
+        if (user.getMusician() != null)
+            authorityList.add(() -> "MUSICIAN");
+        if (user.getOrganizer() != null)
+            authorityList.add(() -> "ORGANIZER");
+
+        return new User(user.getUsername(), user.getPasswordHash(), authorityList);
+    }
+
+    public hr.fer.zemris.opp.giger.domain.User getLoggedUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
     }
 }
