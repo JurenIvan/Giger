@@ -23,18 +23,18 @@
     background:lightblue;
 }
 
-.Header button {
-    background: none;
-    border: 2px solid #aaa;
-    padding: 5px 12px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.Header button:hover {
-    background-color: #aaa;
-}
 
 .Header button:disabled {
     color: #ddd;
 }
+
+.Header .dropdown{
+    border: none;
+    margin: 0 0;
+    color: black;
+    padding: 7px 10px;
+    text-decoration-style: solid;
+    text-decoration: none;
+}
+
+

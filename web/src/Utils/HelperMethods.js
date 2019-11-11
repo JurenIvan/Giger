@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 export function sendRegisterInfo (email, username, phone, password) {
     let xhttp = new XMLHttpRequest();
     let url = 'https://giger-backend-dev.herokuapp.com/api/register';
@@ -27,7 +29,9 @@ export function sendLoginInfo (username, password, f) {
     xhr.send(params);
     xhr.onload = function() {
         if (xhr.status != 200) { // analyze HTTP status of the response
-            console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+            console.log(`Error ${xhr.status}: ${xhr.statusText}`); 
+            alert("Unsuccesfull login :(");
+    // e.g. 404: Not Found
         } else { // show the result
             console.log(`Done, got ${xhr.response}`); // responseText is the server
             let retVal = JSON.stringify(xhr.response);
@@ -68,7 +72,7 @@ export function pingHelloWorld(f) {
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Authorization',
-    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrcm1layIsImV4cCI6MTU3MzQyMTQ1MCwiaWF0IjoxNTczNDE3ODUwfQ._hnpPxk65N6aY9fZEA2UykADHg1BmtQWuuAGQjYMcz8')
+    'Bearer ' + Cookies.get('Bearer'))
     
     xhr.send();
 

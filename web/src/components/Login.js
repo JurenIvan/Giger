@@ -32,6 +32,8 @@ export default class Login extends Component {
     let substringJson = value.length - 4;
     Cookies.set('Bearer',value.substring(14, substringJson));
     console.log(Cookies.get());
+    window.location.href='/home'
+    
   } 
 
  
