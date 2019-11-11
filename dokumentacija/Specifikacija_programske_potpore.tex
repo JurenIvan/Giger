@@ -30,7 +30,7 @@
 			\item  \underbar{Neprijavljeni/neregistrirani korisnik (javnost) može:}
 			
 			\begin{packed_enum}
-				\item pregledati javne nastupe u geografskoj blizini
+				\item pregledati javne događaje
 				\item registrirati se u sustav, za to koristi korisničko ime, lozinku i e-mail adresu
 			
 			\end{packed_enum}
@@ -140,31 +140,31 @@
 				\begin{packed_item}
 					
 					\item \textbf{Glavni sudionik: } Javnost
-					\item  \textbf{Cilj:} Vidjeti listu javnih događaja u blizini
+					\item  \textbf{Cilj:} Vidjeti listu javnih evenata na aplikaciji
 					\item  \textbf{Sudionici:} Baza podataka
 					\item  \textbf{Preduvjet:} -
 					\item  \textbf{Opis osnovnog tijeka:}
 					
 					\item[] \begin{packed_enum}
-						\item Javnost odlazi na stranicu aplikacije
-						\item Na početnoj stranici nalazi se prikaz javnih nastupa bendova
+						\item Javnost odlazi na početnu stranicu aplikacije
+						\item Aplikacija prikazuje javne događaje
 					\end{packed_enum}
 					
 				\end{packed_item}
+			
 
 				\noindent \underbar{\textbf{UC2 - Pregled profila benda}}
 				\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Javnost
-						\item  \textbf{Cilj:} Pregledati profil benda
-						\item  \textbf{Sudionici:} baza podataka,bend
-						\item  \textbf{Preduvjet:} /
+						\item  \textbf{Cilj:} Vidjeti više informacija o bendu
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} -
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-							\item Javnost odabire profil benda koji želi pregledati
-							\item Aplikacija prikazuje profil be
-							\item Aplikacija korisniku prikaže recenziju eventa
+							\item Javnost odabire bend čiji profil želi pregledati
+							\item Aplikacija prikazuje profil odabranog benda
 						\end{packed_enum}
 				
 				\end{packed_item}
@@ -174,16 +174,17 @@
 				\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Javnost
-						\item  \textbf{Cilj:} Omogućiti pregled recenzija javnosti
-						\item  \textbf{Sudionici:} baza podataka
-						\item  \textbf{Preduvjet:} /
+						\item  \textbf{Cilj:} Vidjeti pregled recenzija
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} -
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Javna osoba pristupi popisu recenzija evenata
-							\item Osoba odabere recenziju koju želi vidjeti
-							\item Aplikacija korisniku prikaže recenziju eventa
+							\item Javnost odabire popis recenzija
+							\item Aplikacija prikaže popis recenzija
+							\item Javnost odabere recenziju koju želi vidjeti
+							\item Aplikacija korisniku prikaže odabranu recenziju
 						\end{packed_enum}
 				\end{packed_item}
 
@@ -191,16 +192,17 @@
 				\noindent \underbar{\textbf{UC4 - Registracija}}
 				\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: }Korisnik
+						\item \textbf{Glavni sudionik: }Javnost
 						\item  \textbf{Cilj:} Registrirati se
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} /
+						\item  \textbf{Preduvjet:} -
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Korisnik odabire opciju za registraciju
-							\item Korisnik unosi potrebne korisničke podatke
+							\item Javnost odabire opciju za registraciju
+							\item Aplikacija korisniku daje formu za registraciju
+							\item Javnost unosi tražene korisničke podatke
 							\item Korisnik prima obavijest o uspješnoj registraciji
 						\end{packed_enum}
 					
@@ -208,7 +210,7 @@
 						
 						\item[] \begin{packed_item}
 	
-							\item[1.a] Odabir već zauzetog korisničkog imena i/ili e-maila, unos podataka u        nedozvoljenom format ili pružanje neispravnog e-maila.
+							\item[2.a] Odabir već zauzetog korisničkog imena i/ili e-maila, unos podataka u nedozvoljenom format.
 							\item[] \begin{packed_enum}
 								
 								\item  Sustav obavještava korisnika o neuspjelom upisu i vraća ga na stranicu za registraciju.
@@ -222,20 +224,20 @@
 				\noindent \underbar{\textbf{UC5 - Prijava u sustav}}
 				\begin{packed_item}
 	
-						\item \textbf{Glavni sudionik: } Administrator, korisnik
-						\item  \textbf{Cilj:} Korištenje sustava
-						\item  \textbf{Sudionici:} baza podataka
-						\item  \textbf{Preduvjet:} Autorizacija korisničkog imena i lozinke
+						\item \textbf{Glavni sudionik: } Javnost
+						\item  \textbf{Cilj:} Korištenje aplikacije
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Napravljena registracija
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 	
-							\item Korisnik unosi korisničko ime i lozinku
-							\item Baza autorizira unesene podatke
+							\item Javnost unosi korisničko ime i lozinku
+							\item Baza autorizira unesene podatke te dozvoljava korisniku korištenje aplikacije ako su podaci ispravni
+							\item 
 							\item[] \begin{packed_enum}
 								
-								\item Dozvoljava korisniku korištenje sustava ako su podaci ispravni
-								\item   Ne dozvoljava korisniku korištenje sustava ako su podaci ne ispravni
+								\item Ne dozvoljava Javnosti korištenje aplikacije ako su podaci neispravni
 								
 							\end{packed_enum}
 						\end{packed_enum}
@@ -246,8 +248,8 @@
 				\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: }Administrator
-						\item  \textbf{Cilj:} Pregled dodanih instrumenata od strane glazbenika.Uklanjanje nepotrebnih zapisa u bazi podataka (npr. "Gitara", "gitara")
-						\item  \textbf{Sudionici:} baza podataka
+						\item  \textbf{Cilj:} Pregled dodanih instrumenata od strane glazbenika. Uklanjanje nepotrebnih zapisa u bazi podataka (npr. "Gitara", "gitara")
+						\item  \textbf{Sudionici:} Baza podataka
 						\item  \textbf{Preduvjet:} Glazbenici su dodali svoje instrumente i ti instrumenti su zapisani u bazi podataka
 						\item  \textbf{Opis osnovnog tijeka:}
 						
@@ -302,7 +304,7 @@
 					\item[] \begin{packed_enum}
 
 							\item Korisnik odabire "Poruke"
-							\item Aplikacija prikazuje pregled osoba s kojima se već vodio razgovor
+							\item Aplikacija prikazuje osobe s kojima se već vodio razgovor
 							\item Korisnik odabire osobu te se prikazuju poruke
 					\end{packed_enum}
 				
@@ -328,9 +330,10 @@
 				
 				\item[] \begin{packed_enum}
 					
-					\item Korisnik pregledava razgovor s osobom
-					\item Korisnik odabire polje za pisanje poruke
-					\item Napiše željenu poruku
+					\item Korisnik odabire poruke
+					\item Aplikacija prikazuje korisnikove razgovore
+					\item Korisnik odabire drugog korisnika s kojim želi komunicirati
+					\item Korisnik odabire polje za pisanje poruke i napiše željenu poruku
 					\item Odabere „Pošalji“ za slanje poruke
 				\end{packed_enum}
 				
@@ -338,19 +341,19 @@
 				
 				\item[] \begin{packed_item}
 					
-					\item[1.a] Korisnik želi poslati poruku osobi s kojom još nije komunicirao
+					\item[3.a] Korisnik želi poslati poruku osobi s kojom još nije komunicirao
 					\item[] \begin{packed_enum}
-						\item Korisnik prilikom ulaska u poruke odabire opciju „Nova poruka“
+						\item Korisnik odabire opciju „Nova poruka“
 						\item Pronalazi korisnika kojemu želi napisati poruku
 					\end{packed_enum}
 				\end{packed_item}
 			\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC11 - Pisanje recenzija o bendovima}}
+			\noindent \underbar{\textbf{UC11 - Pisanje recenzije o bendu}}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Korisnik
-				\item  \textbf{Cilj:} Omogućiti korisnicima aplikacije pisanje recenzija o bendovima
+				\item  \textbf{Cilj:} Napisati recenziju o bendu
 				\item  \textbf{Sudionici:} Baza podataka
 				\item  \textbf{Preduvjet:} Korisnik mora biti prijavljen
 				\item  \textbf{Opis osnovnog tijeka:} 
@@ -358,7 +361,7 @@
 				\item[] \begin{packed_enum}
 					
 					\item Korisnik pristupa profilu benda
-					\item U okvir za poruku napiše svoje mišljenje o bendu te označi broj zvjezdica kao ocjenu
+					\item U okvir za recenzije napiše svoje mišljenje o bendu te označi broj zvjezdica kao ocjenu
 					\item Korisnik odabere "Završi recenziju"
 				\end{packed_enum}
 			\end{packed_item}
@@ -375,25 +378,30 @@
 				\item[] \begin{packed_enum}
 					
 					\item Korisnik odabire opciju za recenziranje događaja
-					\item Otvara se prozor za unos recenzije
-					\item Korisnik unosi recenziju i potvrđuje se
+					\item Aplikacija otvara prozor za unos recenzije
+					\item Korisnik unosi recenziju i potvrđuje ju
 					\item Recenzija se bilježi na stranici događaja
 				\end{packed_enum}
 			\end{packed_item}
 		 
-		    \noindent \underbar{\textbf{UC13 - Pregled profila glazbenika}}
+		    \noindent \underbar{\textbf{UC13 - Pregled profila korisnika}}
 		    \begin{packed_item}
 		    	
-		    	\item \textbf{Glavni sudionik: }Korisnik, glazbenik
-		    	\item  \textbf{Cilj:} Pregled profilne stranice glazbenika 
+		    	\item \textbf{Glavni sudionik: }Korisnik
+		    	\item  \textbf{Cilj:} Pregled profilne stranice korisnika
 		    	\item  \textbf{Sudionici:} Baza podataka
-		    	\item  \textbf{Preduvjet:} Autorizacija korisničkog imena i lozinke
+		    	\item  \textbf{Preduvjet:} Korisnik je prijavljen u aplikaciju
 		    	\item  \textbf{Opis osnovnog tijeka:} 
 		    	
 		    	\item[] \begin{packed_enum}
 		    		
-		    		\item Korisnik odabire prikaz profila glazbenika
-		    		\item Prikazuju mu se javni podaci glazbenika (kalendar, instrumenti, popis nastupa na kojima svira)
+		    		\item Korisnik odabire prikaz profila korisnika
+		    		\item Prikazuju mu se javni podaci korisnika
+		    		\item[] \begin{packed_enum}
+		    			
+		    			\item Ako glazbenik onda mu se prikazuju dodatne informacije (kalendar, instrumenti, popis događaja na kojima svira)
+		    			\item Ako je organizator onda mu se prikazuju dodatne informacije (menager name i recenzije kao organizator)
+		    		\end{packed_enum}
 		    	\end{packed_enum}
 		    \end{packed_item}
 	    
@@ -403,16 +411,15 @@
 	    		\item \textbf{Glavni sudionik: } Korisnik
 	    		\item  \textbf{Cilj:} Poboljšati interakciju između korisnika i glazbenika 
 	    		\item  \textbf{Sudionici:} Baza podataka
-	    		\item  \textbf{Preduvjet:} Korisnik je prijavljen i glazbenik je stvorio objavu
+	    		\item  \textbf{Preduvjet:} Korisnik je prijavljen
 	    		\item  \textbf{Opis osnovnog tijeka:} 
 	    		
 	    		\item[] \begin{packed_enum}
-	    			
-	    			\item Glazbenik napisao objavu
-	    			\item Korisnici koji prate tog glazbenika vide napisanu objavu te biraju opciju "Komentiraj"
+	    			\item Korisnik odabire "Komentiraj" na objavi glazbenika
 	    			\item Korisnik piše komentar
 	    			\item Korisnik odabere "Spremi"
-	    			\item Objava je vidljiva glazbeniku
+	    			\item Aplikacija sprema objavu
+	    			\item Objava je vidljiva drugim korisnicima
 	    		\end{packed_enum}
 	    	\end{packed_item}
     	
@@ -421,7 +428,7 @@
     		
     		\item \textbf{Glavni sudionik: }
     		Korisnik 
-    		\item  \textbf{Cilj:} Prilagoditi profil prema želji korisnika
+    		\item  \textbf{Cilj:} Promjeniti informacije na profilu
     		\item  \textbf{Sudionici:} Baza podataka
     		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
     		\item  \textbf{Opis osnovnog tijeka:}
@@ -429,26 +436,40 @@
     		\item[] \begin{packed_enum}
     			
     			\item Korisnik odabire opciju za uređivanje profila 
-    			\item Korisnik po želji bira određene opcije vezane za korisnički profil 
+    			\item Korisnik mijenja podatke
     			\item Korisnik odabirom opcije za spremanje potvrđuje i sprema načinjene promjene
-    			
     		\end{packed_enum}
+    		\item  \textbf{Opis mogućih odstupanja:}
+    			
+    			\item[] \begin{packed_item}
+    				
+    				\item[3.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
+    				\item[] \begin{packed_enum}
+    					
+    					\item Korisnik ponovno unosi obavezne podatke
+    					\item Korisnik odustaje od uređivanja profila
+    					
+    				\end{packed_enum}
+    				
+    			\end{packed_item}
+
     	\end{packed_item}
     	
     	\noindent \underbar{\textbf{UC16 - Stvaranje profila organizatora}}
     	\begin{packed_item}
     		
-    		\item \textbf{Glavni sudionik: }
-    		Korisnik 
-    		\item  \textbf{Cilj:} Stvaranje profila organizatora
+    		\item \textbf{Glavni sudionik: }Korisnik
+    		\item  \textbf{Cilj:} Dodavanje privilegija organizatora korisniku
     		\item  \textbf{Sudionici:} Baza podataka
     		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
     		\item  \textbf{Opis osnovnog tijeka:}
     		
     		\item[] \begin{packed_enum}
     			
-    			\item Korisnik odabire opciju za stvaranje profila organizatora
-    			\item Korisnik popunjava polja koja je potrebno ispuniti kako bi se postalo korisnik 
+    			\item Korisnik odabire uređivanje profila
+    			\item Korisnik odabire opciju "Organizator"
+    			\item Aplikacija prikazuje dodatna polja za unos informacija
+    			\item Korisnik popunjava polja koja je potrebno ispuniti kako bi se postalo organizator
     			\item Korisnik odabirom opcije za potvrđivanje postaje organizator
     			
     		\end{packed_enum}
@@ -457,11 +478,11 @@
     		
     		\item[] \begin{packed_item}
     			
-    			\item[3.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
+    			\item[4.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
     			\item[] \begin{packed_enum}
     				
     				\item Korisnik ponovno unosi obavezne podatke
-    				\item Korisnik odustaje od stvaranja profila
+    				\item Korisnik odustaje od izmjene profila
     				
     			\end{packed_enum}
     			
@@ -471,8 +492,7 @@
     \noindent \underbar{\textbf{UC17 - Učitavanje slike korisničkog profila}}
     \begin{packed_item}
     	
-    	\item \textbf{Glavni sudionik: }
-    	Korisnik 
+    	\item \textbf{Glavni sudionik: }Korisnik 
     	\item  \textbf{Cilj:} Unijeti korisničku sliku na profil korisnika
     	\item  \textbf{Sudionici:} Baza podataka
     	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
@@ -482,6 +502,7 @@
     		
     		\item Korisnik odabire opciju za uređivanje profila
     		\item Korisnik odabire opciju za učitavanje slike
+    		\item Korisnik odabire sliku za učitavanje
     		\item Slika se učitava u sustav
     		\item Slika je vidljiva na profilu korisnika
     		
@@ -506,18 +527,32 @@
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: } Korisnik
-				\item  \textbf{Cilj:} Omogućiti korisniku da se registrira kao glazbenik 
+				\item  \textbf{Cilj:} Dodavanje privilegija glazbenika korisniku
 				\item  \textbf{Sudionici:} Baza podataka
 				\item  \textbf{Preduvjet:} Korisnik je prijavljen
 				\item  \textbf{Opis osnovnog tijeka:} 
 				
 				\item[] \begin{packed_enum}
 					
-					\item Korisnik zatraži stvaranje profila glazbenika na svome profilu
-					\item Korisnik ispuni tražene podatke
-					\item Korisnik odabere “Stvori profil glazbenika”
+					\item Korisnik odabire uređivanje profila
+					\item Korisnik odabire opciju "Glazbenik"
+					\item Aplikacija prikazuje dodatna polja za unos informacija
+					\item Korisnik popunjava polja koja je potrebno ispuniti kako bi postao glazbenik
 			
 				\end{packed_enum}
+			    \item  \textbf{Opis mogućih odstupanja:}
+			
+				\item[] \begin{packed_item}
+					
+					\item[4.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
+					\item[] \begin{packed_enum}
+						
+						\item Korisnik ponovno unosi obavezne podatke
+						\item Korisnik odustaje od izmjene profila
+						
+					\end{packed_enum}
+					
+				\end{packed_item}
 			\end{packed_item}	
 		
 		   \noindent \underbar{\textbf{UC19 - Odjava}}
@@ -531,7 +566,7 @@
 		   	
 		   	\item[] \begin{packed_enum}
 		   		
-		   		\item Korisnik odabire iz padajućeg izbornika opciju za odjavu
+		   		\item Korisnik odabire opciju za odjavu
 		   		\item Korisnik se uspješno odjavljuje iz aplikacije
 		   		
 		   	\end{packed_enum}
@@ -541,19 +576,30 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Glazbenik
-		\item  \textbf{Cilj:} Urediti profil glazbenika
+		\item  \textbf{Cilj:} Promjeniti informacije na profilu
 		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Glazbenik treba biti prijavljen u sustav
+		\item  \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
 		\item  \textbf{Opis osnovnog tijeka:}
 		
 		\item[] \begin{packed_enum}
 			
-			\item Glazbenik bira opciju za uređivanje profila
-			\item Glazbenik uređuje profil
-			\item Glazbenik na kraju odabire opciju za spremanje promjena
+			\item Korisnik odabire opciju za uređivanje profila 
+			\item Korisnik mijenja podatke
+			\item Korisnik odabirom opcije za spremanje potvrđuje i sprema načinjene promjene
 		\end{packed_enum}
+		\item  \textbf{Opis mogućih odstupanja:}
 		
-		
+		\item[] \begin{packed_item}
+			
+			\item[3.a] Korisnik nije unio obavezne podatke ili su podatci nevaljani
+			\item[] \begin{packed_enum}
+				
+				\item Korisnik ponovno unosi obavezne podatke
+				\item Korisnik odustaje od uređivanja profila
+				
+			\end{packed_enum}
+			
+		\end{packed_item}
 	\end{packed_item}
 	
 	\noindent \underbar{\textbf{UC21 - Dodavanje liste instrumenata}}
