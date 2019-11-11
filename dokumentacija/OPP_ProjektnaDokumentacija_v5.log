@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.24)  8 NOV 2019 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.24)  12 NOV 2019 00:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1033,12 +1033,9 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 Package hyperref Info: Option `colorlinks' set `true' on input line 39.
 
 (./OPP_ProjektnaDokumentacija_v5.aux (./Dnevnik_promjena_dokumentacije.aux)
-(./Opis_projektnog_zadatka.aux
-
-LaTeX Warning: Label `fig:promjene2' multiply defined.
-
-) (./Specifikacija_programske_potpore.aux) (./Arhitektura.aux)
-(./Implementacija.aux) (./Zakljucak.aux) (./Literatura.aux) (./Dodatak.aux))
+(./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
+(./Arhitektura.aux) (./Implementacija.aux) (./Zakljucak.aux) (./Literatura.aux)
+(./Dodatak.aux))
 \openout1 = `OPP_ProjektnaDokumentacija_v5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 74.
@@ -1222,7 +1219,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 ...6}Zaključak i budući rad}{44}{chapter.6}
+l.32 ...6}Zaključak i budući rad}{47}{chapter.6}
                                                   % [1
 
 ])
@@ -1522,11 +1519,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 863--864
  []
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 870--871
+<slike/UC4.PNG, id=509, 696.35156pt x 484.81125pt>
+File: slike/UC4.PNG Graphic file (type png)
+<use slike/UC4.PNG>
+Package pdftex.def Info: slike/UC4.PNG  used on input line 870.
+(pdftex.def)             Requested size: 426.79134pt x 297.13997pt.
+<slike/UC10.PNG, id=510, 915.42pt x 983.17313pt>
+File: slike/UC10.PNG Graphic file (type png)
+<use slike/UC10.PNG>
+Package pdftex.def Info: slike/UC10.PNG  used on input line 878.
+(pdftex.def)             Requested size: 426.79134pt x 458.37094pt.
+ [29pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+1}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.883 				
+           <./slike/UC4.png>]
+<slike/uc15.PNG, id=518, 676.02562pt x 516.42938pt>
+File: slike/uc15.PNG Graphic file (type png)
+<use slike/uc15.PNG>
+Package pdftex.def Info: slike/uc15.PNG  used on input line 886.
+(pdftex.def)             Requested size: 426.79134pt x 326.04567pt.
+ [30pdfTeX warning (ext4): destination with the same identifier (name{figure.3.
+2}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.891 			
+          <./slike/UC10.png>]
+<slike/uc25.PNG, id=527, 733.23938pt x 317.68687pt>
+File: slike/uc25.PNG Graphic file (type png)
+<use slike/uc25.PNG>
+Package pdftex.def Info: slike/uc25.PNG  used on input line 894.
+(pdftex.def)             Requested size: 426.79134pt x 184.91776pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 902--903
 
  []
 
-) [29]
+[31pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.904 ...je navesti u jednoj ili dvije rečenice.}
+                                                  pdfTeX warning (ext4): destin
+ation with the same identifier (name{figure.3.4}) has been already used, duplic
+ate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.904 ...je navesti u jednoj ili dvije rečenice.}
+                                                   <./slike/uc15.png> <./slike/
+uc25.png>]) [32]
 \openout2 = `Arhitektura.aux'.
 
  (./Arhitektura.tex
@@ -1553,16 +1599,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[30
+[33
 
 
 
-] [31]
+] [34]
 Overfull \hbox (1.98155pt too wide) in paragraph at lines 192--192
 []\OT1/jkp/m/n/12 TIMESTAMP|  
  []
 
-[32] [33]
+[35] [36]
 Overfull \hbox (1.98155pt too wide) in paragraph at lines 324--324
 []\OT1/jkp/m/n/12 TIMESTAMP|  
  []
@@ -1572,12 +1618,12 @@ Overfull \hbox (1.98155pt too wide) in paragraph at lines 353--353
 []\OT1/jkp/m/n/12 TIMESTAMP|  
  []
 
-[34]
+[37]
 Overfull \hbox (1.98155pt too wide) in paragraph at lines 369--369
 []\OT1/jkp/m/n/12 TIMESTAMP|  
  []
 
-[35]
+[38]
 Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
@@ -1597,22 +1643,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 390--391
 
  []
 
-[36]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
  []
 
-[37]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 410--411
 
  []
 
-[38]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 417--418
 
  []
 
-) [39]
+) [42]
 \openout2 = `Implementacija.aux'.
 
  (./Implementacija.tex
@@ -1632,7 +1678,7 @@ Overfull \hbox (10.38434pt too wide) in paragraph at lines 1--1
 |[]\OT1/jkp/b/n/24.88 Implementacija i ko-risni[]cko su[]celje| 
  []
 
-[40
+[43
 
 
 
@@ -1646,12 +1692,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-[41] [42]
+[44] [45]
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-[43])
+[46])
 \openout2 = `Zakljucak.aux'.
 
  (./Zakljucak.tex
@@ -1666,7 +1712,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-[44
+[47
 
 
 
@@ -1685,7 +1731,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 12 http : / / www . ece . rutgers . edu / []marsic /
  []
 
-) [45
+) [48
 
 
 
@@ -1693,7 +1739,7 @@ Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
 \tf@lof=\write5
 \openout5 = `OPP_ProjektnaDokumentacija_v5.lof'.
 
- [46
+ [49
 
 
 ]
@@ -1704,20 +1750,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-[47
+[50
 
 
-] [48]
+] [51]
 Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-[49] [50]
+[52] [53]
 Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-) [51] 
+) [54] 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
@@ -1730,16 +1776,12 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
 Package rerunfilecheck Info: File `OPP_ProjektnaDokumentacija_v5.out' has not c
 hanged.
 (rerunfilecheck)             Checksum: 20C5E61BEA873080B75E5C4D5E63BED0;2168.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 12367 strings out of 492167
- 172678 string characters out of 6125338
- 334965 words of memory out of 5000000
- 16135 multiletter control sequences out of 15000+600000
+ 12407 strings out of 492167
+ 173245 string characters out of 6125338
+ 335199 words of memory out of 5000000
+ 16164 multiletter control sequences out of 15000+600000
  53357 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,12n,45p,895b,600s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1753,10 +1795,10 @@ ve/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb><e:/FER/TeX Live/texlive/tex
 mf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb><e:/FER/TeX Live/texlive/texmf-
 dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><e:/FER/TeX Live/texlive/texmf-dist
 /fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on OPP_ProjektnaDokumentacija_v5.pdf (52 pages, 707992 bytes).
+Output written on OPP_ProjektnaDokumentacija_v5.pdf (55 pages, 842627 bytes).
 PDF statistics:
- 768 PDF objects out of 1000 (max. 8388607)
- 695 compressed objects within 7 object streams
- 294 named destinations out of 1000 (max. 500000)
- 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 803 PDF objects out of 1000 (max. 8388607)
+ 718 compressed objects within 8 object streams
+ 301 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
