@@ -104,12 +104,7 @@ export default class Login extends Component {
             </div>
           </Form>
         </div>
-        {
-          this.state.token == '' ? null:
-          <div className="container"> 
-           {this.state.token}
-          </div>
-        }
+        
       </div>
     );
   }

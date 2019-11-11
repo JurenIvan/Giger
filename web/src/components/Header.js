@@ -1,11 +1,14 @@
 import React from 'react';
-  import {Link} from "react-router-dom";
   import "./Header.css";
   import {Dropdown, ButtonGroup, Button} from "react-bootstrap";
+  import Cookies from "js-cookie"
 
 function Header(props) {
-
-
+  const handleLogout = function () {
+    Cookies.remove('Bearer');
+    alert("You have logged out!");
+    window.location.href = '/login'
+  }
   return (
     <header className="Header">
       <Button href='/home'>Home</Button>
@@ -20,6 +23,7 @@ function Header(props) {
           <Dropdown.Item href="/register">Register</Dropdown.Item>
         </Dropdown.Menu>
        </Dropdown>
+        <Button onClick={handleLogout}>Log out</Button>
      </header>
   )
 }

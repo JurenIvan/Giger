@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import * as Helpers from "../Utils/HelperMethods";
 
 
 export default class register extends React.Component{
@@ -15,7 +16,9 @@ export default class register extends React.Component{
             userName: "" ,
             eMail: "",
             password: "",
+            phone: ""
         };
+        this.handleRegister = this.handleRegister.bind(this);
     }
 
     myChangeHandler = event => {
@@ -34,16 +37,28 @@ export default class register extends React.Component{
 
 
 
-    validateRegister = function () {}
+    handleRegister(message) {
+        if(message != "Registration ok!") {
+            alert(message);
+        } else {
+            alert("We have sent confirmation email to" + this.state.eMail)
+        }
+
+    }
+
+    validateRegister () {
+        return this.state.eMail.length > 0 && this.state.userName.length > 0 && this.state.phone.length > 0 && this.state.password > 0;
+    }
 
     //if validateRegister  returns true send form to db
-    handleSubmit= function(){}
-
-    
-
-
-
-
+    handleSubmit = event => {
+        event.preventDefault();
+      
+        (async () => {     
+           await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
+        })();
+      
+      }
 
     render() {
         return (
@@ -96,12 +111,24 @@ export default class register extends React.Component{
                     <Form.Control
                     autoFocus
                     name='userName'
-                    value={this.state.lastName}
+                    value={this.state.userName}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
                 </div>
-
+                <div className="col-1">
+                    <Form.Label controlId="phone" > Phone: </Form.Label>
+                </div> 
+                <div className="col-6">
+                    <Form.Group controlId="phone" bsSize="large">
+                    <Form.Control
+                    autoFocus
+                    name='phone'
+                    value={this.state.phone}
+                    onChange={this.myChangeHandler}
+                    />
+                    </Form.Group>
+                </div>
                 <div className="col-1">
                     <Form.Label controlId="eMail" > Email: </Form.Label>
                 </div> 
@@ -141,7 +168,7 @@ export default class register extends React.Component{
                 <Button
                  block
                 bsSize="large"
-                disabled={!this.validateRegister()}
+                disabled={!this.validateRegister}
                 type="submit"
                 >
                 Register
