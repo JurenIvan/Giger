@@ -1,7 +1,9 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,10 +12,12 @@ import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
-import static javax.persistence.GenerationType.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Gig {
 
     @Id

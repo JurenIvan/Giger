@@ -1,22 +1,31 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Data
-public class Organizer extends User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Organizer {
 
-    private String managerName; //todo think about it
+    @Id
+    private Long id;
+    private String managerName;
 
-    @OneToMany(fetch = LAZY, cascade = ALL)
+    @OneToMany
     @JoinColumn(name = "organizer_id")
+    @JsonIgnore
     private List<Gig> history;
+
+    @OneToOne(fetch = LAZY)
+    @JsonIgnore
+    private User user;
 }
