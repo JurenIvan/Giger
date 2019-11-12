@@ -11,25 +11,25 @@
 \contentsline {section}{\numberline {3.1}Funkcionalni zahtjevi}{13}{section.3.1}% 
 \contentsline {subsection}{\numberline {3.1.1}Obrasci uporabe}{16}{subsection.3.1.1}% 
 \contentsline {subsubsection}{Opis obrazaca uporabe}{16}{subsubsection*.2}% 
-\contentsline {subsubsection}{Dijagrami obrazaca uporabe}{29}{subsubsection*.3}% 
-\contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{32}{subsection.3.1.2}% 
-\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{36}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{38}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Baza podataka}{39}{section.4.1}% 
-\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{40}{subsection.4.1.1}% 
-\contentsline {subsection}{\numberline {4.1.2}Dijagram baze podataka}{45}{subsection.4.1.2}% 
-\contentsline {section}{\numberline {4.2}Dijagram razreda}{46}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Dijagram stanja}{47}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{48}{section.4.4}% 
-\contentsline {section}{\numberline {4.5}Dijagram komponenti}{49}{section.4.5}% 
-\contentsline {chapter}{\numberline {5}Implementacija i korisni\IeC {\v c}ko su\IeC {\v c}elje}{50}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Kori\IeC {\v s}tene tehnologije i alati}{50}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Ispitivanje programskog rje\IeC {\v s}enja}{51}{section.5.2}% 
-\contentsline {subsection}{\numberline {5.2.1}Ispitivanje komponenti}{51}{subsection.5.2.1}% 
-\contentsline {subsection}{\numberline {5.2.2}Ispitivanje sustava}{51}{subsection.5.2.2}% 
-\contentsline {section}{\numberline {5.3}Dijagram razmje\IeC {\v s}taja}{52}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Upute za pu\IeC {\v s}tanje u pogon}{53}{section.5.4}% 
-\contentsline {chapter}{\numberline {6}Zaklju\IeC {\v c}ak i budu\IeC {\'c}i rad}{54}{chapter.6}% 
-\contentsline {chapter}{Popis literature}{55}{chapter*.4}% 
-\contentsline {chapter}{Indeks slika i dijagrama}{56}{chapter*.5}% 
-\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{57}{chapter*.6}% 
+\contentsline {subsubsection}{Dijagrami obrazaca uporabe}{30}{subsubsection*.3}% 
+\contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{33}{subsection.3.1.2}% 
+\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{37}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{39}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Baza podataka}{40}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{41}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}Dijagram baze podataka}{46}{subsection.4.1.2}% 
+\contentsline {section}{\numberline {4.2}Dijagram razreda}{47}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Dijagram stanja}{48}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{49}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Dijagram komponenti}{50}{section.4.5}% 
+\contentsline {chapter}{\numberline {5}Implementacija i korisni\IeC {\v c}ko su\IeC {\v c}elje}{51}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Kori\IeC {\v s}tene tehnologije i alati}{51}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Ispitivanje programskog rje\IeC {\v s}enja}{52}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Ispitivanje komponenti}{52}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.2}Ispitivanje sustava}{52}{subsection.5.2.2}% 
+\contentsline {section}{\numberline {5.3}Dijagram razmje\IeC {\v s}taja}{53}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Upute za pu\IeC {\v s}tanje u pogon}{54}{section.5.4}% 
+\contentsline {chapter}{\numberline {6}Zaklju\IeC {\v c}ak i budu\IeC {\'c}i rad}{55}{chapter.6}% 
+\contentsline {chapter}{Popis literature}{56}{chapter*.4}% 
+\contentsline {chapter}{Indeks slika i dijagrama}{57}{chapter*.5}% 
+\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{58}{chapter*.6}% 
