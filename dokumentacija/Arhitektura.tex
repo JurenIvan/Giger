@@ -9,6 +9,26 @@
 		\item 	\textit{organizaciju aplikacije (npr. slojevi frontend i backend, MVC arhitektura) }		
 	\end{itemize}
 	
+	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je defacto standard razvoja programskih rješenja. Osim toga, ona je fleksibilna i pregledna, što nam je bitno s obzirom na to da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti se lako dodaju od bilo strane koje osobe u timu.\\
+
+	Odlučili smo se za web aplikaciju, koja je prilagođena mobilni uređajima, obzirom da glazbenici, a time i bendovi nemaju uvijek pristup računalu, a ne želimo da je korisnik ograničen samo na mobilne uređaje.\\
+
+	Arhitekturu sustava možemo podijeliti na tri podsustava:
+		\begin{itemize}
+			\item Web poslužitelj
+    			\item Web aplikacija
+			\item Baza podataka
+		\end{itemize}
+
+
+	Korisnik (javnost, glazbenik, bend, administrator) pristupa web aplikaciji uz pomoć svog web preglednika, s time da se u sredini nalazi web poslužitelj. Na njemu se nalazi aplikacija koju on pokreće, te uz pomoć protokola komunicira s korisnicima.\\
+
+	Klijentski(frontend) dio aplikacije omogućuje da korisnik korištenjem sučelja može pristupiti serveru(backend) aplikacije. Ovisno o tome što korisnik hoće, taj server ima mogućnost spajanja na bazu podataka kako bi korisniku prikazao informacije.\\
+
+	Backend je napisan u Javi, a kao razvojni okvir koristimo Java Spring Boot. Dodani su projekti Spring Data kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje sa request-ima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. \\
+
+	Za frontend koristimo React. On je moderni i jednostavan framework koji koristi HTML, CSS, JSX i JavaScript uz pomoć kojeg smo napravili sučelje za našu aplikaciju. Uz pomoć React-a možemo lagano komunicirati s backendom koristeći REST.\\
+	
 				
 		\section{Baza podataka}
 			
@@ -111,26 +131,6 @@
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Review\_organizer}}	 \\[3pt] \hline
 		\endfirsthead
-		
-		\hline 
-		\endlastfoot
-		
-		fk\_organizer & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-		fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
-		
-	\end{longtabu}	
-
-	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-		
-		\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
-		\endfirsthead
-		
-		\hline 
-		\endlastfoot
-		
-		id & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-		manager\_name	& VARCHAR &  ime organizatora	\\ \hline 		
-		
 	\end{longtabu}	
 
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
