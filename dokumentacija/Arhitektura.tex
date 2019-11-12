@@ -27,7 +27,7 @@
 	Klijentski(frontend) dio aplikacije omogućuje da korisnik korištenjem sučelja može pristupiti serveru(backend) aplikacije. Ovisno o tome što korisnik hoće, taj server ima mogućnost spajanja na bazu podataka kako bi korisniku prikazao informacije.\\
 
 	Backend je napisan u Javi, a kao razvojni okvir koristimo Java Spring Boot. Dodani su projekti Spring Data kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje sa request-ima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. \\
-	
+
 	\begin{figure}[H]
 		\begin{center}
 			\includegraphics[width=10cm]{slike/mvc.PNG}
@@ -37,8 +37,28 @@
 	\end{figure}
 
 	Za frontend koristimo React. On je moderni i jednostavan framework koji koristi HTML, CSS, JSX i JavaScript uz pomoć kojeg smo napravili sučelje za našu aplikaciju. Uz pomoć React-a možemo lagano komunicirati s backendom koristeći REST.\\
-	
-				
+
+	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je defacto standard razvoja programskih rješenja. Osim toga, ona je fleksibilna i pregledna, što nam je bitno s obzirom na to da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti se lako dodaju od bilo strane koje osobe u timu.\\
+
+	Odlučili smo se za web aplikaciju, koja je prilagođena mobilni uređajima, obzirom da glazbenici, a time i bendovi nemaju uvijek pristup računalu, a ne želimo da je korisnik ograničen samo na mobilne uređaje.\\
+
+	Arhitekturu sustava možemo podijeliti na tri podsustava:
+		\begin{itemize}
+			\item Web poslužitelj
+    			\item Web aplikacija
+			\item Baza podataka
+		\end{itemize}
+
+
+	Korisnik (javnost, glazbenik, bend, administrator) pristupa web aplikaciji uz pomoć svog web preglednika, s time da se u sredini nalazi web poslužitelj. Na njemu se nalazi aplikacija koju on pokreće, te uz pomoć protokola komunicira s korisnicima.\\
+
+	Klijentski(frontend) dio aplikacije omogućuje da korisnik korištenjem sučelja može pristupiti serveru(backend) aplikacije. Ovisno o tome što korisnik hoće, taj server ima mogućnost spajanja na bazu podataka kako bi korisniku prikazao informacije.\\
+
+	Backend je napisan u Javi, a kao razvojni okvir koristimo Java Spring Boot. Dodani su projekti Spring Data kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje sa request-ima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. \\
+
+	Za frontend koristimo React. On je moderni i jednostavan framework koji koristi HTML, CSS, JSX i JavaScript uz pomoć kojeg smo napravili sučelje za našu aplikaciju. Uz pomoć React-a možemo lagano komunicirati s backendom koristeći REST.\\
+
+
 		\section{Baza podataka}
 			
 			\textbf{\textit{dio 1. revizije}}\\
@@ -77,27 +97,27 @@
 		
 		
 		\subsection{Opis tablica}
-		
+
 
 							\textit{\bf Review}
 			\textit{Ovaj entitet sadrži informacije za recenziju. Sadrži atribute: id recenzije, sadržaj recenzije, ocjenu te id autora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_band, Review\_gig, Review\_organizer i Review\_musician.}
-			
+
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Review}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				id & BIGINT	&  	jedinstveni identifikator recenzije 	\\ \hline
-				content	& VARCHAR &  sadržaj komentara	\\ \hline 
-				grade & INT & ocjena 1-5  \\ \hline 
-				author\_id & BIGINT	& jedinstveni identifikator autora recenzije	\\ \hline 
-				
-				
+				content	& VARCHAR &  sadržaj komentara	\\ \hline
+				grade & INT & ocjena 1-5  \\ \hline
+				author\_id & BIGINT	& jedinstveni identifikator autora recenzije	\\ \hline
+
+
 			\end{longtabu}
-			
+
 			\textit{\bf Review\_gig}
 			\textit{Ovaj entitet sadrži informacije za recenziju nastupa. Sadrži atribute: id nastupa i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Gig i Review.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
@@ -112,146 +132,146 @@
 				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
 				
 			\end{longtabu}	
-			
+
 			\textit{\bf Review\_band}
 			\textit{Ovaj entitet sadrži informacije za recenziju benda. Sadrži atribute: id benda i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Band i Review.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Review\_band}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				fk\_band & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije \\ \hline 		
-				
-			\end{longtabu}		
-			
+				fk\_review	& BIGINT &  jedinstveni identifikator recenzije \\ \hline
+
+			\end{longtabu}
+
 			\textit{\bf Review\_musician}
 			\textit{Ovaj entitet sadrži informacije za recenziju glazbenika. Sadrži atribute: id glazbenika i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Musician i Review.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Review\_musician}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				fk\_musician & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
-				
-			\end{longtabu}	
-			
+				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
+
+			\end{longtabu}
+
 			\textit{\bf Review\_organizer}
 			\textit{Ovaj entitet sadrži informacije za recenziju organizatora. Sadrži atribute: id organizatora i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Organizer i Review.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Review\_organizer}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				fk\_organizer & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
-				
-			\end{longtabu}	
-			
+				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
+
+			\end{longtabu}
+
 			\textit{\bf Organizer}
 			\textit{Ovaj entitet sadrži informacije za organizatora. Sadrži atribute: id organizatora te ime organizatora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_organizer, Gig i User}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				id & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-				manager\_name	& VARCHAR &  ime organizatora	\\ \hline 		
-				
-			\end{longtabu}	
+				manager\_name	& VARCHAR &  ime organizatora	\\ \hline
+
+			\end{longtabu}
 			\textit{\bf User}
 			\textit{Ovaj entitet sadrži informacije za korisnika. Sadrži atribute: id korisnika, e-mail adresu korisnika, lozinku, kontakt broj te id glazbenika i id organizatora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Message, Message\_seen, Conversation\_user, Review, Comment. Također je u \emph{Many-to-many} vezi sa entitetima Musician i Organizer.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{User}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				id & BIGINT	&  	jedinstveni identifikator korisnika 	\\ \hline
-				email & VARCHAR & email adresa korisnika	\\ \hline 		
-				password\_hash & VARCHAR & 
+				email & VARCHAR & email adresa korisnika	\\ \hline
+				password\_hash & VARCHAR &
 				hash lozinke korisnika \\ \hline
 				phone\_number & VARCHAR & telefonski broj korisnika \\ \hline
 				musician\_id & BIGINT & jedinstveni identifikator glazbenika  \\ \hline
 				organizer\_id & BIGINT & jedinstveni identifikator organizatora
-			\end{longtabu}	
-			
+			\end{longtabu}
+
 			\textit{\bf Conversation\_user}
 			\textit{Ovaj entitet sadrži informacije o korisniku u razgovoru. Sadrži atribute: id korisnika i id razgovora. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:User i Conversation.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Conversation\_user}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				fk\_user & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
-				fk\_conversation	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline 		
-				
+				fk\_conversation	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
+
 			\end{longtabu}
-			
+
 			\textit{\bf Conversation}
 			\textit{Ovaj entitet sadrži informacije o razgovoru. Sadrži atribute: id razgovora i ime razgovora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima:Message i Conversation\_user.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Conversation}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				id & BIGINT	&  	jedinstveni identifikator razgovora 	\\ \hline
-				name	& VARCHAR &  ime razgovora	\\ \hline 		
-				
+				name	& VARCHAR &  ime razgovora	\\ \hline
+
 			\end{longtabu}
-			
+
 			\textit{\bf Message}
 			\textit{Ovaj entitet sadrži informacije o poruci. Sadrži atribute: id poruke, sadržaj poruke, vrijeme kada je poruka poslana, id pošiljatelja i id razgovora. Ovaj entitet je u \emph{Many-to-Many} vezi  sa entitetom Message\_seen te je u \emph{Many-to-many} vezi sa entitetima Conversation i User.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Message}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				id & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
-				content	& VARCHAR & sadržaj poruke	\\ \hline 	
+				content	& VARCHAR & sadržaj poruke	\\ \hline
 				sent\_time & TIMESTAMP & vrijeme kada je poruka poslana \\ \hline
 				fk\_sender & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
-				fk\_converation & BIGINT & jedinstveni identifikator razgovora \\ \hline	
-				
+				fk\_converation & BIGINT & jedinstveni identifikator razgovora \\ \hline
+
 			\end{longtabu}
-			
+
 			\textit{\bf Message}
 			\textit{Ovaj entitet sadrži informacije o statusu čitanja poruke. Sadrži atribute: id poruke te id razgovora. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima Users i Message.}
 			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
+
 				\hline \multicolumn{3}{|c|}{\textbf{Message\_seen}}	 \\[3pt] \hline
 				\endfirsthead
-				
-				\hline 
+
+				\hline
 				\endlastfoot
-				
+
 				fk\_message & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
-				fk\_user	& BIGINT &  jedinstveni identifikator korisnika	\\ \hline 		
-				
+				fk\_user	& BIGINT &  jedinstveni identifikator korisnika	\\ \hline
+
 			\end{longtabu}
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
