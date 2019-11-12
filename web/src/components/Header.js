@@ -5,25 +5,28 @@ import React from 'react';
 
 function Header(props) {
   const handleLogout = function () {
-    Cookies.remove('Bearer');
-    alert("You have logged out!");
-    window.location.href = '/login'
+    if(Cookies.get('Bearer')){
+      Cookies.remove('Bearer');
+      alert("You have logged out!");
+      window.location.href = '/login'
+    } else {
+      alert('You are not logged in!')
+    }
+    
   }
   return (
     <header className="Header">
       <Button href='/home'>Home</Button>
       <Button href='/events'>Events</Button>
       <Button href='/bands'>Bands</Button>
-      <Dropdown as={ButtonGroup}>
-        <Button href="/login" className={"dropdown"}>Login</Button>
-        <Dropdown.Toggle split className={"dropdown"}>...</Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Settings</Dropdown.Item>
-          <Dropdown.Item href="/register">Register</Dropdown.Item>
-        </Dropdown.Menu>
-       </Dropdown>
-        <Button onClick={handleLogout}>Log out</Button>
+      <Button href='/login'>Log in</Button>
+      {
+      Cookies.get('Bearer')?
+            <Button onClick={handleLogout}>Log out</Button>
+            :
+            <Button href='/register'>Register</Button>
+      }
+     
      </header>
   )
 }
