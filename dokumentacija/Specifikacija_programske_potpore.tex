@@ -2,115 +2,114 @@
 		
 	\section{Funkcionalni zahtjevi}
 			
-			\textbf{\textit{dio 1. revizije}}\\
+		\textbf{\textit{dio 1. revizije}}\\
+		
+		\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
 			
-			\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
-				
-			\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
-			
-			
-			\noindent \textbf{Dionici:}
+		\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
+		
+		
+		\noindent \textbf{Dionici:}
+		
+		\begin{packed_enum}
+			\item Naručitelj
+			\item Javnost
+			\item Korisnici
+			\item Organizator
+			\item Glazbenik 							
+			\item Administrator
+			\item Razvojni tim
+		\end{packed_enum}
+		
+		\noindent \textbf{Aktori i njihovi funkcionalni zahtjevi:}
+		
+		
+		\begin{packed_enum}
+
+		\item  \underbar{Neprijavljeni/neregistrirani korisnik (javnost) može:}
+						
+			\begin{packed_enum}
+				\item Pregledati javne događaje
+				\item Pregledati profil benda
+				\item Vidjeti recenzije
+				\item Registrirati se na aplikaciji
+			\end{packed_enum}
+					
+		\item  \underbar{Korisnik (inicijator) može:}
 			
 			\begin{packed_enum}
-				\item Naručitelj
-				\item Javnost
-				\item Korisnici
-				\item Organizator
-				\item Glazbenik 							
-				\item Administrator
-				\item Razvojni tim
+				
+				\item Sve što i Javnost
+				\item Prijaviti se na aplikaciju
+				\item Pregledavati i uređivati korisnički profil
+				\item Pregledati postoječe poruke s drugim korisnicima
+				\item Pregledati svoj kalendar
+				\item Slati nove poruke drugim korisnicima
+				\item Recenzirati događaje
+				\item Komentirati objave glazbenika
+				\item Postati glazbenik i/ili organizator
+				\item Pisati objave na svom profilu
+				\item odjaviti se 
+				
 			\end{packed_enum}
 			
-\noindent \textbf{Aktori i njihovi funkcionalni zahtjevi:}
-
-
-\begin{packed_enum}
-
-
-	\item  \underbar{Neprijavljeni/neregistrirani korisnik (javnost) može:}
-				
-	\begin{packed_enum}
-		\item Pregledati javne događaje
-		\item Pregledati profil benda
-		\item Vidjeti recenzije
-		\item Registrirati se na aplikaciji
-	\end{packed_enum}
 			
-	\item  \underbar{Korisnik (inicijator) može:}
-	
-	\begin{packed_enum}
+		\item  \underbar{Glazbenik (inicijator) može:}
+			
+			\begin{packed_enum}
+				
+				\item Sve što i Korisnik
+				\item Prihvatiti ili odbiti poziv u bend
+				\item Postati članom jednog ili više bendova
+				\item Održati samostalan nastup
+				\item Stvoriti bend
+			\end{packed_enum}
+			
+		\item  \underbar{Organizator (inicijator) može:}
+			
+			\begin{packed_enum}
+				
+				\item Sve što i Korisnik
+				\item Pretraživati bendove na aplikaciji
+				\item Stvarati događaje
+				\item Uređivati događaje
+				\item Recenzirati bend kao organizator događaja
+			\end{packed_enum}
+			
+		\item  \underbar{Voditelj benda (inicijator) može:}
+			
+			\begin{packed_enum}
+				
+				\item Sve što i Glazbenik
+				\item Pozivati i dodavati nove članove u bend
+				\item Dodavati obaveze u kalendar benda
+				\item Vidjeti kalendare članova benda
+				\item Recenzirati organizatora u ime benda
+				\item Objavljivate objave na stranici benda
+				\item Uređivati profil benda
+			\end{packed_enum}
+			
+		\item  \underbar{Administrator (inicijator) može:}
+			
+			\begin{packed_enum}
+				
+				\item Blokirati korisnike koji su prekršili uvjete korištenja aplikacije
+				\item Uređivati popis instrumenata
+				\item Dodavati događaje koji su stvoreni na drugim platformama
+				
+			\end{packed_enum}
+			
+		\item  \underbar{Baza podataka (sudionik) može:}
+			
+			\begin{packed_enum}
+				
+				\item Pohranjuje sve podatke o korisnicima, glazbenicima, organizatorima i bendovima
+				\item Pohranjuje sve podatke o nastupima, recenzijama, objavama, komentarima
+				\item Pohranjuje sve razmijenjene poruke između korisnika 
+				
+			\end{packed_enum}
 		
-		\item Sve što i Javnost
-		\item Prijaviti se na aplikaciju
-		\item Pregledavati i uređivati korisnički profil
-		\item Pregledati postoječe poruke s drugim korisnicima
-		\item Pregledati svoj kalendar
-		\item Slati nove poruke drugim korisnicima
-		\item Recenzirati događaje
-		\item Komentirati objave glazbenika
-		\item Postati glazbenik i/ili organizator
-		\item Pisati objave na svom profilu
-		\item odjaviti se 
-		
-	\end{packed_enum}
-	
-	
-	\item  \underbar{Glazbenik (inicijator) može:}
-	
-	\begin{packed_enum}
-		
-		\item Sve što i Korisnik
-		\item Prihvatiti ili odbiti poziv u bend
-		\item Postati članom jednog ili više bendova
-		\item Održati samostalan nastup
-		\item Stvoriti bend
-	\end{packed_enum}
-	
-	\item  \underbar{Organizator (inicijator) može:}
-	
-	\begin{packed_enum}
-		
-		\item Sve što i Korisnik
-		\item Pretraživati bendove na aplikaciji
-		\item Stvarati događaje
-		\item Uređivati događaje
-		\item Recenzirati bend kao organizator događaja
-	\end{packed_enum}
-	
-	\item  \underbar{Voditelj benda (inicijator) može:}
-	
-	\begin{packed_enum}
-		
-		\item Sve što i Glazbenik
-		\item Pozivati i dodavati nove članove u bend
-		\item Dodavati obaveze u kalendar benda
-		\item Vidjeti kalendare članova benda
-		\item Recenzirati organizatora u ime benda
-		\item Objavljivate objave na stranici benda
-		\item Uređivati profil benda
-	\end{packed_enum}
-	
-	\item  \underbar{Administrator (inicijator) može:}
-	
-	\begin{packed_enum}
-		
-		\item Blokirati korisnike koji su prekršili uvjete korištenja aplikacije
-		\item Uređivati popis instrumenata
-		\item Dodavati događaje koji su stvoreni na drugim platformama
-		
-	\end{packed_enum}
-	
-	\item  \underbar{Baza podataka (sudionik) može:}
-	
-	\begin{packed_enum}
-		
-		\item Pohranjuje sve podatke o korisnicima, glazbenicima, organizatorima i bendovima
-		\item Pohranjuje sve podatke o nastupima, recenzijama, objavama, komentarima
-		\item Pohranjuje sve razmijenjene poruke između korisnika 
-		
-	\end{packed_enum}
-		
-\end{packed_enum}
+		\end{packed_enum}
 			
 \eject 
 			
@@ -156,9 +155,7 @@
 			\item Javnost odabire bend čiji profil želi pregledati
 			\item Aplikacija prikazuje profil odabranog benda
 		\end{packed_enum}
-	
 	\end{packed_item}
-
 
 \noindent \underbar{\textbf{UC3 - Pregled recenzija}}
 	\begin{packed_item}
@@ -205,6 +202,7 @@
 			\item[2.a] Odabir već zauzetog korisničkog imena i/ili e-maila, unos podataka u nedozvoljenom formatu
 			\item[] \begin{packed_enum}
 				
+<<<<<<< HEAD
 				\item Sustav obavještava korisnika o neuspjelom upisu i vraća ga na stranicu za registraciju.
 				\item Korisnik mijenja potrebne podatke ili odustaje od registracije.
 
@@ -240,7 +238,7 @@
 
 \noindent \underbar{\textbf{UC6 - Uvid u popis dodanih instrumenata}}
 	\begin{packed_item}
-	
+
 		\item \textbf{Glavni sudionik: }Administrator
 		\item \textbf{Cilj:} Izmjena krivo unesenih instrumenta u bazi
 		\item \textbf{Sudionici:} Baza podataka
@@ -399,11 +397,11 @@
     	\item \textbf{Opis osnovnog tijeka:} 
     	
     	\item[] \begin{packed_enum}
-    		
+
     		\item Korisnik odabire prikaz profila korisnika
     		\item Aplikacija prikazuje profil korisnika
     		\item[] \begin{packed_enum}
-    			
+
     			\item Ako je glazbenik onda mu se prikazuju dodatne informacije (kalendar, instrumenti, popis događaja na kojima svira)
     			\item Ako je organizator onda mu se prikazuju dodatne informacije (menager name i recenzije kao organizator)
     		\end{packed_enum}
@@ -492,11 +490,12 @@
    			\end{packed_enum}
    		\end{packed_item}
    	\end{packed_item}
-    
+
 \noindent \underbar{\textbf{UC17 - Učitavanje slike korisničkog profila}}
     \begin{packed_item}
     	
-    	\item \textbf{Glavni sudionik: }Korisnik 
+    	\item \textbf{Glavni sudionik: }
+    	Korisnik 
     	\item  \textbf{Cilj:} Unijeti korisničku sliku na profil korisnika
     	\item  \textbf{Sudionici:} Baza podataka
     	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
@@ -507,7 +506,6 @@
     		
     		\item Korisnik odabire opciju za uređivanje profila
     		\item Korisnik odabire opciju za učitavanje slike
-    		\item Korisnik odabire sliku za učitavanje
     		\item Slika se učitava u sustav
     		\item Slika je vidljiva na profilu korisnika
     		
@@ -576,7 +574,7 @@
 	   		
 	   	\end{packed_enum}
 	\end{packed_item}	 
-	
+
 \noindent \underbar{\textbf{UC20 - Uređivanje profila glazbenika}}
 	\begin{packed_item}
 		
@@ -658,11 +656,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Voditelj benda
-		\item  \textbf{Cilj:} Dodati glazbenika u bend
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Voditelj benda je prijavljen 
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Dodati glazbenika u bend
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Voditelj benda je prijavljen 
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			\item Voditelj benda nalazi glazbenika kojeg želi dodati u bend u listi glazbenika
@@ -676,11 +674,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Glazbenik
-		\item  \textbf{Cilj: } Prihvatiti poziv u bend
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj: } Prihvatiti poziv u bend
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -695,11 +693,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Korisnik
-		\item  \textbf{Cilj:} Pregledati vlastiti kalendar
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Pregledati vlastiti kalendar
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -712,11 +710,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Glazbenik
-		\item  \textbf{Cilj:} Dodati obaveze u kalendar benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Dodati obaveze u kalendar benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -730,11 +728,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Glazbenik 
-		\item  \textbf{Cilj:} Stvoriti bend
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Stvoriti bend
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -748,11 +746,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Voditelj benda
-		\item  \textbf{Cilj:} Objaviti objavu na profilu benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Voditelj benda je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Objaviti objavu na profilu benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Voditelj benda je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -768,11 +766,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Voditelj benda  
-		\item  \textbf{Cilj:} Recenzirati organizatora od strane benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Voditelj benda je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Recenzirati organizatora od strane benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Voditelj benda je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -788,11 +786,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Voditelj benda 
-		\item  \textbf{Cilj:} Pregledati kalendar bilo kojeg člana benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Voditelj benda prijavljen je u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Pregledati kalendar bilo kojeg člana benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Voditelj benda prijavljen je u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -805,11 +803,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Voditelj benda
-		\item  \textbf{Cilj:} Urediti profil benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Voditelj benda prijavljen je u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Urediti profil benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Voditelj benda prijavljen je u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -823,11 +821,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Organizator
-		\item  \textbf{Cilj:} Pregledati bendove prema oređenom kriteriju
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Organizator je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Pregledati bendove prema oređenom kriteriju
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -843,11 +841,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Organizator
-		\item  \textbf{Cilj:} Recenzirati bend iz perspektive organizatora
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Organizator je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Recenzirati bend iz perspektive organizatora
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -862,11 +860,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Organizator
-		\item  \textbf{Cilj:} Pregledati povijest benda
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Organizator je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Pregledati povijest benda
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -879,11 +877,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Organizator 
-		\item  \textbf{Cilj:} Kreirati nastup
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Organizator je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Kreirati nastup
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -898,11 +896,11 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik: } Organizator
-		\item  \textbf{Cilj:} Urediti informacije o nastupu
-		\item  \textbf{Sudionici:} Baza podataka
-		\item  \textbf{Preduvjet:} Organizator je prijavljen u sustav
-		\item  \textbf{Prioritet:} 
-		\item  \textbf{Opis osnovnog tijeka:} 
+		\item \textbf{Cilj:} Urediti informacije o nastupu
+		\item \textbf{Sudionici:} Baza podataka
+		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
+		\item \textbf{Prioritet:} 
+		\item \textbf{Opis osnovnog tijeka:} 
 		
 		\item[] \begin{packed_enum}
 			
@@ -922,12 +920,41 @@
 				\eject				
 				
 				
+				\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=15cm]{slike/glazbeni_organizator.PNG}
+				\end{center}
+				\caption{Obrasci uporabe za korisnika i organizatora}
+				\label{fig:ou1}
+			\end{figure}
+		
+		\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=15cm]{slike/javnost_admin.PNG}
+		\end{center}
+		\caption{Obrasci uporabe za javnost i administratora}
+		\label{fig:ou2}
+	\end{figure}
+
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=15cm]{slike/korisnik.PNG}
+			\end{center}
+			\caption{Obrasci uporabe za korisnika}
+			\label{fig:ou3}
+		\end{figure}
+				
+				
 			\subsection{Sekvencijski dijagrami}
 				
 				\textbf{\textit{dio 1. revizije}}\\
 				
 				\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
 				\eject
+				
+				\textbf{Obrazac uporabe UC4 - Registracija}
+				\newline
+				Javnost (neregistrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
 				
 				\begin{figure}[H]
 					\begin{center}
@@ -937,6 +964,10 @@
 					\label{fig:uc4}
 				\end{figure}
 			
+				\textbf{Obrazac uporabe UC10 - Pisanje poruke}
+				\newline
+				Korisnik odabire "Poruke" nakon čega se iz baze dohvaćaju postojeće poruke korisnika. Korisnik može ili napraviti novi razgovor, ili odabrati postojeći. Ukoliko želi napraviti novi razgovor, odabire opciju "Nova poruka" te mu se prikaže prazna poruka. Nakon toga, odabire korisnika kojemu želi napisati poruku, a taj korisnik se traži u bazi podataka. Ukoliko korisnik želi razgovarati s korisnikom s kojim je već komunicirao, odabire razgovor s tim korisnikom. Aplikacija dohvaća iz baze podataka prošle poruke s odabranim korisnikom. U oba opisana slučaja, korisnik piše željenu poruku te ju šalje nakon čega se poruka sprema u bazu.
+			
 				\begin{figure}[H]
 					\begin{center}
 						\includegraphics[width=15cm]{slike/UC10.PNG}
@@ -945,6 +976,13 @@
 					\label{fig:uc10}
 				\end{figure}
 				
+				\eject
+				 \textbf{Obrazac uporabe UC15 - Uređivanje profila korisnika}
+			\newline
+			{Prijavljeni korisnik ide na stranicu svog profila.
+			Korisnik potom bira opciju izmjene podataka na svom profilu,nakon čega slijedi proces autentikacije korisnika,ukoliko je autentikacija prošla omogućene su izmjene podataka korisniku.Korisnik po želji mijenja podatke nakon čega odabire opciju izmijeni.Promijenjeni podatci se zapisuju u bazu a korisniku se prikazuje izmjenjena stranica profila .}\\
+				
+				
 				\begin{figure}[H]
 					\begin{center}
 						\includegraphics[width=15cm]{slike/uc15.PNG}
@@ -952,6 +990,13 @@
 					\caption{Sekvencijski dijagram za UC15}
 					\label{fig:uc15}
 				\end{figure}
+				
+				
+				
+			\eject
+				 \textbf{Obrazac uporabe UC25 - Pregled kalendara}
+			\newline
+			{Prijavljeni korisnik bira opciju prikaži kalendar,nakon toga aplikacija uzima od baze podataka sve  eventove koji su relevantni za korisnika (one na kojima je bio/će bit ili je svirao/će svirati  .}.Aplikacija puni kalendar tim eventovima i prikazuje ih korisniku.\\
 			
 			\begin{figure}[H]
 				\begin{center}
