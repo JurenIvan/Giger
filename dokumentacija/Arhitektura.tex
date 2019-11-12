@@ -111,6 +111,26 @@
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Review\_organizer}}	 \\[3pt] \hline
 		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		fk\_organizer & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
+		fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
+		
+	\end{longtabu}	
+
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		id & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
+		manager\_name	& VARCHAR &  ime organizatora	\\ \hline 		
+		
 	\end{longtabu}	
 
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
