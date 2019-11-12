@@ -15,6 +15,7 @@
 
 	Arhitekturu sustava možemo podijeliti na tri podsustava:
 		\begin{itemize}
+			\item Web preglednik
 			\item Web poslužitelj
     			\item Web aplikacija
 			\item Baza podataka
@@ -26,6 +27,14 @@
 	Klijentski(frontend) dio aplikacije omogućuje da korisnik korištenjem sučelja može pristupiti serveru(backend) aplikacije. Ovisno o tome što korisnik hoće, taj server ima mogućnost spajanja na bazu podataka kako bi korisniku prikazao informacije.\\
 
 	Backend je napisan u Javi, a kao razvojni okvir koristimo Java Spring Boot. Dodani su projekti Spring Data kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje sa request-ima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. \\
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=10cm]{slike/mvc.PNG}
+		\end{center}
+		\caption{Pojednostavljeni prikaz MVC-a}
+		\label{fig:mvc}
+	\end{figure}
 
 	Za frontend koristimo React. On je moderni i jednostavan framework koji koristi HTML, CSS, JSX i JavaScript uz pomoć kojeg smo napravili sučelje za našu aplikaciju. Uz pomoć React-a možemo lagano komunicirati s backendom koristeći REST.\\
 	
