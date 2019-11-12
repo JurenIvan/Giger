@@ -13,23 +13,23 @@
 \contentsline {subsubsection}{Opis obrazaca uporabe}{15}{subsubsection*.2}% 
 \contentsline {subsubsection}{Dijagrami obrazaca uporabe}{28}{subsubsection*.3}% 
 \contentsline {subsection}{\numberline {3.1.2}Sekvencijski dijagrami}{29}{subsection.3.1.2}% 
-\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{30}{section.3.2}% 
-\contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{31}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Baza podataka}{31}{section.4.1}% 
-\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{32}{subsection.4.1.1}% 
-\contentsline {subsection}{\numberline {4.1.2}Dijagram baze podataka}{36}{subsection.4.1.2}% 
-\contentsline {section}{\numberline {4.2}Dijagram razreda}{37}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Dijagram stanja}{38}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{39}{section.4.4}% 
-\contentsline {section}{\numberline {4.5}Dijagram komponenti}{40}{section.4.5}% 
-\contentsline {chapter}{\numberline {5}Implementacija i korisni\IeC {\v c}ko su\IeC {\v c}elje}{41}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Kori\IeC {\v s}tene tehnologije i alati}{41}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Ispitivanje programskog rje\IeC {\v s}enja}{42}{section.5.2}% 
-\contentsline {subsection}{\numberline {5.2.1}Ispitivanje komponenti}{42}{subsection.5.2.1}% 
-\contentsline {subsection}{\numberline {5.2.2}Ispitivanje sustava}{42}{subsection.5.2.2}% 
-\contentsline {section}{\numberline {5.3}Dijagram razmje\IeC {\v s}taja}{43}{section.5.3}% 
-\contentsline {section}{\numberline {5.4}Upute za pu\IeC {\v s}tanje u pogon}{44}{section.5.4}% 
-\contentsline {chapter}{\numberline {6}Zaklju\IeC {\v c}ak i budu\IeC {\'c}i rad}{45}{chapter.6}% 
-\contentsline {chapter}{Popis literature}{46}{chapter*.4}% 
-\contentsline {chapter}{Indeks slika i dijagrama}{47}{chapter*.5}% 
-\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{48}{chapter*.6}% 
+\contentsline {section}{\numberline {3.2}Ostali zahtjevi}{33}{section.3.2}% 
+\contentsline {chapter}{\numberline {4}Arhitektura i dizajn sustava}{34}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Baza podataka}{34}{section.4.1}% 
+\contentsline {subsection}{\numberline {4.1.1}Opis tablica}{35}{subsection.4.1.1}% 
+\contentsline {subsection}{\numberline {4.1.2}Dijagram baze podataka}{39}{subsection.4.1.2}% 
+\contentsline {section}{\numberline {4.2}Dijagram razreda}{40}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Dijagram stanja}{41}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Dijagram aktivnosti}{42}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Dijagram komponenti}{43}{section.4.5}% 
+\contentsline {chapter}{\numberline {5}Implementacija i korisni\IeC {\v c}ko su\IeC {\v c}elje}{44}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Kori\IeC {\v s}tene tehnologije i alati}{44}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Ispitivanje programskog rje\IeC {\v s}enja}{45}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Ispitivanje komponenti}{45}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.2}Ispitivanje sustava}{45}{subsection.5.2.2}% 
+\contentsline {section}{\numberline {5.3}Dijagram razmje\IeC {\v s}taja}{46}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Upute za pu\IeC {\v s}tanje u pogon}{47}{section.5.4}% 
+\contentsline {chapter}{\numberline {6}Zaklju\IeC {\v c}ak i budu\IeC {\'c}i rad}{48}{chapter.6}% 
+\contentsline {chapter}{Popis literature}{49}{chapter*.4}% 
+\contentsline {chapter}{Indeks slika i dijagrama}{50}{chapter*.5}% 
+\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{51}{chapter*.6}% 
