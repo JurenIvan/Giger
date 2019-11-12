@@ -865,6 +865,10 @@
 				\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
 				\eject
 				
+				\textbf{Obrazac uporabe UC4 - Registracija}
+				\newline
+				Javnost (neregistrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
+				
 				\begin{figure}[H]
 					\begin{center}
 						\includegraphics[width=15cm]{slike/UC4.PNG}
@@ -872,6 +876,10 @@
 					\caption{Sekvencijski dijagram za UC4}
 					\label{fig:uc4}
 				\end{figure}
+			
+				\textbf{Obrazac uporabe UC10 - Pisanje poruke}
+				\newline
+				Korisnik odabire "Poruke" nakon čega se iz baze dohvaćaju postojeće poruke korisnika. Korisnik može ili napraviti novi razgovor, ili odabrati postojeći. Ukoliko želi napraviti novi razgovor, odabire opciju "Nova poruka" te mu se prikaže prazna poruka. Nakon toga, odabire korisnika kojemu želi napisati poruku, a taj korisnik se traži u bazi podataka. Ukoliko korisnik želi razgovarati s korisnikom s kojim je već komunicirao, odabire razgovor s tim korisnikom. Aplikacija dohvaća iz baze podataka prošle poruke s odabranim korisnikom. U oba opisana slučaja, korisnik piše željenu poruku te ju šalje nakon čega se poruka sprema u bazu.
 			
 				\begin{figure}[H]
 					\begin{center}
@@ -882,7 +890,7 @@
 				\end{figure}
 				
 				\eject
-				 \underbar{\textbf{UC15 Uređivanje profila korisnika}}
+				 \textbf{Obrazac uporabe UC15 - Uređivanje profila korisnika}
 			\newline
 			{Prijavljeni korisnik ide na stranicu svog profila.
 			Korisnik potom bira opciju izmjene podataka na svom profilu,nakon čega slijedi proces autentikacije korisnika,ukoliko je autentikacija prošla omogućene su izmjene podataka korisniku.Korisnik po želji mijenja podatke nakon čega odabire opciju izmijeni.Promijenjeni podatci se zapisuju u bazu a korisniku se prikazuje izmjenjena stranica profila .}\\
@@ -899,7 +907,7 @@
 				
 				
 			\eject
-				 \underbar{\textbf{UC25 Pregled kalendara}}
+				 \textbf{Obrazac uporabe UC25 - Pregled kalendara}
 			\newline
 			{Prijavljeni korisnik bira opciju prikaži kalendar,nakon toga aplikacija uzima od baze podataka sve  eventove koji su relevantni za korisnika (one na kojima je bio/će bit ili je svirao/će svirati  .}.Aplikacija puni kalendar tim eventovima i prikazuje ih korisniku.\\
 			
