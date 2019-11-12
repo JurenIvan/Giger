@@ -8,11 +8,12 @@
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
-    height: 100px;
+     height: 100px;
+    opacity: 0.5;
 }
 
 .Header a {
-    color: black;
+    color: white;
     padding: 5px 10px;
     margin: 0 10px;
     text-decoration-style: solid;
