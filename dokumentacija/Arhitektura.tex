@@ -18,7 +18,7 @@
 	Da bi osigurali maksimalno vrijeme dostupnosti naše platforme, .yml datoteka također je konfiguirana tako da prilikom commita u master deploya aplikaciju na druge dvije instance.
 	Ukupno imamo 4 pokrenute instance heroku, od koje su dvije backend, dvije frontend, dvije služe da development i dvije su za produkciju.U skladu s time, aplikacija ima 2 .properties datoteke. Jedna od njih je namjenjena lokalnom izvođenju aplikacije te sadrži postavke lokalne posgress baze, dok je druga konfiguirana tako postavke čita iz varijabli okruženja. Varijalbe okruženja postavljene su na Heroku tako da čak niti pristupom u git repozitorij vanjski korisnik nemože doći do akreditiva(credentials) kojima bi mogao pristupiti bazi.
 	
-	Prednost ostvarena automatiziranjem deployment procesa jest povećanje vjerojatnosti uspjesnosti deploya te povećanje udjela dostupnosti aplikacije zbog 2+2 instance servera.
+	Prednost ostvarena automatiziranjem deployment procesa jest povećanje vjerojatnosti uspješnosti deploya te povećanje udjela dostupnosti aplikacije zbog dva para instanci servera.
 	
 	Uvidjevši prednosti korištenja continuous deploymenta, primjenili smo to znanje i na kompjaliranje dokumentacije. 
 	Unutar repozitorija, osim pipelinea za deploy, postoji pipeline za automatsko kompjaliranje dokumentacije čiji je rezultat .pdf dokument.\\
@@ -63,7 +63,7 @@
 			
 		\textit{Potrebno je opisati koju vrstu i implementaciju baze podataka ste odabrali, glavne komponente od kojih se sastoji i slično.}
 		
-		Za potrebe razvoja \textit{Gigera} koristit će se objektno relacijsko mapiranje. To je metoda koja se koristi u objektno-orijentiranim jezicima te se na taj način stvara virtualna objektna baza podataka.
+		Za potrebe razvoja \textit{Gigera} koristit će se objektno relacijsko mapiranje. To je metoda koja se koristi u objektno-orijentiranim jezicima te se na taj način stvara virtualna objektna baza podataka. Za implementaciju baze podataka odabrali smo Postgres, zbog generalno pozitivnog iskustva u korištenju te implementacije baze podataka u dosadašnjem fakultetskom obrazovanju. Bitno je naglasiti da na osobnim računalima u svrhu razvijanja aplikacije koristimo istu implementaciju baze kao i na web poslužitelju kako bi minimizirali neočekivano ponašanje.
 		
 		Baza podataka sastoji se od sljedećih entiteta:
 		
@@ -73,9 +73,10 @@
 		\item Conversation
 		\item Conversation\_user
 		\item System\_person
-		\item Person
+		\item People
 		\item System\_person\_roles
 		\item Organizer
+		\item Conversation\_band
 		\item Band
 		\item Gig\_type
 		\item Band\_occasions
@@ -516,9 +517,6 @@
 
 			
 			\subsection{Dijagram baze podataka}
-				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
-			
-			\eject
 			
 			\begin{figure}[H]
 			\begin{center}
