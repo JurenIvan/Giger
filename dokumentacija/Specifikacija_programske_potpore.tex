@@ -1,14 +1,6 @@
 \chapter{Specifikacija programske potpore}
 		
 	\section{Funkcionalni zahtjevi}
-			
-		\textbf{\textit{dio 1. revizije}}\\
-		
-		\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
-			
-		\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
-		
-		
 		\noindent \textbf{Dionici:}
 		
     		\begin{packed_enum}
@@ -16,7 +8,8 @@
     			\item Javnost
     			\item Korisnici
     			\item Organizator
-    			\item Glazbenik 							
+    			\item Glazbenik 	
+    			\item Voditelj benda						
     			\item Administrator
     			\item Razvojni tim
     		\end{packed_enum}
@@ -42,7 +35,7 @@
 				\item Sve što i Javnost
 				\item Prijaviti se na aplikaciju
 				\item Pregledavati i uređivati korisnički profil
-				\item Pregledati postoječe poruke s drugim korisnicima
+				\item Pregledati postojeće poruke s drugim korisnicima
 				\item Pregledati svoj kalendar
 				\item Slati nove poruke drugim korisnicima
 				\item Recenzirati događaje
@@ -103,9 +96,9 @@
 			
 			\begin{packed_enum}
 				
-				\item Pohranjuje sve podatke o korisnicima, glazbenicima, organizatorima i bendovima
-				\item Pohranjuje sve podatke o nastupima, recenzijama, objavama, komentarima
-				\item Pohranjuje sve razmijenjene poruke između korisnika 
+				\item Pohranjuje podatke o korisnicima, glazbenicima, organizatorima i bendovima
+				\item Pohranjuje podatke o nastupima, recenzijama, objavama, komentarima
+				\item Pohranjuje razmijenjene poruke između korisnika 
 				
 			\end{packed_enum}
 		
@@ -116,13 +109,7 @@
 			
 				
 \subsection{Obrasci uporabe}
-
-\textbf{\textit{dio 1. revizije}}
-
 \subsubsection{Opis obrazaca uporabe}
-	\textit{Funkcionalne zahtjeve razraditi u obliku obrazaca uporabe. Svaki obrazac je potrebno razraditi prema donjem predlošku. Ukoliko u nekom koraku može doći do odstupanja, potrebno je to odstupanje opisati i po mogućnosti ponuditi rješenje kojim bi se tijek obrasca vratio na osnovni tijek.}\\
-
-
 \noindent \underbar{\textbf{UC1 - Pristup listi javnih događaja}}
 	\begin{packed_item}
 		
@@ -1004,14 +991,7 @@
 		\end{packed_item}
 	\end{packed_item}
 				
-				\subsubsection{Dijagrami obrazaca uporabe}
-				
-				
-				
-					
-					\textit{Prikazati odnos aktora i obrazaca uporabe odgovarajućim UML dijagramom. Nije nužno nacrtati sve na jednom dijagramu. Modelirati po razinama apstrakcije i skupovima srodnih funkcionalnosti.}
-				\eject				
-				
+				\subsubsection{Dijagrami obrazaca uporabe}	
 				
 				\begin{figure}[H]
 				\begin{center}
@@ -1039,11 +1019,6 @@
 				
 				
 			\subsection{Sekvencijski dijagrami}
-				
-				\textbf{\textit{dio 1. revizije}}\\
-				
-				\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
-				\eject
 				
 				\textbf{Obrazac uporabe UC4 - Registracija}
 				\newline
@@ -1100,10 +1075,6 @@
 			\end{figure}
 	
 		\section{Ostali zahtjevi}
-		
-			\textbf{\textit{dio 1. revizije}}\\
-		 
-			 \textit{Nefunkcionalni zahtjevi i zahtjevi domene primjene dopunjuju funkcionalne zahtjeve. Oni opisuju \textbf{kako se sustav treba ponašati} i koja \textbf{ograničenja} treba poštivati (performanse, korisničko iskustvo, pouzdanost, standardi kvalitete, sigurnost...). Primjeri takvih zahtjeva u Vašem projektu mogu biti: podržani jezici korisničkog sučelja, vrijeme odziva, najveći mogući podržani broj korisnika, podržane web/mobilne platforme, razina zaštite (protokoli komunikacije, kriptiranje...)... Svaki takav zahtjev potrebno je navesti u jednoj ili dvije rečenice.}
 			 \begin{itemize}
 			 	\item  Sustav treba omogućiti rad više korisnika u isto vrijeme
 			 	\item  Neispravno korištenje sučelja ne smije na bilo koji način promijeniti ili obustaviti rad sustava
@@ -1114,6 +1085,3 @@
 			 	\item Web aplikacija treba biti implementirana koristeći objektno-orijentirane jezike
 			 	\item  Treba osigurati sigurnost aplikacije, tj. lozinke moraju biti enkriptirane te mora biti osigurana sigurnost veze između korisnika aplikacije i baze podataka 
 			 \end{itemize}
-			 
-			 
-	
