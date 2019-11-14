@@ -9,7 +9,23 @@
 		\item 	\textit{organizaciju aplikacije (npr. slojevi frontend i backend, MVC arhitektura) }		
 	\end{itemize}
 	
-	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je defacto standard razvoja programskih rješenja. Osim toga, ona je fleksibilna i pregledna, što nam je bitno s obzirom na to da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti se lako dodaju od bilo strane koje osobe u timu.\\
+	
+	Da bi dugoročno uštjedjeli vrijeme, uložili smo dio vremena na konfiguiranje CI(continuous integration) i CD(continuous delivery) procesa.Za deploy aplikacije odabrali smo Heroku. Heroku je jedna od najpoznatijih platforma za deployanje aplikacija, a iz šume drugih ističe se svojom jednostavnošću.
+	U usporedbi s AWS-ovim servisima koje smo razmatrali, heroku se sam brine oko instanci i arhitekture sustava na kojem se vrti naša aplikacija.Zbog ogranicenih resursa odlučili smo deployati aplikaciju na besplatnu instancu herokua.
+	Besplatna instanca Herokua ima određena ograničenja, a najupecatljivije od njih je nacin na koji se pokrece projekt.
+	Heroku sam prepozna kojeg je tipa projekt pa deployamo frontend i backend trebamo dvije instance.
+	CD je integriran putem gitlabovih pipelinesa za koje je bilo potrebno napisati .gitlab-ci.yml file u kojem smo konfiguirali gitlabov pipeline. Gitlabov pipeline konfiguiran je tako da se na svaki komit u dev granu izgradi aplikacija, izvrte testovi i krene deploy na heroku.\\
+	Da bi osigurali maksimalno vrijeme dostupnosti naše platforme, .yml datoteka također je konfiguirana tako da prilikom commita u master deploya aplikaciju na druge dvije instance.
+	Ukupno imamo 4 pokrenute instance heroku, od koje su dvije backend, dvije frontend, dvije služe da development i dvije su za produkciju.U skladu s time, aplikacija ima 2 .properties datoteke. Jedna od njih je namjenjena lokalnom izvođenju aplikacije te sadrži postavke lokalne posgress baze, dok je druga konfiguirana tako postavke čita iz varijabli okruženja. Varijalbe okruženja postavljene su na Heroku tako da čak niti pristupom u git repozitorij vanjski korisnik nemože doći do akreditiva(credentials) kojima bi mogao pristupiti bazi.
+	
+	Prednost ostvarena automatiziranjem deployment procesa jest povećanje vjerojatnosti uspjesnosti deploya te povećanje udjela dostupnosti aplikacije zbog 2+2 instance servera.
+	
+	Uvidjevši prednosti korištenja continuous deploymenta, primjenili smo to znanje i na kompjaliranje dokumentacije. 
+	Unutar repozitorija, osim pipelinea za deploy, postoji pipeline za automatsko kompjaliranje dokumentacije čiji je rezultat .pdf dokument.\\
+	
+	Potencijalni prostor za napredak bio bi korištenje Docker tehnologije tako da prilikom pokretanja aplikacije korisnik ne mora imati instaliranu posgres bazu već ju pokrene u docker kontejneru.\\
+
+	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je defacto standard razvoja programskih rješenja. Osim toga, ona je fleksibilna, omogućuje recikliranje koda, te logički razdjeljuje sustav na više cjelina, što je bitno s obzirom da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti dodaju se lako u timu.\\
 
 	Odlučili smo se za web aplikaciju, koja je prilagođena mobilni uređajima, obzirom da glazbenici, a time i bendovi nemaju uvijek pristup računalu, a ne želimo da je korisnik ograničen samo na mobilne uređaje.\\
 
@@ -80,7 +96,6 @@
 		\item Review
 		
 	\end{packed_item}
-	
 	
 	
 	\subsection{Opis tablica}
