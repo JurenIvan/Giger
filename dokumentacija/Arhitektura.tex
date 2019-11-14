@@ -52,235 +52,301 @@
 		Baza podataka sastoji se od sljedećih entiteta:
 		
 		\begin{packed_item}
-			\item Review
-			\item Review\_gig
-			\item Review\_band
-			\item Review\_musician
-			\item Review\_organizer
-			\item Organizer
-			\item Users
-			\item Conversation\_user
-			\item Conversation
-			\item Message
-			\item Message\_seen
-			\item Musician
-			\item Instruments
-			\item Musician\_bands
-			\item Band
-			\item Band\_members
-			\item Band\_gigs
-			\item Musician\_gig
-			\item Gig
-			\item Gig\_type
-			\item Post
-			\item Comment
-		\end{packed_item}
-			
+		\item Comment
+		\item Message
+		\item Conversation
+		\item Conversation\_user
+		\item System\_person
+		\item People
+		\item System\_person\_roles
+		\item Organizer
+		\item Conversation\_band
+		\item Band
+		\item Gig\_type
+		\item Band\_occasions
+		\item Occasion
+		\item Musician\_occasions
+		\item Band\_invited\_back\_up\_members
+		\item Band\_invited
+		\item Band\_back\_up\_members
+		\item Musician\_bands
+		\item Post
+		\item Musician
+		\item Instruments
+		\item Instrument
+		\item Musician\_gig\_history
+		\item Gig
+		\item Review\_gig
+		\item Review
 		
-		
-		\subsection{Opis tablica}
-
-
-							\textit{\bf Review}
-			\textit{Ovaj entitet sadrži informacije za recenziju. Sadrži atribute: id recenzije, sadržaj recenzije, ocjenu te id autora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_band, Review\_gig, Review\_organizer i Review\_musician.}
-
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Review}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textbf{id} & BIGINT	&  	jedinstveni identifikator recenzije 	\\ \hline
-				content	& VARCHAR &  sadržaj komentara	\\ \hline
-				grade & INT & ocjena 1-5  \\ \hline
-				\textit{author\_id} & BIGINT	& jedinstveni identifikator autora recenzije	\\ \hline
-
-
-			\end{longtabu}
-
-			\textit{\bf Review\_gig}
-			\textit{Ovaj entitet sadrži informacije za recenziju nastupa. Sadrži atribute: id nastupa i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Gig i Review.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-				
-				\hline \multicolumn{3}{|c|}{\textbf{Review\_gig}}	 \\[3pt] \hline
-				\endfirsthead
-				
-				\hline 
-				\endlastfoot
-				
-				\textit{fk\_gig} & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
-				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
-				
-			\end{longtabu}	
-
-			\textit{\bf Review\_band}
-			\textit{Ovaj entitet sadrži informacije za recenziju benda. Sadrži atribute: id benda i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Band i Review.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Review\_band}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textit{fk\_band} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije \\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Review\_musician}
-			\textit{Ovaj entitet sadrži informacije za recenziju glazbenika. Sadrži atribute: id glazbenika i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Musician i Review.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Review\_musician}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textit{fk\_musician} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Review\_organizer}
-			\textit{Ovaj entitet sadrži informacije za recenziju organizatora. Sadrži atribute: id organizatora i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Organizer i Review.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Review\_organizer}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textit{fk\_organizer} & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Organizer}
-			\textit{Ovaj entitet sadrži informacije za organizatora. Sadrži atribute: id organizatora te ime organizatora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_organizer, Gig i User}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textbf{id} & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-				manager\_name	& VARCHAR &  ime organizatora	\\ \hline
-
-			\end{longtabu}
-			\textit{\bf User}
-			\textit{Ovaj entitet sadrži informacije za korisnika. Sadrži atribute: id korisnika, e-mail adresu korisnika, lozinku, kontakt broj te id glazbenika i id organizatora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Message, Message\_seen, Conversation\_user, Review, Comment. Također je u \emph{Many-to-many} vezi sa entitetima Musician i Organizer.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{User}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textbf{id} & BIGINT	&  	jedinstveni identifikator korisnika 	\\ \hline
-				email & VARCHAR & email adresa korisnika	\\ \hline
-				password\_hash & VARCHAR &
-				hash lozinke korisnika \\ \hline
-				phone\_number & VARCHAR & telefonski broj korisnika \\ \hline
-				\textit{musician\_id} & BIGINT & jedinstveni identifikator glazbenika  \\ \hline
-				\textit{organizer\_id} & BIGINT & jedinstveni identifikator organizatora
-			\end{longtabu}
-
-			\textit{\bf Conversation\_user}
-			\textit{Ovaj entitet sadrži informacije o korisniku u razgovoru. Sadrži atribute: id korisnika i id razgovora. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:User i Conversation.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Conversation\_user}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textit{fk\_user} & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
-				\textit{fk\_conversation}	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Conversation}
-			\textit{Ovaj entitet sadrži informacije o razgovoru. Sadrži atribute: id razgovora i ime razgovora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima:Message i Conversation\_user.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Conversation}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textbf{id} & BIGINT	&  	jedinstveni identifikator razgovora 	\\ \hline
-				name	& VARCHAR &  ime razgovora	\\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Message}
-			\textit{Ovaj entitet sadrži informacije o poruci. Sadrži atribute: id poruke, sadržaj poruke, vrijeme kada je poruka poslana, id pošiljatelja i id razgovora. Ovaj entitet je u \emph{Many-to-Many} vezi  sa entitetom Message\_seen te je u \emph{Many-to-many} vezi sa entitetima Conversation i User.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Message}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textbf{id} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
-				content	& VARCHAR & sadržaj poruke	\\ \hline
-				sent\_time & TIMESTAMP & vrijeme kada je poruka poslana \\ \hline
-				\textit{fk\_sender} & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
-				\textit{fk\_converation} & BIGINT & jedinstveni identifikator razgovora \\ \hline
-
-			\end{longtabu}
-
-			\textit{\bf Message}
-			\textit{Ovaj entitet sadrži informacije o statusu čitanja poruke. Sadrži atribute: id poruke te id razgovora. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima Users i Message.}
-			\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-
-				\hline \multicolumn{3}{|c|}{\textbf{Message\_seen}}	 \\[3pt] \hline
-				\endfirsthead
-
-				\hline
-				\endlastfoot
-
-				\textit{fk\_message} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
-				\textit{fk\_user}	& BIGINT &  jedinstveni identifikator korisnika	\\ \hline
-
-			\end{longtabu}
+	\end{packed_item}
+	
+	
+	
+	\subsection{Opis tablica}
+	
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
-		\hline \multicolumn{3}{|c|}{\textbf{Musician}}	 \\[3pt] \hline
+		\hline \multicolumn{3}{|c|}{\textbf{Comment}}	 \\[3pt] \hline
 		\endfirsthead
 		
 		\hline 
 		\endlastfoot
 		
-		\textbf{id} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-		bio	& VARCHAR &  opis glazbenika	\\ \hline 		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator komentara 	\\ \hline
+		content & VARCHAR & sadržaj komentara \\ \hline
+		posted\_on & TIMESTAMP & datum i vrijeme objave komentara \\ \hline	
+		\textit{author\_id} & BIGINT & jedinstveni identifikator autora komentara \\ \hline
+		\textit{fk\_post} & BIGINT & jedinstveni identifikator komentara \\ \hline
 		
 	\end{longtabu}
-
+	
+	\textit{\bf Message}
+	\textit{Ovaj entitet sadrži informacije o poruci. Sadrži atribute: id poruke, sadržaj poruke, vrijeme kada je poruka poslana, id pošiljatelja i id razgovora. Ovaj entitet je u \emph{Many-to-Many} vezi  sa entitetom Message\_seen te je u \emph{Many-to-many} vezi sa entitetima Conversation i User.}
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
-		\hline \multicolumn{3}{|c|}{\textbf{Instruments}}	 \\[3pt] \hline
+		\hline \multicolumn{3}{|c|}{\textbf{Message}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
+		content	& VARCHAR & sadržaj poruke	\\ \hline
+		sent\_time & TIMESTAMP & vrijeme kada je poruka poslana \\ \hline
+		\textit{fk\_sender} & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
+		\textit{fk\_sender\_band} & BIGINT & jedinstveni identifikator benda pošiljatelja \\ \hline
+		\textit{fk\_converation} & BIGINT & jedinstveni identifikator razgovora \\ \hline
+		
+	\end{longtabu}
+	
+	\textit{\bf Conversation}
+	\textit{Ovaj entitet sadrži informacije o razgovoru. Sadrži atribute: id razgovora i ime razgovora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima:Message i Conversation\_user.}
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Conversation}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator razgovora 	\\ \hline
+		\textit{fk\_band} & BIGINT & jedinstveni identifikator benda \\ \hline
+		picture\_url & VARCHAR & url slike razgovora \\ \hline
+		title	& VARCHAR &  naziv razgovora	\\ \hline
+		
+	\end{longtabu}
+	
+	\textit{\bf Conversation\_user}
+	\textit{Ovaj entitet sadrži informacije o korisniku u razgovoru. Sadrži atribute: id korisnika i id razgovora. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:User i Conversation.}
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Conversation\_user}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textit{fk\_user} & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
+		\textit{fk\_conversation}	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
+		
+	\end{longtabu}
+	
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{System\_person}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator sustavskih podataka o korisniku	\\ \hline
+		email & VARCHAR & email adresa osobe \\ \hline
+		locked & BOOLEAN & korisnik ima zabranu korištenja aplikacije ili ne \\ \hline
+		password\_hash & VARCHAR & hash lozinke osobe \\ \hline
+		verified & BOOLEAN & email adresa potvrđena ili ne \\ \hline
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Person}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
+		phone\_number & VARCHAR & telefonski broj korisnika \\ \hline
+		picture\_url & VARCHAR & url slike korisnika \\ \hline
+		username & VARCHAR & korisničko ime korisnika
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{System\_person\_roles}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{system\_person\_id} & BIGINT	&  	jedinstveni identifikator sustavskih podataka o korisniku	\\ \hline
+		roles & INT & Uloga korisnika \\ \hline
+		
+		
+	\end{longtabu}
+	
+	\textit{\bf Organizer}
+	\textit{Ovaj entitet sadrži informacije za organizatora. Sadrži atribute: id organizatora te ime organizatora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_organizer, Gig i User}
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
+		manager\_name	& VARCHAR &  ime organizatora	\\ \hline
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Conversation\_band}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textit{fk\_band} & BIGINT	&  	jedinstveni identifikator benda	\\ \hline
+		\textit{fk\_conversation}	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Band}}	 \\[3pt] \hline
 		\endfirsthead
 		
 		\hline 
 		\endlastfoot
 		
-		\textbf{musician} & BIGINT	&  	jedinstveni identifikator glazbenika	\\ \hline
-		plays	& VARCHAR &  ime instrumenta	\\ \hline 		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		bio & VARCHAR & opis benda \\ \hline
+		formed\_date & DATE & datum osnutka benda \\ \hline
+		address & VARCHAR & adresa benda \\ \hline
+		extra\_description & VARCHAR & dodatak opis benda \\ \hline
+		x & DOUBLE & x koordinata lokacije \\ \hline
+		y & DOUBLE & y koordinata lokacije \\ \hline
+		max\_distance & DOUBLE & najveća udaljenost koju bend želi prijeći zbog gaže \\ \hline
+		name & VARCHAR & ime benda \\ \hline
+		picture\_url & VARCHAR & url slike benda \\ \hline
+		\textit{leader\_id}	& BIGINT &  jedinstveni identifikator voditelja benda	\\ \hline 	
 		
 	\end{longtabu}
-
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Gig\_type}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textbf{gig} &  BIGINT	&  	jedinstveni identifikator vrste nastupa 	\\ \hline
+		gig\_type	& VARCHAR &  vrsta nastupa	\\ \hline 		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Band\_occasions}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{occasion\_id} &  BIGINT	&  	jedinstveni identifikator događaja 	\\ \hline
+		\textit{band\_id} &  BIGINT	&  	jedinstveni identifikator benda koji sudjeluje na događaju 	\\ \hline 		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Occasion}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textbf{id} &  BIGINT	&  	jedinstveni identifikator događaja 	\\ \hline
+		description & VARCHAR & opis događaja \\ \hline
+		local\_date & DATE & datum održavanja događaja \\ \hline
+		personal\_occasion & BOOLEAN & privatan događaj ili ne \\ \hline
+		\textit{band\_id} & BIGINT & jedinstveni identifikator benda koji sudjeluje na događaju
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Musician\_occasions}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{musician\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
+		\textit{occasions\_id} &  BIGINT	&  	jedinstveni identifikator događaja	\\ \hline
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+8]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Band\_invited\_back\_up\_members}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{band\_id} &  BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		\textit{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika pozvanih u bend kao rezerva	\\ \hline
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Band\_invited}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{band\_id} &  BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		\textit{invited\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika pozvanih u bend	\\ \hline
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+8]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Band\_back\_up\_members}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{band\_id} &  BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		\textit{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika koji su rezervni članovi	\\ \hline
+		
+		
+	\end{longtabu}
+	
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Musician\_bands}}	 \\[3pt] \hline
@@ -293,62 +359,81 @@
 		\textit{fk\_band}	& BIGINT &  jedinstveni identifikator benda	\\ \hline 		
 		
 	\end{longtabu}
-
-	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-		
-		\hline \multicolumn{3}{|c|}{\textbf{Band}}	 \\[3pt] \hline
-		\endfirsthead
-		
-		\hline 
-		\endlastfoot
-		
-		\textbf{id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-		bio & VARCHAR & opis benda \\ \hline
-		formed\_date & DATE & datum osnutka benda \\ \hline
-		name & VARCHAR & ime benda \\ \hline
-		\textit{leader\_id}	& BIGINT &  jedinstveni identifikator voditelja benda	\\ \hline 	
-		
-	\end{longtabu}
-		
-		\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-			
-			\hline \multicolumn{3}{|c|}{\textbf{Band\_members}}	 \\[3pt] \hline
-			\endfirsthead
-			
-			\hline 
-			\endlastfoot
-			
-			\textbf{band\_id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-			\textit{members\_id}	& BIGINT &  jedinstveni identifikator člana benda	\\ \hline 		
-			
-		\end{longtabu}	
 	
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
-		\hline \multicolumn{3}{|c|}{\textbf{Band\_gigs}}	 \\[3pt] \hline
+		\hline \multicolumn{3}{|c|}{\textbf{Post}}	 \\[3pt] \hline
 		\endfirsthead
 		
 		\hline 
 		\endlastfoot
 		
-		\textbf{band\_id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-		\textbf{gigs\_id}	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator objave 	\\ \hline
+		content & VARCHAR & sadržaj objave \\ \hline
+		published\_on & TIMESTAMP & datum i vrijeme objave objave \\ \hline	
+		\textit{fk\_band} & BIGINT & jedinstveni identifikator benda \\ \hline
+		\textit{fk\_user} & BIGINT & jedinstveni identifikator korisnika koji je napisao objavu \\ \hline
 		
-	\end{longtabu}	
-
+	\end{longtabu}
+	
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
-		\hline \multicolumn{3}{|c|}{\textbf{Musician\_gig}}	 \\[3pt] \hline
+		\hline \multicolumn{3}{|c|}{\textbf{Musician}}	 \\[3pt] \hline
 		\endfirsthead
 		
 		\hline 
 		\endlastfoot
 		
-		\textit{fk\_musician} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-		\textit{fk\_gig}	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
+		bio	& VARCHAR &  opis glazbenika	\\ \hline 
+		public\_calendar & BOOLEAN & kalendar glazbenika javan ili ne \\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline		
 		
-	\end{longtabu}	
-
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Instruments}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{instruments\_id} & BIGINT & jedinstveni identifikator instrumenta \\ \hline
+		\textbf{musician} & BIGINT	&  	jedinstveni identifikator glazbenika	\\ \hline
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Instrument}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textbf{id} & BIGINT & jedinstveni identifikator instrumenta \\ \hline
+		name & VARCHAR & ime instrumenta \\ \hline
+		type & INT & vrsta instrumenta \\ \hline
+		
+		
+	\end{longtabu}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Musician\_gig\_history}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline 
+		\endlastfoot
+		
+		\textit{fk\_musician} & BIGINT & jedinstveni identifikator glazbenika \\ \hline
+		\textit{fk\_gig} & BIGINT & jedinstveni identifikator nastupa \\ \hline
+		
+		
+		
+	\end{longtabu}
+	
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Gig}}	 \\[3pt] \hline
@@ -365,57 +450,48 @@
 		\textit{gig\_type} & INT & vrsta nastupa \\ \hline
 		address & VARCHAR & adresa održavanja nastupa \\ \hline
 		extra\_description & VARCHAR & dodatan opis nastupa \\ \hline
-		x & DOUBLE & ?? \\ \hline
-		y & DOUBLE & ?? \\ \hline
+		x & DOUBLE & x koordinata lokacije \\ \hline
+		y & DOUBLE & y koordinata lokacije \\ \hline
 		private\_gig & BOOLEAN & nastupa privatan ili ne \\ \hline
 		proposed\_price & INT & preporučena cijena ulaznice \\ \hline
-		\textit{final\_band\_id}	& BIGINT &  jedinstveni identifikator benda	\\ \hline
 		\textit{organizer\_id}	& BIGINT &  jedinstveni identifikator organizatora	\\ \hline 		
 		
-	\end{longtabu}	
-
-		\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-		
-		\hline \multicolumn{3}{|c|}{\textbf{Gig\_type}}	 \\[3pt] \hline
-		\endfirsthead
-		
-		\hline 
-		\endlastfoot
-		
-		\textbf{gig} &  BIGINT	&  	jedinstveni identifikator vrste nastupa 	\\ \hline
-		gig\_type	& VARCHAR &  vrsta nastupa	\\ \hline 		
-		
 	\end{longtabu}
-
-		\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
-		
-		\hline \multicolumn{3}{|c|}{\textbf{Post}}	 \\[3pt] \hline
-		\endfirsthead
-		
-		\hline 
-		\endlastfoot
-		
-		\textbf{id} & BIGINT	&  	jedinstveni identifikator objave 	\\ \hline
-		content & VARCHAR & sadržaj objave \\ \hline
-		published\_on & TIMESTAMP & datum i vrijeme objave objave \\ \hline	
-		\textit{fk\_user} & BIGINT & jedinstveni identifikator korisnika koji je napisao objavu \\ \hline
-		\textit{fk\_band} & BIGINT & jedinstveni identifikator benda \\ \hline
-			
-	\end{longtabu}
-
+	
+	\textit{\bf Review\_gig}
+	\textit{Ovaj entitet sadrži informacije za recenziju nastupa. Sadrži atribute: id nastupa i id recenzije. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima:Gig i Review.}
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
-		\hline \multicolumn{3}{|c|}{\textbf{Comment}}	 \\[3pt] \hline
+		\hline \multicolumn{3}{|c|}{\textbf{Review\_gig}}	 \\[3pt] \hline
 		\endfirsthead
 		
 		\hline 
 		\endlastfoot
 		
-		\textbf{id} & BIGINT	&  	jedinstveni identifikator komentara 	\\ \hline
-		content & VARCHAR & sadržaj komentara \\ \hline
-		posted\_on & TIMESTAMP & datum i vrijeme objave komentara \\ \hline	
-		\textit{author\_id} & BIGINT & jedinstveni identifikator autora komentara \\ \hline
-		\textit{fk\_post} & BIGINT & jedinstveni identifikator komentara \\ \hline
+		\textit{fk\_gig} & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
+		\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
+		
+	\end{longtabu}
+	
+	\textit{\bf Review}
+	\textit{Ovaj entitet sadrži informacije za recenziju. Sadrži atribute: id recenzije, sadržaj recenzije, ocjenu te id autora. Ovaj entitet je u \emph{One-to-Many} vezi  sa entitetima: Review\_band, Review\_gig, Review\_organizer i Review\_musician.}
+	
+	\begin{longtabu} to \textwidth {|X[6, l+14]|X[6, l+2]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Review}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator recenzije 	\\ \hline
+		content\_of\_review\_for\_band	& VARCHAR &  sadržaj komentara benda	\\ \hline
+		content\_of\_review\_for\_organizer	& VARCHAR &  sadržaj komentara organizatora	\\ \hline
+		created & TIMESTAMP & vrijeme objave komentara \\ \hline
+		grade\_band & INT & ocjena benda 1-5  \\ \hline
+		grade\_organizer & INT & ocjena organizatora 1-5  \\ \hline
+		\textit{author\_id} & BIGINT	& jedinstveni identifikator korisnika koji je autor recenzije	\\ \hline
+		
 		
 	\end{longtabu}
 	
@@ -433,8 +509,8 @@
 			\begin{center}
 				\includegraphics[width=17cm]{slike/ERModel.PNG}
 			\end{center}
-			\caption{Sekvencijski dijagram za UC25}
-			\label{fig:uc25}
+			\caption{Dijagram baze podataka}
+			\label{fig:dijagramBaze}
 		\end{figure}
 			
 			
