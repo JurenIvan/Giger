@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-public class Occasion {
+public class Occasion implements Comparable<LocalDate> {
 
     @Id
     private Long id;
@@ -17,4 +17,8 @@ public class Occasion {
     private String description;
     private boolean personalOccasion;
 
+    @Override
+    public int compareTo(LocalDate localDate) {
+        return this.localDate.compareTo(localDate);
+    }
 }

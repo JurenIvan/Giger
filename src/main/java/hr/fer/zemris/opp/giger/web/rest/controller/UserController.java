@@ -1,7 +1,7 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.User;
-import hr.fer.zemris.opp.giger.service.UserService;
+import hr.fer.zemris.opp.giger.domain.Person;
+import hr.fer.zemris.opp.giger.service.PeopleService;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +13,10 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private UserService userService;
+    private PeopleService peopleService;
 
     @PostMapping("/findUsers")
-    private List<User> findUsers(FindUsersDto findUsersDto) {
-        return userService.findUsers(findUsersDto);
+    private List<Person> findUsers(FindUsersDto findUsersDto) {
+        return peopleService.findUsers(findUsersDto);
     }
 }

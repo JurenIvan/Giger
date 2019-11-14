@@ -21,7 +21,7 @@ public class GigController {
     private GigService gigService;
 
     @PostMapping("/create-gig")
-    @PreAuthorize("hasPermission('MUSICIAN')")
+    @PreAuthorize("hasPermission('ORGANIZER')")
     public Gig createGig(@Valid @RequestBody GigCreationDto gigCreationDto) {
         return gigService.createGig(gigCreationDto);
     }

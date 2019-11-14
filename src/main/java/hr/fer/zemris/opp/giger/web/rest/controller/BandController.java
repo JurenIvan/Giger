@@ -1,26 +1,25 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Band;
-import hr.fer.zemris.opp.giger.domain.Location;
+import hr.fer.zemris.opp.giger.service.BandService;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.FilterBandDto;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController
 @RequestMapping("/bands")
 public class BandController {
 
-    @PostMapping("/available")
-    public List<Band> listAvailableBands(LocalDate localDate, Location location) {
-        return null;
+    private BandService bandService;
+
+    @GetMapping("/like/{name}")
+    public List<BandPreviewDto> getBands(@PathVariable String name) {
+        return bandService.listBands(name);
     }
 
     @PostMapping("/filter")
-    public List<Band> filterBandsByFilters(FilterBandDto filterBandDto) {
-        return null;
+    public List<BandPreviewDto> filterBandsByFilters(FilterBandDto filterBandDto) {
+        return bandService.listAvailableBands(filterBandDto);
     }
 }
