@@ -14,6 +14,8 @@ dev:
   stage: dev
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_DEV --api-key=$HEROKU_API_KEY
+    - cd web
+    - dpl --provider=heroku --app=$HEROKU_FRONTEND_APP_DEV --api-key=$HEROKU_API_KEY
   only:
     - dev
 
@@ -22,5 +24,7 @@ production:
   stage: production
   script:
     - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+    - cd web
+    - dpl --provider=heroku --app=$HEROKU_FRONTEND_APP_PRODUCTION --api-key=$HEROKU_API_KEY
   only:
     - master
