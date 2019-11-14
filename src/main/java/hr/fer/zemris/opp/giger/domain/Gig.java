@@ -36,6 +36,8 @@ public class Gig {
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
+
+    @Enumerated(EnumType.ORDINAL)
     private GigType gigType;
     private boolean finalDealAchieved;
     private boolean privateGig;

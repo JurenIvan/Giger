@@ -64,8 +64,8 @@ public class Band {
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
 
-    @ElementCollection
-    @CollectionTable(name = "band_occasions", joinColumns = @JoinColumn(name = "band_id"))
+    @OneToMany
+    @JoinColumn(name = "band_id")
     private List<Occasion> occasions;
 
     public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {

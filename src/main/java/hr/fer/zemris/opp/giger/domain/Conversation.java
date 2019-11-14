@@ -35,9 +35,6 @@ public class Conversation {
     private List<Person> participants;
 
     @ManyToOne(fetch = LAZY)
-    @JoinTable(name = "conversation_band",
-            joinColumns = {@JoinColumn(name = "fk_conversation")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_band")})
     private Band band;
 
 
