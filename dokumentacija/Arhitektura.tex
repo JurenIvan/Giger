@@ -110,10 +110,10 @@
 				\hline
 				\endlastfoot
 
-				id & BIGINT	&  	jedinstveni identifikator recenzije 	\\ \hline
+				\textbf{id} & BIGINT	&  	jedinstveni identifikator recenzije 	\\ \hline
 				content	& VARCHAR &  sadržaj komentara	\\ \hline
 				grade & INT & ocjena 1-5  \\ \hline
-				author\_id & BIGINT	& jedinstveni identifikator autora recenzije	\\ \hline
+				\textit{author\_id} & BIGINT	& jedinstveni identifikator autora recenzije	\\ \hline
 
 
 			\end{longtabu}
@@ -128,8 +128,8 @@
 				\hline 
 				\endlastfoot
 				
-				fk\_gig & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
+				\textit{fk\_gig} & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
+				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline 		
 				
 			\end{longtabu}	
 
@@ -143,8 +143,8 @@
 				\hline
 				\endlastfoot
 
-				fk\_band & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije \\ \hline
+				\textit{fk\_band} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije \\ \hline
 
 			\end{longtabu}
 
@@ -158,8 +158,8 @@
 				\hline
 				\endlastfoot
 
-				fk\_musician & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
+				\textit{fk\_musician} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
+				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
 
 			\end{longtabu}
 
@@ -173,8 +173,8 @@
 				\hline
 				\endlastfoot
 
-				fk\_organizer & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
-				fk\_review	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
+				\textit{fk\_organizer} & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
+				\textit{fk\_review}	& BIGINT &  jedinstveni identifikator recenzije	\\ \hline
 
 			\end{longtabu}
 
@@ -188,7 +188,7 @@
 				\hline
 				\endlastfoot
 
-				id & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
+				\textbf{id} & BIGINT	&  	jedinstveni identifikator organizatora 	\\ \hline
 				manager\_name	& VARCHAR &  ime organizatora	\\ \hline
 
 			\end{longtabu}
@@ -202,13 +202,13 @@
 				\hline
 				\endlastfoot
 
-				id & BIGINT	&  	jedinstveni identifikator korisnika 	\\ \hline
+				\textbf{id} & BIGINT	&  	jedinstveni identifikator korisnika 	\\ \hline
 				email & VARCHAR & email adresa korisnika	\\ \hline
 				password\_hash & VARCHAR &
 				hash lozinke korisnika \\ \hline
 				phone\_number & VARCHAR & telefonski broj korisnika \\ \hline
-				musician\_id & BIGINT & jedinstveni identifikator glazbenika  \\ \hline
-				organizer\_id & BIGINT & jedinstveni identifikator organizatora
+				\textit{musician\_id} & BIGINT & jedinstveni identifikator glazbenika  \\ \hline
+				\textit{organizer\_id} & BIGINT & jedinstveni identifikator organizatora
 			\end{longtabu}
 
 			\textit{\bf Conversation\_user}
@@ -221,8 +221,8 @@
 				\hline
 				\endlastfoot
 
-				fk\_user & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
-				fk\_conversation	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
+				\textit{fk\_user} & BIGINT	&  	jedinstveni identifikator korisnika	\\ \hline
+				\textit{fk\_conversation}	& BIGINT &  jedinstveni identifikator razgovora	\\ \hline
 
 			\end{longtabu}
 
@@ -236,7 +236,7 @@
 				\hline
 				\endlastfoot
 
-				id & BIGINT	&  	jedinstveni identifikator razgovora 	\\ \hline
+				\textbf{id} & BIGINT	&  	jedinstveni identifikator razgovora 	\\ \hline
 				name	& VARCHAR &  ime razgovora	\\ \hline
 
 			\end{longtabu}
@@ -251,11 +251,11 @@
 				\hline
 				\endlastfoot
 
-				id & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
+				\textbf{id} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
 				content	& VARCHAR & sadržaj poruke	\\ \hline
 				sent\_time & TIMESTAMP & vrijeme kada je poruka poslana \\ \hline
-				fk\_sender & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
-				fk\_converation & BIGINT & jedinstveni identifikator razgovora \\ \hline
+				\textit{fk\_sender} & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
+				\textit{fk\_converation} & BIGINT & jedinstveni identifikator razgovora \\ \hline
 
 			\end{longtabu}
 
@@ -269,8 +269,8 @@
 				\hline
 				\endlastfoot
 
-				fk\_message & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
-				fk\_user	& BIGINT &  jedinstveni identifikator korisnika	\\ \hline
+				\textit{fk\_message} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
+				\textit{fk\_user}	& BIGINT &  jedinstveni identifikator korisnika	\\ \hline
 
 			\end{longtabu}
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
@@ -281,7 +281,7 @@
 		\hline 
 		\endlastfoot
 		
-		id & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
 		bio	& VARCHAR &  opis glazbenika	\\ \hline 		
 		
 	\end{longtabu}
@@ -294,7 +294,7 @@
 		\hline 
 		\endlastfoot
 		
-		musician & BIGINT	&  	jedinstveni identifikator glazbenika	\\ \hline
+		\textbf{musician} & BIGINT	&  	jedinstveni identifikator glazbenika	\\ \hline
 		plays	& VARCHAR &  ime instrumenta	\\ \hline 		
 		
 	\end{longtabu}
@@ -307,8 +307,8 @@
 		\hline 
 		\endlastfoot
 		
-		fk\_musician & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-		fk\_band	& BIGINT &  jedinstveni identifikator benda	\\ \hline 		
+		\textit{fk\_musician} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
+		\textit{fk\_band}	& BIGINT &  jedinstveni identifikator benda	\\ \hline 		
 		
 	\end{longtabu}
 
@@ -320,11 +320,11 @@
 		\hline 
 		\endlastfoot
 		
-		id & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
 		bio & VARCHAR & opis benda \\ \hline
 		formed\_date & DATE & datum osnutka benda \\ \hline
 		name & VARCHAR & ime benda \\ \hline
-		leader\_id	& BIGINT &  jedinstveni identifikator voditelja benda	\\ \hline 	
+		\textit{leader\_id}	& BIGINT &  jedinstveni identifikator voditelja benda	\\ \hline 	
 		
 	\end{longtabu}
 		
@@ -336,8 +336,8 @@
 			\hline 
 			\endlastfoot
 			
-			band\_id & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-			members\_id	& BIGINT &  jedinstveni identifikator člana benda	\\ \hline 		
+			\textbf{band\_id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+			\textit{members\_id}	& BIGINT &  jedinstveni identifikator člana benda	\\ \hline 		
 			
 		\end{longtabu}	
 	
@@ -349,8 +349,8 @@
 		\hline 
 		\endlastfoot
 		
-		band\_id & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-		gigs\_id	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
+		\textbf{band\_id} & BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
+		\textbf{gigs\_id}	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
 		
 	\end{longtabu}	
 
@@ -362,8 +362,8 @@
 		\hline 
 		\endlastfoot
 		
-		fk\_musician & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
-		fk\_gig	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
+		\textit{fk\_musician} & BIGINT	&  	jedinstveni identifikator glazbenika 	\\ \hline
+		\textit{fk\_gig}	& BIGINT &  jedinstveni identifikator nastupa	\\ \hline 		
 		
 	\end{longtabu}	
 
@@ -375,20 +375,20 @@
 		\hline 
 		\endlastfoot
 		
-		id & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator nastupa 	\\ \hline
 		date\_time & TIMESTAMP & datum i vrijeme održavanja nastupa \\ \hline
 		description & VARCHAR & opis nastupa \\ \hline
 		expected\_duration & VARCHAR & očekivano trajanje nastupa \\ \hline
 		final\_deal\_achieved & BOOLEAN & dogovor postignut ili ne \\ \hline
-		gig\_type & INT & vrsta nastupa \\ \hline
+		\textit{gig\_type} & INT & vrsta nastupa \\ \hline
 		address & VARCHAR & adresa održavanja nastupa \\ \hline
 		extra\_description & VARCHAR & dodatan opis nastupa \\ \hline
 		x & DOUBLE & ?? \\ \hline
 		y & DOUBLE & ?? \\ \hline
 		private\_gig & BOOLEAN & nastupa privatan ili ne \\ \hline
 		proposed\_price & INT & preporučena cijena ulaznice \\ \hline
-		final\_band\_id	& BIGINT &  jedinstveni identifikator benda	\\ \hline
-		organizer\_id	& BIGINT &  jedinstveni identifikator organizatora	\\ \hline 		
+		\textit{final\_band\_id}	& BIGINT &  jedinstveni identifikator benda	\\ \hline
+		\textit{organizer\_id}	& BIGINT &  jedinstveni identifikator organizatora	\\ \hline 		
 		
 	\end{longtabu}	
 
@@ -400,7 +400,7 @@
 		\hline 
 		\endlastfoot
 		
-		gig &  BIGINT	&  	jedinstveni identifikator vrste nastupa 	\\ \hline
+		\textbf{gig} &  BIGINT	&  	jedinstveni identifikator vrste nastupa 	\\ \hline
 		gig\_type	& VARCHAR &  vrsta nastupa	\\ \hline 		
 		
 	\end{longtabu}
@@ -413,11 +413,11 @@
 		\hline 
 		\endlastfoot
 		
-		id & BIGINT	&  	jedinstveni identifikator objave 	\\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator objave 	\\ \hline
 		content & VARCHAR & sadržaj objave \\ \hline
 		published\_on & TIMESTAMP & datum i vrijeme objave objave \\ \hline	
-		fk\_user & BIGINT & jedinstveni identifikator korisnika koji je napisao objavu \\ \hline
-		fk\_band & BIGINT & jedinstveni identifikator benda \\ \hline
+		\textit{fk\_user} & BIGINT & jedinstveni identifikator korisnika koji je napisao objavu \\ \hline
+		\textit{fk\_band} & BIGINT & jedinstveni identifikator benda \\ \hline
 			
 	\end{longtabu}
 
@@ -429,11 +429,11 @@
 		\hline 
 		\endlastfoot
 		
-		id & BIGINT	&  	jedinstveni identifikator komentara 	\\ \hline
+		\textbf{id} & BIGINT	&  	jedinstveni identifikator komentara 	\\ \hline
 		content & VARCHAR & sadržaj komentara \\ \hline
 		posted\_on & TIMESTAMP & datum i vrijeme objave komentara \\ \hline	
-		author\_id & BIGINT & jedinstveni identifikator autora komentara \\ \hline
-		fk\_post & BIGINT & jedinstveni identifikator komentara \\ \hline
+		\textit{author\_id} & BIGINT & jedinstveni identifikator autora komentara \\ \hline
+		\textit{fk\_post} & BIGINT & jedinstveni identifikator komentara \\ \hline
 		
 	\end{longtabu}
 	
