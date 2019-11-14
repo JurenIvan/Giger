@@ -2,8 +2,8 @@ package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -67,6 +67,11 @@ public class Band {
     @OneToMany
     @JoinColumn(name = "band_id")
     private List<Occasion> occasions;
+
+    @OneToMany
+    @JoinColumn(name = "band_id")
+    private List<Gig> gigs;
+
 
     public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {
         Band band = new Band();
