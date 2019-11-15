@@ -35,6 +35,7 @@ public class Conversation {
     private List<Person> participants;
 
     @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "fk_band")
     private Band band;
 
 

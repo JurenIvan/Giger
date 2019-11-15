@@ -59,13 +59,12 @@ public class Band {
     private List<Post> posts;
 
     @ElementCollection(targetClass = GigType.class)
-    @CollectionTable(name = "gig_type", joinColumns = @JoinColumn(name = "gig"))
+    @CollectionTable(name = "gig_type", joinColumns = @JoinColumn(name = "band_id"))
     @Column(name = "gig_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private List<GigType> acceptableGigTypes;
 
     @OneToMany
-    @JoinColumn(name = "band_id")
     private List<Occasion> occasions;
 
     @OneToMany

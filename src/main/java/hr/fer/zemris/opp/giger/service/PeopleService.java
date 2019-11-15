@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
+import hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode;
 import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.domain.Band;
@@ -51,6 +52,10 @@ public class PeopleService {
         if (!isUserNameAvailable(registerRequestDto.getUsername())) {
             throw new Exception("username not available");
         }
+        if(registerRequestDto.getPassword().length()<1){
+            throw new GigerException(ErrorCode.INVALID_PASSWORD);
+        }
+
         SystemPerson systemPerson = new SystemPerson();
         systemPerson.setEmail(registerRequestDto.getEmail());
         systemPerson.setPasswordHash(BCrypt.hashpw(registerRequestDto.getPassword(), BCrypt.gensalt(10)));
