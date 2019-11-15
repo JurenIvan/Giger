@@ -19,12 +19,12 @@
 		
 		\begin{packed_enum}
 
-		\item  \underbar{Neprijavljeni/neregistrirani korisnik (javnost) može:}
+		\item  \underbar{Ne prijavljeni/ne registrirani korisnik (javnost) može:}
 						
 			\begin{packed_enum}
 				\item Pregledati javne događaje
 				\item Pregledati profil benda
-				\item Vidjeti recenzije
+				\item Pročitati recenzije
 				\item Registrirati se na aplikaciji
 			\end{packed_enum}
 					
@@ -42,7 +42,7 @@
 				\item Komentirati objave glazbenika
 				\item Postati glazbenik i/ili organizator
 				\item Pisati objave na svom profilu
-				\item odjaviti se 
+				\item Odjaviti se 
 				
 			\end{packed_enum}
 			
@@ -78,7 +78,7 @@
 				\item Dodavati obaveze u kalendar benda
 				\item Vidjeti kalendare članova benda
 				\item Recenzirati organizatora u ime benda
-				\item Objavljivate objave na stranici benda
+				\item Napisati objave na stranici benda
 				\item Uređivati profil benda
 			\end{packed_enum}
 			
@@ -88,7 +88,7 @@
 				
 				\item Blokirati korisnike koji su prekršili uvjete korištenja aplikacije
 				\item Uređivati popis instrumenata
-				\item Dodavati događaje koji su stvoreni na drugim platformama
+				\item Dodati događaje koji su stvoreni na drugim platformama
 				
 			\end{packed_enum}
 			
@@ -96,9 +96,9 @@
 			
 			\begin{packed_enum}
 				
-				\item Pohranjuje podatke o korisnicima, glazbenicima, organizatorima i bendovima
-				\item Pohranjuje podatke o nastupima, recenzijama, objavama, komentarima
-				\item Pohranjuje razmijenjene poruke između korisnika 
+				\item Pohraniti podatke o korisnicima, glazbenicima, organizatorima i bendovima
+				\item Pohraniti podatke o nastupima, recenzijama, objavama, komentarima
+				\item Pohraniti razmijenjene poruke između korisnika 
 				
 			\end{packed_enum}
 		
@@ -565,7 +565,7 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik:} Glazbenik
-		\item \textbf{Cilj:} Promjeniti informacije na profilu
+		\item \textbf{Cilj:} Promijeniti informacije na profilu
 		\item \textbf{Sudionici:} Baza podataka
 		\item \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
 		\item \textbf{Prioritet:} High
@@ -594,7 +594,7 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik:} Glazbenik
-		\item \textbf{Cilj:} Promjeniti listu instrumenata koje svira
+		\item \textbf{Cilj:} Promijeniti listu instrumenata koje svira
 		\item \textbf{Sudionici:} Baza podataka
 		\item \textbf{Preduvjet:} Glazbenik je prijavljen u sustav
 		\item \textbf{Prioritet:} Medium
@@ -669,8 +669,8 @@
 		
 		\item[] \begin{packed_enum}
 			
-			\item Glazbenik odabire prikaz obavjesti o pozivu u bend
-			\item Aplikacija prikazuje obavjest
+			\item Glazbenik odabire prikaz obavijesti o pozivu u bend
+			\item Aplikacija prikazuje obavijest
 			\item Glazbenik odabire opciju "Prihvati" ili "Odbij
 			\item Promjena se sprema u bazu podataka
 		\end{packed_enum}
@@ -830,7 +830,7 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik:} Voditelj benda
-		\item \textbf{Cilj:} Promjeniti informacije na profilu benda
+		\item \textbf{Cilj:} Promijeniti informacije na profilu benda
 		\item \textbf{Sudionici:} Baza podataka
 		\item \textbf{Preduvjet:} Voditelj benda prijavljen je u sustav
 		\item \textbf{Prioritet:} Medium
@@ -860,7 +860,7 @@
 	\begin{packed_item}
 		
 		\item \textbf{Glavni sudionik:} Organizator
-		\item \textbf{Cilj:} Pregledati bendove prema oređenom kriteriju
+		\item \textbf{Cilj:} Pregledati bendove prema određenom kriteriju
 		\item \textbf{Sudionici:} Baza podataka
 		\item \textbf{Preduvjet:} Organizator je prijavljen u sustav
 		\item \textbf{Prioritet:} High
@@ -976,13 +976,13 @@
 		\item  \textbf{Opis mogućih odstupanja:}
 		\item[] \begin{packed_item}
 			
-			\item[3.a] Organizator želi unjeti nevaljane podatke
+			\item[3.a] Organizator želi unijeti nevaljane podatke
 			\item[] \begin{packed_enum}
 				\item Organizator ponovno unosi podatke
 				\item Organizator odustaje od izmjene događaja
 			\end{packed_enum}
 		
-			\item[3.b] Organizator želi promjeniti podatke koje za koje nije dozvoljena izmjena
+			\item[3.b] Organizator želi promijeniti podatke koje za koje nije dozvoljena izmjena
 			\item[] \begin{packed_enum}
 				\item Organizator ponovno unosi podatke
 				\item Organizator odustaje od izmjene događaja
@@ -1022,7 +1022,7 @@
 				
 				\textbf{Obrazac uporabe UC4 - Registracija}
 				\newline
-				Javnost (neregistrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
+				Javnost (ne registrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
 				
 				\begin{figure}[H]
 					\begin{center}
@@ -1048,7 +1048,7 @@
 				 \textbf{Obrazac uporabe UC15 - Uređivanje profila korisnika}
 			\newline
 			{Prijavljeni korisnik ide na stranicu svog profila.
-			Korisnik potom bira opciju izmjene podataka na svom profilu,nakon čega slijedi proces autentikacije korisnika,ukoliko je autentikacija prošla omogućene su izmjene podataka korisniku.Korisnik po želji mijenja podatke nakon čega odabire opciju izmijeni.Promijenjeni podatci se zapisuju u bazu a korisniku se prikazuje izmjenjena stranica profila .}\\
+			Korisnik potom bira opciju izmjene podataka na svom profilu,nakon čega slijedi proces autentikacije korisnika,ukoliko je autentikacija prošla omogućene su izmjene podataka korisniku.Korisnik po želji mijenja podatke nakon čega odabire opciju izmijeni.Promijenjeni podatci se zapisuju u bazu a korisniku se prikazuje izmijenjena stranica profila .}\\
 				
 				
 				\begin{figure}[H]
@@ -1064,7 +1064,7 @@
 			\eject
 				 \textbf{Obrazac uporabe UC25 - Pregled kalendara}
 			\newline
-			{Prijavljeni korisnik bira opciju prikaži kalendar,nakon toga aplikacija uzima od baze podataka sve  eventove koji su relevantni za korisnika (one na kojima je bio/će bit ili je svirao/će svirati  .}.Aplikacija puni kalendar tim eventovima i prikazuje ih korisniku.\\
+			{Prijavljeni korisnik bira opciju prikaži kalendar,nakon toga aplikacija uzima od baze podataka sve događaje koji su relevantni za korisnika (one na kojima je bio/će bit ili je svirao/će svirati  .}.Aplikacija puni kalendar tim događajima i prikazuje ih korisniku.\\
 			
 			\begin{figure}[H]
 				\begin{center}
@@ -1079,7 +1079,7 @@
 			 	\item  Sustav treba omogućiti rad više korisnika u isto vrijeme
 			 	\item  Neispravno korištenje sučelja ne smije na bilo koji način promijeniti ili obustaviti rad sustava
 			 	\item  Sustav mora biti jednostavan za uporabu, tj. mora biti intuitivan
-			 	\item Aplikacija mora podržavati hrvatske dijakritične znakove
+			 	\item Aplikacija mora podržavati hrvatske dijakritičke znakove
 			 	\item  Sustav mora biti u stanju brzo obraditi dobivene podatke kako korisnik ne bi puno čekao promjenu
 			 	\item  Sustav treba biti implementiran kao web aplikacija, s time da bi joj većina korisnika pristupala preko mobilnih uređaja
 			 	\item Web aplikacija treba biti implementirana koristeći objektno-orijentirane jezike
