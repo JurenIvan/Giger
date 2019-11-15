@@ -569,7 +569,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 				\label{fig:kontroleri}
 			\end{figure}
 		
-			Slika 4.4 prikazuje DTO-ove kojima backend dio aplikacije komunicira s frontendom. 
+			Slika 4.4 prikazuje DTO-ove kojima backend dio aplikacije komunicira s frontendom. DTO-ove smo modelirali tako da izbjegnemo kružne reference objekata koje dobijemo iz baze podataka. Kao posljedica, DTO-ovi sadrže uglavnom primitivne tipove ili neke druge DTO-ove (npr. ConversationPreviewDTO sadrži listu PersonPreviewDTO koji predstavljaju sudionike razgovora). DTO-ove koristimo u oba smjera komunikacije backenda i frontenda.
 			
 			
 			\begin{figure}[H]
@@ -579,6 +579,8 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 				\caption{Dijagram razreda - dio Data transfer objects}
 				\label{fig:dto}
 			\end{figure}
+		
+		Slika 4.5 prikazuje dijagram razreda servisnog sloja. Servisi komuniciraju s repozitorijima koji pristupaju bazi i Controller-ima od kojih dobivaju i kojima vraćaju podatke. Servisi iz baze dobivaju instance objekata koji mogu biti povezani s drugim podatcima, itd. i njihov je cilj poštivajući poslovnu logiku obraditi te podatke i kao rezultat svog izvođenja vraćaju DTO-ove. Servisi sadrže svu poslovnu logiku. Gotovo svaki Controller ima pripadajući servis, a svaki je servis logički objedinjen skup funkcija poslovne logike. Iznimke koje se bacaju u servisima omataju se GigerException-om koji nasljeđuje RuntimeException. Ako se pogreška propagira iz sustava, možemo provjeriti njezin tip te ako je zamotana u GigerException, znači da je to iznimka koju smo očekivali, u protivnom je došlo do neočekivane situacije u sustavu.
 		
 		\begin{figure}[H]
 			\begin{center}
