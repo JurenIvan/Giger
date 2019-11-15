@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import * as Helpers from '../Utils/HelperMethods'
 import Cookies from 'js-cookie';
+import Modal from 'react-bootstrap/Modal';
 
 
 export default class Login extends Component {
@@ -12,7 +13,8 @@ export default class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      token: ""
+      token: "",
+      showModal: false,
     };
     this.handleLoginToken = this.handleLoginToken.bind(this);
   }
@@ -39,10 +41,14 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    if (!this.validateForm()) {
+      this.setState({showModal: true})
+    } else {
+      (async () => {     
+        await Helpers.sendLoginInfo(this.state.email, this.state.password, this.handleLoginToken);
+     })();
+    }
     
-    (async () => {     
-       await Helpers.sendLoginInfo(this.state.email, this.state.password, this.handleLoginToken);
-    })();
   
   }
 
@@ -53,6 +59,19 @@ export default class Login extends Component {
   render() {
     return (
       <div className="container" >
+        <Modal show={this.state.showModal} animation={false}>
+                <Modal.Body style={{color:"red"}}> Your password must be at least 8 characters long! </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={(e) => {
+                                        this.setState({showModal: false})}
+                                        }
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         <div className="Login">
           <Form onSubmit={this.handleSubmit}>
             <div className = "col-1">
@@ -79,18 +98,11 @@ export default class Login extends Component {
                   onChange={this.handleChange}
                   type="password"
                 />
-                {
-                  this.state.password.length < 8 ?
-                  <div className="col-8" style = {{color:"red", textAlign: "center"}}>
-                    Your password must be at least 8 characters long.
-                  </div> : null
-                }
               </Form.Group>
             </div>
               <Button
-                block
-                disabled={!this.validateForm()}
                 type="submit"
+                block
               >
                 Login
               </Button>
