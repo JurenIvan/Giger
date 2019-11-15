@@ -917,7 +917,7 @@
 				
 				\textbf{Obrazac uporabe UC4 - Registracija}
 				\newline
-				Javnost (ne registrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
+				Javnost (neregistrirani korisnik) odabire opciju za registraciju na što mu aplikacija odgovara prikazom polja za ispunjavanje (korisničko ime, email i lozinka). Dok unos podataka nije ispravan, korisnik unosi podatke te aplikacija dohvaća korisnike iz baze nakon čega provjerava postoji li korisnik istog korisničkog imena ili emaila. Vrši se provjera ispravnosti podataka te ukoliko su podatci valjani, unose se u bazu. Nakon unosa podataka u bazu, korisniku se šalje obavijest o uspješnoj registraciji. 
 				
 				\begin{figure}[H]
 					\begin{center}
@@ -943,7 +943,7 @@
 				 \textbf{Obrazac uporabe UC15 - Uređivanje profila korisnika}
 			\newline
 			{Prijavljeni korisnik ide na stranicu svog profila.
-			Korisnik potom bira opciju izmjene podataka na svom profilu,nakon čega slijedi proces autentikacije korisnika,ukoliko je autentikacija prošla omogućene su izmjene podataka korisniku.Korisnik po želji mijenja podatke nakon čega odabire opciju izmijeni.Promijenjeni podatci se zapisuju u bazu a korisniku se prikazuje izmijenjena stranica profila .}\\
+			Korisnik potom bira opciju izmjene podataka na svom profilu, nakon čega slijedi proces autentikacije korisnika. Ukoliko je autentikacija prošla, omogućene su izmjene podataka korisniku. Korisnik po želji mijenja podatke nakon čega odabire opciju "Izmijeni". Promijenjeni podatci se zapisuju u bazu, a korisniku se prikazuje izmijenjena stranica profila.}\\
 				
 				
 				\begin{figure}[H]
@@ -957,15 +957,15 @@
 				
 				
 			\eject
-				 \textbf{Obrazac uporabe UC25 - Pregled kalendara}
+				 \textbf{Obrazac uporabe UC24 - Pregled kalendara}
 			\newline
-			{Prijavljeni korisnik bira opciju prikaži kalendar,nakon toga aplikacija uzima od baze podataka sve događaje koji su relevantni za korisnika (one na kojima je bio/će bit ili je svirao/će svirati  .}.Aplikacija puni kalendar tim događajima i prikazuje ih korisniku.\\
+			Prijavljeni korisnik bira opciju prikaži kalendar, nakon čega aplikacija uzima iz baze podataka sve događaje koji su relevantni za korisnika (one na kojima je bio/će biti ili je svirao/će svirati). Aplikacija puni kalendar tim događajima i prikazuje ih korisniku.\\
 			
 			\begin{figure}[H]
 				\begin{center}
 					\includegraphics[width=15cm]{slike/uc25.PNG}
 				\end{center}
-				\caption{Sekvencijski dijagram za UC25}
+				\caption{Sekvencijski dijagram za UC24}
 				\label{fig:uc25}
 			\end{figure}
 	
@@ -975,8 +975,8 @@
 			 	\item  Neispravno korištenje sučelja ne smije na bilo koji način promijeniti ili obustaviti rad sustava
 			 	\item  Sustav mora biti jednostavan za uporabu, tj. mora biti intuitivan
 			 	\item Aplikacija mora podržavati hrvatske dijakritičke znakove
-			 	\item  Sustav mora biti u stanju brzo obraditi dobivene podatke kako korisnik ne bi puno čekao promjenu
-			 	\item  Sustav treba biti implementiran kao web aplikacija, s time da bi joj većina korisnika pristupala preko mobilnih uređaja
+			 	\item  Sustav mora biti u stanju brzo obraditi dobivene podatke kako korisnik ne bi dugo čekao promjenu
+			 	\item  Sustav treba biti implementiran kao web aplikacija, s tim da bi joj većina korisnika pristupala preko mobilnih uređaja
 			 	\item Web aplikacija treba biti implementirana koristeći objektno-orijentirane jezike
 			 	\item  Treba osigurati sigurnost aplikacije, tj. lozinke moraju biti enkriptirane te mora biti osigurana sigurnost veze između korisnika aplikacije i baze podataka 
 			 \end{itemize}

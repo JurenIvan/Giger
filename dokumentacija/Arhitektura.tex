@@ -1,23 +1,33 @@
 \chapter{Arhitektura i dizajn sustava}
 		
-	Da bi dugoročno uštedjeli vrijeme, uložili smo dio vremena na konfiguriranje CI (continuous integration) i CD (continuous delivery) procesa. Za deploy aplikacije odabrali smo Heroku. Heroku je jedna od najpoznatijih platforma za deployanje aplikacija, a iz šume drugih ističe se svojom jednostavnošću.
-	U usporedbi s AWS-ovim servisima koje smo razmatrali, Heroku se sam brine oko instanci i arhitekture sustava na kojem se vrti naša aplikacija.Zbog ograničenih resursa odlučili smo deployati aplikaciju na besplatnu instancu Heroku-a.
+	Da bi dugoročno uštedjeli vrijeme, uložili smo dio vremena na konfiguriranje CI (engl. continuous integration) i CD (engl. continuous delivery) procesa. Za isporuku aplikacije odabrali smo Heroku.\\
+	Heroku je jedna od najpoznatijih platformi za isporučivanje aplikacija koja se ističe svojom jednostavnošću.
+	Za razliku od AWS-ovih servisa, koje smo također razmatrali, Heroku se sam brine oko instanci i arhitekture sustava na kojem se izvodi naša aplikacija. Zbog ograničenih resursa odlučili smo isporučiti aplikaciju na besplatnu instancu Heroku-a.
 	Besplatna instanca Heroku-a ima određena ograničenja, a najupečatljivije od njih je način na koji se pokreće projekt.
-	Heroku sam prepoznaje kojeg je tipa projekt pa da deployamo frontend i backend trebamo dvije instance.
-	CD je integriran putem gitlab-ovih pipelinesa za koje je bilo potrebno napisati .gitlab-ci.yml datoteku u kojoj smo konfigurirali gitlab-ov pipeline. Gitlab-ov pipeline konfiguriran je tako da se na svaki commit u dev grani izgradi aplikacija, pokrenu i uspješno završe testovi i krene deploy na Heroku.\\
-	Da bi osigurali maksimalno vrijeme dostupnosti naše platforme, .yml datoteka također je konfigurirana tako da prilikom commita u master deploya aplikaciju na druge dvije instance.
-	Ukupno imamo 4 pokrenute instance Heroku-a, od koje su dvije backend (development i produkcija) ,a dvije frontend (development i produkcija). U skladu s time, aplikacija ima 2 .properties datoteke. Jedna od njih je namijenjena lokalnom izvođenju aplikacije te sadrži postavke lokalne PostgreSQL baze, dok je druga konfigurirana tako da postavke čita iz varijabli okruženja. Varijable okruženja postavljene su na Heroku tako da čak niti pristupom u git repozitorij vanjski korisnik ne može doći do akreditacije (credentials) kojima bi mogao pristupiti bazi.
+	Heroku sam prepoznaje kojeg je tipa projekt pa da pokrenemo frontend i backend trebamo dvije instance.
+	CD je integriran putem GitLab-ovih pipelinesa za koje je bilo potrebno napisati .gitlab-ci.yml datoteku u kojoj smo konfigurirali GitLab-ov pipeline. GitLab-ov pipeline konfiguriran je tako da se na svaki commit u dev grani izgradi aplikacija, pokrenu i uspješno završe testovi te krene isporuka aplikacije na Heroku.\\
+	Da bi osigurali maksimalno vrijeme dostupnosti naše platforme, .yml datoteka također je konfigurirana tako da prilikom commita u master isporuči aplikaciju na druge dvije instance.
+	Ukupno imamo četiri pokrenute instance Heroku-a, od koje su dvije backend, a dvije frontend. Backend i frontend imaju svaki svoju razvojnu i produkcijsku instancu. Poveznice na instance:
+	\begin{itemize}
+		\item http://giger-fer.herokuapp.com/
+		\item https://giger-fer-dev.herokuapp.com/
+		\item https://giger-backend-dev.herokuapp.com/
+		\item http://giger-backend.herokuapp.com/
+	\end{itemize}
 	
-	Prednost ostvarena automatiziranjem deployment procesa jest povećanje vjerojatnosti uspješnosti deploya te povećanje udjela dostupnosti aplikacije zbog dva para instanci servera.
 	
-	Uvidjevši prednosti korištenja continuous deploymenta, primijenili smo to znanje i na kompajliranje dokumentacije. 
-	Unutar repozitorija, osim pipeline-a za deploy, postoji pipeline za automatsko kompajliranje dokumentacije čiji je rezultat .pdf dokument.\\
+	U skladu s time, Spring Boot aplikacija ima dvije .properties datoteke. Jedna od njih je namijenjena lokalnom izvođenju aplikacije te sadrži postavke lokalne PostgreSQL baze, dok je druga konfigurirana tako da postavke čita iz varijabli okruženja. Varijable okruženja postavljene su na Heroku tako da čak niti pristupom u git repozitorij vanjski korisnik ne može doći do akreditacije (credentials) kojima bi mogao pristupiti bazi.
+	
+	Prednost ostvarena automatiziranjem procesa isporuke jest povećanje vjerojatnosti uspješnosti iste te povećanje udjela dostupnosti aplikacije zbog dva para instanci servera.
+	
+	Uvidjevši prednosti korištenja CD-a, primijenili smo to znanje i na prevođenje dokumentacije. 
+	Unutar repozitorija, osim pipeline-a za isporuku aplikacije, postoji pipeline za automatsko prevođenje dokumentacije čiji je rezultat .pdf dokument.\\
 	
 	Potencijalni prostor za napredak bio bi korištenje Docker tehnologije tako da prilikom pokretanja aplikacije korisnik ne mora imati instaliranu PostgreSQL bazu već ju pokrene u Docker kontejneru.\\
 
-	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je de facto standard razvoja programskih rješenja. Osim toga, ona je fleksibilna, omogućuje recikliranje koda, te logički razdjeljuje sustav na više cjelina, što je bitno s obzirom da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti dodaju se lako u timu.\\
+	Od mogućih arhitektura sustava, za svoj projekt smo odabrali objektno usmjerenu arhitekturu. Tu arhitekturu smo odabrali zato što se koristi u industriji te je de facto standard razvoja složenih programskih rješenja. Osim toga, ona je fleksibilna, omogućuje recikliranje koda te logički razdjeljuje sustav na više cjelina, što je bitno s obzirom da više ljudi radi na implementaciji aplikacije. Zahvaljujući modularnosti programskog rješenja, greške su lako ispravljive, a nove mogućnosti dodaju se bez poteškoća.\\
 
-	Odlučili smo se za web aplikaciju, koja je prilagođena mobilni uređajima, obzirom da glazbenici, a time i bendovi nemaju uvijek pristup računalu, a ne želimo da je korisnik ograničen samo na mobilne uređaje.\\
+	Odlučili smo se za web aplikaciju, koja je prilagođena mobilnim uređajima, obzirom da glazbenici, a time i bendovi nemaju uvijek pristup računalu, a ne želimo da je korisnik ograničen samo na mobilne uređaje.\\
 
 	Arhitekturu sustava možemo podijeliti na četiri podsustava:
 		\begin{itemize}
@@ -32,7 +42,7 @@
 
 	Klijentski (frontend) dio aplikacije omogućuje da korisnik korištenjem sučelja može pristupiti serveru (backend) aplikacije. Ovisno o tome što korisnik hoće, taj server ima mogućnost spajanja na bazu podataka kako bi korisniku prikazao informacije.\\
 
-	Backend je napisan u Javi, a kao razvojni okvir koristimo Java Spring Boot. Dodani su projekti Spring Data kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje sa request-ima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. \\
+	Backend je napisan u Javi 11, a kao razvojni okvir koristimo Java Spring Boot 2.2.0. Dodani su projekti Spring Data JPA kako bi backend mogao lako komunicirati s bazom, Spring Web MVC za rukovanje zahtjevima te Spring Security kako bi zaštitili aplikaciju od vanjskih napada. Za pregledniji kod koristimo Lombok.\\
 
 	\begin{figure}[H]
 		\begin{center}
@@ -59,10 +69,9 @@
 		\item Conversation
 		\item Conversation\_user
 		\item System\_person
-		\item People
+		\item Person
 		\item System\_person\_roles
 		\item Organizer
-		\item Conversation\_band
 		\item Band
 		\item Gig\_type
 		\item Band\_occasions
@@ -87,7 +96,7 @@
 	\subsection{Opis tablica}
 	
 	\textbf{Comment}
-	Ovaj entitet sadrži jedan komentar. Sadrži atribute: id komentara,id autora, sadržaj te vrijeme objavljivanja. Ovaj entitet je u \textit{Many-to-One} vezi  sa entitetom: Post i Person.
+	Ovaj entitet sadrži jedan komentar. Sadrži atribute: id komentara, id autora, sadržaj te vrijeme objavljivanja. Ovaj entitet je u \textit{Many-to-One} vezi  sa entitetom: Post i Person.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 
@@ -106,7 +115,7 @@
 	\end{longtabu}
 	
 	\textbf{Message}
-	Ovaj entitet sadrži informacije o poruci. Sadrži atribute: id poruke, sadržaj poruke, vrijeme kada je poruka poslana, id pošiljatelja i id razgovora. Ovaj entitet je u \textit{Many-to-One} vezi sa entitetom Conversation, Person, Band. Ako je poruka poslana od banda tada mu je fk\_sender null, a ako je poslan od korisnika tada mu je fk\_sender\_band null.
+	Ovaj entitet sadrži informacije o poruci. Sadrži atribute: id poruke, sadržaj poruke, vrijeme kada je poruka poslana, id pošiljatelja i id razgovora. Ovaj entitet je u \textit{Many-to-One} vezi s entitetom Conversation, Person, Band. Ako je poruka poslana od banda tada mu je fk\_sender null, a ako je poslan od korisnika tada mu je fk\_sender\_band null.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Message}}	 \\[3pt] \hline
@@ -125,7 +134,7 @@
 	\end{longtabu}
 	
 	\textbf{Conversation}
-	Ovaj entitet sadrži informacije o razgovoru. Sadrži atribute: id razgovora i ime razgovora. Ovaj entitet je u \textit{One-to-Many} vezi  sa entitetima:Message i Person.
+	Ovaj entitet sadrži informacije o razgovoru. Sadrži atribute: id razgovora i ime razgovora. Ovaj entitet je u \textit{One-to-Many} vezi  sa entitetima: Message i Person.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Conversation}}	 \\[3pt] \hline
@@ -157,7 +166,7 @@
 	\end{longtabu}
 	
 	\textbf {System\_Person}
-	Ovaj entitet sadrži podatke korisnika potrebne sustavu za sistemsku logiku.  Sadrži atribute: id korisnika, email, locked i verified zastavice te šifriranu lozinku. Ovaj entitet je u \textit{One-to-One} vezi  sa entitetima:Person, Musician, Organizer.
+	Ovaj entitet sadrži podatke korisnika potrebne sustavu za sistemsku logiku.  Sadrži atribute: id korisnika, email, locked i verified zastavice te šifriranu lozinku. Ovaj entitet je u \textit{One-to-One} vezi s entitetima: Person, Musician, Organizer.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{System\_person}}	 \\[3pt] \hline
@@ -175,7 +184,7 @@
 	\end{longtabu}
 	
 		\textbf{Person}
-	Ovaj entitet sadrži podatke korisnika potrebne za poslovne svrhe.  Sadrži atribute: telefonski broj, url slike korisnika, korisničko ime kojim se predstavlja javnosti. Ovaj entitet je u \textit{One-to-One} vezi  sa entitetima: System\_Person, Musician, Organizer.
+	Ovaj entitet sadrži podatke korisnika potrebne za poslovne svrhe.  Sadrži atribute: telefonski broj, url slike korisnika, korisničko ime kojim se predstavlja javnosti. Ovaj entitet je u \textit{One-to-One} vezi s entitetima: System\_Person, Musician, Organizer.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Person}}	 \\[3pt] \hline
@@ -192,7 +201,7 @@
 	\end{longtabu}
 	
 		\textbf{System\_person\_roles}
-	Ova tablica sadrži n-torke iz kojih možemo iščitati dodijeljene role pojedinim korisnicima.  Sadrži atribute: system\_person\_id i cjeli broj role koji predstavlja enumeraciju.
+	Ova tablica sadrži n-torke iz kojih možemo iščitati dodijeljene uloge pojedinim korisnicima.  Sadrži atribute: system\_person\_id i cijeli broj uloge koji predstavlja enumeraciju.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{System\_person\_roles}}	 \\[3pt] \hline
@@ -208,7 +217,7 @@
 	\end{longtabu}
 	
 	\textbf {Organizer}
-	Ovaj entitet sadrži informacije o organizatoru. Sadrži atribute: id organizatora te ime organizatora. Ovaj entitet je u \textit{One-to-Many} vezi  sa entitetima: Review\_organizer, Gig te u \textit{One-to-One} vezi sa System\_person, Musician, Person
+	Ovaj entitet sadrži informacije o organizatoru. Sadrži atribute: id organizatora te ime organizatora. Ovaj entitet je u \textit{One-to-Many} vezi s entitetima: Review\_organizer, Gig te u \textit{One-to-One} vezi sa System\_person, Musician, Person
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Organizer}}	 \\[3pt] \hline
@@ -248,7 +257,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 			\textbf {Gig\_type}
-	Ovo je vezna tablica iz koje se mogu iščitati koje sve vrste nastupa izvodi određen bend.  Sadrži atribute: band\_id i naziv tipa nastupa.
+	Ovo je vezna tablica iz koje se mogu iščitati koje sve vrste nastupa izvodi određeni bend.  Sadrži atribute: band\_id i naziv tipa nastupa.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 
 		\hline \multicolumn{3}{|c|}{\textbf{Gig\_type}}	 \\[3pt] \hline
@@ -263,7 +272,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 
 				\textbf {Band\_occasions}
-	Ovo je vezna tablica iz koje se mogu iščitati zauzeti termini za pojedini band.  Sadrži atribute: identifikator benda i identifikator termina.
+	Ovo je vezna tablica iz koje se mogu iščitati događaji kada je pojedini bend zauzet. Sadrži atribute: identifikator benda i identifikator termina.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 
 		\hline \multicolumn{3}{|c|}{\textbf{Band\_occasions}}	 \\[3pt] \hline
@@ -279,7 +288,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 
 
 		\textbf{Occasion}
-	Ovaj entitet sadrži podatke o nekom terminu.  Sadrži atribute: id termina, opis, datum, zastavicu privatnosti. Ovaj entitet je u \emph{Many-to-One} vezi  sa entitetima: Musician, Band.
+	Ovaj entitet sadrži podatke o događaju. Sadrži atribute: id događaja, opis, datum, zastavicu privatnosti. Ovaj entitet je u \textit{Many-to-One} vezi s entitetima: Musician, Band.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Occasion}}	 \\[3pt] \hline
@@ -298,7 +307,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 		\textbf{Musician\_occasions}
-	Ovo je vezna tablica iz koje se mogu iščitati zauzeti termini za pojedinog glazbenika.  Sadrži atribute: identifikator glazbenika i identifikator termina.
+	Ovo je vezna tablica iz koje se mogu iščitati događaji kada je pojedini glazbenik zauzet.  Sadrži atribute: identifikator glazbenika i identifikator termina.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Musician\_occasions}}	 \\[3pt] \hline
@@ -314,7 +323,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 		\textbf{Band\_invited\_back\_up\_members}
-	Ovo je vezna tablica iz koje se mogu iščitati poslane i ne odgovorene pozivnice za pričuvnog člana benda.  Sadrži atribute: identifikator glazbenika i identifikator benda.
+	Ovo je vezna tablica iz koje se mogu iščitati poslane i neodgovorene pozivnice za pričuvnog člana benda.  Sadrži atribute: identifikator glazbenika i identifikator benda.
 	\begin{longtabu} to \textwidth {|X[6, l+11]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Band\_invited\_back\_up\_members}}	 \\[3pt] \hline
@@ -324,13 +333,13 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 		\endlastfoot
 		
 		\textbf{band\_id} &  BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-		\textbf{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika pozvanih u bend kao rezerva	\\ \hline
+		\textbf{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika pozvanih u bend kao pričuvni član	\\ \hline
 		
 		
 	\end{longtabu}
 	
 		\textbf{Band\_invited}
-	Ovo je vezna tablica iz koje se mogu iščitati poslane i ne odgovorene pozivnice za člana benda.  Sadrži atribute: identifikator glazbenika i identifikator benda. . Ovaj entitet je u \textit{Many-to-One} vezi s entitetima: Band i Musician.
+	Ovo je vezna tablica iz koje se mogu iščitati poslane i neodgovorene pozivnice za člana benda.  Sadrži atribute: identifikator glazbenika i identifikator benda. Ovaj entitet je u \textit{Many-to-One} vezi s entitetima: Band i Musician.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Band\_invited}}	 \\[3pt] \hline
@@ -346,8 +355,8 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 			\textbf {Band\_back\_up\_members}
-	Ovo je vezna tablica iz koje se mogu iščitati rezervni članovi bendova.  Sadrži atribute: identifikator glazbenika i identifikator benda.
-	\begin{longtabu} to \textwidth {|X[6, l+10]|X[6, l]|X[20, l]|}
+	Ovo je vezna tablica iz koje se mogu iščitati pričuvni članovi bendova.  Sadrži atribute: identifikator glazbenika i identifikator benda.
+	\begin{longtabu} to \textwidth {|X[6, l+11]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Band\_back\_up\_members}}	 \\[3pt] \hline
 		\endfirsthead
@@ -356,13 +365,13 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 		\endlastfoot
 		
 		\textbf{band\_id} &  BIGINT	&  	jedinstveni identifikator benda 	\\ \hline
-		\textbf{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika koji su rezervni članovi	\\ \hline
+		\textbf{invited\_back\_up\_members\_id} &  BIGINT	&  	jedinstveni identifikator glazbenika koji su pričuvni članovi	\\ \hline
 		
 		
 	\end{longtabu}
 	
 			\textbf {Musician\_bands}
-	Ovo je vezna tablica iz koje se mogu iščitati članovi bendova.  Sadrži atribute: identifikator glazbenika i identifikator benda.Ovaj entitet je u \emph{Many-to-One} vezi s entitetima: Band i Musician.
+	Ovo je vezna tablica iz koje se mogu iščitati članovi bendova. Sadrži atribute: identifikator glazbenika i identifikator benda. Ovaj entitet je u \textit{Many-to-One} vezi s entitetima: Band i Musician.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Musician\_bands}}	 \\[3pt] \hline
@@ -377,7 +386,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 	\textbf{Post}
-	Ovaj entitet sadrži podatke o objavi.  Sadrži atribute: id objave, sadržaj, datum i vrijeme objave, identifikator korisnika ili banda (autora). Ovaj entitet je u \textit{One-to-Many} vezi  sa entitetima: comment, u \emph{Many-to-one} sa entitetima: Person, Band.
+	Ovaj entitet sadrži podatke o objavi. Sadrži atribute: id objave, sadržaj, datum i vrijeme objave, identifikator korisnika ili benda (autora). Ovaj entitet je u \textit{One-to-Many} vezi s entitetima: Comment te u \emph{Many-to-one} s entitetima: Person, Band.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Post}}	 \\[3pt] \hline
@@ -462,7 +471,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 	\textbf {Gig}
-	Ovaj entitet sadrži informacije o nastupima. Sadrži atribute: id nastupa, datum i vrijeme održavanja nastupa, opis nastupa, očekivano trajanje nastupa, oznaku za postignut dogovor, vrsta nastupa, adresa održavanja nastupa, dodatan opis nastupa, x koordinata lokacije, y koordinata lokacije, oznaku za privatan nastup, preporučenu cijenu ulaznice, id organizatora te id benda. Ovaj entitet je u \textit{Many-to-One} vezi s entitetom Organizer te \textit{One-to-Many} vezi s entitetima: Musician\_gig\_history, Review\_gig i Band.
+	Ovaj entitet sadrži informacije o nastupima. Sadrži atribute: id nastupa, datum i vrijeme održavanja nastupa, opis nastupa, očekivano trajanje nastupa, oznaku za postignut dogovor, vrstu nastupa, adresa održavanja nastupa, dodatan opis nastupa, x koordinata lokacije, y koordinata lokacije, oznaku za privatan nastup, preporučenu cijenu ulaznice, id organizatora te id benda. Ovaj entitet je u \textit{Many-to-One} vezi s entitetom Organizer te \textit{One-to-Many} vezi s entitetima: Musician\_gig\_history, Review\_gig i Band.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Gig}}	 \\[3pt] \hline
@@ -489,7 +498,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 	\textbf {Review\_gig}
-	Ovaj entitet sadrži informacije za recenziju nastupa. Sadrži atribute: id nastupa i id recenzije. Ovaj entitet je u \textit{Many-to-One} vezi  sa entitetima:Gig i Review.
+	Ovaj entitet sadrži informacije za recenziju nastupa. Sadrži atribute: id nastupa i id recenzije. Ovaj entitet je u \textit{Many-to-One} vezi s entitetima: Gig i Review.
 	\begin{longtabu} to \textwidth {|X[6, l+3]|X[6, l]|X[20, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Review\_gig}}	 \\[3pt] \hline
@@ -504,7 +513,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	\end{longtabu}
 	
 	\textbf{Review}
-	\textit{Ovaj entitet sadrži informacije za recenziju. Sadrži atribute: id recenzije, sadržaj recenzije benda, sadržaj recenzije organizatora, vrijeme objave recenzije, ocjenu benda, ocjenu organizatora te id autora. Ovaj entitet je u \textit{One-to-Many} vezi  sa entitetima: Review\_band, Review\_gig, Review\_organizer i Review\_musician.}
+	\textit{Ovaj entitet sadrži informacije za recenziju. Sadrži atribute: id recenzije, sadržaj recenzije benda, sadržaj recenzije organizatora, vrijeme objave recenzije, ocjenu benda, ocjenu organizatora te id autora. Ovaj entitet je u \textit{One-to-Many} vezi  s entitetima: Review\_band, Review\_gig, Review\_organizer i Review\_musician.}
 	
 	\begin{longtabu} to \textwidth {|X[6, l+14]|X[6, l+2]|X[20, l]|}
 		
