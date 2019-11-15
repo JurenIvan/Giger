@@ -1,11 +1,13 @@
 \chapter{Arhitektura i dizajn sustava}
 		
-	Da bi dugoročno uštedjeli vrijeme, uložili smo dio vremena na konfiguriranje CI (engl. continuous integration) i CD (engl. continuous delivery) procesa. Za isporuku aplikacije odabrali smo Heroku.\\
-	Heroku je jedna od najpoznatijih platformi za isporučivanje aplikacija koja se ističe svojom jednostavnošću.
-	Za razliku od AWS-ovih servisa, koje smo također razmatrali, Heroku se sam brine oko instanci i arhitekture sustava na kojem se izvodi naša aplikacija. Zbog ograničenih resursa odlučili smo isporučiti aplikaciju na besplatnu instancu Heroku-a.
+	Da bi dugoročno uštedjeli vrijeme, uložili smo dio vremena na konfiguriranje CI (engl. continuous integration) i CD (engl. continuous delivery) procesa. Za isporuku aplikacije odabrali smo Heroku.
+	
+	Heroku je jedna od najpoznatijih platformi za isporučivanje aplikacija koja se ističe svojom jednostavnošću. Za razliku od AWS-ovih servisa, koje smo također razmatrali, Heroku se sam brine oko instanci i arhitekture sustava na kojem se izvodi naša aplikacija. Zbog ograničenih resursa odlučili smo isporučiti aplikaciju na besplatnu instancu Heroku-a.
+	
 	Besplatna instanca Heroku-a ima određena ograničenja, a najupečatljivije od njih je način na koji se pokreće projekt.
 	Heroku sam prepoznaje kojeg je tipa projekt pa da pokrenemo frontend i backend trebamo dvije instance.
-	CD je integriran putem GitLab-ovih pipelinesa za koje je bilo potrebno napisati .gitlab-ci.yml datoteku u kojoj smo konfigurirali GitLab-ov pipeline. GitLab-ov pipeline konfiguriran je tako da se na svaki commit u dev grani izgradi aplikacija, pokrenu i uspješno završe testovi te krene isporuka aplikacije na Heroku.\\
+	CD je integriran putem GitLab-ovih pipelinesa za koje je bilo potrebno napisati .gitlab-ci.yml datoteku u kojoj smo konfigurirali GitLab-ov pipeline. GitLab-ov pipeline konfiguriran je tako da se na svaki commit u dev grani izgradi aplikacija, pokrenu i uspješno završe testovi te krene isporuka aplikacije na Heroku.
+	
 	Da bi osigurali maksimalno vrijeme dostupnosti naše platforme, .yml datoteka također je konfigurirana tako da prilikom commita u master isporuči aplikaciju na druge dvije instance.
 	Ukupno imamo četiri pokrenute instance Heroku-a, od koje su dvije backend, a dvije frontend. Backend i frontend imaju svaki svoju razvojnu i produkcijsku instancu. Poveznice na instance:
 	\begin{itemize}
@@ -58,7 +60,6 @@
 
 
 		\section{Baza podataka}
-		
 		Za potrebe razvoja \textit{Gigera} koristit će se objektno relacijsko mapiranje. To je metoda koja se koristi u objektno-orijentiranim jezicima te se na taj način stvara virtualna objektna baza podataka. Za implementaciju baze podataka odabrali smo PostgreSQL, zbog generalno pozitivnog iskustva u korištenju te implementacije baze podataka u dosadašnjem fakultetskom obrazovanju. Bitno je naglasiti da na osobnim računalima u svrhu razvijanja aplikacije koristimo istu implementaciju baze kao i na web poslužitelju kako bi minimizirali neočekivano ponašanje.
 		
 		Baza podataka sastoji se od sljedećih tablica:
