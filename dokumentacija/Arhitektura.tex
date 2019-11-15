@@ -587,6 +587,11 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\label{fig:service}
 		\end{figure}
 	
+	
+	Slika 4.6 prikazuje razrede koji predstavljaju enitete enitetsko -  relacijskog modela u bazi podataka. Razred Band predstavlja jedan Band kojim upravlja glazbenik koji je postavljen za voditelja benda. Razred SystemPerson predstavlja razred u kojem su objedinjeni svi sustavski podaci vezani za osobu kao što su: email i id. Gig predstavlja jedan nastup nekoga benda koji organizira određeni organizator i pri tome enkapsulira sve logističke informacije o tome nastupu. Razred Conversation omogućuje komunikaciju između aktora glazbenika i organizatora.
+	Glazbenik je opisan razredom Musician dok je organizator opisan razredom Organizer. Razredi Post, Comment, Location, Instrument, Message služe za enkapsulaciju informacija kako bi dopunili razrede poput Band, Conversation i Musician. Kao enumeracije uzeti su GigType i Role.
+	
+	
 		\begin{figure}[H]
 			\begin{center}
 				\includegraphics[width=17cm]{slike/domena.PNG}
