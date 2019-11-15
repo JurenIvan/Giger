@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import * as Helpers from "../Utils/HelperMethods";
 
-
-export default class register extends React.Component{
+export default class RegisterClass extends React.Component{
 
     constructor(props) {
 
@@ -16,7 +16,8 @@ export default class register extends React.Component{
             userName: "" ,
             eMail: "",
             password: "",
-            phone: ""
+            phone: "",
+            showModal: false
         };
         this.handleRegister = this.handleRegister.bind(this);
     }
@@ -38,7 +39,7 @@ export default class register extends React.Component{
 
 
     handleRegister(message) {
-        if(message != "Registration ok!") {
+        if(message !== "Registration ok!") {
             alert(message);
         } else {
             alert("We have sent confirmation email to" + this.state.eMail)
@@ -47,36 +48,57 @@ export default class register extends React.Component{
     }
 
     validateRegister () {
-        return this.state.eMail.length > 0 && this.state.userName.length > 0 && this.state.phone.length > 0 && this.state.password > 0;
+
     }
 
     //if validateRegister  returns true send form to db
     handleSubmit = event => {
         event.preventDefault();
+        let shouldShow = this.state.eMail.length < 0 && this.state.userName.length < 0 && this.state.phone.length < 0 && this.state.password < 0
+        if (!shouldShow) {
+            this.setState({showModal: !shouldShow});
+        } else {
+            (async () => {     
+                await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
+            })();
+        }
+    }
       
-        (async () => {     
-           await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
-        })();
-      
-      }
 
     render() {
         return (
-            <div className="container" >
+          
             
+            <div className="container" >
+            <Modal show={this.state.showModal} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Alert:</Modal.Title>
+                </Modal.Header>
+                <Modal.Body style={{color:"red"}}> You did not meet requierments to register! </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={(e) => {
+                                        this.setState({showModal: false})}
+                                        }
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <div className="register">
 
-            <h1>Hello, welcome to Giger!</h1>
+            <h1></h1>
             <Form onSubmit={this.handleSubmit}>
 
 
             
-                <div className="col-1">
+                
                     <Form.Label controlId="firstName" > First name: </Form.Label>
-                </div> 
+               
 
-                <div className="col-6">
-                    <Form.Group controlId="firstName" bsSize="large">
+                
+                    <Form.Group controlId="firstName">
                     <Form.Control
                     autoFocus
                     name="firstName"
@@ -84,14 +106,14 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
+                
 
-                <div className="col-1">
+                
                     <Form.Label controlId="lastName" > Last name: </Form.Label>
-                </div> 
+               
 
-                <div className="col-6">
-                    <Form.Group controlId="lastName" bsSize="large">
+                
+                    <Form.Group controlId="lastName">
                     <Form.Control
                     autoFocus
                     name='lastName'
@@ -99,15 +121,15 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
+                
 
 
-                <div className="col-1">
+                
                     <Form.Label controlId="userName" > Username: </Form.Label>
-                </div> 
+               
 
-                <div className="col-6">
-                    <Form.Group controlId="userName" bsSize="large">
+                
+                    <Form.Group controlId="userName">
                     <Form.Control
                     autoFocus
                     name='userName'
@@ -115,12 +137,12 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-                <div className="col-1">
+                
+                
                     <Form.Label controlId="phone" > Phone: </Form.Label>
-                </div> 
-                <div className="col-6">
-                    <Form.Group controlId="phone" bsSize="large">
+               
+                
+                    <Form.Group controlId="phone">
                     <Form.Control
                     autoFocus
                     name='phone'
@@ -128,13 +150,13 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-                <div className="col-1">
+                
+                
                     <Form.Label controlId="eMail" > Email: </Form.Label>
-                </div> 
+               
 
-                <div className="col-6">
-                    <Form.Group controlId="eMail" bsSize="large">
+                
+                    <Form.Group controlId="eMail">
                     <Form.Control
                     autoFocus
                     name="eMail"
@@ -143,14 +165,14 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
+                
 
-                <div className="col-1">
+                
                     <Form.Label controlId="password" > Password: </Form.Label>
-                </div> 
+               
 
-                <div className="col-6">
-                    <Form.Group controlId="password" bsSize="large">
+                
+                    <Form.Group controlId="password" >
                     <Form.Control
                     autoFocus
                     name="password"
@@ -159,28 +181,29 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
+                
 
                 <br/>
 
 
-                <div className = "col-8">
+                
                 <Button
-                 block
-                bsSize="large"
-                disabled={!this.validateRegister}
+                block
                 type="submit"
                 >
                 Register
                 </Button>
-                </div>
+                
 
             </Form>
 
             </div>
             </div>
+
         );
     }
 
 }
+
+
 
