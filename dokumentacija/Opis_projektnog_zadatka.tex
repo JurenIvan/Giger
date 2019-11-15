@@ -1,0 +1,91 @@
+\chapter{Opis projektnog zadatka}
+			
+		Cilj ovog projekta je razviti programsku podršku za stvaranje web aplikacije \textit{Giger} koja je namijenjena glazbenicima, ljudima kojima su potrebne usluge glazbenika (organizatori različitih proslava, menadžeri) te ljudima koji su zainteresirani za obližnje događaje. Na taj način na jednom mjestu se omogućava:
+		
+		\begin{packed_item}
+			\item upoznavanje glazbenika i njihovo povezivanje u bendove
+			\item olakšana komunikacija i organizacija unutar bendova
+			\item promocija glazbenika
+			\item dogovaranje nastupa s organizatorima koji jednostavno mogu pronaći prikladan bend za određeni događaj
+			\item pregled zanimljivih nadolazećih događaja dostupan svima
+			\item uvid u recenzije bendova/organizatora
+		\end{packed_item}
+	
+
+		Organizacija osobnog kalendara i dogovaranje termina koji zahtijevaju prisustvovanje više ljudi je težak zadatak, a s tim se problemom na gotovo dnevnoj razini susreću glazbenici kada dogovaraju nastupe. Isto tako, ljudi koji organiziraju razne proslave za koje trebaju glazbenike, kao i ljudi koji žele otići na neku živu svirku, ponekad ne znaju kakva je glazbena ponuda u njihovoj okolini, a ako su i čuli za neki događaj u blizini, ne postoji jedinstveno mjesto gdje mogu pročitati recenzije o glazbenicima, bendu ili organizatoru kako bi bili sigurni u kvalitetu događaja.
+		\textit{Giger} je platforma koja rješava navedene probleme integrirajući kalendar glazbenika sa servisom namijenjenim za sastajanje bendova i organizatora nastupa. 
+		\\
+		
+		Česta je situacija da je jedan glazbenik član više bendova pa tako dostupnost svakog benda ovisi o dostupnosti svih njegovih članova.  Kalendar svakog glazbenika ujedinjuje sve obaveze iz bendova u kojima je član pa dostupnost benda postaje trivijalna informacija. 
+		
+		
+		
+		\section{Tijek i opseg aplikacije}
+		
+		Prilikom pokretanja aplikacije, neregistriranom korisniku prikazuju se opće informacije o javnim događajima te mu se nudi mogućnost prijavljivanja u sustav s postojećim računom (potrebno upisati email i lozinku) te kreiranje novog računa. Za stvaranje novog računa potrebni su: 
+		
+		\begin{packed_item}
+			\item korisničko ime
+			\item email adresa
+			\item lozinka
+		\end{packed_item}
+	
+		Registrirani korisnik može pregledati, mijenjati osobne podatke i izbrisati svoj korisnički račun. Takvom korisniku nudi se mogućnost pisanja recenzija te razmjenjivanja poruka s drugim korisnicima. On u svojim postavkama može postati glazbenik i/ili organizator.
+		
+		\textit{\underline{Glazbenik}} može odabrati instrumente koje svira, osnovati bend, pridružiti se postojećem, dodati članove u bend te uređivati svoj profil i kalendar. On na svojoj stranici može dodavati različite medije te se tako promovirati. 
+		
+		\textit{\underline{Organizator}} ima mogućnost kreiranja nastupa. On može filtrirati bendove prema vrsti glazbe, tipu nastupa, lokaciji i drugo. Nakon što dobije listu raspoloživih bendova, može pregledavati njihove profile. Profil benda prikazuje osnovne informacije o bendu, razne novosti koje uređuju njegovi članovi, popis nadolazećih javnih nastupa te recenzije korisnika. Organizator ima mogućnost kontaktiranja benda putem poruka ugrađenih u aplikaciju. Imajući takav skup podataka, \textit{Giger} svojim korisnicima, običnim ljudima željnim zabave, može preporučiti nadolazeće događaje u njihovoj blizini.
+		
+		Uz glazbenika i organizatora postoji i uloga \textit{\underline{administratora}} koji ima mogućnost uređivanja popisa ponuđenih instrumenata te blokiranja korisnika.
+		\\
+		
+		Aplikacija će biti izvedena kao web aplikacija prilagođena (engl. responsive) mobilnom uređaju i podržavat će rad više paralelnih korisnika sa sučeljem koji je jednostavan za korištenje kako bi korisnici imali što bolje iskustvo.
+		
+		\subsection{Opcionalna proširenja aplikacije}
+		
+		\begin{packed_item}
+			\item Bendovi mogu postaviti oglas da traže nove članove, na koje se glazbenici mogu javljati
+			\item Moguće organizirati „Nasumična druženja“ da se hrpa glazbenika nađe i sviraju zajedno bez da su dio istog benda.
+			\item Dodavanje komentara na objave
+			\item Dodavanje novih funkcionalnosti za organizatore (mogućnost unajmljivanja ton majstora, fotografa itd.)
+			\item Dodati „Podijeli na Facebook“ mogućnost za javne nastupe
+		\end{packed_item}
+		
+		
+		
+		\section{Slična rješenja problema}
+		
+		\subsection{Amy}
+		
+		\textit{Amy} je mobilna aplikacija koja nakon registracije nudi različite opcije vrste korisnika (glazbenik, DJ i slično). Nakon odabira vrste korisnika nudi i unos instrumenata koje korisnik svira te odabir razine profesionalnosti na pojedinom instrumentu. Također, nudi i odabir glazbenih žanrova, kalendar s obavezama te pregledavanje glazbenika u blizini. Aplikacija ima jako puno potencijala, ali se često ruši što utječe na iskustvo korisnika. 
+		\\
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=5cm]{slike/Amy.JPEG}
+			\includegraphics[width=5cm]{slike/Amy2.JPEG}
+			\end{center}
+			\caption{Prikaz \textit{Amy} aplikacije}
+			\label{fig:promjene2}
+		\end{figure}
+		
+		
+		
+	    \subsection{BandFriend}
+		
+		\textit{BandFriend} je mobilna aplikacija koja prilikom registracije traži dosta informacija o korisniku. Nakon izrade profila, mogu se pretraživati novi glazbenici, glazbenici najsličniji trenutnom korisniku, najbliži po lokaciji i slično. Aplikacija nudi i razgovor porukama s drugim korisnicima. Neke korisnike tolika lista zahtjeva prilikom registracije može odbiti te će \textit{Giger} tražiti samo korisničko ime, email i lozinku, a kasnije svaki korisnik, ukoliko to želi, može dodati više informacija o sebi. Također, \textit{BandFriend} ne nudi kalendar s obavezama korisnika, stvaranje bendova ili događaja.
+		\\
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[height=10cm]{slike/BandFriend.JPEG}
+				\includegraphics[height=10cm]{slike/BandFriend2.JPEG}
+			\end{center}
+			\caption{Prikaz \textit{BandFriend} aplikacije}
+			\label{fig:promjene3}
+		\end{figure}
+
+		
+		\eject
+		
+	
