@@ -1,11 +1,11 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-
-import static javax.persistence.FetchType.LAZY;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -23,12 +23,6 @@ public class Musician {
     private List<Instrument> instruments;
 
     @ManyToMany
-    @JoinTable(name = "musician_bands",
-            joinColumns = {@JoinColumn(name = "fk_musician")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_band")})
-    private List<Band> bands;
-
-    @ManyToMany
     @JoinTable(name = "musician_gig_history",
             joinColumns = {@JoinColumn(name = "fk_musician")},
             inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
@@ -42,6 +36,21 @@ public class Musician {
     @CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
     private List<Occasion> occasions;
 
-    @OneToOne(fetch = LAZY)
-    private User user;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Musician)) return false;
+        Musician musician = (Musician) o;
+        return Objects.equals(id, musician.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    public MusicianPreviewDto toDto() {
+        return new MusicianPreviewDto(id, bio, publicCalendar, instruments);
+    }
+
 }

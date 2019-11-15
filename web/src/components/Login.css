@@ -1,11 +1,9 @@
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px;
-     
-    }
-  
+@media all and (max-width: 480px) {
     .Login form {
-      margin: 0 auto;
+      margin: 10 auto;
       max-width: 32px;
+    }
+    .btn.btn-primary.btn-block {
+      margin-bottom: 10px;
     }
 }

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import * as Helpers from "../Utils/HelperMethods";
 
-
-export default class register extends React.Component{
+export default class RegisterClass extends React.Component{
 
     constructor(props) {
 
@@ -16,7 +16,9 @@ export default class register extends React.Component{
             userName: "" ,
             eMail: "",
             password: "",
-            phone: ""
+            phone: "",
+            showModal: false,
+            inValidRegister: false
         };
         this.handleRegister = this.handleRegister.bind(this);
     }
@@ -37,46 +39,71 @@ export default class register extends React.Component{
 
 
 
-    handleRegister(message) {
-        if(message != "Registration ok!") {
-            alert(message);
+    handleRegister(status) {
+        if(status === 200) {
+            window.location.href = '/';
         } else {
-            alert("We have sent confirmation email to" + this.state.eMail)
+            this.setState({inValidRegister: true});
         }
 
     }
 
     validateRegister () {
-        return this.state.eMail.length > 0 && this.state.userName.length > 0 && this.state.phone.length > 0 && this.state.password > 0;
+
     }
 
     //if validateRegister  returns true send form to db
     handleSubmit = event => {
         event.preventDefault();
+        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password < 7
+        if (shouldShow) {
+            this.setState({showModal: true});
+        } else {
+            (async () => {     
+                await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
+            })();
+        }
+    }
       
-        (async () => {     
-           await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
-        })();
-      
-      }
 
     render() {
         return (
-            <div className="container" >
+          
             
+            <div className="container">
+                <Modal show={this.state.inValidRegister} animation={false}>
+                <Modal.Body style={{color:"red"}}> Something went wrong with your registration. Please, try again! </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={(e) => {
+                                        this.setState({inValidRegister: false})}
+                                        }
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+                </Modal>
+            <Modal show={this.state.showModal} animation={false}>
+                <Modal.Body style={{color:"red"}}> You did not meet requierments to register! </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={(e) => {
+                                        this.setState({showModal: false})}
+                                        }
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <div className="register">
-
-            <h1>Hello, welcome to Giger!</h1>
+            <h2 style={{fontWeight: "bold"}}> Welcome! Would you like to register?</h2>
             <Form onSubmit={this.handleSubmit}>
 
-
-            
-                <div className="col-1">
                     <Form.Label controlId="firstName" > First name: </Form.Label>
-                </div> 
-
-                <div className="col-6">
-                    <Form.Group controlId="firstName" bsSize="large">
+                    
+                    <Form.Group controlId="firstName">
                     <Form.Control
                     autoFocus
                     name="firstName"
@@ -84,103 +111,81 @@ export default class register extends React.Component{
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-
-                <div className="col-1">
+                
                     <Form.Label controlId="lastName" > Last name: </Form.Label>
-                </div> 
-
-                <div className="col-6">
-                    <Form.Group controlId="lastName" bsSize="large">
+                
+                    <Form.Group controlId="lastName">
                     <Form.Control
-                    autoFocus
                     name='lastName'
                     value={this.state.lastName}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-
-
-                <div className="col-1">
+                   
+               
                     <Form.Label controlId="userName" > Username: </Form.Label>
-                </div> 
-
-                <div className="col-6">
-                    <Form.Group controlId="userName" bsSize="large">
+                    <Form.Group controlId="userName">
                     <Form.Control
-                    autoFocus
+                    
                     name='userName'
                     value={this.state.userName}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-                <div className="col-1">
+                
                     <Form.Label controlId="phone" > Phone: </Form.Label>
-                </div> 
-                <div className="col-6">
-                    <Form.Group controlId="phone" bsSize="large">
+               
+                    <Form.Group controlId="phone">
                     <Form.Control
-                    autoFocus
                     name='phone'
                     value={this.state.phone}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-                <div className="col-1">
+                
                     <Form.Label controlId="eMail" > Email: </Form.Label>
-                </div> 
-
-                <div className="col-6">
-                    <Form.Group controlId="eMail" bsSize="large">
+               
+                    <Form.Group controlId="eMail">
                     <Form.Control
-                    autoFocus
+                    
                     name="eMail"
                     type="email"
                     value={this.state.eMail}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-
-                <div className="col-1">
+           
                     <Form.Label controlId="password" > Password: </Form.Label>
-                </div> 
-
-                <div className="col-6">
-                    <Form.Group controlId="password" bsSize="large">
+               
+                    <Form.Group controlId="password" >
                     <Form.Control
-                    autoFocus
+                    
                     name="password"
                     type="password"
                     value={this.state.password}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                </div>
-
+                
                 <br/>
 
-
-                <div className = "col-8">
                 <Button
-                 block
-                bsSize="large"
-                disabled={!this.validateRegister}
+                block
                 type="submit"
                 >
                 Register
                 </Button>
-                </div>
+                
 
             </Form>
 
             </div>
             </div>
+
         );
     }
 
 }
+
+
 

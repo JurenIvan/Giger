@@ -1,40 +1,59 @@
 package hr.fer.zemris.opp.giger.config.security;
 
-import hr.fer.zemris.opp.giger.repository.UserRepository;
+import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.Organizer;
+import hr.fer.zemris.opp.giger.domain.Person;
+import hr.fer.zemris.opp.giger.domain.SystemPerson;
+import hr.fer.zemris.opp.giger.repository.MusicianRepository;
+import hr.fer.zemris.opp.giger.repository.OrganizerRepository;
+import hr.fer.zemris.opp.giger.repository.PersonRepository;
+import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_ROLE_DATA_PRESENT;
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER_EXCEPTION;
 
 @Service
 @AllArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private SystemPersonRepository systemPersonRepository;
+    private PersonRepository personRepository;
+    private MusicianRepository musicianRepository;
+    private OrganizerRepository organizerRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        List<GrantedAuthority> authorityList = new ArrayList<>();
-        var user = userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
-        authorityList.add(() -> "USER");
-
-        if (user.getMusician() != null)
-            authorityList.add(() -> "MUSICIAN");
-        if (user.getOrganizer() != null)
-            authorityList.add(() -> "ORGANIZER");
-
-        return new User(user.getUsername(), user.getPasswordHash(), authorityList);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return systemPersonRepository.findByEmail(email).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
     }
 
-    public hr.fer.zemris.opp.giger.domain.User getLoggedUser() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("No such user"));
+    public Person getLoggedPerson() {
+        return personRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+    }
+
+    public Musician getLoggedMusician() {
+        return musicianRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
+    }
+
+    public boolean isLoggedUserMusician() {
+        return musicianRepository.findById(getLoggedInUserId()).isPresent();
+    }
+
+    public boolean isLoggedUserOrganizer() {
+        return organizerRepository.findById(getLoggedInUserId()).isPresent();
+    }
+
+    public Organizer getLoggedOrganizer() {
+        return organizerRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
+    }
+
+    public Long getLoggedInUserId() {
+        return ((SystemPerson) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
     }
 }

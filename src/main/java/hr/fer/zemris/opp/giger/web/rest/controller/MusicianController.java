@@ -26,8 +26,8 @@ public class MusicianController {
         return null;
     }
 
-    @PostMapping("/edit")
-    public void editProfile() {
+    @PostMapping("/edit/{musicianId}")
+    public void editProfile(@RequestPart("musicianId") Long musicianId, MusicianProfileDto musicianProfileDto) {
     }
 
     @GetMapping("/show/{musicianId}")

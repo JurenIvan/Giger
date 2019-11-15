@@ -4,37 +4,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../images/background.jpg");
+    background-color: cadetblue;
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
-    height: 100px;
+    height: 80px;
+    /*opacity: 0.7;*/
+    margin-bottom: 50px;
 }
 
 .Header a {
-    color: black;
+    color: white;
+    background-color: black;
     padding: 5px 10px;
     margin: 0 10px;
+    font-size: 32px;
     text-decoration-style: solid;
     text-decoration: none;
 }
 
 .Header a:hover {
-    background:lightblue;
+    background: darkgray;
 }
 
 
-.Header button:disabled {
-    color: #ddd;
-}
-
-.Header .dropdown{
-    border: none;
-    margin: 0 0;
-    color: black;
-    padding: 7px 10px;
-    text-decoration-style: solid;
-    text-decoration: none;
-}
 
 

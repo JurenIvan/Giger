@@ -2,7 +2,6 @@ package hr.fer.zemris.opp.giger.config.security;
 
 import hr.fer.zemris.opp.giger.config.security.model.AuthenticationRequestDto;
 import hr.fer.zemris.opp.giger.config.security.model.AuthenticationResponseDto;
-import hr.fer.zemris.opp.giger.config.security.util.JwtUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,13 +25,13 @@ public class AuthenticateController {
         try {
             authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(
-                            authenticationRequest.getUsername(),
+                            authenticationRequest.getEmail(),
                             authenticationRequest.getPassword()));
         } catch (BadCredentialsException e) {
             throw new Exception("Incorrect username or password", e);
         }
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         final String jwt = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponseDto(jwt));
     }

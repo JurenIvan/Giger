@@ -1,11 +1,4 @@
-@media all and (min-width: 480px) {
-    .Login {
-      padding: 60px;
-     
-    }
-  
-    .Login form {
-      margin: 0 auto;
-      max-width: 32px;
-    }
+div.modal-backdrop.show {
+    background-color: transparent !important;
+    opacity: 0.2;
 }
