@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import * as Helpers from '../Utils/HelperMethods'
-import {Link} from "react-router-dom";
 import Cookies from 'js-cookie';
 
 
@@ -11,7 +10,7 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      username: "",
+      email: "",
       password: "",
       token: ""
     };
@@ -19,7 +18,7 @@ export default class Login extends Component {
   }
 
   validateForm() {
-    return this.state.username.length > 0 && this.state.password.length > 0;
+    return this.state.email.length > 0 && this.state.password.length > 7;
   }
 
   handleChange = event => {
@@ -40,9 +39,9 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-  
+    
     (async () => {     
-       await Helpers.sendLoginInfo(this.state.username, this.state.password, this.handleLoginToken);
+       await Helpers.sendLoginInfo(this.state.email, this.state.password, this.handleLoginToken);
     })();
   
   }
@@ -57,10 +56,10 @@ export default class Login extends Component {
         <div className="Login">
           <Form onSubmit={this.handleSubmit}>
             <div className = "col-1">
-                <Form.Label controlId="username" > username: </Form.Label>
+                <Form.Label controlId="email" > E-mail: </Form.Label>
             </div>
             <div className = "col-6">
-            <Form.Group controlId="username">
+            <Form.Group controlId="email">
                 <Form.Control
                   autoFocus
                   type="text"
@@ -74,37 +73,30 @@ export default class Login extends Component {
                 <Form.Label controlId="password" > Password: </Form.Label>
             </div>
             <div className = "col-6">
-              <Form.Group controlId="password" bsSize="large">
+              <Form.Group controlId="password">
                 <Form.Control
                   value={this.state.password}
                   onChange={this.handleChange}
                   type="password"
                 />
+                {
+                  this.state.password.length < 8 ?
+                  <div className="col-8" style = {{color:"red", textAlign: "center"}}>
+                    Your password must be at least 8 characters long.
+                  </div> : null
+                }
               </Form.Group>
             </div>
-            
-            <div className = "col-8">
               <Button
                 block
-                bsSize="large"
                 disabled={!this.validateForm()}
                 type="submit"
               >
                 Login
               </Button>
-            </div>
 
-            <div className = "col-8">
-              <Button
-                block
-                bsSize="large"
-              >
-                Continue as Guest
-              </Button>
-            </div>
           </Form>
         </div>
-        
       </div>
     );
   }

@@ -2,11 +2,13 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Login from "./components/Login";
-import register from "./components/register";
 import './App.css';
 import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
+import RegisterClass from './components/register';
+
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -46,7 +48,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header onLogout={onLogut}/>
+      <Header/>
       <div className="App">
         <Switch>
           <Route path='/home'
@@ -57,7 +59,7 @@ function App() {
             )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
-          <Route path='/register' exact component={register}/>
+          <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
         </Switch>
       </div>

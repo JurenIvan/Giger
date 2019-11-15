@@ -1,17 +1,10 @@
 
 
-.App .navbar-brand {
-  font-weight: bold;
-}
-
 .App {
   margin-top: 0px;
   display: flex;
-  flex-grow: 1;
+  flex-grow: 0;
   align-items: center;
   flex-direction: column;
-}
-
-.App a {
-  color: transparent;
+ margin: 40px;
 }

@@ -1,13 +1,23 @@
 
 body {
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  padding: 20;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
   color:black;
-  background-color: white;
+  background-color: rgba(110, 119, 25, 0.356);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 80px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
+  font-size: 16px;
+}
+Body a{
+  background-color: black;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -19,8 +29,9 @@ input.form-control {
     font-size: 16px;
     }
     input[type=file] {
-    width: 100%;
+    width: 50%;
 }
-div.container {
-  max-width: 400px;
+
+.modal-backdrop {
+  opacity:0.5 !important;
 }
