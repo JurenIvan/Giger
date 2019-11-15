@@ -594,6 +594,14 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\caption{Dijagram razreda - razredi entiteta}
 			\label{fig:domena}
 		\end{figure}
+	
+	Na slici 4.7 prikazan je dijagram razreda zaduženih za Spring Security.
+	Ulazna točka za autorizaciju zahtjeva je definirana u JwtRequestFilteru koji poziva UserDetailsServiceImpl da provjeri postoji li u bazi podataka zapis s akreditacijama koje se dekodiraju iz jwt tokena.
+	AuthenticateController je zadužen za pružanje jwt tokena ukoliko u bazi pronađe zapis s odgovarajućim vrijednostima.
+	Aplikacija ne pamti sesiju niti stanje (STATELESS) tako da korisnik prilikom postavljanja zahtjeva mora dostaviti svoj jwt token putem kojeg se autentificira i autorizira.
+	JwtUtil klasa je puna pomoćnih metoda za baratanje jwt tokenom, a UserDetailsServiceImpl je posrednik između baze korisnika i AuthenticateControllera.
+	Vezano uz autorizaciju, modelirana su tri DTO objekta koji definiraju objekte koje backend prima i daje kao zahtjev ili odgovor.
+	
 
 		\begin{figure}[H]
 			\begin{center}
