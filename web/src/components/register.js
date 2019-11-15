@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -17,7 +17,8 @@ export default class RegisterClass extends React.Component{
             eMail: "",
             password: "",
             phone: "",
-            showModal: false
+            showModal: false,
+            inValidRegister: false
         };
         this.handleRegister = this.handleRegister.bind(this);
     }
@@ -38,11 +39,11 @@ export default class RegisterClass extends React.Component{
 
 
 
-    handleRegister(message) {
-        if(message !== "Registration ok!") {
-            alert(message);
+    handleRegister(status) {
+        if(status === 200) {
+            window.location.href = '/';
         } else {
-            alert("We have sent confirmation email to" + this.state.eMail)
+            this.setState({inValidRegister: true});
         }
 
     }
@@ -54,9 +55,9 @@ export default class RegisterClass extends React.Component{
     //if validateRegister  returns true send form to db
     handleSubmit = event => {
         event.preventDefault();
-        let shouldShow = this.state.eMail.length < 0 && this.state.userName.length < 0 && this.state.phone.length < 0 && this.state.password < 0
-        if (!shouldShow) {
-            this.setState({showModal: !shouldShow});
+        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password < 7
+        if (shouldShow) {
+            this.setState({showModal: true});
         } else {
             (async () => {     
                 await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
@@ -69,11 +70,21 @@ export default class RegisterClass extends React.Component{
         return (
           
             
-            <div className="container" >
+            <div className="container">
+                <Modal show={this.state.inValidRegister} animation={false}>
+                <Modal.Body style={{color:"red"}}> Something went wrong with your registration. Please, try again! </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                        variant="secondary"
+                        onClick={(e) => {
+                                        this.setState({inValidRegister: false})}
+                                        }
+                    >
+                        Close
+                    </Button>
+                </Modal.Footer>
+                </Modal>
             <Modal show={this.state.showModal} animation={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Alert:</Modal.Title>
-                </Modal.Header>
                 <Modal.Body style={{color:"red"}}> You did not meet requierments to register! </Modal.Body>
                 <Modal.Footer>
                     <Button
@@ -87,17 +98,11 @@ export default class RegisterClass extends React.Component{
                 </Modal.Footer>
             </Modal>
             <div className="register">
-
-            <h1></h1>
+            <h2 style={{fontWeight: "bold"}}> Welcome! Would you like to register?</h2>
             <Form onSubmit={this.handleSubmit}>
 
-
-            
-                
                     <Form.Label controlId="firstName" > First name: </Form.Label>
-               
-
-                
+                    
                     <Form.Group controlId="firstName">
                     <Form.Control
                     autoFocus
@@ -107,74 +112,54 @@ export default class RegisterClass extends React.Component{
                     />
                     </Form.Group>
                 
-
-                
                     <Form.Label controlId="lastName" > Last name: </Form.Label>
-               
-
                 
                     <Form.Group controlId="lastName">
                     <Form.Control
-                    autoFocus
                     name='lastName'
                     value={this.state.lastName}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                
-
-
-                
-                    <Form.Label controlId="userName" > Username: </Form.Label>
+                   
                
-
-                
+                    <Form.Label controlId="userName" > Username: </Form.Label>
                     <Form.Group controlId="userName">
                     <Form.Control
-                    autoFocus
+                    
                     name='userName'
                     value={this.state.userName}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
                 
-                
                     <Form.Label controlId="phone" > Phone: </Form.Label>
                
-                
                     <Form.Group controlId="phone">
                     <Form.Control
-                    autoFocus
                     name='phone'
                     value={this.state.phone}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
                 
-                
                     <Form.Label controlId="eMail" > Email: </Form.Label>
                
-
-                
                     <Form.Group controlId="eMail">
                     <Form.Control
-                    autoFocus
+                    
                     name="eMail"
                     type="email"
                     value={this.state.eMail}
                     onChange={this.myChangeHandler}
                     />
                     </Form.Group>
-                
-
-                
+           
                     <Form.Label controlId="password" > Password: </Form.Label>
                
-
-                
                     <Form.Group controlId="password" >
                     <Form.Control
-                    autoFocus
+                    
                     name="password"
                     type="password"
                     value={this.state.password}
@@ -182,11 +167,8 @@ export default class RegisterClass extends React.Component{
                     />
                     </Form.Group>
                 
-
                 <br/>
 
-
-                
                 <Button
                 block
                 type="submit"

@@ -15,32 +15,30 @@ export function sendRegisterInfo (email, username, phone, password, f) {
     console.log(params)
     xhr.send(params);
     xhr.onload = function() {
-        if (xhr.status != 200) { // analyze HTTP status of the response
-            console.log(`Error ${xhr.status}: ${xhr.statusText}`); 
-            alert("Unsuccesfull register :(");
+        if (xhr.status !== 200) { // analyze HTTP status of the response
+            console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+            f(xhr.status); 
     // e.g. 404: Not Found
         } else { // show the result
-            console.log(`Done, got ${xhr.response}`); // responseText is the server
-            let retVal = JSON.stringify(xhr.response);
-            f(retVal);
+            f(xhr.status);
         }
     }
 
 }
 
-export function sendLoginInfo (username, password, f) {
+export function sendLoginInfo (email, password, f) {
     let xhr = new XMLHttpRequest();
     let url = 'https://giger-backend-dev.herokuapp.com/api/authenticate';
     xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({
-                    "username": username,
+                    "email": email,
                     "password": password
                     });
     xhr.send(params);
     xhr.onload = function() {
-        if (xhr.status != 200) { // analyze HTTP status of the response
+        if (xhr.status !== 200) { // analyze HTTP status of the response
             console.log(`Error ${xhr.status}: ${xhr.statusText}`); 
             alert("Unsuccesfull login :(");
     // e.g. 404: Not Found
@@ -63,7 +61,7 @@ export function isUsernameAvailible(username, f) {
 
     // 4. This will be called after the response is received
     xhr.onload = function() {
-        if (xhr.status != 200) { // analyze HTTP status of the response
+        if (xhr.status !== 200) { // analyze HTTP status of the response
             console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
         } else { // show the result
             console.log(`Done, got ${xhr.responseText}`); // responseText is the server
@@ -90,7 +88,7 @@ export function pingHelloWorld(f) {
 
     // 4. This will be called after the response is received
     xhr.onload = function() {
-        if (xhr.status != 200) { // analyze HTTP status of the response
+        if (xhr.status !== 200) { // analyze HTTP status of the response
             console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
         } else { // show the result
             console.log(`Done, got ${xhr.responseText}`); // responseText is the server
