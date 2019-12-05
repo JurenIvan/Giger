@@ -7,26 +7,42 @@ import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import ProfileClass from './components/Profile/Profile'
 
 
 
 function App() {
 
+  const isLoggedIn = Cookies.get('Bearer')? true : false;
   return (
     <BrowserRouter>
-      <Header/>
+      <Header
+      isLoggedIn={isLoggedIn}/>
       <div className="App">
         <Switch>
           <Route path='/home'
             render={() => (
-              Cookies.get('Bearer')?
+              isLoggedIn?
               <Home/> : 
-                  alert("Please log in!")
+              <Modal show={true} animation={false}>
+              <Modal.Footer>
+                <p  style={{color:"red"}}> You are not logged in! </p>
+                  <Button
+                      variant="danger"
+                      href="/login"
+                  >
+                      Go to login...
+                  </Button>
+              </Modal.Footer>
+              </Modal>
             )}/>
-          <Route path='/Logout' exact component={Login}/>
-          <Route path='/Login' exact component={Login}/>
+          <Route path='/logout' exact component={Login}/>
+          <Route path='/login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/profile' exact component = {ProfileClass} />
         </Switch>
       </div>
     </BrowserRouter>
