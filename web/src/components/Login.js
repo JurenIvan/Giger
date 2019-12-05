@@ -60,10 +60,10 @@ export default class Login extends Component {
     return (
       <div className="container" >
         <Modal show={this.state.showModal} animation={false}>
-                <Modal.Body style={{color:"red"}}> Your password must be at least 8 characters long! </Modal.Body>
                 <Modal.Footer>
+                  <p style={{color:"red"}}>Your password must be at least 8 characters long!</p>
                     <Button
-                        variant="secondary"
+                        variant="danger"
                         onClick={(e) => {
                                         this.setState({showModal: false})}
                                         }
