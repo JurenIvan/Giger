@@ -53,6 +53,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return organizerRepository.findById(getLoggedInUserId()).isPresent();
     }
 
+    public boolean isLoggedUser() {
+        return getLoggedInUserId() != null;
+    }
+
     public Long getLoggedInUserId() {
         return ((SystemPerson) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
     }

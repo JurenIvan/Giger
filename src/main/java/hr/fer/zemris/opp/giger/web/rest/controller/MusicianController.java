@@ -1,6 +1,5 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Occasion;
 import hr.fer.zemris.opp.giger.service.MusicianService;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianDto;
@@ -32,7 +31,7 @@ public class MusicianController {
     }
 
     @GetMapping("/show/{musicianId}")
-    public MusicianProfileDto showProfile(Musician musician) {
-        return null;
+    public MusicianProfileDto showProfile(@PathVariable Long musicianId) {
+        return musicianService.showProfile(musicianId);
     }
 }
