@@ -3,10 +3,12 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 import hr.fer.zemris.opp.giger.service.BandService;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.FilterBandDto;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/bands")
 public class BandController {

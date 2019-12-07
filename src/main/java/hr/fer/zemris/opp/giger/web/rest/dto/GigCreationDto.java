@@ -17,6 +17,5 @@ public class GigCreationDto {
     private String expectedDuration;
     private Integer proposedPrice;
     private GigType gigType;
-    private boolean privateGig;
-
+    private Boolean privateGig;
 }

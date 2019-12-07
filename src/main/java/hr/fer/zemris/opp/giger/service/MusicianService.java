@@ -1,14 +1,21 @@
 package hr.fer.zemris.opp.giger.service;
 
+import hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode;
 import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
+import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.Occasion;
+import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.InstrumentRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.*;
 import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.MUSICIAN_ALREADY_EXISTS;
 import static java.util.stream.Collectors.toList;
 
@@ -19,6 +26,7 @@ public class MusicianService {
     private MusicianRepository musicianRepository;
     private InstrumentRepository instrumentRepository;
     private UserDetailsServiceImpl userDetailsService;
+    private BandRepository bandRepository;
 
     public void createMusician(MusicianDto musicianDto) {
         if (userDetailsService.isLoggedUserMusician()) {
@@ -33,7 +41,17 @@ public class MusicianService {
         musicianRepository.save(musician);
     }
 
-    public void deleteMusician(Long musicianId) {
-        musicianRepository.deleteById(musicianId);
+    public List<Occasion> getOccasions(Long musicianId) {
+        Musician loggedInMusician = userDetailsService.getLoggedMusician();
+        Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
+
+        if (loggedInMusician.equals(musician))
+            return musician.getOccasions();
+
+        List<Musician> leaders = bandRepository.findAllByMembersContaining(musician).stream().map(Band::getLeader).collect(toList());
+        if (leaders.contains(loggedInMusician))
+            return musician.getOccasionsWithoutDescriptions();
+
+        return musician.getPublicOccasios();
     }
 }

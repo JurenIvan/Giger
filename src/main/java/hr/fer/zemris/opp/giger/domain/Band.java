@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
@@ -11,7 +12,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_MUSICIAN;
 import static java.time.LocalDate.now;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -107,12 +110,15 @@ public class Band {
         invitedBackUpMembers.remove(musician);
     }
 
-    public void removeMember(Musician musician) {
-        members.remove(musician);
-    }
+    public void removeMember(Long musicianId) {
+        Optional<Musician> member = members.stream().filter(musician -> musician.getId().equals(musicianId)).findFirst();
+        Optional<Musician> backUpMember = backUpMembers.stream().filter(musician -> musician.getId().equals(musicianId)).findFirst();
 
-    public void removeBackUpMember(Musician loggedMusician) {
-        backUpMembers.remove(loggedMusician);
+        if (member.isEmpty() && backUpMember.isEmpty())
+            throw new GigerException(NO_SUCH_MUSICIAN);
+
+        member.ifPresent(musician -> members.remove(musician));
+        backUpMember.ifPresent(musician -> backUpMembers.remove(musician));
     }
 
     public void editProfile(BandEditProfileDto bandEditProfileDto) {
@@ -132,4 +138,7 @@ public class Band {
         return new BandPreviewDto(id, name, pictureUrl, acceptableGigTypes);
     }
 
+    public void removeBackUpMember(Long musicianId) {
+        backUpMembers.remove(backUpMembers.stream().filter(musician->musician.getId().equals(musicianId)).findFirst().orElseThrow(()->new GigerException(NO_SUCH_MUSICIAN)));
+    }
 }

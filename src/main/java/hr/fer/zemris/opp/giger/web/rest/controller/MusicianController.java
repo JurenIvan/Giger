@@ -22,8 +22,9 @@ public class MusicianController {
         musicianService.createMusician(musiciandto);
     }
 
-    public List<Occasion> listOccasionsForMusician(Musician musician) {
-        return null;
+    @GetMapping("/get-occasions/{musicianId}")
+    public List<Occasion> listOccasionsForMusician(@PathVariable Long musicianId) {
+        return musicianService.getOccasions(musicianId);
     }
 
     @PostMapping("/edit/{musicianId}")

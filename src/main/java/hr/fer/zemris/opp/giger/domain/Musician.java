@@ -1,14 +1,20 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
+import static java.util.stream.Collectors.toList;
+
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Musician {
 
     @Id
@@ -53,4 +59,11 @@ public class Musician {
         return new MusicianPreviewDto(id, bio, publicCalendar, instruments);
     }
 
+    public List<Occasion> getOccasionsWithoutDescriptions() {
+        return occasions.stream().map(Occasion::getOccasionWithoutDescripiton).collect(toList());
+    }
+
+    public List<Occasion> getPublicOccasios() {
+        return occasions.stream().filter(occasion -> !occasion.getPersonalOccasion()).collect(toList());
+    }
 }

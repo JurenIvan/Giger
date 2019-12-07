@@ -41,16 +41,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return musicianRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
     }
 
+    public Organizer getLoggedOrganizer() {
+        return organizerRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
+    }
+
     public boolean isLoggedUserMusician() {
         return musicianRepository.findById(getLoggedInUserId()).isPresent();
     }
 
     public boolean isLoggedUserOrganizer() {
         return organizerRepository.findById(getLoggedInUserId()).isPresent();
-    }
-
-    public Organizer getLoggedOrganizer() {
-        return organizerRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
     }
 
     public Long getLoggedInUserId() {

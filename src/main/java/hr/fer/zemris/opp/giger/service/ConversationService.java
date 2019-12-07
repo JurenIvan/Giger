@@ -23,29 +23,28 @@ import static java.util.stream.Collectors.toList;
 @AllArgsConstructor
 public class ConversationService {
 
-
     private ConversationRepository conversationRepository;
     private UserDetailsServiceImpl userDetailsService;
     private BandRepository bandRepository;
-
 
     public long createConversation(ConversationCreationDto conversationCreationDto) {
         Person person = userDetailsService.getLoggedPerson();
         return conversationRepository.save(Conversation.createConversation(conversationCreationDto, person)).getId();
     }
 
-
     public ConversationPreviewDto loadConversation(Long conversationId) {
         Conversation conversation = conversationRepository.findConversationById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
         Person loggedInPerson = userDetailsService.getLoggedPerson();
+        Musician loggedInMusician = userDetailsService.getLoggedMusician();
+
         if (conversation.getParticipants().contains(loggedInPerson)
-                || (conversation.getBand() != null && conversation.getBand().getMembers().contains(loggedInPerson))) {
+                || (conversation.getBand() != null && conversation.getBand().getMembers().contains(loggedInMusician))) {
             return conversation.toDto();
         }
+
         throw new GigerException(NOT_IN_A_CONVERSATION);
     }
-
 
     public void postMessageAsPerson(NewMessageDto newMessageDto) {
         Person person = userDetailsService.getLoggedPerson();
@@ -59,10 +58,10 @@ public class ConversationService {
 
     //todo test
     public void postMessageAsBand(NewMessageDto newMessageDto) {
-        Person person = userDetailsService.getLoggedPerson();
+        Musician musician = userDetailsService.getLoggedMusician();
         Conversation conversation = conversationRepository.findConversationById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
-        if (conversation.getBand() != null && conversation.getBand().getMembers().contains(person)) {
+        if (conversation.getBand() != null && conversation.getBand().getMembers().contains(musician)) {
             conversation.addMessage(newMessageDto, null, conversation.getBand());
             return;
         }
@@ -96,6 +95,4 @@ public class ConversationService {
 
         conversation.removeParticipants(person);
     }
-
-
 }

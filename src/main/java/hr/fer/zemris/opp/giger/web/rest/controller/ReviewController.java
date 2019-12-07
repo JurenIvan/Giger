@@ -1,14 +1,8 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Band;
-import hr.fer.zemris.opp.giger.domain.Gig;
-import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reviews")
@@ -19,15 +13,15 @@ public class ReviewController {
     }
 
     @GetMapping("/band/{bandId}")
-    public ReviewsDto getReviewsForBand(Band band) {
+    public ReviewsDto getReviewsForBand(@PathVariable Long bandId) {
         return null;
     }
 
     @GetMapping("/organizer/{organizerId}")
-    public void getReviewsForOrganizer(Organizer organizer) {
+    public void getReviewsForOrganizer(@PathVariable Long organizerId) {
     }
 
     @GetMapping("/gig/{gigId}")
-    public void getReviewsForGig(Gig gig) {
+    public void getReviewsForGig(@PathVariable Long gigId) {
     }
 }

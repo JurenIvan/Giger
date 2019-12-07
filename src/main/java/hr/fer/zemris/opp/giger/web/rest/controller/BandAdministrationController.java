@@ -38,7 +38,7 @@ public class BandAdministrationController {
     }
 
     @GetMapping("/leave/{bandId}")
-    public void leaveBand(@PathVariable long bandId) {
+    public void leaveBand(@PathVariable Long bandId) {
         bandService.leaveBand(bandId);
     }
 
@@ -58,7 +58,7 @@ public class BandAdministrationController {
     }
 
     @PostMapping("/invites/{bandId}")
-    public List<MusicianInvitationsDto> listInvitations(@PathVariable long bandId) {
+    public List<MusicianInvitationsDto> listInvitations(@PathVariable Long bandId) {
         return bandService.listInvitations(bandId);
     }
 }
