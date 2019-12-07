@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -25,5 +26,15 @@ public class Person {
 
     public PersonPreviewDto toDto() {
         return new PersonPreviewDto(id, username, pictureUrl);
+    }
+
+    public Person updatePerson(MusicianProfileDto musicianProfileDto) {
+        if (musicianProfileDto.getContactNumber() != null)
+            this.phoneNumber = musicianProfileDto.getContactNumber();
+
+        if (musicianProfileDto.getPictureUrl() != null)
+            this.pictureUrl = musicianProfileDto.getPictureUrl();
+
+        return this;
     }
 }

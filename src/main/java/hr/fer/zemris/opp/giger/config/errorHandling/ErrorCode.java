@@ -1,7 +1,7 @@
 package hr.fer.zemris.opp.giger.config.errorHandling;
 
 public enum ErrorCode {
-    NO_SUCH_USER_EXCEPTION,
+    NO_SUCH_USER,
     NO_ROLE_DATA_PRESENT,
     ORGANIZER_ALREADY_EXISTS,
     BAND_NAME_NOT_UNIQUE,

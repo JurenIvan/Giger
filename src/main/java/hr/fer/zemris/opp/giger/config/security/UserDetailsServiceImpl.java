@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_ROLE_DATA_PRESENT;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER_EXCEPTION;
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER;
 
 @Service
 @AllArgsConstructor
@@ -30,11 +30,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return systemPersonRepository.findByEmail(email).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+        return systemPersonRepository.findByEmail(email).orElseThrow(() -> new GigerException(NO_SUCH_USER));
     }
 
     public Person getLoggedPerson() {
-        return personRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+        return personRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_SUCH_USER));
     }
 
     public Musician getLoggedMusician() {

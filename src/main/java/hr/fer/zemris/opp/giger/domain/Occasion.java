@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Occasion implements Comparable<LocalDate> {
+public class Occasion {
 
     @Id
     private Long id;
@@ -21,12 +21,7 @@ public class Occasion implements Comparable<LocalDate> {
     private String description;
     private Boolean personalOccasion;
 
-    @Override
-    public int compareTo(LocalDate localDate) {
-        return this.localDate.compareTo(localDate);
-    }
-
-    public Occasion getOccasionWithoutDescripiton() {
+    public Occasion getOccasionWithoutDescription() {
         return new Occasion(id, localDate, null, personalOccasion);
     }
 }

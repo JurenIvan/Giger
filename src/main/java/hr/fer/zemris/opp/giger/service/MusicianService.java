@@ -2,35 +2,31 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
-import hr.fer.zemris.opp.giger.domain.Band;
-import hr.fer.zemris.opp.giger.domain.Musician;
-import hr.fer.zemris.opp.giger.domain.Occasion;
+import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.InstrumentRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
-import hr.fer.zemris.opp.giger.repository.ReviewRepository;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
+import hr.fer.zemris.opp.giger.repository.PersonRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.PostPreviewDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.MUSICIAN_ALREADY_EXISTS;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_MUSICIAN;
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
 @AllArgsConstructor
 public class MusicianService {
 
+    private PersonRepository personRepository;
     private MusicianRepository musicianRepository;
     private InstrumentRepository instrumentRepository;
     private UserDetailsServiceImpl userDetailsService;
     private BandRepository bandRepository;
-    private ReviewRepository reviewRepository;
 
     public void createMusician(MusicianDto musicianDto) {
         if (userDetailsService.isLoggedUserMusician()) {
@@ -61,11 +57,21 @@ public class MusicianService {
 
     public MusicianProfileDto showProfile(Long musicianId) {
         Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
-        List<Occasion> occasions = getOccasions(musicianId);
-        List<BandPreviewDto> bands = bandRepository.findAllByMembersContaining(musician).stream().map(Band::toDto).collect(toList());
+        Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 
+        return new MusicianProfileDto(person.getUsername(), musician.getInstruments(), person.getPictureUrl(), person.getPhoneNumber());
+    }
 
+    public List<PostPreviewDto> getPosts(Long musicianId) {
+        Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
+        return musician.getPosts().stream().map(Post::toDto).collect(toList());
+    }
 
-        return new MusicianProfileDto();
+    public void editProfile(MusicianProfileDto musicianProfileDto, Long musicianId) {
+        Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN)).update(musicianProfileDto);
+        Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER)).updatePerson(musicianProfileDto);
+
+        musicianRepository.save(musician);
+        personRepository.save(person);
     }
 }

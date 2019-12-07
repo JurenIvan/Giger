@@ -18,8 +18,6 @@ public class MusicianProfileDto {
     private String name;
     private List<Instrument> instrumentList;
     private String pictureUrl;
-    private List<Occasion> occasions;
-    private List<ReviewsDto> reviews;
-    private List<Post> posts;
+    private String contactNumber;
 
 }

@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -60,10 +61,18 @@ public class Musician {
     }
 
     public List<Occasion> getOccasionsWithoutDescriptions() {
-        return occasions.stream().map(Occasion::getOccasionWithoutDescripiton).collect(toList());
+        return occasions.stream().map(Occasion::getOccasionWithoutDescription).collect(toList());
     }
 
     public List<Occasion> getPublicOccasios() {
         return occasions.stream().filter(occasion -> !occasion.getPersonalOccasion()).collect(toList());
     }
+
+    public Musician update(MusicianProfileDto musicianProfileDto) {
+        if (musicianProfileDto.getInstrumentList() != null) {
+            this.instruments = musicianProfileDto.getInstrumentList();
+        }
+        return this;
+    }
+
 }
