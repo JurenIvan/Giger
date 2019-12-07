@@ -19,5 +19,6 @@ public enum ErrorCode {
     NO_SUCH_CONVERSATION,
     NOT_IN_A_CONVERSATION,
     INVALID_PASSWORD,
+    NO_SUCH_GIG,
     NOVI_ERROR
 }

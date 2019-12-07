@@ -33,7 +33,7 @@ public class ConversationService {
     }
 
     public ConversationPreviewDto loadConversation(Long conversationId) {
-        Conversation conversation = conversationRepository.findConversationById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
+        Conversation conversation = conversationRepository.findById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
         Person loggedInPerson = userDetailsService.getLoggedPerson();
         Musician loggedInMusician = userDetailsService.getLoggedMusician();
@@ -48,7 +48,7 @@ public class ConversationService {
 
     public void postMessageAsPerson(NewMessageDto newMessageDto) {
         Person person = userDetailsService.getLoggedPerson();
-        Conversation conversation = conversationRepository.findConversationById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
+        Conversation conversation = conversationRepository.findById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
         if (conversation.getParticipants().contains(person)) {
             throw new GigerException(NOT_IN_A_CONVERSATION);
@@ -59,7 +59,7 @@ public class ConversationService {
     //todo test
     public void postMessageAsBand(NewMessageDto newMessageDto) {
         Musician musician = userDetailsService.getLoggedMusician();
-        Conversation conversation = conversationRepository.findConversationById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
+        Conversation conversation = conversationRepository.findById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
         if (conversation.getBand() != null && conversation.getBand().getMembers().contains(musician)) {
             conversation.addMessage(newMessageDto, null, conversation.getBand());
