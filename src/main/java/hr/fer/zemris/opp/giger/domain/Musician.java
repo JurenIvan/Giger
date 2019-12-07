@@ -1,7 +1,9 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +11,8 @@ import java.util.Objects;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Musician {
 
     @Id

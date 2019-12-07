@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class SystemPerson implements UserDetails {
 

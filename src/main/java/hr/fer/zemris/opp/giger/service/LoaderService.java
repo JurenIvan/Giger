@@ -1,0 +1,172 @@
+package hr.fer.zemris.opp.giger.service;
+
+import hr.fer.zemris.opp.giger.domain.*;
+import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.domain.enums.InstrumentType;
+import hr.fer.zemris.opp.giger.repository.*;
+import lombok.AllArgsConstructor;
+import org.aspectj.weaver.ast.Or;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import static hr.fer.zemris.opp.giger.domain.Role.*;
+import static hr.fer.zemris.opp.giger.domain.Role.MUSICIAN;
+import static hr.fer.zemris.opp.giger.domain.enums.GigType.BACHELORS_PARTY;
+import static hr.fer.zemris.opp.giger.domain.enums.GigType.CONCERT;
+import static hr.fer.zemris.opp.giger.domain.enums.InstrumentType.*;
+
+@Service
+@AllArgsConstructor
+public class LoaderService implements ApplicationRunner {
+
+    private SystemPersonRepository systemPersonRepository;
+    private InstrumentRepository instrumentRepository;
+    private OrganizerRepository organizerRepository;
+    private PersonRepository personRepository;
+    private ReviewRepository reviewRepository;
+    private GigRepository gigRepository;
+    private MusicianRepository musicianRepository;
+    private List<SystemPerson> systemPeople;
+    private List<Instrument> instruments;
+    private List<Organizer> organizers;
+    private List<Location> locations;
+    private List<Person> people;
+    private List<Review> reviews;
+    private List<Gig> gigs;
+    private List<Musician> musicians;
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        createSystemPeople();
+        createInstruments();
+        createOrganizers();
+        createLocations();
+        createPersons();
+        createReviews();
+        createGigs();
+        //createPosts();
+        createMusicians();
+    }
+
+    private void createSystemPeople() {
+        systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "michael.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "william.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "david.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
+        systemPeople.add(new SystemPerson(null, "richard.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
+        systemPeople.add(new SystemPerson(null, "joseph.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
+        systemPeople.add(new SystemPerson(null, "thomas.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
+        systemPeople.add(new SystemPerson(null, "george.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "don.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "luke.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+        systemPeople.add(new SystemPerson(null, "charles@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "daniel.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "mark.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+
+        this.systemPeople = systemPersonRepository.saveAll(systemPeople);
+    }
+
+    private void createInstruments() {
+        instruments.add(new Instrument(null, "Marimba", PERCUSSION));
+        instruments.add(new Instrument(null, "Piano", KEYBOARD));
+        instruments.add(new Instrument(null, "Vibraphone", PERCUSSION));
+        instruments.add(new Instrument(null, "Trumpet", BRASS_INSTRUMENT));
+        instruments.add(new Instrument(null, "Xylophone", PERCUSSION));
+        instruments.add(new Instrument(null, "Guitar", STRING_INSTRUMENT));
+        instruments.add(new Instrument(null, "Clarinet", WOODWIND_INSTRUMENT));
+        instruments.add(new Instrument(null, "Oboe", WOODWIND_INSTRUMENT));
+        instruments.add(new Instrument(null, "Violine", STRING_INSTRUMENT));
+        instruments.add(new Instrument(null, "Flute", WOODWIND_INSTRUMENT));
+
+        this.instruments = instrumentRepository.saveAll(instruments);
+    }
+
+    private void createOrganizers() {
+        organizers.add(new Organizer(systemPeople.get(0).getId(), "John"));
+        organizers.add(new Organizer(systemPeople.get(1).getId(), "James"));
+        organizers.add(new Organizer(systemPeople.get(2).getId(), "Robert"));
+        organizers.add(new Organizer(systemPeople.get(10).getId(), "George"));
+        organizers.add(new Organizer(systemPeople.get(11).getId(), "Michael"));
+        organizers.add(new Organizer(systemPeople.get(12).getId(), "William"));
+
+        this.organizers = organizerRepository.saveAll(organizers);
+    }
+
+    private void createLocations() {
+        locations.add(new Location(45.0, 45.0, "Odravska 8", "Drugi kat"));
+        locations.add(new Location(35.0, 45.0, "Bašćanske ploče 33", "Prvi kat"));
+        locations.add(new Location(45.0, 35.0, "Kneza Višeslava 10", "Zadnja vrata"));
+        locations.add(new Location(25.0, 25.0, "Kneza Branimira 68", "Prvi ulaz"));
+        locations.add(new Location(45.0, 35.0, "Kralja Tomislava 78", "Zabranjene životinje"));
+        locations.add(new Location(35.0, 45.0, "Šegrta Hlapića 63", "Dopušteno pušenje"));
+        locations.add(new Location(45.0, 35.0, "Ivice Kičmanovića 50", "Zabranjeno pušenje"));
+        locations.add(new Location(25.0, 25.0, "Šenoine Branke 55", "Prvi ulaz"));
+    }
+
+    private void createPersons() {
+        people.add(new Person(systemPeople.get(0).getId(), "john.doe", "091536780", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(1).getId(), "james.doe", "091536781", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(2).getId(), "robert.doe", "091536782", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(3).getId(), "admin.doe", "091536783", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(4).getId(), "michael.doe", "091536784", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(5).getId(), "william.doe", "091536785", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(6).getId(), "david.doe", "091536786", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(7).getId(), "richard.doe", "091536787", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(8).getId(), "joseph.doe", "091536788", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(9).getId(), "thomas.doe", "091536789", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(10).getId(), "george.doe", "091536710", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(11).getId(), "don.doe", "091536711", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(12).getId(), "luke.doe", "091536712", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(10).getId(), "charles.doe", "091536713", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(11).getId(), "daniel.doe", "091536714", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(12).getId(), "mark.doe", "091536715", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+
+
+        this.people = personRepository.saveAll(people);
+    }
+
+    private void createReviews() {
+        reviews.add(new Review(null, "great", "ok", 5, 3, LocalDateTime.of(2019, 12, 1, 18, 0, 0), people.get(0)));
+        reviews.add(new Review(null, "good", "good", 3, 3, LocalDateTime.of(2019, 12, 1, 16, 0, 0), people.get(1)));
+        reviews.add(new Review(null, "great", "great", 5, 5, LocalDateTime.of(2019, 11, 1, 18, 0, 0), people.get(2)));
+        reviews.add(new Review(null, "bad", "good", 1, 3, LocalDateTime.of(2019, 10, 1, 18, 0, 0), people.get(3)));
+        reviews.add(new Review(null, "bad", "bad", 1, 1, LocalDateTime.of(2019, 9, 1, 18, 0, 0), people.get(4)));
+        reviews.add(new Review(null, "great", "good", 5, 3, LocalDateTime.of(2019, 8, 1, 18, 0, 0), people.get(5)));
+        reviews.add(new Review(null, "great", "bad", 5, 1, LocalDateTime.of(2019, 7, 1, 18, 0, 0), people.get(6)));
+        reviews.add(new Review(null, "ok", "ok", 2, 2, LocalDateTime.of(2019, 12, 2, 10, 0, 0), people.get(7)));
+        reviews.add(new Review(null, "very good", "ok", 4, 3, LocalDateTime.of(2019, 12, 5, 18, 0, 0), people.get(8)));
+        reviews.add(new Review(null, "very good", "very good", 4, 4, LocalDateTime.of(2019, 12, 7, 18, 0, 0), people.get(9)));
+
+        this.reviews = reviewRepository.saveAll(reviews);
+    }
+
+    private void createGigs() {
+        gigs.add(new Gig(null, organizers.get(0), LocalDateTime.of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
+        gigs.add(new Gig(null, organizers.get(1), LocalDateTime.of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500, BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
+        gigs.add(new Gig(null, organizers.get(2), LocalDateTime.of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h", 200, GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
+        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h", 500, GigType.WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
+        gigs.add(new Gig(null, organizers.get(4), LocalDateTime.of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
+
+        this.gigs = gigRepository.saveAll(gigs);
+    }
+
+    private void createMusicians() {
+        musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", true, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", true, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), null, null, null));
+        this.musicians = musicianRepository.saveAll(musicians);
+    }
+}
