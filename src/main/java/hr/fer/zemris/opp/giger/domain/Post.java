@@ -1,7 +1,9 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.PostPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +17,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Post {
 
     @Id
@@ -31,5 +35,13 @@ public class Post {
 
     public PostPreviewDto toDto() {
         return new PostPreviewDto(id, content, publishedOn, comments.stream().map(e -> e.toDto()).collect(toList()));
+    }
+
+    public static Post createPost(String content) {
+        return new Post(null, content, LocalDateTime.now(), null);
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
     }
 }

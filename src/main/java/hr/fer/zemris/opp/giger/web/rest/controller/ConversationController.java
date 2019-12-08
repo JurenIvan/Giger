@@ -46,7 +46,7 @@ public class ConversationController {
         return conversationService.loadAllBandConversations(bandId);
     }
 
-    @GetMapping("/get/bands/{bandId}")
+    @GetMapping("/get/bands")
     public List<ConversationPreviewDto> loadAllBandsConversations() {
         return conversationService.loadAllBandsConversations();
     }

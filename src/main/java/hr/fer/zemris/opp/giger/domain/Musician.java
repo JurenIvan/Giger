@@ -75,4 +75,7 @@ public class Musician {
         return this;
     }
 
+    public void addPost(Post post) {
+        posts.add(post);
+    }
 }

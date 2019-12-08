@@ -20,7 +20,7 @@ public class BandController {
         return bandService.listBands(name);
     }
 
-    @PostMapping("/filter")
+    @PostMapping("/filter") //todo improve
     public List<BandPreviewDto> filterBandsByFilters(FilterBandDto filterBandDto) {
         return bandService.listAvailableBands(filterBandDto);
     }

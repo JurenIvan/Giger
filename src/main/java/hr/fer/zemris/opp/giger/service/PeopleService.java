@@ -1,9 +1,7 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode;
 import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
-import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.domain.SystemPerson;
@@ -94,10 +92,6 @@ public class PeopleService {
 
     public List<Person> findPeople(FindUsersDto findUsersDto) {
         List<Person> usersWithSimilarName = peopleRepository.findAllByUsernameLike(findUsersDto.getName());
-        List<Band> bandsWithSimilarName = bandRepository.findAllByNameLike(findUsersDto.getName());
-        //List<Musician> musiciansFromBands = musicianRepository.findAllByBandsIn(bandsWithSimilarName);
-
-        //     usersWithSimilarName.addAll(musiciansFromBands.stream().map(Musician::getUser).collect(Collectors.toList()));
         return usersWithSimilarName;
     }
 
