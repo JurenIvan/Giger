@@ -9,7 +9,7 @@ import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import ProfileClass from './components/Profile/Profile'
+import ProfileClass from './components/Profile/Profile';
 
 
 
