@@ -306,3 +306,5 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.gitignore.io/api/latex
+/gradle/buildOutputCleanup/
+/gradle/vcs-1/

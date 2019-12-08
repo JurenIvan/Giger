@@ -18,6 +18,11 @@ configurations {
 
 }
 
+ext{
+    springfoxSwagger2Version = '2.9.2'
+    springfoxSwaggerUIVersion = '2.9.2'
+}
+
 repositories {
     mavenCentral()
 }
@@ -40,6 +45,9 @@ dependencies {
     compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '1.0.0.RELEASE'
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    implementation("io.springfox:springfox-swagger2:${springfoxSwagger2Version}")
+    implementation("io.springfox:springfox-swagger-ui:${springfoxSwaggerUIVersion}")
 
 }
 

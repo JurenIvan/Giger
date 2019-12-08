@@ -14,6 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpMethod.*;
+
 
 @EnableWebSecurity
 @AllArgsConstructor
@@ -29,14 +31,24 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+
+        httpSecurity.authorizeRequests()
+                .antMatchers(
+                        "/v2/api-docs",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html",
+                        "/webjars/**" ,
+                        /*Probably not needed*/ "/swagger.json")
+                .permitAll();
         httpSecurity
                 .csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-                .antMatchers(HttpMethod.POST, "/register").permitAll()
-                .antMatchers(HttpMethod.GET, "/register/nickname-available").permitAll()
-                .antMatchers(HttpMethod.GET, "/register/verification").permitAll()
-                .antMatchers(HttpMethod.POST, "/register/resend-verification-email").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers(POST, "/authenticate").permitAll()
+                .antMatchers(POST, "/register").permitAll()
+                .antMatchers(GET, "/register/nickname-available").permitAll()
+                .antMatchers(GET, "/register/verification").permitAll()
+                .antMatchers(POST, "/register/resend-verification-email").permitAll()
+                .anyRequest().authenticated()
+        ;
 
         httpSecurity
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
