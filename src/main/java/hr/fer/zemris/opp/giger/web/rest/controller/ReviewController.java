@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Review;
+import hr.fer.zemris.opp.giger.service.ReviewService;
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,8 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/reviews")
 public class ReviewController {
 
+    private ReviewService reviewService;
+
     @PostMapping("/create")
-    public void createReview(Review review) {
+    public void createReview(ReviewCreationDto reviewDto) {
+        reviewService.createReview(reviewDto);
     }
 
     @GetMapping("/band/{bandId}")

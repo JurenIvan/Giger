@@ -1,7 +1,10 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +17,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Review {
 
     @Id
