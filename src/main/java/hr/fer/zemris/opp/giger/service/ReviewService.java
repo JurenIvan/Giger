@@ -1,12 +1,14 @@
 package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.GigRepository;
 import hr.fer.zemris.opp.giger.repository.OrganizerRepository;
+import hr.fer.zemris.opp.giger.repository.ReviewRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
 import lombok.AllArgsConstructor;
@@ -23,9 +25,11 @@ import static java.util.stream.Collectors.toList;
 @NoArgsConstructor
 public class ReviewService {
 
+    private ReviewRepository reviewRepository;
     private BandRepository bandRepository;
     private OrganizerRepository organizerRepository;
     private GigRepository gigRepository;
+    private UserDetailsServiceImpl userDetailsService;
 
     public ReviewsDto getReviewsForBand(Long bandId) {
         List<ReviewPreviewDto> reviews = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND))
@@ -50,5 +54,8 @@ public class ReviewService {
 
         double average = reviews.stream().mapToDouble(e -> e.getGradeBand() + e.getGradeOrganizer()).average().orElse(0);
         return new ReviewsDto(reviews, average / 2, reviews.size());
+
+    public void createReview(ReviewCreationDto reviewCreationDto) {
+        reviewRepository.save(reviewCreationDto.createReview(userDetailsService.getLoggedPerson()));
     }
 }

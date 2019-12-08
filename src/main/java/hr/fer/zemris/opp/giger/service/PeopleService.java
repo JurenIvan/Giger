@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.INVALID_PASSWORD;
 import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER;
 import static java.util.stream.Collectors.toList;
 
@@ -58,7 +59,7 @@ public class PeopleService {
             throw new Exception("username not available");
         }
         if (registerRequestDto.getPassword().length() < 1) {
-            throw new GigerException(ErrorCode.INVALID_PASSWORD);
+            throw new GigerException(INVALID_PASSWORD);
         }
 
         SystemPerson systemPerson = new SystemPerson();
