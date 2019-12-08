@@ -20,10 +20,7 @@ public class Musician {
     private String bio;
     private boolean publicCalendar;
 
-    @ElementCollection
-    @CollectionTable(name = "instruments", joinColumns = @JoinColumn(name = "musician"))
-    @Column(name = "plays", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @ManyToMany
     private List<Instrument> instruments;
 
     @ManyToMany
