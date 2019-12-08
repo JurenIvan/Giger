@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ReviewsDto {
 
-    private List<Review> reviews;
+    private List<ReviewPreviewDto> reviews;
     private Double averageGrade;
     private Integer totalReviewsCount;
 }

@@ -1,12 +1,17 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.domain.Review;
+import hr.fer.zemris.opp.giger.service.ReviewService;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/reviews")
+@AllArgsConstructor
 public class ReviewController {
+
+    private ReviewService reviewService;
 
     @PostMapping("/create")
     public void createReview(Review review) {
@@ -14,14 +19,16 @@ public class ReviewController {
 
     @GetMapping("/band/{bandId}")
     public ReviewsDto getReviewsForBand(@PathVariable Long bandId) {
-        return null;
+        return reviewService.getReviewsForBand(bandId);
     }
 
     @GetMapping("/organizer/{organizerId}")
-    public void getReviewsForOrganizer(@PathVariable Long organizerId) {
+    public ReviewsDto getReviewsForOrganizer(@PathVariable Long organizerId) {
+        return reviewService.getReviewsForOrganizer(organizerId);
     }
 
     @GetMapping("/gig/{gigId}")
-    public void getReviewsForGig(@PathVariable Long gigId) {
+    public ReviewsDto getReviewsForGig(@PathVariable Long gigId) {
+        return reviewService.getReviewsForGig(gigId);
     }
 }

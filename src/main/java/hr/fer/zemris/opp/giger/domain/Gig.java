@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -42,7 +42,7 @@ public class Gig {
     private boolean finalDealAchieved;
     private boolean privateGig;
 
-    @ManyToMany(fetch = LAZY, cascade = ALL)
+    @ManyToMany(fetch = LAZY, cascade = MERGE)
     @JoinTable(name = "review_gig",
             joinColumns = {@JoinColumn(name = "fk_gig")},
             inverseJoinColumns = {@JoinColumn(name = "fk_review")})

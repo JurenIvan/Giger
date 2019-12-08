@@ -20,5 +20,5 @@ public enum ErrorCode {
     NOT_IN_A_CONVERSATION,
     INVALID_PASSWORD,
     NO_SUCH_GIG,
-    NOVI_ERROR
+    NO_SUCH_ORGANIZER
 }
