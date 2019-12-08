@@ -9,6 +9,7 @@ import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.GigRepository;
 import hr.fer.zemris.opp.giger.repository.OrganizerRepository;
 import hr.fer.zemris.opp.giger.repository.ReviewRepository;
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
 import lombok.AllArgsConstructor;
@@ -54,6 +55,7 @@ public class ReviewService {
 
         double average = reviews.stream().mapToDouble(e -> e.getGradeBand() + e.getGradeOrganizer()).average().orElse(0);
         return new ReviewsDto(reviews, average / 2, reviews.size());
+    }
 
     public void createReview(ReviewCreationDto reviewCreationDto) {
         reviewRepository.save(reviewCreationDto.createReview(userDetailsService.getLoggedPerson()));
