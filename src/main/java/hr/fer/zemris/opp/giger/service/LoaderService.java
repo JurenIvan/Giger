@@ -32,6 +32,8 @@ public class LoaderService implements ApplicationRunner {
     private PersonRepository personRepository;
     private ReviewRepository reviewRepository;
     private GigRepository gigRepository;
+    private CommentRepository commentRepository;
+    private PostRepository postRepository;
     private MusicianRepository musicianRepository;
     private List<SystemPerson> systemPeople;
     private List<Instrument> instruments;
@@ -40,6 +42,9 @@ public class LoaderService implements ApplicationRunner {
     private List<Person> people;
     private List<Review> reviews;
     private List<Gig> gigs;
+    private List<Comment> comments;
+    private List<Post> posts;
+    private List<Occasion> occasions;
     private List<Musician> musicians;
 
     @Override
@@ -51,7 +56,9 @@ public class LoaderService implements ApplicationRunner {
         createPersons();
         createReviews();
         createGigs();
-        //createPosts();
+        createComments();
+        createPosts();
+        createOccasions();
         createMusicians();
     }
 
@@ -127,9 +134,9 @@ public class LoaderService implements ApplicationRunner {
         people.add(new Person(systemPeople.get(10).getId(), "george.doe", "091536710", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
         people.add(new Person(systemPeople.get(11).getId(), "don.doe", "091536711", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
         people.add(new Person(systemPeople.get(12).getId(), "luke.doe", "091536712", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
-        people.add(new Person(systemPeople.get(10).getId(), "charles.doe", "091536713", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
-        people.add(new Person(systemPeople.get(11).getId(), "daniel.doe", "091536714", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
-        people.add(new Person(systemPeople.get(12).getId(), "mark.doe", "091536715", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+        people.add(new Person(systemPeople.get(13).getId(), "charles.doe", "091536713", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+        people.add(new Person(systemPeople.get(14).getId(), "daniel.doe", "091536714", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+        people.add(new Person(systemPeople.get(15).getId(), "mark.doe", "091536715", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
 
 
         this.people = personRepository.saveAll(people);
@@ -160,6 +167,40 @@ public class LoaderService implements ApplicationRunner {
         this.gigs = gigRepository.saveAll(gigs);
     }
 
+    private void createComments() {
+        comments.add(new Comment(null, "Yeah", LocalDateTime.of(2019, 12, 8, 20, 0), people.get(0)));
+        comments.add(new Comment(null, "Good luck", LocalDateTime.of(2019, 12, 9, 20, 0), people.get(1)));
+        comments.add(new Comment(null, "Nice", LocalDateTime.of(2019, 12, 7, 20, 0), people.get(2)));
+        comments.add(new Comment(null, "Best wishes!", LocalDateTime.of(2019, 12, 3, 5, 0), people.get(3)));
+        comments.add(new Comment(null, "Nice job", LocalDateTime.of(2019, 11, 5, 12, 0), people.get(4)));
+        comments.add(new Comment(null, "What instrument is that?", LocalDateTime.of(2019, 11, 8, 15, 0), people.get(5)));
+        comments.add(new Comment(null, "You rock, man", LocalDateTime.of(2019, 11, 6, 14, 0), people.get(6)));
+        comments.add(new Comment(null, "Where can I get this?", LocalDateTime.of(2019, 6, 8, 20, 0), people.get(7)));
+        comments.add(new Comment(null, "Haha", LocalDateTime.of(2019, 8, 8, 8, 0), people.get(8)));
+        comments.add(new Comment(null, "xd", LocalDateTime.of(2019, 2, 7, 14, 0), people.get(9)));
+
+        this.comments = commentRepository.saveAll(comments);
+    }
+
+    private void createPosts() {
+        posts.add(new Post(null, "What a beautiful day for music", LocalDateTime.of(2019, 12, 1, 19, 20, 0), List.of(comments.get(0), comments.get(1))));
+        posts.add(new Post(null, "Having my first concert tonight", LocalDateTime.of(2019, 12, 8, 19, 0), List.of(comments.get(1))));
+        posts.add(new Post(null, "First post", LocalDateTime.of(2019, 12, 7, 19, 0), List.of(comments.get(2))));
+        posts.add(new Post(null, "Just became a band member hehe", LocalDateTime.of(2019, 12, 1, 9, 0), List.of(comments.get(3))));
+        posts.add(new Post(null, "Tonight is the first gig in my cafe", LocalDateTime.of(2019, 11, 5, 11, 0), List.of(comments.get(4))));
+        posts.add(new Post(null, "Playing xyz", LocalDateTime.of(2019, 11, 8, 14, 0), List.of(comments.get(5))));
+        posts.add(new Post(null, "Got a big chance.", LocalDateTime.of(2019, 11, 6, 13, 0), List.of(comments.get(6))));
+        posts.add(new Post(null, "Found the best shop for guitars.", LocalDateTime.of(2019, 6, 8, 19, 0), List.of(comments.get(7))));
+        posts.add(new Post(null, "Hahahah", LocalDateTime.of(2019, 8, 8, 7, 0), List.of(comments.get(8))));
+        posts.add(new Post(null, "lol", LocalDateTime.of(2019, 2, 7, 13, 0), List.of(comments.get(9))));
+
+        this.posts = postRepository.saveAll(posts);
+    }
+
+    private void createOccasions() {
+      //  occasions.add(new Occasion(null, LocalDate.of(2020, 1, 1, )));
+    }
+
     private void createMusicians() {
         musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), null, null, null));
         musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), null, null, null));
@@ -167,6 +208,8 @@ public class LoaderService implements ApplicationRunner {
         musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), null, null, null));
         musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", true, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), null, null, null));
         musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", true, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), null, null, null));
+
         this.musicians = musicianRepository.saveAll(musicians);
     }
+
 }
