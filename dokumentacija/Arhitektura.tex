@@ -556,6 +556,12 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			
 		\section{Dijagram razreda}
 
+
+			\textit{\textbf{dio 2. revizije}} \\
+			
+			\textit{Prilikom druge predaje projekta dijagram razreda i opisi moraju odgovarati stvarnom stanju implementacije} \\
+			
+			
 			Na slici 4.3 prikazan je Controllers dio backend aplikacije. Controlleri su jedina izložena točka u aplikaciji te nad njima frontend izvršava upite. Svi Controller-i su zaštićeni Spring Security-jem te se prije svakog propuštanja zahtjeva na Controller autorizira token koji se nalazi u zaglavlju zahtjeva. Jedina iznimka su Controller-i koji služe za registraciju i prijavu. Nakon što se zahtjev autorizira Controller-i pozivaju servisni sloj aplikacije te od njih zahtjevaju da izvrše dio poslovne logike za koju su napisani. Povratni tip Controller-a su DTO-ovi (Data Transfer Objects) prikazani na slici 4.4. Njima se na frontend vraća samo dio informacije prikupljene od servisa.  
 
 			\begin{figure}[H]
@@ -615,3 +621,34 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\caption{Dijagram razreda - security}
 			\label{fig:sec}
 		\end{figure}
+	
+	
+	\eject
+	
+	\section{Dijagram stanja}
+	
+	\textit{\textbf{dio 2. revizije}} \\
+	
+	\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu.} \\
+	
+	\eject
+	
+	
+	\section{Dijagram aktivnosti}
+	
+	\textit{\textbf{dio 2. revizije}} \\
+	
+	\textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.} \\
+	
+	
+	\eject
+	
+	
+	
+	\section{Dijagram komponenti}
+	
+	\textit{\textbf{dio 2. revizije}} \\
+	
+	\textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.} \\
+	
+	\eject	
