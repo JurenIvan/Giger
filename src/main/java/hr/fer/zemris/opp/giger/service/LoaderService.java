@@ -34,6 +34,7 @@ public class LoaderService implements ApplicationRunner {
     private GigRepository gigRepository;
     private CommentRepository commentRepository;
     private PostRepository postRepository;
+    private OccasionRepository occasionRepository;
     private MusicianRepository musicianRepository;
     private List<SystemPerson> systemPeople;
     private List<Instrument> instruments;
@@ -198,16 +199,27 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createOccasions() {
-      //  occasions.add(new Occasion(null, LocalDate.of(2020, 1, 1, )));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 1), "My birthday", true));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 2), "John's birthday", true));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 2, 3), "Emma's wedding", true));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 3, 4), "My wedding", true));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 5), "Doctor's appointment", true));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 5, 6), "Doctor's appointment", false));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 7, 7), "Cindy's birthday", false));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 9, 8), "Luke's bachelors party", false));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 9), "Meeting", false));
+        occasions.add(new Occasion(null, LocalDate.of(2020, 4, 10), "Teambuilding", false));
+
+        this.occasions = occasionRepository.saveAll(occasions);
     }
 
     private void createMusicians() {
-        musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), null, null, null));
-        musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), null, null, null));
-        musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), null, null, null));
-        musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), null, null, null));
-        musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", true, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), null, null, null));
-        musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", true, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), null, null, null));
+        musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0), occasions.get(1))));
+        musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(1), posts.get(2)), List.of(occasions.get(2), occasions.get(3))));
+        musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), List.of(gigs.get(0), gigs.get(4)), List.of(posts.get(3)), List.of(occasions.get(4), occasions.get(5))));
+        musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
+        musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
+        musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(9))));
 
         this.musicians = musicianRepository.saveAll(musicians);
     }
