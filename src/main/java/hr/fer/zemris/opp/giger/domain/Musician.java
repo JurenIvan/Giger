@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import lombok.AllArgsConstructor;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +24,7 @@ public class Musician {
     private String bio;
     private boolean publicCalendar;
 
-    @ElementCollection
-    @CollectionTable(name = "instruments", joinColumns = @JoinColumn(name = "musician"))
-    @Column(name = "plays", nullable = false)
-    @Enumerated(EnumType.STRING)
+    @ManyToMany
     private List<Instrument> instruments;
 
     @ManyToMany

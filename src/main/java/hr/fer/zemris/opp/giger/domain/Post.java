@@ -12,6 +12,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -29,7 +30,7 @@ public class Post {
     @NotNull
     private LocalDateTime publishedOn;
 
-    @OneToMany(fetch = EAGER, cascade = ALL)
+    @OneToMany(fetch = EAGER, cascade = MERGE)
     @JoinColumn(name = "fk_post")
     private List<Comment> comments;
 

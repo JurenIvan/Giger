@@ -2,7 +2,9 @@ package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -12,6 +14,8 @@ import javax.persistence.Table;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "person")
 public class Person {
 

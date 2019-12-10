@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -28,12 +29,10 @@ public class Message {
 
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "fk_sender")
-    @NotNull
     private Person sender;
 
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "fk_sender_band")
-    @NotNull
     private Band senderBand;
 
 

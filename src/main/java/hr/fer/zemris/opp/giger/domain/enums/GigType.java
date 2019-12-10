@@ -1,5 +1,5 @@
 package hr.fer.zemris.opp.giger.domain.enums;
 
 public enum GigType {
-    Wedding, Birthday, BachelorsParty, Concert, Other
+    WEDDING, BIRTHDAY, BACHELORS_PARTY, CONCERT, OTHER
 }
