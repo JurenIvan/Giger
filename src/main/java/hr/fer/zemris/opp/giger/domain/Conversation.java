@@ -13,6 +13,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -36,10 +37,10 @@ public class Conversation {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "fk_band")
-    private Band band;
+    private Band band; //todo add list of bands?
 
 
-    @OneToMany(fetch = LAZY, cascade = ALL)
+    @OneToMany(fetch = LAZY, cascade = MERGE)
     @JoinColumn(name = "fk_conversation")
     private List<Message> messages;
 

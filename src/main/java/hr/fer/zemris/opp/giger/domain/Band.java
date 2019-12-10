@@ -4,7 +4,10 @@ import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandPreviewDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -18,6 +21,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Band {
 
     @Id

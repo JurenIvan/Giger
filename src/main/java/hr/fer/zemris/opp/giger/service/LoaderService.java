@@ -2,10 +2,8 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
-import hr.fer.zemris.opp.giger.domain.enums.InstrumentType;
 import hr.fer.zemris.opp.giger.repository.*;
 import lombok.AllArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -13,13 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import static hr.fer.zemris.opp.giger.domain.Role.*;
-import static hr.fer.zemris.opp.giger.domain.Role.MUSICIAN;
-import static hr.fer.zemris.opp.giger.domain.enums.GigType.BACHELORS_PARTY;
-import static hr.fer.zemris.opp.giger.domain.enums.GigType.CONCERT;
+import static hr.fer.zemris.opp.giger.domain.enums.GigType.*;
 import static hr.fer.zemris.opp.giger.domain.enums.InstrumentType.*;
 
 @Service
@@ -36,6 +31,9 @@ public class LoaderService implements ApplicationRunner {
     private PostRepository postRepository;
     private OccasionRepository occasionRepository;
     private MusicianRepository musicianRepository;
+    private BandRepository bandRepository;
+    private MessageRepository messageRepository;
+    private ConversationRepository conversationRepository;
     private List<SystemPerson> systemPeople;
     private List<Instrument> instruments;
     private List<Organizer> organizers;
@@ -47,6 +45,9 @@ public class LoaderService implements ApplicationRunner {
     private List<Post> posts;
     private List<Occasion> occasions;
     private List<Musician> musicians;
+    private List<Band> bands;
+    private List<Message> messages;
+    private List<Conversation> conversations;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -54,13 +55,16 @@ public class LoaderService implements ApplicationRunner {
         createInstruments();
         createOrganizers();
         createLocations();
-        createPersons();
+        createPeople();
         createReviews();
         createGigs();
         createComments();
         createPosts();
         createOccasions();
         createMusicians();
+        createBands();
+        createMessages();
+        createConversations();
     }
 
     private void createSystemPeople() {
@@ -121,7 +125,7 @@ public class LoaderService implements ApplicationRunner {
         locations.add(new Location(25.0, 25.0, "Šenoine Branke 55", "Prvi ulaz"));
     }
 
-    private void createPersons() {
+    private void createPeople() {
         people.add(new Person(systemPeople.get(0).getId(), "john.doe", "091536780", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
         people.add(new Person(systemPeople.get(1).getId(), "james.doe", "091536781", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
         people.add(new Person(systemPeople.get(2).getId(), "robert.doe", "091536782", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
@@ -162,7 +166,7 @@ public class LoaderService implements ApplicationRunner {
         gigs.add(new Gig(null, organizers.get(0), LocalDateTime.of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
         gigs.add(new Gig(null, organizers.get(1), LocalDateTime.of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500, BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
         gigs.add(new Gig(null, organizers.get(2), LocalDateTime.of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h", 200, GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
-        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h", 500, GigType.WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
+        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h", 500, WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
         gigs.add(new Gig(null, organizers.get(4), LocalDateTime.of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
 
         this.gigs = gigRepository.saveAll(gigs);
@@ -214,14 +218,40 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createMusicians() {
-        musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0), occasions.get(1))));
+        musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0))));
         musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(1), posts.get(2)), List.of(occasions.get(2), occasions.get(3))));
         musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), List.of(gigs.get(0), gigs.get(4)), List.of(posts.get(3)), List.of(occasions.get(4), occasions.get(5))));
         musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
         musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
-        musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(9))));
+        musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(1))));
 
         this.musicians = musicianRepository.saveAll(musicians);
     }
 
+    private void createBands() {
+        bands.add(new Band(null, "The Beatles", "bio1", LocalDate.of(1957, 6, 5), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(0), posts.get(1)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1))));
+        bands.add(new Band(null, "Pink Floyd", "bio2", LocalDate.of(1965, 6, 5), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(2), posts.get(3)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3))));
+        bands.add(new Band(null, "AC/DC", "bio3", LocalDate.of(1973, 6, 5), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(4), posts.get(5)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4))));
+
+        this.bands = bandRepository.saveAll(bands);
+    }
+
+    private void createMessages() {
+        messages.add(new Message(null, "Hello", LocalDateTime.of(2019, 12, 1, 12, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Hi", LocalDateTime.of(2019, 12, 2, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "How are you?", LocalDateTime.of(2019, 12, 3, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Good", LocalDateTime.of(2019, 12, 4, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "How is your day?", LocalDateTime.of(2019, 12, 5, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Nice", LocalDateTime.of(2019, 12, 6, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "OK", LocalDateTime.of(2019, 12, 7, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Haha", LocalDateTime.of(2019, 12, 8, 10, 0, 0), people.get(1), null));
+
+        this.messages = messageRepository.saveAll(messages);
+    }
+
+    private void createConversations() {
+        conversations.add(new Conversation(null, "title1", people.get(0).getPictureUrl(), List.of(people.get(0), people.get(1)), null, List.of(messages.get(0), messages.get(1), messages.get(2), messages.get(3), messages.get(4), messages.get(5), messages.get(6), messages.get(7))));
+
+        this.conversations = conversationRepository.saveAll(conversations);
+    }
 }
