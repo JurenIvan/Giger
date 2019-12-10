@@ -7,7 +7,6 @@ import DatePicker, { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {hr} from 'date-fns/locale';
 registerLocale('hr', hr)
-Geocode.setApiKey("AIzaSyDGe5vjL8wBmilLzoJ0jNIwe9SAuH2xS_0");
 
 
 
@@ -20,18 +19,48 @@ export default class CreateGig extends React.Component {
             selectedBandId : "",
             eventDesc : "",
             eventDate : new Date(),
-            city: "Test",
+            city: "",
             lat: 0,
             lng: 0,
             imageUrl: "",
             privateGig: false,
+            eventDuration: "",
+            eventPrice: ""
         }
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.updateLong = this.updateLong.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.getCoord = this.getCoord.bind(this);
     }
 
-    
+    getAddress() {
+            // Get address from latidude & longitude.
+            Geocode.setApiKey("AIzaSyCMFNBJGpzyBM0jKj0ekrF4iQUD7F21K04");
+            Geocode.fromLatLng("48.8583701", "2.2922926").then(
+                response => {
+                this.state.address = response.results[0].formatted_address;
+                console.log(this.state.address);
+                },
+                error => {
+                console.error(error);
+                }
+    );
+    }
+
+    getCoord() {
+            // Get latidude & longitude from address.
+            Geocode.setApiKey("AIzaSyDGe5vjL8wBmilLzoJ0jNIwe9SAuH2xS_0");
+            Geocode.fromAddress(this.state.address).then(
+                response => {
+                [this.state.lat, this.state.lng] = response.results[0].geometry.location;
+                console.log(this.state.lat, this.state.lng);
+                },
+                error => {
+                console.error(error);
+                }
+    );
+    }
+
 
     handleSubmit = event => {
         event.preventDefault();
@@ -40,6 +69,11 @@ export default class CreateGig extends React.Component {
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
+        });
+    }
+    handlePriceChange = event => {
+        this.setState({
+            [event.target.id]: event.target.value.replace(/\D/,'')
         });
     }
     handleDateChange = date => {
@@ -84,8 +118,26 @@ export default class CreateGig extends React.Component {
                         </div>
                         <div className="col-6">
                             <Form.Group controlId="eventDesc">
-                                <Form.Control autoFocus type="text" value={this.state.eventDesc}
+                                <Form.Control autoFocus as="textarea" value={this.state.eventDesc}
                                               onChange={this.handleChange}/>
+                            </Form.Group>
+                        </div>
+                        <div className="col-2">
+                            <Form.Label controlId="eventDuration"> Trajanje eventa: </Form.Label>
+                        </div>
+                        <div className="col-6">
+                            <Form.Group controlId="eventDuration">
+                                <Form.Control autoFocus type="text" placeholder="Npr. 02:30h" value={this.state.eventDuration}
+                                              onChange={this.handleChange}/>
+                            </Form.Group>
+                        </div>
+                        <div className="col-2">
+                            <Form.Label controlId="eventPrice"> Cijena giga: </Form.Label>
+                        </div>
+                        <div className="col-6">
+                            <Form.Group controlId="eventPrice">
+                                <Form.Control autoFocus type="text" value={this.state.eventPrice}
+                                              onChange={this.handlePriceChange}/>
                             </Form.Group>
                         </div>
                         <div className="col-2">
@@ -100,11 +152,10 @@ export default class CreateGig extends React.Component {
 
                         <h1>{this.state.city}</h1>
                         <h1>{this.state.lng}</h1>
-                        <h1>{this.state.test}</h1>
 
                         <div>
                             <Form.Group>
-                                <Button onClick={this.updateLong} block> Update long </Button>
+                                <Button onClick={this.getAddress} block> Update long </Button>
                             </Form.Group>
                         </div>
                         
@@ -124,11 +175,6 @@ export default class CreateGig extends React.Component {
                                     onSelect={this.handleSelect}
                                     onChange={this.handleDateChange}
                                 />
-                            </Form.Group>
-                        </div>
-                        <div>
-                            <Form.Group id="privateGig">
-                                <Form.Check type="checkbox" class="check-space" label=" Je li ovo privatan gig?"/>
                             </Form.Group>
                         </div>
                         <div class="checkbox">
