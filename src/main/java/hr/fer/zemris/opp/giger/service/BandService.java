@@ -1,7 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode;
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Musician;
@@ -17,8 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.*;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.BAND_NAME_NOT_UNIQUE;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.BAND_NAME_NOT_UNIQUE;
 import static java.util.stream.Collectors.toList;
 
 @Service

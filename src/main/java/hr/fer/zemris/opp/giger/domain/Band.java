@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_MUSICIAN;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
 import static java.time.LocalDate.now;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;

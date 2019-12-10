@@ -1,7 +1,7 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode;
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.ErrorCode;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Comment;
 import hr.fer.zemris.opp.giger.domain.Musician;

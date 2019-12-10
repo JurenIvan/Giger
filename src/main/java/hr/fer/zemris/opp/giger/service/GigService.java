@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Gig;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_GIG;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_GIG;
 
 @Service
 @AllArgsConstructor

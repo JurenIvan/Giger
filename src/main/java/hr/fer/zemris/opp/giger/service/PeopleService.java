@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.domain.Review;
@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.INVALID_PASSWORD;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.INVALID_PASSWORD;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_USER;
 import static java.util.stream.Collectors.toList;
 
 @Service

@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.config.security;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Person;
@@ -16,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_ROLE_DATA_PRESENT;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_ROLE_DATA_PRESENT;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_USER;
 
 @Service
 @AllArgsConstructor

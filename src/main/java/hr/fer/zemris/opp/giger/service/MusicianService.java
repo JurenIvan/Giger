@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.*;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
