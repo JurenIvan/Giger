@@ -67,8 +67,11 @@ export default class Login extends Component {
                         </div>
                         <div className="col-6">
                             <Form.Group controlId="email">
-                                <Form.Control autoFocus type="text" value={this.state.username}
-                                              onChange={this.handleChange}/>
+                                <Form.Control 
+                                placeholder="Email"
+                                autoFocus type="text"
+                                value={this.state.username}
+                                onChange={this.handleChange}/>
                             </Form.Group>
                         </div>
 
@@ -77,7 +80,11 @@ export default class Login extends Component {
                         </div>
                         <div className="col-6">
                             <Form.Group controlId="password">
-                                <Form.Control value={this.state.password} onChange={this.handleChange} type="password"/>
+                                <Form.Control 
+                                placeholder="Password"
+                                value={this.state.password} 
+                                onChange={this.handleChange} 
+                                type="password"/>
                             </Form.Group>
                         </div>
                         <Button type="submit" block> Login </Button>

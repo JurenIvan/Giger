@@ -37,8 +37,6 @@ export default class RegisterClass extends React.Component{
     }
 
 
-
-
     handleRegister(status) {
         if(status === 200) {
             window.location.href = '/';
@@ -105,6 +103,7 @@ export default class RegisterClass extends React.Component{
                     
                     <Form.Group controlId="firstName">
                     <Form.Control
+                    placeholder="Name"
                     autoFocus
                     name="firstName"
                     value={this.state.firstName}
@@ -116,6 +115,7 @@ export default class RegisterClass extends React.Component{
                 
                     <Form.Group controlId="lastName">
                     <Form.Control
+                    placeholder="Last name"
                     name='lastName'
                     value={this.state.lastName}
                     onChange={this.myChangeHandler}
@@ -126,7 +126,7 @@ export default class RegisterClass extends React.Component{
                     <Form.Label controlId="userName" > Username: </Form.Label>
                     <Form.Group controlId="userName">
                     <Form.Control
-                    
+                    placeholder="Username"
                     name='userName'
                     value={this.state.userName}
                     onChange={this.myChangeHandler}
@@ -137,6 +137,7 @@ export default class RegisterClass extends React.Component{
                
                     <Form.Group controlId="phone">
                     <Form.Control
+                    placeholder="Phone"
                     name='phone'
                     value={this.state.phone}
                     onChange={this.myChangeHandler}
@@ -147,7 +148,7 @@ export default class RegisterClass extends React.Component{
                
                     <Form.Group controlId="eMail">
                     <Form.Control
-                    
+                    placeholder="Email"
                     name="eMail"
                     type="email"
                     value={this.state.eMail}
@@ -159,7 +160,7 @@ export default class RegisterClass extends React.Component{
                
                     <Form.Group controlId="password" >
                     <Form.Control
-                    
+                    placeholder="Password"
                     name="password"
                     type="password"
                     value={this.state.password}
