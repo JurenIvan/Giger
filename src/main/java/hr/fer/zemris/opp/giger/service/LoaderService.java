@@ -13,9 +13,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.domain.Role.*;
 import static hr.fer.zemris.opp.giger.domain.enums.GigType.*;
 import static hr.fer.zemris.opp.giger.domain.enums.InstrumentType.*;
+import static hr.fer.zemris.opp.giger.domain.enums.Role.*;
 
 @Service
 @AllArgsConstructor
@@ -163,11 +163,11 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createGigs() {
-        gigs.add(new Gig(null, organizers.get(0), LocalDateTime.of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
-        gigs.add(new Gig(null, organizers.get(1), LocalDateTime.of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500, BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
-        gigs.add(new Gig(null, organizers.get(2), LocalDateTime.of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h", 200, GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
-        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h", 500, WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
-        gigs.add(new Gig(null, organizers.get(4), LocalDateTime.of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
+        gigs.add(new Gig(null, organizers.get(0), LocalDateTime.of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, "Rock concert", CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
+        gigs.add(new Gig(null, organizers.get(1), LocalDateTime.of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500,"Bachelors",  BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
+        gigs.add(new Gig(null, organizers.get(2), LocalDateTime.of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h",  200,"Birthday", GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
+        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h",  500,"Wedding", WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
+        gigs.add(new Gig(null, organizers.get(4), LocalDateTime.of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1",  1200,"Jazz concert", CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
 
         this.gigs = gigRepository.saveAll(gigs);
     }
