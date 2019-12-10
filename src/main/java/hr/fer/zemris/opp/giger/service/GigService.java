@@ -37,6 +37,7 @@ public class GigService {
         gig.setDateTime(gigCreationDto.getDateTime());
         gig.setDescription(gigCreationDto.getDescription());
         gig.setDateTime(gigCreationDto.getDateTime());
+        gig.setName(gigCreationDto.getGigName());
 
         return gigRepository.save(gig);
     }

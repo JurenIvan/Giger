@@ -18,11 +18,11 @@ public class GigPreviewDto {
     private Organizer organizer;
     private LocalDateTime dateTime;
     private Location location;
+    private String name;
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
     private GigType gigType;
     private boolean finalDealAchieved;
     private boolean privateGig;
-
 }

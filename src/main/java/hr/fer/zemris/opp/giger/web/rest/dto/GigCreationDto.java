@@ -18,4 +18,5 @@ public class GigCreationDto {
     private Integer proposedPrice;
     private GigType gigType;
     private Boolean privateGig;
+    private String gigName;
 }

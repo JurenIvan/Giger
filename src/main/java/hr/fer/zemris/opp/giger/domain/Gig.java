@@ -36,6 +36,7 @@ public class Gig {
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
+    private String name;
 
     @Enumerated(EnumType.ORDINAL)
     private GigType gigType;
@@ -49,6 +50,6 @@ public class Gig {
     private List<Review> reviews;
 
     public GigPreviewDto toDto() {
-        return new GigPreviewDto(id, organizer, dateTime, location, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
+        return new GigPreviewDto(id, organizer, dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
     }
 }
