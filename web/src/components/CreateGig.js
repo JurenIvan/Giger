@@ -10,6 +10,7 @@ registerLocale('hr', hr)
 Geocode.setApiKey("AIzaSyDGe5vjL8wBmilLzoJ0jNIwe9SAuH2xS_0");
 
 
+
 export default class CreateGig extends React.Component {
     constructor(props) {
         super(props);
@@ -22,10 +23,12 @@ export default class CreateGig extends React.Component {
             city: "Test",
             lat: 0,
             lng: 0,
-            imageUrl: ""
+            imageUrl: "",
+            privateGig: false,
         }
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.updateLong = this.updateLong.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     
@@ -45,6 +48,12 @@ export default class CreateGig extends React.Component {
         });
       };
 
+    handleInputChange = event => {
+        this.setState(
+            {[event.target.name] : event.target.checked}
+             //, () => console.log(this.state.privateGig)
+        );
+    }
     handleLocationChange ({ position, city, places }) {
 
         // Set new location
@@ -91,6 +100,7 @@ export default class CreateGig extends React.Component {
 
                         <h1>{this.state.city}</h1>
                         <h1>{this.state.lng}</h1>
+                        <h1>{this.state.test}</h1>
 
                         <div>
                             <Form.Group>
@@ -116,6 +126,20 @@ export default class CreateGig extends React.Component {
                                 />
                             </Form.Group>
                         </div>
+                        <div>
+                            <Form.Group id="privateGig">
+                                <Form.Check type="checkbox" class="check-space" label=" Je li ovo privatan gig?"/>
+                            </Form.Group>
+                        </div>
+                        <div class="checkbox">
+                            <label><input 
+                                type="checkbox"
+                                class="check-space"
+                                name="privateGig"
+                                checked={this.state.privateGig}
+                                onChange={this.handleInputChange}
+                                ></input>Je li privatan gig?</label>
+                            </div>
                         <div nameClass="col-6">
                             <Form.Group>
                                 <Button type="submit" block> Create Gig </Button>
