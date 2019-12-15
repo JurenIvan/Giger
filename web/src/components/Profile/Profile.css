@@ -53,18 +53,11 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.file-uploader :hover {
-  background-color: red;
-}
-
-.uploader.btn.btn-primary {
-  background-color: red !important;
-  width: 16vw !important;
-}
 label.file-uploader{
    width: 16vw;
-   background-color: red;
-   color: white;
+   background-color: cadetblue;
+   color: black;
+   text-align: center;
 }
 div.col {
   margin-left: 2vw !important;

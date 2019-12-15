@@ -63,7 +63,7 @@ div.profilePic img {
 
 .metismenu.sideNav a:hover{
   text-decoration: none;
-  background: red;
+  background: cadetblue;
 }
 
 .metismenu.sideNav a{
@@ -72,7 +72,7 @@ div.profilePic img {
   color: white;
 }
 
-.custom-file-input {
-  background-color: blue;
-  size: 10vh;
+
+.container button {
+  margin-bottom: 1vh;
 }
