@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ProfileInfo from './ProfileInfo';
-import ProfileSideNav from './ProfileSideNav';
+//import ProfileSideNav from './ProfileSideNav';
 import ProfilePosts from './ProfilePosts'
 import './Profile.css';
 
@@ -17,7 +17,7 @@ export default class ProfileClass extends React.Component {
     render() {
         return (
             <div className="profile">
-                <ProfileSideNav />
+                {/*<ProfileSideNav />*/}
                 <ProfileInfo />
                 <ProfilePosts />
                 <br></br>

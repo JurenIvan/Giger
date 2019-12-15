@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from "react-bootstrap";
 
-export default class PostClass extends React.Component {
+export class PostClass extends React.Component {
     constructor(props){
         super(props);
 
