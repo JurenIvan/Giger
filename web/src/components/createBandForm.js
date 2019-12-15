@@ -1,8 +1,7 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import * as createBand from "../Utils/createBand";
+import {createBand} from "../Utils/createBand";
 
 
 export default class createBandForm extends React.Component{
@@ -24,11 +23,11 @@ export default class createBandForm extends React.Component{
 
     //to disable/enable button
     isValidForm = event => {
-        if(this.name.length>0
-            && this.bio.length>0
-            && this.pictureURL>0
-            && this.gigType>0
-            &&this.location.length>0)
+        if(this.state.name.length>0
+            && this.state.bio.length>0
+            && this.state.pictureURL>0
+            && this.state.gigType>0
+            &&this.state.location.length>0)
         {
             return true;
         }
@@ -60,7 +59,7 @@ export default class createBandForm extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         (async () => {     
-            await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleCreateBand);
+            await createBand(this.state.name, this.state.bio, this.state.pictureURL, this.state.gigType, this.state.location, this.handleCreateBand);
         })();
 
     }
@@ -75,7 +74,7 @@ export default class createBandForm extends React.Component{
             <Form onSubmit={this.handleSubmit}>
             <Form.Label controlId="name">Band Name</Form.Label>
             <Form.Group controlId="name">
-            <Form.control
+            <Form.Control
             placeholder="Band name"
             autofocus
             name="name"
@@ -86,7 +85,7 @@ export default class createBandForm extends React.Component{
 
             <Form.Label controlId="bio">Bio</Form.Label>
             <Form.Group controlId="bio">
-            <Form.control
+            <Form.Control
             placeholder="bio"
             autofocus
             name="bio"
@@ -96,9 +95,9 @@ export default class createBandForm extends React.Component{
             </Form.Group>
 
             
-            <Form.Label controlId="pic">Picture URL</Form.Label>
-            <Form.Group controlId="pic">
-            <Form.control
+            <Form.Label controlId="pictureURL">Picture URL</Form.Label>
+            <Form.Group controlId="pictureURL">
+            <Form.Control
             placeholder="Picture URL"
             autofocus
             name="pic"
@@ -109,7 +108,7 @@ export default class createBandForm extends React.Component{
 
             <Form.Label controlId="gigType">Gig Type</Form.Label>
             <Form.Group controlId="gigType">
-            <Form.control
+            <Form.Control
             placeholder="Gig Type"
             autofocus
             name="gigType"
@@ -119,8 +118,8 @@ export default class createBandForm extends React.Component{
             </Form.Group>
 
             <Form.Label controlId="location">Location</Form.Label>
-            <Form.Group controlId="gigType">
-            <Form.control
+            <Form.Group controlId="location">
+            <Form.Control
             placeholder="Location"
             autofocus
             name="location"
@@ -132,9 +131,9 @@ export default class createBandForm extends React.Component{
             <Button
             block
             type="submit"
-            disabled={!this.isValidForm()}
+            disabled={this.isValidForm()}
             >
-                Register
+                CreateBand
             </Button>
 
             </Form>   

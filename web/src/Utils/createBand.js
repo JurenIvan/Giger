@@ -1,7 +1,7 @@
 export function createBand (name,bio, pictureURL, acceptableGigTypes,homeLocation, f) {
     let xhr = new XMLHttpRequest();
     let url = 'https://giger-backend-dev.herokuapp.com/api/band-administration/create';
-    xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
+    xhr.open('POST', url);
     xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({

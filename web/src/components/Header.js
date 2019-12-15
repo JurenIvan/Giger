@@ -21,8 +21,11 @@ function Header(props) {
             {/*<Button href='/bands'>Bands</Button>*/}
             <Button href='/login'>Log in</Button>
             {
-                Cookies.get('Bearer') ?
+                Cookies.get('Bearer') ? 
+                   <div>
                     <Button onClick={handleLogout}>Log out</Button>
+                    <Button href = '/create_band'> Create Band </Button>
+                   </div>
                     :
                     <Button href='/register'>Register</Button>
             }

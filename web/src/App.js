@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
+import createBandForm from './components/createBandForm'
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/create_band' exact component = {createBandForm} />
         </Switch>
       </div>
     </BrowserRouter>
