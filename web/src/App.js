@@ -10,7 +10,7 @@ import RegisterClass from './components/register';
 import createBandForm from './components/createBandForm'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import ProfileClass from './components/Profile/Profile'
+import ProfileClass from './components/Profile/Profile';
 
 
 
