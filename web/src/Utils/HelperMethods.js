@@ -4,8 +4,8 @@ export function sendCreateGigInfo (name, desc, date, address, lat, lng, privateG
     let xhr = new XMLHttpRequest();
     let url = "https://giger-backend-dev.herokuapp.com/api/";
     xhr.open("POST", "https://cors-anywhere.herokuapp.com/"+url);
-    //xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "ORGANIZER");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
     let location = {
         lat,
         lng,
