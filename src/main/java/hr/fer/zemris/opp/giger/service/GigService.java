@@ -38,6 +38,7 @@ public class GigService {
         gig.setDescription(gigCreationDto.getDescription());
         gig.setDateTime(gigCreationDto.getDateTime());
         gig.setName(gigCreationDto.getGigName());
+        gig.setOrganizer(userDetailsService.getLoggedOrganizer());
 
         return gigRepository.save(gig);
     }

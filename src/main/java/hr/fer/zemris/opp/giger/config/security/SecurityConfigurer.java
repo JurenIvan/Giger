@@ -3,9 +3,10 @@ package hr.fer.zemris.opp.giger.config.security;
 import hr.fer.zemris.opp.giger.config.filter.JwtRequestFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -13,12 +14,21 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import static org.springframework.http.HttpMethod.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
 
 
 @EnableWebSecurity
 @AllArgsConstructor
+@Configuration
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsService;
@@ -37,10 +47,10 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs",
                         "/swagger-resources/**",
                         "/swagger-ui.html",
-                        "/webjars/**" ,
+                        "/webjars/**",
                         /*Probably not needed*/ "/swagger.json")
                 .permitAll();
-        httpSecurity
+        httpSecurity.cors().and()
                 .csrf().disable().authorizeRequests()
                 .antMatchers(POST, "/authenticate").permitAll()
                 .antMatchers(POST, "/register").permitAll()
@@ -67,5 +77,15 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:8080"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }
