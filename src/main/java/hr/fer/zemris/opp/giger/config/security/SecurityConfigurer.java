@@ -43,13 +43,17 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity.authorizeRequests()
-                .antMatchers(
-                        "/v2/api-docs",
-                        "/swagger-resources/**",
+                .antMatchers("/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources",
+                        "/configuration/security",
                         "/swagger-ui.html",
                         "/webjars/**",
-                        /*Probably not needed*/ "/swagger.json")
+                        "/swagger-resources/configuration/ui",
+                        "/swagge‌​r-ui.html",
+                        "/swagger-resources/configuration/security")
                 .permitAll();
+
         httpSecurity.cors().and()
                 .csrf().disable().authorizeRequests()
                 .antMatchers(POST, "/authenticate").permitAll()
@@ -57,6 +61,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers(GET, "/register/nickname-available").permitAll()
                 .antMatchers(GET, "/register/verification").permitAll()
                 .antMatchers(POST, "/register/resend-verification-email").permitAll()
+                .antMatchers(GET,"/v2/*").permitAll()
                 .anyRequest().authenticated()
         ;
 

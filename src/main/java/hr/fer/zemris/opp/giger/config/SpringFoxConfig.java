@@ -9,17 +9,15 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Profile({"local"})
 @Configuration
 @EnableSwagger2
-public class SwaggerProperties {
+public class SpringFoxConfig {
     @Bean
-    public Docket api_giger() {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("GIGER")
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.ant("/**"))
+                .paths(PathSelectors.any())
                 .build();
     }
 }
