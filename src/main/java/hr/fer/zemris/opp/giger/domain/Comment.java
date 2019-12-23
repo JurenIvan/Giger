@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.domain;
 
-import hr.fer.zemris.opp.giger.web.rest.dto.CommentPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.CommentDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,7 +29,7 @@ public class Comment {
     @NotNull
     private Person author;
 
-    public CommentPreviewDto toDto() {
-        return new CommentPreviewDto(id, content, postedOn, author.toDto());
+    public CommentDto toDto() {
+        return new CommentDto(id, content, postedOn, author.toDto());
     }
 }
