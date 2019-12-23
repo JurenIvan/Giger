@@ -1,10 +1,10 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
-import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Gig;
+import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.GigRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
@@ -14,7 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_BAND;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_GIG;
+import static java.util.stream.Collectors.toList;
 
 @Service
 @AllArgsConstructor
@@ -28,17 +30,19 @@ public class GigService {
         return gigRepository.findAllByGigTypeAndPrivateGig(gigType, false);
     }
 
-    public List<Gig> listGigsByBand(Band band) {
-        return null;
+    public List<GigPreviewDto> listGigsByBand(Long bandId) {
+        return bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND)).getGigs().stream().map(Gig::toDto).collect(toList());
     }
 
     public Gig createGig(GigCreationDto gigCreationDto) {
+        Organizer organizer = userDetailsService.getLoggedOrganizer();
+
         Gig gig = new Gig();
         gig.setDateTime(gigCreationDto.getDateTime());
         gig.setDescription(gigCreationDto.getDescription());
         gig.setDateTime(gigCreationDto.getDateTime());
         gig.setName(gigCreationDto.getGigName());
-        gig.setOrganizer(userDetailsService.getLoggedOrganizer());
+        gig.setOrganizer(organizer);
 
         return gigRepository.save(gig);
     }

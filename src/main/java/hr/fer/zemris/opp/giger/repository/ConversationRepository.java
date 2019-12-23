@@ -13,8 +13,6 @@ public interface ConversationRepository extends JpaRepository<Conversation, Long
 
     List<Conversation> findAllByParticipantsContaining(Person person);
 
-    List<Conversation> findAllByParticipantsContainingOrBandIn(Person person, List<Band> bands);
-
     List<Conversation> findAllByBandIn(List<Band> bands);
 
     List<Conversation> findAllByBand(Band band);

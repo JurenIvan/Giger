@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.service.PostService;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewCommentDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.PostDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PostPreviewDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +19,18 @@ public class PostController {
         postService.postPost(commentDto);
     }
 
+    @PostMapping("/create/{bandId}")
+    private void postPostAsBand(@RequestBody NewCommentDto commentDto, Long bandId) {
+        postService.postPost(commentDto,bandId);
+    }
+
     @PostMapping("/{postId}")
     private void postComment(@RequestBody NewCommentDto commentPreviewDto, @PathVariable Long postId) {
         postService.postComment(commentPreviewDto, postId);
     }
 
     @GetMapping("/{postId}")
-    public PostPreviewDto viewPost(@PathVariable Long postId) {
+    public PostDto viewPost(@PathVariable Long postId) {
         return postService.viewPost(postId);
     }
-
 }

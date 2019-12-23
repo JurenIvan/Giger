@@ -16,16 +16,15 @@ import static java.util.List.of;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+	private Logger log = LoggerFactory.getLogger(this.getClass());
 
-    @ExceptionHandler(GigerException.class)
-    protected ResponseEntity<Object> handlePaspoortException(GigerException ex) {
-        log.debug("Giger business exception");
-        return new ResponseEntity<>(
-                new ApiError(EXCEPTION.getCode(), EXCEPTION.getMessage(), of(new ViolationError(ex.getErrorCode().getCode(), ex.getErrorCode().getMessage()))),
-                new HttpHeaders(),
-                ex.getErrorCode().getStatus()
-        );
-    }
-
+	@ExceptionHandler(GigerException.class)
+	protected ResponseEntity<Object> handlePaspoortException(GigerException ex) {
+		log.debug("Giger business exception");
+		return new ResponseEntity<>(
+				new ApiError(EXCEPTION.getCode(), EXCEPTION.getMessage(), of(new ViolationError(ex.getErrorCode().getCode(), ex.getErrorCode().getMessage()))),
+				new HttpHeaders(),
+				ex.getErrorCode().getStatus()
+		);
+	}
 }

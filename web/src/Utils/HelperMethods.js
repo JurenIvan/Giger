@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 
 export function sendRegisterInfo (email, username, phone, password, f) {
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/register';
-    xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
+    let url = 'http://localhost:8080/api/register';
+    xhr.open('POST', url);
     xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({

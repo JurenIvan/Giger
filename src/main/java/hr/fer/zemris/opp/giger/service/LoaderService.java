@@ -71,7 +71,7 @@ public class LoaderService implements ApplicationRunner {
         systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
         systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
         systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
-        systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+        systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON, ORGANIZER)));
         systemPeople.add(new SystemPerson(null, "michael.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
         systemPeople.add(new SystemPerson(null, "william.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
         systemPeople.add(new SystemPerson(null, "david.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
@@ -107,6 +107,7 @@ public class LoaderService implements ApplicationRunner {
         organizers.add(new Organizer(systemPeople.get(0).getId(), "John"));
         organizers.add(new Organizer(systemPeople.get(1).getId(), "James"));
         organizers.add(new Organizer(systemPeople.get(2).getId(), "Robert"));
+        organizers.add(new Organizer(systemPeople.get(3).getId(), "Admin"));
         organizers.add(new Organizer(systemPeople.get(10).getId(), "George"));
         organizers.add(new Organizer(systemPeople.get(11).getId(), "Michael"));
         organizers.add(new Organizer(systemPeople.get(12).getId(), "William"));

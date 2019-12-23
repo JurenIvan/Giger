@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.service;
 
+import hr.fer.zemris.opp.giger.domain.exception.ErrorCode;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.domain.Person;
@@ -18,8 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.INVALID_PASSWORD;
-import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_USER;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -51,10 +51,10 @@ public class PeopleService {
 
     public void saveUser(RegisterRequestDto registerRequestDto) throws Exception {
         if (!isEmailAvailable(registerRequestDto.getEmail())) {
-            throw new Exception("email not available");
+            throw new GigerException(EMAIL_ALREADY_IN_USE);
         }
         if (!isUserNameAvailable(registerRequestDto.getUsername())) {
-            throw new Exception("username not available");
+            throw new GigerException(USERNAME_ALREADY_IN_USE);
         }
         if (registerRequestDto.getPassword().length() < 1) {
             throw new GigerException(INVALID_PASSWORD);

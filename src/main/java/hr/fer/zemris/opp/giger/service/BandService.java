@@ -147,7 +147,7 @@ public class BandService {
     }
 
     //needs some kind of smart algorithm to
-    public List<BandPreviewDto> listAvailableBands(FilterBandDto filterBandDto) {
+    public List<BandDto> listAvailableBands(FilterBandDto filterBandDto) {
         Occasion o1 = new Occasion();
         Occasion o2 = new Occasion();
         o1.setLocalDate(filterBandDto.getSpecificDateFirst());
@@ -158,7 +158,7 @@ public class BandService {
                 .stream().map(e -> e.toDto()).collect(toList());
     }
 
-    public List<BandPreviewDto> listBands(String name) {
+    public List<BandDto> listBands(String name) {
         return bandRepository.findAllByNameLike(name).stream().map(Band::toDto).collect(toList());
     }
 }
