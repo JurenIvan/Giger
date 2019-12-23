@@ -15,5 +15,5 @@ public class PostPreviewDto {
     private Long id;
     private String content;
     private LocalDateTime publishedOn;
-    private List<CommentPreviewDto> comments;
+    private List<CommentDto> comments;
 }

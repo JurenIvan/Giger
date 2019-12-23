@@ -12,5 +12,4 @@ public class ConversationCreationDto {
     private String title;
     private String userName;
     private String pictureUrl;
-
 }

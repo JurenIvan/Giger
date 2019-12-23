@@ -15,6 +15,5 @@ public class MessagePreview {
     private String content;
     private LocalDateTime sentTime;
     private PersonPreviewDto sender;
-    private BandPreviewDto senderBand;
-
+    private BandDto senderBand;
 }
