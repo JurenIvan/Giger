@@ -184,6 +184,14 @@ public class LoaderService implements ApplicationRunner {
         comments.add(new Comment(null, "Where can I get this?", LocalDateTime.of(2019, 6, 8, 20, 0), people.get(7)));
         comments.add(new Comment(null, "Haha", LocalDateTime.of(2019, 8, 8, 8, 0), people.get(8)));
         comments.add(new Comment(null, "xd", LocalDateTime.of(2019, 2, 7, 14, 0), people.get(9)));
+        comments.add(new Comment(null, "No", LocalDateTime.of(2019, 12, 1, 20, 0), people.get(2)));
+        comments.add(new Comment(null, "Congrats!", LocalDateTime.of(2019, 12, 2, 20, 0), people.get(3)));
+        comments.add(new Comment(null, "When?", LocalDateTime.of(2019, 12, 3, 20, 0), people.get(4)));
+        comments.add(new Comment(null, "Can I buy it online?", LocalDateTime.of(2019, 12, 4, 20, 0), people.get(5)));
+        comments.add(new Comment(null, "Yes, ofcourse!", LocalDateTime.of(2019, 12, 5, 20, 0), people.get(6)));
+        comments.add(new Comment(null, "Where was it?", LocalDateTime.of(2019, 12, 6, 20, 0), people.get(7)));
+        comments.add(new Comment(null, "Good for you.", LocalDateTime.of(2019, 12, 7, 20, 0), people.get(8)));
+        comments.add(new Comment(null, "Woohoo", LocalDateTime.of(2019, 12, 8, 20, 0), people.get(9)));
 
         this.comments = commentRepository.saveAll(comments);
     }
@@ -199,6 +207,14 @@ public class LoaderService implements ApplicationRunner {
         posts.add(new Post(null, "Found the best shop for guitars.", LocalDateTime.of(2019, 6, 8, 19, 0), List.of(comments.get(7))));
         posts.add(new Post(null, "Hahahah", LocalDateTime.of(2019, 8, 8, 7, 0), List.of(comments.get(8))));
         posts.add(new Post(null, "lol", LocalDateTime.of(2019, 2, 7, 13, 0), List.of(comments.get(9))));
+        posts.add(new Post(null, "My post", LocalDateTime.of(2019, 12, 1, 19, 0), List.of(comments.get(2))));
+        posts.add(new Post(null, "Having a big concert tonight.", LocalDateTime.of(2019, 12, 2, 19, 0), List.of(comments.get(3))));
+        posts.add(new Post(null, "New album coming soon.", LocalDateTime.of(2019, 12, 3, 19, 0), List.of(comments.get(4))));
+        posts.add(new Post(null, "New song coming soon.", LocalDateTime.of(2019, 12, 4, 19, 0), List.of(comments.get(5))));
+        posts.add(new Post(null, "Did you listen my xyz song?", LocalDateTime.of(2019, 12, 5, 19, 0), List.of(comments.get(6))));
+        posts.add(new Post(null, "Loved the concert tonight.", LocalDateTime.of(2019, 12, 6, 19, 0), List.of(comments.get(7))));
+        posts.add(new Post(null, "Working on something big.", LocalDateTime.of(2019, 12, 7, 19, 0), List.of(comments.get(8))));
+        posts.add(new Post(null, "Got promoted to a band leader!!", LocalDateTime.of(2019, 12, 8, 19, 0), List.of(comments.get(9))));
 
         this.posts = postRepository.saveAll(posts);
     }
@@ -220,7 +236,7 @@ public class LoaderService implements ApplicationRunner {
 
     private void createMusicians() {
         musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0))));
-        musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(1), posts.get(2)), List.of(occasions.get(2), occasions.get(3))));
+        musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(10), posts.get(11)), List.of(occasions.get(2), occasions.get(3))));
         musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), List.of(gigs.get(0), gigs.get(4)), List.of(posts.get(3)), List.of(occasions.get(4), occasions.get(5))));
         musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
         musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
@@ -230,9 +246,9 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createBands() {
-        bands.add(new Band(null, "The Beatles", "bio1", LocalDate.of(1957, 6, 5), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(0), posts.get(1)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1))));
-        bands.add(new Band(null, "Pink Floyd", "bio2", LocalDate.of(1965, 6, 5), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(2), posts.get(3)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3))));
-        bands.add(new Band(null, "AC/DC", "bio3", LocalDate.of(1973, 6, 5), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(4), posts.get(5)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4))));
+        bands.add(new Band(null, "The Beatles", "bio1", LocalDate.of(1957, 6, 5), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(12), posts.get(13)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1))));
+        bands.add(new Band(null, "Pink Floyd", "bio2", LocalDate.of(1965, 6, 5), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(14), posts.get(15)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3))));
+        bands.add(new Band(null, "AC/DC", "bio3", LocalDate.of(1973, 6, 5), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(16), posts.get(17)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4))));
 
         this.bands = bandRepository.saveAll(bands);
     }
