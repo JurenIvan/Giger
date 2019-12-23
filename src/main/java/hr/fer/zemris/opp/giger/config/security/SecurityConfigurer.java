@@ -61,9 +61,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers(GET, "/register/nickname-available").permitAll()
                 .antMatchers(GET, "/register/verification").permitAll()
                 .antMatchers(POST, "/register/resend-verification-email").permitAll()
-                .antMatchers(GET,"/v2/*").permitAll()
-                .anyRequest().authenticated()
-        ;
+  //              .antMatchers(GET,"/v2/*").permitAll() //todo check if works while beeing commented
+                .anyRequest().authenticated();
 
         httpSecurity
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
