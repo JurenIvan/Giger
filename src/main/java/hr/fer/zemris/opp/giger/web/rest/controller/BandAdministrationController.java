@@ -58,6 +58,11 @@ public class BandAdministrationController {
 
     @GetMapping("/invites/{bandId}")
     public List<MusicianInvitationsDto> listInvitations(@PathVariable Long bandId) {
-        return bandService.listInvitations(bandId);
+        return bandService.listInvitations(bandId,0);
     }
+
+	@GetMapping("/back-up-invites/{bandId}")
+	public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable Long bandId) {
+		return bandService.listInvitations(bandId,1);
+	}
 }

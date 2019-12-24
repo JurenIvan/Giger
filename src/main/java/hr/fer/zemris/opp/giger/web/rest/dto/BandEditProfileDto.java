@@ -17,4 +17,5 @@ public class BandEditProfileDto {
     private String pictureUrl;
     private Location location;
     private List<Long> removePostIds;
+    private Long maxDistance;
 }

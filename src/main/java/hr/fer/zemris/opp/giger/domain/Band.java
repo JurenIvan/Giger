@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.domain.exception.ErrorCode;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandDto;
@@ -49,9 +50,9 @@ public class Band {
 	private Musician leader;
 
 	@ManyToMany(fetch = LAZY)
-	@JoinTable(name = "musician_bands",
-			joinColumns = {@JoinColumn(name = "fk_musician")},
-			inverseJoinColumns = {@JoinColumn(name = "fk_band")})
+//	@JoinTable(name = "musician_bands",
+//			joinColumns = {@JoinColumn(name = "fk_band")},
+//			inverseJoinColumns = {@JoinColumn(name = "fk_musician")})
 	private List<Musician> members;
 
 	@ManyToMany(fetch = LAZY)
@@ -121,7 +122,7 @@ public class Band {
 		Optional<Musician> backUpMember = backUpMembers.stream().filter(musician -> musician.getId().equals(musicianId)).findFirst();
 
 		if (member.isEmpty() && backUpMember.isEmpty())
-			throw new GigerException(NO_SUCH_MUSICIAN);
+			throw new GigerException(ErrorCode.NO_SUCH_MUSICIAN_IN_BAND);
 
 		member.ifPresent(musician -> members.remove(musician));
 		backUpMember.ifPresent(musician -> backUpMembers.remove(musician));
@@ -137,7 +138,10 @@ public class Band {
 		if (bandEditProfileDto.getLocation() != null) {
 			this.home = bandEditProfileDto.getLocation();
 		}
-		bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));
+		if (bandEditProfileDto.getMaxDistance() != null) {
+			this.maxDistance = bandEditProfileDto.getMaxDistance();
+		}
+		bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));    //todo fix
 	}
 
 	public BandDto toDto() {
