@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.service.ConversationService;
+import hr.fer.zemris.opp.giger.web.rest.dto.AddToConversationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
@@ -41,18 +42,24 @@ public class ConversationController {
         return conversationService.loadAllPersonalConversations();
     }
 
-    @GetMapping("/get/band/{bandId}")
-    public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable Long bandId) {
-        return conversationService.loadAllBandConversations(bandId);
-    }
+	@GetMapping("/get/band/{bandId}")
+	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable Long bandId) {
+		return conversationService.loadAllBandConversations(bandId);
+	}
 
-    @GetMapping("/get/bands")
-    public List<ConversationPreviewDto> loadAllBandsConversations() {
-        return conversationService.loadAllBandsConversations();
-    }
+	@GetMapping("/get/bands")
+	public List<ConversationPreviewDto> loadAllBandsConversations() {
+		return conversationService.loadAllBandsConversations();
+	}
 
-    @GetMapping("/leave/{conversationId}")
-    public void leaveConversation(@PathVariable Long conversationId) {
-        conversationService.leaveConversation(conversationId);
-    }
+	@GetMapping("/leave/{conversationId}")
+	public void leaveConversation(@PathVariable Long conversationId) {
+		conversationService.leaveConversation(conversationId);
+	}
+
+	@PostMapping("/add/{conversationId}")
+	public ConversationPreviewDto addToConversation(@PathVariable Long conversationId, @RequestBody AddToConversationDto addToConversationDto) {
+		return conversationService.addToConversation(conversationId, addToConversationDto);
+	}
+
 }

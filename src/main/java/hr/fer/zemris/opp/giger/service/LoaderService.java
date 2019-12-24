@@ -251,7 +251,7 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createConversations() {
-        conversations.add(new Conversation(null, "title1", people.get(0).getPictureUrl(), List.of(people.get(0), people.get(1)), null, List.of(messages.get(0), messages.get(1), messages.get(2), messages.get(3), messages.get(4), messages.get(5), messages.get(6), messages.get(7))));
+        conversations.add(new Conversation(null, "title1", people.get(0).getPictureUrl(), List.of(people.get(0), people.get(1)), bands.get(0), List.of(messages.get(0), messages.get(1), messages.get(2), messages.get(3), messages.get(4), messages.get(5), messages.get(6), messages.get(7))));
 
         this.conversations = conversationRepository.saveAll(conversations);
     }

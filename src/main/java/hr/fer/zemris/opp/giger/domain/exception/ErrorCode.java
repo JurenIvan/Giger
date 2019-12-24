@@ -32,7 +32,8 @@ public enum ErrorCode {
 	NO_SUCH_ORGANIZER(40021, "There is no such organizer.", BAD_REQUEST),
 	NO_SUCH_POST(40022, "There is no such post.", BAD_REQUEST),
 	EMAIL_ALREADY_IN_USE(40023, "Email already in use", BAD_REQUEST),
-	USERNAME_ALREADY_IN_USE(40024, "Username already in use", BAD_REQUEST);
+	USERNAME_ALREADY_IN_USE(40024, "Username already in use", BAD_REQUEST),
+	CONVERSATION_ALREADY_HAS_BAND(40025, "Conversation already has a band", BAD_REQUEST);
 
 	private final int code;
 	private final String message;

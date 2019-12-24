@@ -8,6 +8,8 @@ import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.ConversationRepository;
+import hr.fer.zemris.opp.giger.repository.PersonRepository;
+import hr.fer.zemris.opp.giger.web.rest.dto.AddToConversationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
@@ -25,6 +27,7 @@ public class ConversationService {
 
 	private ConversationRepository conversationRepository;
 	private UserDetailsServiceImpl userDetailsService;
+	private PersonRepository personRepository;
 	private BandRepository bandRepository;
 
 	public long createConversation(ConversationCreationDto conversationCreationDto) {
@@ -36,12 +39,13 @@ public class ConversationService {
 		Conversation conversation = conversationRepository.findById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
 		Person loggedInPerson = userDetailsService.getLoggedPerson();
-		Musician loggedInMusician = userDetailsService.getLoggedMusician();
 
-		if (conversation.getParticipants().contains(loggedInPerson)
-				|| (conversation.getBand() != null && conversation.getBand().getMembers().contains(loggedInMusician))) {
+		if (conversation.getParticipants().contains(loggedInPerson))
 			return conversation.toDto();
-		}
+
+		Musician loggedInMusician = userDetailsService.getLoggedMusician();
+		if (conversation.getBand() != null && conversation.getBand().getMembers().contains(loggedInMusician))
+			return conversation.toDto();
 
 		throw new GigerException(NOT_IN_A_CONVERSATION);
 	}
@@ -50,10 +54,11 @@ public class ConversationService {
 		Person person = userDetailsService.getLoggedPerson();
 		Conversation conversation = conversationRepository.findById(newMessageDto.getConversationId()).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
 
-		if (conversation.getParticipants().contains(person)) {
+		if (!conversation.getParticipants().contains(person)) {
 			throw new GigerException(NOT_IN_A_CONVERSATION);
 		}
 		conversation.addMessage(newMessageDto, person, null);
+		conversationRepository.save(conversation);
 	}
 
 	//todo test
@@ -63,6 +68,7 @@ public class ConversationService {
 
 		if (conversation.getBand() != null && conversation.getBand().getMembers().contains(musician)) {
 			conversation.addMessage(newMessageDto, null, conversation.getBand());
+			conversationRepository.save(conversation);
 			return;
 		}
 		throw new GigerException(NOT_IN_A_CONVERSATION);
@@ -94,5 +100,25 @@ public class ConversationService {
 			throw new GigerException(NOT_A_MEMBER_OF_BAND);
 
 		conversation.removeParticipants(person);
+		conversationRepository.save(conversation);
+	}
+
+	public ConversationPreviewDto addToConversation(Long conversationId, AddToConversationDto addToConversationDto) {
+		Person person = userDetailsService.getLoggedPerson();
+		Conversation conversation = conversationRepository.findById(conversationId).orElseThrow(() -> new GigerException(NO_SUCH_CONVERSATION));
+		if (!conversation.getParticipants().contains(person))
+			throw new GigerException(NOT_A_MEMBER_OF_BAND);
+
+
+		Band band = null;
+		List<Person> people = null;
+		if (addToConversationDto.getBandId() != null)
+			band = bandRepository.findById(addToConversationDto.getBandId()).orElse(null);
+		if (addToConversationDto.getUserIds() != null) {
+			people = personRepository.findAllByIdIn(addToConversationDto.getUserIds());
+		}
+		conversation.addMembers(people, band);
+
+		return conversationRepository.save(conversation).toDto();
 	}
 }
