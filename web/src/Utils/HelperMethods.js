@@ -1,16 +1,16 @@
 import Cookies from "js-cookie";
 
-export function sendCreateGigInfo (name, desc, date, address, lat, lng, privateGig, duration, price, type, locDesc, f) {
+export function sendCreateGigInfo (name, desc, date, address, y, x, privateGig, duration, price, type, extraDescription, f) {
     let xhr = new XMLHttpRequest();
     let url = "https://giger-backend-dev.herokuapp.com/api/";
     xhr.open("POST", "https://cors-anywhere.herokuapp.com/"+url);
     xhr.setRequestHeader("Content-Type", "application/json");
 
     let location = {
-        lat,
-        lng,
+        y,
+        x,
         address,
-        locDesc
+        extraDescription
     };
 
     let params = JSON.stringify({
