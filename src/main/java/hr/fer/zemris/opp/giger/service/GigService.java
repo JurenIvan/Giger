@@ -39,6 +39,7 @@ public class GigService {
 
         Gig gig = new Gig();
         gig.setDateTime(gigCreationDto.getDateTime());
+        gig.setLocation(gigCreationDto.getLocation());
         gig.setDescription(gigCreationDto.getDescription());
         gig.setDateTime(gigCreationDto.getDateTime());
         gig.setName(gigCreationDto.getGigName());
