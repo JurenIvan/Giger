@@ -24,6 +24,12 @@ function App() {
               <Home/> : 
                   alert("Please log in!")
             )}/>
+          <Route path='/CreateGig'
+          render={() => (
+            Cookies.get('Bearer')?
+            <CreateGig/> : 
+                alert("Please log in!")
+          )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
