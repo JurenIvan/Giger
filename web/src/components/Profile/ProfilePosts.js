@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from 'react-bootstrap';
-import {PostClass as Post } from "../BasicComponents/Post";
+import {PostClass as Post} from "../BasicComponents/Post";
 import {getTime} from "../../Utils/HelperMethods";
 
 export default class ProfilePosts extends React.Component {
