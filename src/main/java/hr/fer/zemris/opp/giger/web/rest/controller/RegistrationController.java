@@ -42,5 +42,4 @@ public class RegistrationController {
     public boolean isEmailAvailable(String email) {
         return peopleService.isEmailAvailable(email);
     }
-
 }

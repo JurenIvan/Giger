@@ -1,7 +1,6 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.service.BandService;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianInvitationsDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -38,7 +37,7 @@ public class BandAdministrationController {
     }
 
     @GetMapping("/leave/{bandId}")
-    public void leaveBand(@PathVariable long bandId) {
+    public void leaveBand(@PathVariable Long bandId) {
         bandService.leaveBand(bandId);
     }
 
@@ -57,8 +56,13 @@ public class BandAdministrationController {
         bandService.changeLeader(musicianBandDto);
     }
 
-    @PostMapping("/invites/{bandId}")
-    public List<MusicianInvitationsDto> listInvitations(@PathVariable long bandId) {
-        return bandService.listInvitations(bandId);
+    @GetMapping("/invites/{bandId}")
+    public List<MusicianInvitationsDto> listInvitations(@PathVariable Long bandId) {
+        return bandService.listInvitations(bandId,0);
     }
+
+	@GetMapping("/back-up-invites/{bandId}")
+	public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable Long bandId) {
+		return bandService.listInvitations(bandId,1);
+	}
 }

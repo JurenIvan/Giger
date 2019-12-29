@@ -12,5 +12,4 @@ public class PersonPreviewDto {
     private long id;
     private String name;
     private String pictureUrl;
-
 }

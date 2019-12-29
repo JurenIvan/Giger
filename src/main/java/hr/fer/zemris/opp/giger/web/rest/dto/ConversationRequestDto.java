@@ -11,5 +11,4 @@ public class ConversationRequestDto {
 
     private long conversationId;
     private int messagesCount;
-
 }

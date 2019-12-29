@@ -12,5 +12,4 @@ public class RequestGigsDto {
 
     private GigType gigType;
     private Band band;
-
 }

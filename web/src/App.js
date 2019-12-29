@@ -10,6 +10,7 @@ import RegisterClass from './components/register';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile'
+import CreateGig from './components/CreateGig'
 
 
 
@@ -38,10 +39,17 @@ function App() {
               </Modal.Footer>
               </Modal>
             )}/>
-          <Route path='/logout' exact component={Login}/>
-          <Route path='/login' exact component={Login}/>
+          <Route path='/CreateGig'
+          render={() => (
+            Cookies.get('Bearer')?
+            <CreateGig/> : 
+                alert("Please log in!")
+          )}/>
+          <Route path='/Logout' exact component={Login}/>
+          <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile' exact component = {ProfileClass} />
         </Switch>
       </div>

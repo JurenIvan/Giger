@@ -4,16 +4,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
+    background-color: cadetblue;
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
     height: 80px;
-    opacity: 0.7;
+    /*opacity: 0.7;*/
     margin-bottom: 50px;
 }
 
-.Header a, .Header .header-btn{
+.Header a, .Header .btn.btn-primary {
     color: white;
     background-color: black;
     padding: 5px 10px;
@@ -23,8 +23,8 @@
     text-decoration: none;
 }
 
-.Header a:hover {
-    background:red;
+.Header a:hover, .Header .btn.btn-primary:hover {
+    background: darkgray;
 }
 
 

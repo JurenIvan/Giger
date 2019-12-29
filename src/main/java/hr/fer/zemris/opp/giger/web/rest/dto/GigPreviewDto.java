@@ -15,14 +15,14 @@ import java.time.LocalDateTime;
 public class GigPreviewDto {
 
     private Long id;
-    private Organizer organizer;
+    private Long organizerId;
     private LocalDateTime dateTime;
     private Location location;
+    private String name;
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
     private GigType gigType;
     private boolean finalDealAchieved;
     private boolean privateGig;
-
 }

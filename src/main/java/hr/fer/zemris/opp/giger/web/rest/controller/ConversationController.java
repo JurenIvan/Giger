@@ -1,10 +1,10 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Conversation;
-import hr.fer.zemris.opp.giger.domain.Message;
 import hr.fer.zemris.opp.giger.service.ConversationService;
+import hr.fer.zemris.opp.giger.web.rest.dto.AddToConversationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ConversationPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,21 +22,44 @@ public class ConversationController {
         return conversationService.createConversation(conversationCreationDto);
     }
 
-    @PostMapping("{conversationId}")
+    @GetMapping("{conversationId}")
     public ConversationPreviewDto loadConversation(@PathVariable Long conversationId) {
         return conversationService.loadConversation(conversationId);
     }
 
-    @PostMapping("/send/conversationId")
-    public void postMessage(Message message, Conversation conversation) {
+    @PostMapping("/send/person")
+    public void postMessageAsPerson(@RequestBody NewMessageDto newMessageDto) {
+        conversationService.postMessageAsPerson(newMessageDto);
     }
 
-    @GetMapping("/get")
+    @PostMapping("/send/band")
+    public void postMessageAsBand(@RequestBody NewMessageDto newMessageDto) {
+        conversationService.postMessageAsBand(newMessageDto);
+    }
+
+    @GetMapping("/get/personal")
     public List<ConversationPreviewDto> loadAllConversations() {
-        return null;
+        return conversationService.loadAllPersonalConversations();
     }
 
-    @GetMapping("/leave/{conversationId}")
-    public void leaveConversation(Conversation conversation) {
-    }
+	@GetMapping("/get/band/{bandId}")
+	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable Long bandId) {
+		return conversationService.loadAllBandConversations(bandId);
+	}
+
+	@GetMapping("/get/bands")
+	public List<ConversationPreviewDto> loadAllBandsConversations() {
+		return conversationService.loadAllBandsConversations();
+	}
+
+	@GetMapping("/leave/{conversationId}")
+	public void leaveConversation(@PathVariable Long conversationId) {
+		conversationService.leaveConversation(conversationId);
+	}
+
+	@PostMapping("/add/{conversationId}")
+	public ConversationPreviewDto addToConversation(@PathVariable Long conversationId, @RequestBody AddToConversationDto addToConversationDto) {
+		return conversationService.addToConversation(conversationId, addToConversationDto);
+	}
+
 }

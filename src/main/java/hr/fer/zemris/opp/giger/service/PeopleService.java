@@ -1,22 +1,26 @@
 package hr.fer.zemris.opp.giger.service;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.ErrorCode;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
-import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Person;
-import hr.fer.zemris.opp.giger.domain.Role;
+import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.domain.SystemPerson;
+import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.PersonRepository;
+import hr.fer.zemris.opp.giger.repository.ReviewRepository;
 import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER_EXCEPTION;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class PeopleService {
@@ -25,6 +29,7 @@ public class PeopleService {
     private SystemPersonRepository systemPersonRepository;
     private PersonRepository peopleRepository;
     private BandRepository bandRepository;
+    private ReviewRepository reviewRepository;
 
     public PeopleService(EmailSender emailSender, SystemPersonRepository systemPersonRepository, PersonRepository peopleRepository, BandRepository bandRepository) {
         this.emailSender = emailSender;
@@ -46,11 +51,15 @@ public class PeopleService {
 
     public void saveUser(RegisterRequestDto registerRequestDto) throws Exception {
         if (!isEmailAvailable(registerRequestDto.getEmail())) {
-            throw new Exception("email not available");
+            throw new GigerException(EMAIL_ALREADY_IN_USE);
         }
         if (!isUserNameAvailable(registerRequestDto.getUsername())) {
-            throw new Exception("username not available");
+            throw new GigerException(USERNAME_ALREADY_IN_USE);
         }
+        if (registerRequestDto.getPassword().length() < 1) {
+            throw new GigerException(INVALID_PASSWORD);
+        }
+
         SystemPerson systemPerson = new SystemPerson();
         systemPerson.setEmail(registerRequestDto.getEmail());
         systemPerson.setPasswordHash(BCrypt.hashpw(registerRequestDto.getPassword(), BCrypt.gensalt(10)));
@@ -67,7 +76,7 @@ public class PeopleService {
     }
 
     public boolean verifyEmail(String username, String token) {
-        Person person = peopleRepository.findByUsername(username).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+        Person person = peopleRepository.findByUsername(username).orElseThrow(() -> new GigerException(NO_SUCH_USER));
         SystemPerson systemPerson = systemPersonRepository.findById(person.getId()).get();
 
         if (systemPerson.getVerified() != null && systemPerson.getVerified() == true)
@@ -81,12 +90,13 @@ public class PeopleService {
         emailSender.sendRegistrationConfirmationMessage(email, email.hashCode(), username);
     }
 
-    public List<Person> findUsers(FindUsersDto findUsersDto) {
+    public List<Person> findPeople(FindUsersDto findUsersDto) {
         List<Person> usersWithSimilarName = peopleRepository.findAllByUsernameLike(findUsersDto.getName());
-        List<Band> bandsWithSimilarName = bandRepository.findAllByNameLike(findUsersDto.getName());
-        //List<Musician> musiciansFromBands = musicianRepository.findAllByBandsIn(bandsWithSimilarName);
-
-        //     usersWithSimilarName.addAll(musiciansFromBands.stream().map(Musician::getUser).collect(Collectors.toList()));
         return usersWithSimilarName;
+    }
+
+    public List<ReviewPreviewDto> getReviews(Long personId) {
+        Person person = peopleRepository.findById(personId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
+        return reviewRepository.findAllByAuthor(person).stream().map(Review::toDto).collect(toList());
     }
 }

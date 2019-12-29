@@ -1,7 +1,10 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -11,7 +14,9 @@ import javax.persistence.Table;
 
 @Entity
 @Data
-@Table(name = "people")
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "person")
 public class Person {
 
     @Id
@@ -25,5 +30,15 @@ public class Person {
 
     public PersonPreviewDto toDto() {
         return new PersonPreviewDto(id, username, pictureUrl);
+    }
+
+    public Person updatePerson(MusicianProfileDto musicianProfileDto) {
+        if (musicianProfileDto.getContactNumber() != null)
+            this.phoneNumber = musicianProfileDto.getContactNumber();
+
+        if (musicianProfileDto.getPictureUrl() != null)
+            this.pictureUrl = musicianProfileDto.getPictureUrl();
+
+        return this;
     }
 }

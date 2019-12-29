@@ -1,6 +1,6 @@
 package hr.fer.zemris.opp.giger.config.security;
 
-import hr.fer.zemris.opp.giger.config.errorHandling.GigerException;
+import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Person;
@@ -16,8 +16,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_ROLE_DATA_PRESENT;
-import static hr.fer.zemris.opp.giger.config.errorHandling.ErrorCode.NO_SUCH_USER_EXCEPTION;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_ROLE_DATA_PRESENT;
+import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_USER;
 
 @Service
 @AllArgsConstructor
@@ -30,15 +30,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return systemPersonRepository.findByEmail(email).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+        return systemPersonRepository.findByEmail(email).orElseThrow(() -> new GigerException(NO_SUCH_USER));
     }
 
     public Person getLoggedPerson() {
-        return personRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_SUCH_USER_EXCEPTION));
+        return personRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_SUCH_USER));
     }
 
     public Musician getLoggedMusician() {
         return musicianRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
+    }
+
+    public Organizer getLoggedOrganizer() {
+        return organizerRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
     }
 
     public boolean isLoggedUserMusician() {
@@ -49,8 +53,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return organizerRepository.findById(getLoggedInUserId()).isPresent();
     }
 
-    public Organizer getLoggedOrganizer() {
-        return organizerRepository.findById(getLoggedInUserId()).orElseThrow(() -> new GigerException(NO_ROLE_DATA_PRESENT));
+    public boolean isLoggedUser() {
+        return getLoggedInUserId() != null;
     }
 
     public Long getLoggedInUserId() {
