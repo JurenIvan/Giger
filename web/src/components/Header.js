@@ -19,12 +19,16 @@ function Header(props) {
             <Button href='/home'>Home</Button>
             {/*<Button href='/events'>Events</Button>*/}
             {/*<Button href='/bands'>Bands</Button>*/}
-            <Button href='/login'>Log in</Button>
+            
             {
                 Cookies.get('Bearer') ?
-                    <Button onClick={handleLogout}>Log out</Button>
+                    [
+                    <Button onClick={handleLogout}>Log out</Button>,
+                    <Button href="/profile">Profile</Button>
+                    ]
                     :
-                    <Button href='/register'>Register</Button>
+                    [<Button href='/login'>Log in</Button>,
+                    <Button href='/register'>Register</Button>]
             }
 
         </header>

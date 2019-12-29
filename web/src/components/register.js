@@ -2,7 +2,8 @@ import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import * as Helpers from "../Utils/HelperMethods";
+import fetcingFactory from "../Utils/external";
+import {endpoints} from "../Utils/Types";
 
 export default class RegisterClass extends React.Component{
 
@@ -59,9 +60,20 @@ export default class RegisterClass extends React.Component{
         if (shouldShow) {
             this.setState({showModal: true});
         } else {
-            (async () => {     
-                await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
-            })();
+           let params = JSON.stringify({
+            "email": this.state.eMail,
+            "username": this.state.userName,
+            "phoneNumber": this.state.phone,
+            "password": this.state.password
+           })
+           fetcingFactory(endpoints.REGISTER, params).then(
+            response => {
+               if (response.status === 200) {
+                   window.location.href = "/login";
+               } else {
+                   alert(response.json())
+               }
+            });
         }
     }
       
