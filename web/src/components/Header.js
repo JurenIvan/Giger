@@ -3,7 +3,7 @@ import "./Header.css";
 import {Button} from "react-bootstrap";
 import Cookies from "js-cookie"
 
-function Header(props) {
+export default function Header(props) {
     const handleLogout = function () {
         if (Cookies.get('Bearer')) {
             Cookies.remove('Bearer');
