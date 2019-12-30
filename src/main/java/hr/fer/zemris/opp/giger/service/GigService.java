@@ -41,8 +41,11 @@ public class GigService {
 
 		Gig gig = new Gig();
 		gig.setDateTime(gigCreationDto.getDateTime());
-		gig.setDescription(gigCreationDto.getDescription());
-		gig.setDateTime(gigCreationDto.getDateTime());
+		gig.setLocation(gigCreationDto.getLocation());gig.setDescription(gigCreationDto.getDescription());
+		gig.setExpectedDuration(gigCreationDto.getExpectedDuration());
+        gig.setProposedPrice(gigCreationDto.getProposedPrice());
+        gig.setGigType(gigCreationDto.getGigType());
+        gig.setPrivateGig(gigCreationDto.getPrivateGig());
 		gig.setName(gigCreationDto.getGigName());
 		gig.setOrganizer(organizer);
 

@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
+import CreateGig from './components/CreateGig'
 
 
 
@@ -23,10 +24,17 @@ function App() {
               <Home/> : 
                   alert("Please log in!")
             )}/>
+          <Route path='/CreateGig'
+          render={() => (
+            Cookies.get('Bearer')?
+            <CreateGig/> : 
+                alert("Please log in!")
+          )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/CreateGig' exact component={CreateGig} />
         </Switch>
       </div>
     </BrowserRouter>

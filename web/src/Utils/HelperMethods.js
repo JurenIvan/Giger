@@ -1,5 +1,42 @@
 import Cookies from "js-cookie";
 
+export function sendCreateGigInfo (name, desc, date, address, y, x, privateGig, duration, price, type, extraDescription, f) {
+    let xhr = new XMLHttpRequest();
+    let url = "https://giger-backend-dev.herokuapp.com/api/";
+    xhr.open("POST", "https://cors-anywhere.herokuapp.com/"+url);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    let location = {
+        y,
+        x,
+        address,
+        extraDescription
+    };
+
+    let params = JSON.stringify({
+        "dateTime": date,
+        "location": location,
+        "description": desc,
+        "expectedDuration": duration,
+        "proposedPrice": price,
+        "gigType": type,
+        "privateGig": privateGig,
+        "gigName": name
+    });
+    console.log(params)
+    xhr.send(params);
+    xhr.onload = function() {
+        if (xhr.status !== 200) { // analyze HTTP status of the response
+            console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+            f(xhr.status); 
+    // e.g. 404: Not Found
+        } else { // show the result
+            f(xhr.status);
+        }
+    }
+
+}
+
 export function sendRegisterInfo (email, username, phone, password, f) {
     let xhr = new XMLHttpRequest();
     let url = 'http://localhost:8080/api/register';
