@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.service.GigService;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandInvitation;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigPreviewDto;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,10 @@ public class GigController {
     @GetMapping("/{gigId}")
     public GigPreviewDto viewGig(@PathVariable Long gigId) {
         return gigService.viewGig(gigId);
+    }
+
+    @PostMapping("/invite")
+	public GigPreviewDto inviteBandToGig(@RequestBody BandInvitation bandInvitation){
+    	return gigService.inviteBand(bandInvitation);
     }
 }

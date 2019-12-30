@@ -16,6 +16,7 @@ import java.util.List;
 import static hr.fer.zemris.opp.giger.domain.enums.GigType.*;
 import static hr.fer.zemris.opp.giger.domain.enums.InstrumentType.*;
 import static hr.fer.zemris.opp.giger.domain.enums.Role.*;
+import static java.time.LocalDateTime.*;
 
 @Service
 @AllArgsConstructor
@@ -149,87 +150,87 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createReviews() {
-        reviews.add(new Review(null, "great", "ok", 5, 3, LocalDateTime.of(2019, 12, 1, 18, 0, 0), people.get(0)));
-        reviews.add(new Review(null, "good", "good", 3, 3, LocalDateTime.of(2019, 12, 1, 16, 0, 0), people.get(1)));
-        reviews.add(new Review(null, "great", "great", 5, 5, LocalDateTime.of(2019, 11, 1, 18, 0, 0), people.get(2)));
-        reviews.add(new Review(null, "bad", "good", 1, 3, LocalDateTime.of(2019, 10, 1, 18, 0, 0), people.get(3)));
-        reviews.add(new Review(null, "bad", "bad", 1, 1, LocalDateTime.of(2019, 9, 1, 18, 0, 0), people.get(4)));
-        reviews.add(new Review(null, "great", "good", 5, 3, LocalDateTime.of(2019, 8, 1, 18, 0, 0), people.get(5)));
-        reviews.add(new Review(null, "great", "bad", 5, 1, LocalDateTime.of(2019, 7, 1, 18, 0, 0), people.get(6)));
-        reviews.add(new Review(null, "ok", "ok", 2, 2, LocalDateTime.of(2019, 12, 2, 10, 0, 0), people.get(7)));
-        reviews.add(new Review(null, "very good", "ok", 4, 3, LocalDateTime.of(2019, 12, 5, 18, 0, 0), people.get(8)));
-        reviews.add(new Review(null, "very good", "very good", 4, 4, LocalDateTime.of(2019, 12, 7, 18, 0, 0), people.get(9)));
+        reviews.add(new Review(null, "great", "ok", 5, 3, of(2019, 12, 1, 18, 0, 0), people.get(0)));
+        reviews.add(new Review(null, "good", "good", 3, 3, of(2019, 12, 1, 16, 0, 0), people.get(1)));
+        reviews.add(new Review(null, "great", "great", 5, 5, of(2019, 11, 1, 18, 0, 0), people.get(2)));
+        reviews.add(new Review(null, "bad", "good", 1, 3, of(2019, 10, 1, 18, 0, 0), people.get(3)));
+        reviews.add(new Review(null, "bad", "bad", 1, 1, of(2019, 9, 1, 18, 0, 0), people.get(4)));
+        reviews.add(new Review(null, "great", "good", 5, 3, of(2019, 8, 1, 18, 0, 0), people.get(5)));
+        reviews.add(new Review(null, "great", "bad", 5, 1, of(2019, 7, 1, 18, 0, 0), people.get(6)));
+        reviews.add(new Review(null, "ok", "ok", 2, 2, of(2019, 12, 2, 10, 0, 0), people.get(7)));
+        reviews.add(new Review(null, "very good", "ok", 4, 3, of(2019, 12, 5, 18, 0, 0), people.get(8)));
+        reviews.add(new Review(null, "very good", "very good", 4, 4, of(2019, 12, 7, 18, 0, 0), people.get(9)));
 
         this.reviews = reviewRepository.saveAll(reviews);
     }
 
     private void createGigs() {
-        gigs.add(new Gig(null, organizers.get(0), LocalDateTime.of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, "Rock concert", CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
-        gigs.add(new Gig(null, organizers.get(1), LocalDateTime.of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500,"Bachelors",  BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
-        gigs.add(new Gig(null, organizers.get(2), LocalDateTime.of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h",  200,"Birthday", GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
-        gigs.add(new Gig(null, organizers.get(3), LocalDateTime.of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h",  500,"Wedding", WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
-        gigs.add(new Gig(null, organizers.get(4), LocalDateTime.of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1",  1200,"Jazz concert", CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
+        gigs.add(new Gig(null, organizers.get(0), of(2020, 6, 23, 20, 0, 0), locations.get(0), "Rock concert", "2h", 1500, "Rock concert", CONCERT, true, false, List.of(reviews.get(0), reviews.get(1))));
+        gigs.add(new Gig(null, organizers.get(1), of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500,"Bachelors",  BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
+        gigs.add(new Gig(null, organizers.get(2), of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h",  200,"Birthday", GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
+        gigs.add(new Gig(null, organizers.get(3), of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h",  500,"Wedding", WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
+        gigs.add(new Gig(null, organizers.get(4), of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1",  1200,"Jazz concert", CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
 
         this.gigs = gigRepository.saveAll(gigs);
     }
 
     private void createComments() {
-        comments.add(new Comment(null, "Yeah", LocalDateTime.of(2019, 12, 8, 20, 0), people.get(0)));
-        comments.add(new Comment(null, "Good luck", LocalDateTime.of(2019, 12, 9, 20, 0), people.get(1)));
-        comments.add(new Comment(null, "Nice", LocalDateTime.of(2019, 12, 7, 20, 0), people.get(2)));
-        comments.add(new Comment(null, "Best wishes!", LocalDateTime.of(2019, 12, 3, 5, 0), people.get(3)));
-        comments.add(new Comment(null, "Nice job", LocalDateTime.of(2019, 11, 5, 12, 0), people.get(4)));
-        comments.add(new Comment(null, "What instrument is that?", LocalDateTime.of(2019, 11, 8, 15, 0), people.get(5)));
-        comments.add(new Comment(null, "You rock, man", LocalDateTime.of(2019, 11, 6, 14, 0), people.get(6)));
-        comments.add(new Comment(null, "Where can I get this?", LocalDateTime.of(2019, 6, 8, 20, 0), people.get(7)));
-        comments.add(new Comment(null, "Haha", LocalDateTime.of(2019, 8, 8, 8, 0), people.get(8)));
-        comments.add(new Comment(null, "xd", LocalDateTime.of(2019, 2, 7, 14, 0), people.get(9)));
-        comments.add(new Comment(null, "No", LocalDateTime.of(2019, 12, 1, 20, 0), people.get(2)));
-        comments.add(new Comment(null, "Congrats!", LocalDateTime.of(2019, 12, 2, 20, 0), people.get(3)));
-        comments.add(new Comment(null, "When?", LocalDateTime.of(2019, 12, 3, 20, 0), people.get(4)));
-        comments.add(new Comment(null, "Can I buy it online?", LocalDateTime.of(2019, 12, 4, 20, 0), people.get(5)));
-        comments.add(new Comment(null, "Yes, ofcourse!", LocalDateTime.of(2019, 12, 5, 20, 0), people.get(6)));
-        comments.add(new Comment(null, "Where was it?", LocalDateTime.of(2019, 12, 6, 20, 0), people.get(7)));
-        comments.add(new Comment(null, "Good for you.", LocalDateTime.of(2019, 12, 7, 20, 0), people.get(8)));
-        comments.add(new Comment(null, "Woohoo", LocalDateTime.of(2019, 12, 8, 20, 0), people.get(9)));
+        comments.add(new Comment(null, "Yeah", of(2019, 12, 8, 20, 0), people.get(0)));
+        comments.add(new Comment(null, "Good luck", of(2019, 12, 9, 20, 0), people.get(1)));
+        comments.add(new Comment(null, "Nice", of(2019, 12, 7, 20, 0), people.get(2)));
+        comments.add(new Comment(null, "Best wishes!", of(2019, 12, 3, 5, 0), people.get(3)));
+        comments.add(new Comment(null, "Nice job", of(2019, 11, 5, 12, 0), people.get(4)));
+        comments.add(new Comment(null, "What instrument is that?", of(2019, 11, 8, 15, 0), people.get(5)));
+        comments.add(new Comment(null, "You rock, man", of(2019, 11, 6, 14, 0), people.get(6)));
+        comments.add(new Comment(null, "Where can I get this?", of(2019, 6, 8, 20, 0), people.get(7)));
+        comments.add(new Comment(null, "Haha", of(2019, 8, 8, 8, 0), people.get(8)));
+        comments.add(new Comment(null, "xd", of(2019, 2, 7, 14, 0), people.get(9)));
+        comments.add(new Comment(null, "No", of(2019, 12, 1, 20, 0), people.get(2)));
+        comments.add(new Comment(null, "Congrats!", of(2019, 12, 2, 20, 0), people.get(3)));
+        comments.add(new Comment(null, "When?", of(2019, 12, 3, 20, 0), people.get(4)));
+        comments.add(new Comment(null, "Can I buy it online?", of(2019, 12, 4, 20, 0), people.get(5)));
+        comments.add(new Comment(null, "Yes, ofcourse!", of(2019, 12, 5, 20, 0), people.get(6)));
+        comments.add(new Comment(null, "Where was it?", of(2019, 12, 6, 20, 0), people.get(7)));
+        comments.add(new Comment(null, "Good for you.", of(2019, 12, 7, 20, 0), people.get(8)));
+        comments.add(new Comment(null, "Woohoo", of(2019, 12, 8, 20, 0), people.get(9)));
 
         this.comments = commentRepository.saveAll(comments);
     }
 
     private void createPosts() {
-        posts.add(new Post(null, "What a beautiful day for music", LocalDateTime.of(2019, 12, 1, 19, 20, 0), List.of(comments.get(0), comments.get(1))));
-        posts.add(new Post(null, "Having my first concert tonight", LocalDateTime.of(2019, 12, 8, 19, 0), List.of(comments.get(1))));
-        posts.add(new Post(null, "First post", LocalDateTime.of(2019, 12, 7, 19, 0), List.of(comments.get(2))));
-        posts.add(new Post(null, "Just became a band member hehe", LocalDateTime.of(2019, 12, 1, 9, 0), List.of(comments.get(3))));
-        posts.add(new Post(null, "Tonight is the first gig in my cafe", LocalDateTime.of(2019, 11, 5, 11, 0), List.of(comments.get(4))));
-        posts.add(new Post(null, "Playing xyz", LocalDateTime.of(2019, 11, 8, 14, 0), List.of(comments.get(5))));
-        posts.add(new Post(null, "Got a big chance.", LocalDateTime.of(2019, 11, 6, 13, 0), List.of(comments.get(6))));
-        posts.add(new Post(null, "Found the best shop for guitars.", LocalDateTime.of(2019, 6, 8, 19, 0), List.of(comments.get(7))));
-        posts.add(new Post(null, "Hahahah", LocalDateTime.of(2019, 8, 8, 7, 0), List.of(comments.get(8))));
-        posts.add(new Post(null, "lol", LocalDateTime.of(2019, 2, 7, 13, 0), List.of(comments.get(9))));
-        posts.add(new Post(null, "My post", LocalDateTime.of(2019, 12, 1, 19, 0), List.of(comments.get(2))));
-        posts.add(new Post(null, "Having a big concert tonight.", LocalDateTime.of(2019, 12, 2, 19, 0), List.of(comments.get(3))));
-        posts.add(new Post(null, "New album coming soon.", LocalDateTime.of(2019, 12, 3, 19, 0), List.of(comments.get(4))));
-        posts.add(new Post(null, "New song coming soon.", LocalDateTime.of(2019, 12, 4, 19, 0), List.of(comments.get(5))));
-        posts.add(new Post(null, "Did you listen my xyz song?", LocalDateTime.of(2019, 12, 5, 19, 0), List.of(comments.get(6))));
-        posts.add(new Post(null, "Loved the concert tonight.", LocalDateTime.of(2019, 12, 6, 19, 0), List.of(comments.get(7))));
-        posts.add(new Post(null, "Working on something big.", LocalDateTime.of(2019, 12, 7, 19, 0), List.of(comments.get(8))));
-        posts.add(new Post(null, "Got promoted to a band leader!!", LocalDateTime.of(2019, 12, 8, 19, 0), List.of(comments.get(9))));
+        posts.add(new Post(null, "What a beautiful day for music", of(2019, 12, 1, 19, 20, 0), List.of(comments.get(0), comments.get(1))));
+        posts.add(new Post(null, "Having my first concert tonight", of(2019, 12, 8, 19, 0), List.of(comments.get(1))));
+        posts.add(new Post(null, "First post", of(2019, 12, 7, 19, 0), List.of(comments.get(2))));
+        posts.add(new Post(null, "Just became a band member hehe", of(2019, 12, 1, 9, 0), List.of(comments.get(3))));
+        posts.add(new Post(null, "Tonight is the first gig in my cafe", of(2019, 11, 5, 11, 0), List.of(comments.get(4))));
+        posts.add(new Post(null, "Playing xyz", of(2019, 11, 8, 14, 0), List.of(comments.get(5))));
+        posts.add(new Post(null, "Got a big chance.", of(2019, 11, 6, 13, 0), List.of(comments.get(6))));
+        posts.add(new Post(null, "Found the best shop for guitars.", of(2019, 6, 8, 19, 0), List.of(comments.get(7))));
+        posts.add(new Post(null, "Hahahah", of(2019, 8, 8, 7, 0), List.of(comments.get(8))));
+        posts.add(new Post(null, "lol", of(2019, 2, 7, 13, 0), List.of(comments.get(9))));
+        posts.add(new Post(null, "My post", of(2019, 12, 1, 19, 0), List.of(comments.get(2))));
+        posts.add(new Post(null, "Having a big concert tonight.", of(2019, 12, 2, 19, 0), List.of(comments.get(3))));
+        posts.add(new Post(null, "New album coming soon.", of(2019, 12, 3, 19, 0), List.of(comments.get(4))));
+        posts.add(new Post(null, "New song coming soon.", of(2019, 12, 4, 19, 0), List.of(comments.get(5))));
+        posts.add(new Post(null, "Did you listen my xyz song?", of(2019, 12, 5, 19, 0), List.of(comments.get(6))));
+        posts.add(new Post(null, "Loved the concert tonight.", of(2019, 12, 6, 19, 0), List.of(comments.get(7))));
+        posts.add(new Post(null, "Working on something big.", of(2019, 12, 7, 19, 0), List.of(comments.get(8))));
+        posts.add(new Post(null, "Got promoted to a band leader!!", of(2019, 12, 8, 19, 0), List.of(comments.get(9))));
 
         this.posts = postRepository.saveAll(posts);
     }
 
     private void createOccasions() {
-        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 1), "My birthday", true));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 2), "John's birthday", true));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 2, 3), "Emma's wedding", true));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 3, 4), "My wedding", true));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 5), "Doctor's appointment", true));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 5, 6), "Doctor's appointment", false));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 7, 7), "Cindy's birthday", false));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 9, 8), "Luke's bachelors party", false));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 1, 9), "Meeting", false));
-        occasions.add(new Occasion(null, LocalDate.of(2020, 4, 10), "Teambuilding", false));
+        occasions.add(new Occasion(null, of(2020, 1, 1,0,0,0), "My birthday", true));
+        occasions.add(new Occasion(null, of(2020, 1, 2,0,0,0), "John's birthday", true));
+        occasions.add(new Occasion(null, of(2020, 2, 3,0,0,0), "Emma's wedding", true));
+        occasions.add(new Occasion(null, of(2020, 3, 4,0,0,0), "My wedding", true));
+        occasions.add(new Occasion(null, of(2020, 1, 5,0,0,0), "Doctor's appointment", true));
+        occasions.add(new Occasion(null, of(2020, 5, 6,0,0,0), "Doctor's appointment", false));
+        occasions.add(new Occasion(null, of(2020, 7, 7,0,0,0), "Cindy's birthday", false));
+        occasions.add(new Occasion(null, of(2020, 9, 8,0,0,0), "Luke's bachelors party", false));
+        occasions.add(new Occasion(null, of(2020, 1, 9,0,0,0), "Meeting", false));
+        occasions.add(new Occasion(null, of(2020, 4, 10,0,0,0), "Teambuilding", false));
 
         this.occasions = occasionRepository.saveAll(occasions);
     }
@@ -246,22 +247,22 @@ public class LoaderService implements ApplicationRunner {
     }
 
     private void createBands() {
-        bands.add(new Band(null, "The Beatles", "bio1", LocalDate.of(1957, 6, 5), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(12), posts.get(13)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1))));
-        bands.add(new Band(null, "Pink Floyd", "bio2", LocalDate.of(1965, 6, 5), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(14), posts.get(15)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3))));
-        bands.add(new Band(null, "AC/DC", "bio3", LocalDate.of(1973, 6, 5), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(16), posts.get(17)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4))));
+        bands.add(new Band(null, "The Beatles", "bio1", LocalDateTime.of(1957, 6, 5,0,0,0), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(12), posts.get(13)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1)),List.of()));
+        bands.add(new Band(null, "Pink Floyd", "bio2", LocalDateTime.of(1965, 6, 5,0,0,0), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(14), posts.get(15)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3)),List.of()));
+        bands.add(new Band(null, "AC/DC", "bio3", LocalDateTime.of(1973, 6, 5,0,0,0), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(16), posts.get(17)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4)),List.of()));
 
         this.bands = bandRepository.saveAll(bands);
     }
 
     private void createMessages() {
-        messages.add(new Message(null, "Hello", LocalDateTime.of(2019, 12, 1, 12, 0, 0), people.get(0), null));
-        messages.add(new Message(null, "Hi", LocalDateTime.of(2019, 12, 2, 10, 0, 0), people.get(1), null));
-        messages.add(new Message(null, "How are you?", LocalDateTime.of(2019, 12, 3, 10, 0, 0), people.get(0), null));
-        messages.add(new Message(null, "Good", LocalDateTime.of(2019, 12, 4, 10, 0, 0), people.get(1), null));
-        messages.add(new Message(null, "How is your day?", LocalDateTime.of(2019, 12, 5, 10, 0, 0), people.get(0), null));
-        messages.add(new Message(null, "Nice", LocalDateTime.of(2019, 12, 6, 10, 0, 0), people.get(1), null));
-        messages.add(new Message(null, "OK", LocalDateTime.of(2019, 12, 7, 10, 0, 0), people.get(0), null));
-        messages.add(new Message(null, "Haha", LocalDateTime.of(2019, 12, 8, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "Hello", of(2019, 12, 1, 12, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Hi", of(2019, 12, 2, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "How are you?", of(2019, 12, 3, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Good", of(2019, 12, 4, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "How is your day?", of(2019, 12, 5, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Nice", of(2019, 12, 6, 10, 0, 0), people.get(1), null));
+        messages.add(new Message(null, "OK", of(2019, 12, 7, 10, 0, 0), people.get(0), null));
+        messages.add(new Message(null, "Haha", of(2019, 12, 8, 10, 0, 0), people.get(1), null));
 
         this.messages = messageRepository.saveAll(messages);
     }

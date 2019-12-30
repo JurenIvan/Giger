@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class FilterBandDto {
 
-	private LocalDate specificDateFirst;
-	private LocalDate specificDateSecond;
+	private LocalDateTime specificDateFirst;
+	private LocalDateTime specificDateSecond;
 }

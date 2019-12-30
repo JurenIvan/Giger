@@ -14,12 +14,12 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
-import static java.time.LocalDate.now;
+import static javax.persistence.CascadeType.REFRESH;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -39,7 +39,7 @@ public class Band {
 	private String name;
 	private String bio;
 	@NotNull
-	private LocalDate formedDate;
+	private LocalDateTime formedDate;
 	@Length(max = 10000)
 	private String pictureUrl;
 	private Location home;
@@ -50,9 +50,6 @@ public class Band {
 	private Musician leader;
 
 	@ManyToMany(fetch = LAZY)
-//	@JoinTable(name = "musician_bands",
-//			joinColumns = {@JoinColumn(name = "fk_band")},
-//			inverseJoinColumns = {@JoinColumn(name = "fk_musician")})
 	private List<Musician> members;
 
 	@ManyToMany(fetch = LAZY)
@@ -77,9 +74,11 @@ public class Band {
 	@OneToMany
 	private List<Occasion> occasions;
 
-	@OneToMany
-	@JoinColumn(name = "band_id")
+	@OneToMany(fetch = LAZY)
 	private List<Gig> gigs;
+
+	@OneToMany(fetch = LAZY)
+	private List<Gig> invitationGigs;
 
 
 	public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {
@@ -88,7 +87,7 @@ public class Band {
 		band.setName(bandCreationDto.getName());
 		band.setAcceptableGigTypes(bandCreationDto.getAcceptableGigTypes());
 		band.setBio(bandCreationDto.getBio());
-		band.setFormedDate(now());
+		band.setFormedDate(LocalDateTime.now());
 		band.setHome(bandCreationDto.getHomeLocation());
 		band.setPictureUrl(bandCreationDto.getPictureUrl());
 		band.setLeader(loggedMusician);
@@ -154,5 +153,15 @@ public class Band {
 
 	public void addPost(Post post) {
 		this.posts.add(post);
+	}
+
+	public void acceptGig(Occasion occasion, Gig gig) {
+		invitationGigs.remove(gig);
+		gigs.add(gig);
+		occasions.add(occasion);
+	}
+
+	public void addInvitation(Gig gig) {
+		invitationGigs.add(gig);
 	}
 }
