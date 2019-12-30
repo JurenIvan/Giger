@@ -19,7 +19,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
-import static javax.persistence.CascadeType.REFRESH;
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -74,10 +75,10 @@ public class Band {
 	@OneToMany
 	private List<Occasion> occasions;
 
-	@OneToMany(fetch = LAZY)
+	@ManyToMany(fetch = LAZY)
 	private List<Gig> gigs;
 
-	@OneToMany(fetch = LAZY)
+	@ManyToMany(fetch = LAZY)
 	private List<Gig> invitationGigs;
 
 
