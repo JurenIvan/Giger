@@ -53,17 +53,4 @@ public class Gig {
     public GigPreviewDto toDto() {
         return new GigPreviewDto(id, organizer.getId(), dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
     }
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Gig)) return false;
-		Gig gig = (Gig) o;
-		return Objects.equals(id, gig.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
 }

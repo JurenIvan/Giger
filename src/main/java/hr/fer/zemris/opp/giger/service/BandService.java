@@ -177,10 +177,10 @@ public class BandService {
 		if (!band.getLeader().getId().equals(loggedMusician.getId()))
 			throw new GigerException(ONLY_LEADER_CAN_ACCEPT_GIG);
 
-		if (band.getGigs().contains(gig))
+		if (band.getGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_ACCEPTED);
 
-		if (!band.getInvitationGigs().contains(gig))
+		if (!band.getInvitationGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_NOT_INVITED_TO_GIG);
 
 		band.acceptGig(occasionRepository.save(Occasion.createOccasion(gig, false)), gig);

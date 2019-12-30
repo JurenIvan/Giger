@@ -78,10 +78,10 @@ public class GigService {
 		if (!gig.getOrganizer().getId().equals(organizer.getId()))
 			throw new GigerException(ErrorCode.NOT_ORGANIZER_FOR_THIS_EVENT);
 
-		if(band.getInvitationGigs().contains(gig))
+		if(band.getInvitationGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_INVITED);
 
-		if(band.getGigs().contains(gig))
+		if(band.getGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_ACCEPTED);
 
 		band.addInvitation(gig);
