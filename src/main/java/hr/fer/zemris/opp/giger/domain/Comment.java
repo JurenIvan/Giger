@@ -17,19 +17,19 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Comment {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime postedOn;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime postedOn;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @NotNull
-    private Person author;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@NotNull
+	private Person author;
 
-    public CommentDto toDto() {
-        return new CommentDto(id, content, postedOn, author.toDto());
-    }
+	public CommentDto toDto() {
+		return new CommentDto(id, content, postedOn, author.toDto());
+	}
 }

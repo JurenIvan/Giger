@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ConversationCreationDto {
 
-    private String title;
-    private String userName;
-    private String pictureUrl;
+	private String title;
+	private String userName;
+	private String pictureUrl;
 }

@@ -34,7 +34,7 @@ public class Occasion {
 		return new OccasionDto(id, localDateTime, description, personalOccasion);
 	}
 
-	public static Occasion createOccasion(Gig gig,Boolean personalOccasion) {
+	public static Occasion createOccasion(Gig gig, Boolean personalOccasion) {
 		return new Occasion(null, gig.getDateTime(), gig.getDescription(), personalOccasion);
 	}
 }

@@ -25,31 +25,31 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Conversation {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    private String title;
-    private String pictureUrl;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	private String title;
+	private String pictureUrl;
 
-    @ManyToMany(fetch = LAZY)
-    @JoinTable(name = "conversation_user",
-            joinColumns = {@JoinColumn(name = "fk_conversation")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_user")})
-    private List<Person> participants;
+	@ManyToMany(fetch = LAZY)
+	@JoinTable(name = "conversation_user",
+			joinColumns = {@JoinColumn(name = "fk_conversation")},
+			inverseJoinColumns = {@JoinColumn(name = "fk_user")})
+	private List<Person> participants;
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "fk_band")
-    private Band band; //todo add list of bands?
-
-
-    @OneToMany(fetch = LAZY, cascade = MERGE)
-    @JoinColumn(name = "fk_conversation")
-    private List<Message> messages;
+	@ManyToOne(fetch = LAZY)
+	@JoinColumn(name = "fk_band")
+	private Band band; //todo add list of bands?
 
 
-    public static Conversation createConversation(ConversationCreationDto other, Person creator) {
-        return new Conversation(null, other.getTitle(), other.getPictureUrl(), List.of(creator), null, null);
-    }
+	@OneToMany(fetch = LAZY, cascade = MERGE)
+	@JoinColumn(name = "fk_conversation")
+	private List<Message> messages;
+
+
+	public static Conversation createConversation(ConversationCreationDto other, Person creator) {
+		return new Conversation(null, other.getTitle(), other.getPictureUrl(), List.of(creator), null, null);
+	}
 
 	public void removeParticipants(Person person) {
 		participants.remove(person);

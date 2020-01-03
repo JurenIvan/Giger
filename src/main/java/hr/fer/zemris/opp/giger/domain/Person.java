@@ -19,26 +19,26 @@ import javax.persistence.Table;
 @Table(name = "person")
 public class Person {
 
-    @Id
-    private Long id;
+	@Id
+	private Long id;
 
-    @Column(unique = true)
-    private String username;
-    private String phoneNumber;
-    @Length(max = 10000)
-    private String pictureUrl;
+	@Column(unique = true)
+	private String username;
+	private String phoneNumber;
+	@Length(max = 10000)
+	private String pictureUrl;
 
-    public PersonPreviewDto toDto() {
-        return new PersonPreviewDto(id, username, pictureUrl);
-    }
+	public PersonPreviewDto toDto() {
+		return new PersonPreviewDto(id, username, pictureUrl);
+	}
 
-    public Person updatePerson(MusicianProfileDto musicianProfileDto) {
-        if (musicianProfileDto.getContactNumber() != null)
-            this.phoneNumber = musicianProfileDto.getContactNumber();
+	public Person updatePerson(MusicianProfileDto musicianProfileDto) {
+		if (musicianProfileDto.getContactNumber() != null)
+			this.phoneNumber = musicianProfileDto.getContactNumber();
 
-        if (musicianProfileDto.getPictureUrl() != null)
-            this.pictureUrl = musicianProfileDto.getPictureUrl();
+		if (musicianProfileDto.getPictureUrl() != null)
+			this.pictureUrl = musicianProfileDto.getPictureUrl();
 
-        return this;
-    }
+		return this;
+	}
 }

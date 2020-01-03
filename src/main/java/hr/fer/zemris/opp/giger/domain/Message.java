@@ -20,13 +20,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Message {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime sentTime;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime sentTime;
 
 	@ManyToOne(fetch = EAGER)
 	@JoinColumn(name = "fk_sender")

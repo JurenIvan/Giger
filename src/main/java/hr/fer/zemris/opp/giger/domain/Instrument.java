@@ -17,9 +17,9 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Instrument {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    private String name;
-    private InstrumentType type;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	private String name;
+	private InstrumentType type;
 }

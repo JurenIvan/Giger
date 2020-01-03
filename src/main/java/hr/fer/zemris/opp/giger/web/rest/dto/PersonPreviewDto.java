@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PersonPreviewDto {
 
-    private long id;
-    private String name;
-    private String pictureUrl;
+	private long id;
+	private String name;
+	private String pictureUrl;
 }

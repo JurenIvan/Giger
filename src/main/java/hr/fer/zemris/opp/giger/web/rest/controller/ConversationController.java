@@ -15,32 +15,32 @@ import java.util.List;
 @AllArgsConstructor
 public class ConversationController {
 
-    private ConversationService conversationService;
+	private ConversationService conversationService;
 
-    @PostMapping("/create")
-    public long createConversation(@RequestBody ConversationCreationDto conversationCreationDto) {
-        return conversationService.createConversation(conversationCreationDto);
-    }
+	@PostMapping("/create")
+	public long createConversation(@RequestBody ConversationCreationDto conversationCreationDto) {
+		return conversationService.createConversation(conversationCreationDto);
+	}
 
-    @GetMapping("{conversationId}")
-    public ConversationPreviewDto loadConversation(@PathVariable Long conversationId) {
-        return conversationService.loadConversation(conversationId);
-    }
+	@GetMapping("{conversationId}")
+	public ConversationPreviewDto loadConversation(@PathVariable Long conversationId) {
+		return conversationService.loadConversation(conversationId);
+	}
 
-    @PostMapping("/send/person")
-    public void postMessageAsPerson(@RequestBody NewMessageDto newMessageDto) {
-        conversationService.postMessageAsPerson(newMessageDto);
-    }
+	@PostMapping("/send/person")
+	public void postMessageAsPerson(@RequestBody NewMessageDto newMessageDto) {
+		conversationService.postMessageAsPerson(newMessageDto);
+	}
 
-    @PostMapping("/send/band")
-    public void postMessageAsBand(@RequestBody NewMessageDto newMessageDto) {
-        conversationService.postMessageAsBand(newMessageDto);
-    }
+	@PostMapping("/send/band")
+	public void postMessageAsBand(@RequestBody NewMessageDto newMessageDto) {
+		conversationService.postMessageAsBand(newMessageDto);
+	}
 
-    @GetMapping("/get/personal")
-    public List<ConversationPreviewDto> loadAllConversations() {
-        return conversationService.loadAllPersonalConversations();
-    }
+	@GetMapping("/get/personal")
+	public List<ConversationPreviewDto> loadAllConversations() {
+		return conversationService.loadAllPersonalConversations();
+	}
 
 	@GetMapping("/get/band/{bandId}")
 	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable Long bandId) {

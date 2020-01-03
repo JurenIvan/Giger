@@ -41,11 +41,12 @@ public class GigService {
 
 		Gig gig = new Gig();
 		gig.setDateTime(gigCreationDto.getDateTime());
-		gig.setLocation(gigCreationDto.getLocation());gig.setDescription(gigCreationDto.getDescription());
+		gig.setLocation(gigCreationDto.getLocation());
+		gig.setDescription(gigCreationDto.getDescription());
 		gig.setExpectedDuration(gigCreationDto.getExpectedDuration());
-        gig.setProposedPrice(gigCreationDto.getProposedPrice());
-        gig.setGigType(gigCreationDto.getGigType());
-        gig.setPrivateGig(gigCreationDto.getPrivateGig());
+		gig.setProposedPrice(gigCreationDto.getProposedPrice());
+		gig.setGigType(gigCreationDto.getGigType());
+		gig.setPrivateGig(gigCreationDto.getPrivateGig());
 		gig.setName(gigCreationDto.getGigName());
 		gig.setOrganizer(organizer);
 
@@ -78,10 +79,10 @@ public class GigService {
 		if (!gig.getOrganizer().getId().equals(organizer.getId()))
 			throw new GigerException(ErrorCode.NOT_ORGANIZER_FOR_THIS_EVENT);
 
-		if(band.getInvitationGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
+		if (band.getInvitationGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_INVITED);
 
-		if(band.getGigs().stream().anyMatch(e->e.getId().equals(gig.getId())))
+		if (band.getGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_ACCEPTED);
 
 		band.addInvitation(gig);

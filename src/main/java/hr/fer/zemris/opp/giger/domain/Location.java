@@ -12,8 +12,8 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 public class Location {
 
-    private Double x;
-    private Double y;
-    private String address;
-    private String extraDescription;
+	private Double x;
+	private Double y;
+	private String address;
+	private String extraDescription;
 }

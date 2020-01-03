@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Organizer {
 
-    @Id
-    private Long id;
-    private String managerName;
+	@Id
+	private Long id;
+	private String managerName;
 }

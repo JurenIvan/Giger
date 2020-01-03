@@ -10,7 +10,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.LAZY;

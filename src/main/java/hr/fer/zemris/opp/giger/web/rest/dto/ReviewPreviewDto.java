@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ReviewPreviewDto {
 
-    private Long id;
-    private String contentOfReviewForBand;
-    private String contentOfReviewForOrganizer;
-    private Integer gradeBand;
-    private Integer gradeOrganizer;
-    private LocalDateTime created;
-    private PersonPreviewDto author;
+	private Long id;
+	private String contentOfReviewForBand;
+	private String contentOfReviewForOrganizer;
+	private Integer gradeBand;
+	private Integer gradeOrganizer;
+	private LocalDateTime created;
+	private PersonPreviewDto author;
 }

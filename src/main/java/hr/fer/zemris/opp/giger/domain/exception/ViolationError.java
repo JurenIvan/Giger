@@ -7,13 +7,13 @@ import lombok.Getter;
 @Getter
 public class ViolationError {
 
-    private String path;
-    private int code;
-    private String message;
+	private String path;
+	private int code;
+	private String message;
 
-    public ViolationError(int code, String message) {
-        this.path = "";
-        this.code = code;
-        this.message = message;
-    }
+	public ViolationError(int code, String message) {
+		this.path = "";
+		this.code = code;
+		this.message = message;
+	}
 }

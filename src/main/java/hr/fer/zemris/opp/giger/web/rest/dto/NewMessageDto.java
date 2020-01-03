@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NewMessageDto {
 
-    private Long conversationId;
-    private Long band;
-    private String content;
+	private Long conversationId;
+	private Long band;
+	private String content;
 }

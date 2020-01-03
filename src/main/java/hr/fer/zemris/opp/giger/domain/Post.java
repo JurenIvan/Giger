@@ -23,27 +23,27 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 public class Post {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime publishedOn;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime publishedOn;
 
-    @OneToMany(fetch = EAGER, cascade = MERGE)
-    @JoinColumn(name = "fk_post")
-    private List<Comment> comments;
+	@OneToMany(fetch = EAGER, cascade = MERGE)
+	@JoinColumn(name = "fk_post")
+	private List<Comment> comments;
 
-    public PostDto toDto(MusicianProfileDto author, BandDto bandAuthor) {
-        return new PostDto(id, content, publishedOn, comments.stream().map(Comment::toDto).collect(toList()), author, bandAuthor);
-    }
+	public PostDto toDto(MusicianProfileDto author, BandDto bandAuthor) {
+		return new PostDto(id, content, publishedOn, comments.stream().map(Comment::toDto).collect(toList()), author, bandAuthor);
+	}
 
-    public static Post createPost(String content) {
-        return new Post(null, content, LocalDateTime.now(), null);
-    }
+	public static Post createPost(String content) {
+		return new Post(null, content, LocalDateTime.now(), null);
+	}
 
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
+	public void addComment(Comment comment) {
+		comments.add(comment);
+	}
 }

@@ -1,6 +1,5 @@
 package hr.fer.zemris.opp.giger.repository;
 
-import hr.fer.zemris.opp.giger.domain.Instrument;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;

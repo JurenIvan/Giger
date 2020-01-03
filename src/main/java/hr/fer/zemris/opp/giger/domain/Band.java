@@ -19,8 +19,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 

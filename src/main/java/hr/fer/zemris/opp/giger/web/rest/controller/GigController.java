@@ -17,21 +17,21 @@ import javax.validation.Valid;
 @RequestMapping("/gigs")
 public class GigController {
 
-    private GigService gigService;
+	private GigService gigService;
 
-    @PostMapping("/create-gig")
-    @PreAuthorize("hasPermission('ORGANIZER')")
-    public Gig createGig(@Valid @RequestBody GigCreationDto gigCreationDto) {
-        return gigService.createGig(gigCreationDto);
-    }
+	@PostMapping("/create-gig")
+	@PreAuthorize("hasPermission('ORGANIZER')")
+	public Gig createGig(@Valid @RequestBody GigCreationDto gigCreationDto) {
+		return gigService.createGig(gigCreationDto);
+	}
 
-    @GetMapping("/{gigId}")
-    public GigPreviewDto viewGig(@PathVariable Long gigId) {
-        return gigService.viewGig(gigId);
-    }
+	@GetMapping("/{gigId}")
+	public GigPreviewDto viewGig(@PathVariable Long gigId) {
+		return gigService.viewGig(gigId);
+	}
 
-    @PostMapping("/invite")
-	public GigPreviewDto inviteBandToGig(@RequestBody BandInvitation bandInvitation){
-    	return gigService.inviteBand(bandInvitation);
-    }
+	@PostMapping("/invite")
+	public GigPreviewDto inviteBandToGig(@RequestBody BandInvitation bandInvitation) {
+		return gigService.inviteBand(bandInvitation);
+	}
 }
