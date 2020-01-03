@@ -9,6 +9,7 @@ import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
 import CreateGig from './components/CreateGig'
 import InviteToGig from './components/InviteToGig'
+import AcceptGigInvite from './components/AcceptGigInvite'
 
 
 
@@ -25,6 +26,12 @@ function App() {
               <Home/> : 
                   alert("Please log in!")
             )}/>
+          <Route path='/AcceptGigInvite'
+          render={() => (
+            Cookies.get('Bearer')?
+            <Home/> : 
+                alert("Please log in!")
+          )}/>
           <Route path='/CreateGig'
           render={() => (
             Cookies.get('Bearer')?
