@@ -273,7 +273,7 @@ export default class CreateGig extends React.Component {
                             </div>
                         <div nameClass="col-6">
                             <Form.Group>
-                                <Button type="submit" block> Create Gig </Button>
+                                <Button type="submit" block> Stvori gig </Button>
                             </Form.Group>
                         </div>
                     </Form>
