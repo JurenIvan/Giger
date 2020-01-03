@@ -188,4 +188,8 @@ public class BandService {
 
 		return gig.toDto();
 	}
+
+	public BandDto getBand(Long bandId) {
+		return bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND)).toDto();
+	}
 }
