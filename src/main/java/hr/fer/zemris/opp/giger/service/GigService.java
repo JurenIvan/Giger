@@ -89,4 +89,9 @@ public class GigService {
 		bandRepository.save(band);
 		return gig.toDto();
 	}
+
+	public List<GigPreviewDto> listMyGigs() {
+		Organizer organizer = userDetailsService.getLoggedOrganizer();
+		return gigRepository.findAllByOrganizer(organizer).stream().map(Gig::toDto).collect(toList());
+	}
 }

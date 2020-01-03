@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -33,5 +34,10 @@ public class GigController {
 	@PostMapping("/invite")
 	public GigPreviewDto inviteBandToGig(@RequestBody BandInvitation bandInvitation) {
 		return gigService.inviteBand(bandInvitation);
+	}
+
+	@GetMapping("/my")
+	public List<GigPreviewDto> viewMyGigs() {
+		return gigService.listMyGigs();
 	}
 }

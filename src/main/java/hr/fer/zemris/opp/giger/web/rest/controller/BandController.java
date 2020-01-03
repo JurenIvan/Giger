@@ -17,6 +17,11 @@ public class BandController {
 
 	private BandService bandService;
 
+	@GetMapping("/{bandId}")
+	public BandDto getBand(@PathVariable Long bandId) {
+		return bandService.getBand(bandId);
+	}
+
 	@GetMapping("/like/{name}")
 	public List<BandDto> getBands(@PathVariable String name) {
 		return bandService.listBands(name);
