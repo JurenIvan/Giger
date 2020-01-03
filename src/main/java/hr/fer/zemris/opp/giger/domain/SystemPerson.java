@@ -40,7 +40,7 @@ public class SystemPerson implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return roles.stream().map(role -> role.getGrantedAuthority()).collect(Collectors.toList());
+		return roles.stream().map(Role::getGrantedAuthority).collect(Collectors.toList());
 	}
 
 	@Override

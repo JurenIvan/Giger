@@ -163,4 +163,8 @@ public class Band {
 	public void addInvitation(Gig gig) {
 		invitationGigs.add(gig);
 	}
+
+	public void cancelGig(Gig gig) {
+		invitationGigs.remove(gig);
+	}
 }

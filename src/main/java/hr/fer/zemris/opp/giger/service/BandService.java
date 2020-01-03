@@ -180,7 +180,7 @@ public class BandService {
 		if (band.getGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_ACCEPTED);
 
-		if (!band.getInvitationGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
+		if (band.getInvitationGigs().stream().noneMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_NOT_INVITED_TO_GIG);
 
 		band.acceptGig(occasionRepository.save(Occasion.createOccasion(gig, false)), gig);
@@ -191,5 +191,23 @@ public class BandService {
 
 	public BandDto getBand(Long bandId) {
 		return bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND)).toDto();
+	}
+
+	public void cancelInvitation(BandInvitation bandInvitation) {
+		Band band = bandRepository.findById(bandInvitation.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
+		Musician loggedMusician = userDetailsService.getLoggedMusician();
+		Gig gig = gigRepository.findById(bandInvitation.getGigId()).orElseThrow(() -> new GigerException(NO_SUCH_GIG));
+
+		if (!band.getLeader().getId().equals(loggedMusician.getId()))
+			throw new GigerException(ONLY_LEADER_CAN_CANCEL_GIG);
+
+		if (band.getGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
+			throw new GigerException(BAND_ALREADY_ACCEPTED);
+
+		if (band.getInvitationGigs().stream().noneMatch(e -> e.getId().equals(gig.getId())))
+			throw new GigerException(BAND_NOT_INVITED_TO_GIG);
+
+		band.cancelGig(gig);
+		bandRepository.save(band);
 	}
 }

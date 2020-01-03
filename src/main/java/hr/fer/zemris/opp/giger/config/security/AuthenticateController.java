@@ -2,6 +2,7 @@ package hr.fer.zemris.opp.giger.config.security;
 
 import hr.fer.zemris.opp.giger.config.security.model.AuthenticationRequestDto;
 import hr.fer.zemris.opp.giger.config.security.model.AuthenticationResponseDto;
+import hr.fer.zemris.opp.giger.domain.SystemPerson;
 import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,7 @@ public class AuthenticateController {
 	private UserDetailsServiceImpl userDetailsService;
 
 	@PostMapping(value = "/authenticate")
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequestDto authenticationRequest) throws Exception {
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequestDto authenticationRequest) {
 		try {
 			authenticationManager
 					.authenticate(new UsernamePasswordAuthenticationToken(
@@ -40,7 +41,7 @@ public class AuthenticateController {
 
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
 		final String jwt = jwtTokenUtil.generateToken(userDetails);
-		return ResponseEntity.ok(new AuthenticationResponseDto(jwt));
+		return ResponseEntity.ok(new AuthenticationResponseDto(jwt, ((SystemPerson) userDetails).getId()));
 	}
 
 	@GetMapping(value = "/current-roles")

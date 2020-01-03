@@ -41,4 +41,10 @@ public class BandController {
 	public GigPreviewDto acceptInvitation(@RequestBody BandInvitation bandInvitation) {
 		return bandService.acceptInvitation(bandInvitation);
 	}
+
+	@GetMapping("/invitations/cancel")
+	public void cancelInvitation(@RequestBody BandInvitation bandInvitation) {
+		bandService.cancelInvitation(bandInvitation);
+	}
+
 }
