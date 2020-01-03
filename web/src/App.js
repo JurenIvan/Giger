@@ -29,7 +29,7 @@ function App() {
           <Route path='/AcceptGigInvite'
           render={() => (
             Cookies.get('Bearer')?
-            <Home/> : 
+            <AcceptGigInvite/> : 
                 alert("Please log in!")
           )}/>
           <Route path='/CreateGig'
