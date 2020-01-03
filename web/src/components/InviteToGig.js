@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form'
 //import * as Helpers from '../Utils/HelperMethods'
 import fetcingFactory from "../Utils/external";
 import {endpoints} from "../Utils/Types";
+import Select from 'react-dropdown-select';
 
 
 export default class CreateGig extends React.Component {
@@ -13,11 +14,11 @@ export default class CreateGig extends React.Component {
 
         this.state = {
             bandId: "",
-            gigId: "",
+            selectedGig: "",
             bandName: "",
-            gigName: ""
+            myGigs: []
         }
-        this.handleBandIdGet = this.handleBandIdGet.bind(this)
+        //this.handleGetMyGigs = this.handleGetMyGigs.bind(this)
     }
 
     handleChange = event => {
@@ -28,7 +29,7 @@ export default class CreateGig extends React.Component {
 
     handleBandIdGet = event => {
         event.preventDefault();
-        fetcingFactory(endpoints.GETBANDID, this.state.bandName).then(
+        fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
             response => response.json()
             ).then(response => {
                 if (response.length === 0) {
@@ -39,7 +40,50 @@ export default class CreateGig extends React.Component {
                     this.setState({
                         bandId: response[0].id
                     })
+                    console.log(this.state.bandId)
                 }   
+            });
+    }
+
+    setValues = selectedGig => {
+        this.setState({ selectedGig }
+            , () => console.log(this.state.selectedGig)
+        );
+    }
+
+    handleGetMyGigs = event => {
+        event.preventDefault();
+        fetcingFactory(endpoints.GET_MY_GIGS, "my").then(
+            response => response.json()
+            ).then(response => {
+                if (response.length === 0) {
+                    alert("No gigs")
+                }
+                else {
+                    for(let i = 0; i < response.length; i++) {
+                        this.setState(prevState => ({
+                            myGigs: [...prevState.myGigs, {value: response[i].id, label: response[i].name}]
+                          }))
+                    }
+                }   
+            });
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        let params = JSON.stringify({
+            "bandId": this.state.bandId,
+            "gigId": this.state.selectedGig
+        });
+        console.log(params)
+        fetcingFactory(endpoints.INVITE_TO_GIG, params).then(
+            response => {
+                if (response.status === 200) {
+                    window.location.href = "/home";
+                } else {
+                    console.log(response)
+                    alert(response.json())
+                }
             });
     }
 
@@ -57,8 +101,6 @@ export default class CreateGig extends React.Component {
                                               onChange={this.handleChange}/>
                             </Form.Group>
                         </div>
-                        <h1>{this.state.bandName}</h1> 
-                        <h1>{this.state.bandId}</h1>
 
                         <div className="col-6">
                             <Form.Group>
@@ -66,22 +108,24 @@ export default class CreateGig extends React.Component {
                             </Form.Group>
                         </div>
 
-                        <div className="col-2">
-                            <Form.Label controlId="gigName"> Ime giga: </Form.Label>
-                        </div>
                         <div className="col-6">
-                            <Form.Group controlId="gigName">
-                                <Form.Control autoFocus type="text" value={this.state.gigName}
-                                              onChange={this.handleChange}/>
+                            <Form.Group>
+                                <Button type="button" block onClick={this.handleGetMyGigs}> Dohvati svoje gigove </Button>
                             </Form.Group>
                         </div>
 
-                        <h1>{this.state.gigName}</h1> 
-                        <h1>{this.state.gigId}</h1>
-
+                        <div className="col-2">
+                            <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
+                        </div>
                         <div className="col-6">
-                            <Form.Group>
-                                <Button type="button" block onClick={this.handleGigIdGet}> Dohvati ID benda </Button>
+                            <Form.Group controlId="gigName">
+                            <Select
+                                name="selectedGigName"
+                                options={this.state.myGigs}
+                                value={this.state.selectedGigName}
+                                //onChange={this.updateEventType}
+                                onChange={value => this.setValues(value[0].value)}
+                            />
                             </Form.Group>
                         </div>
 
