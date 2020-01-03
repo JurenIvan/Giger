@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.8.2",
     "bootstrap": "^4.4.1",
+    "date-fns": "^2.8.1",
     "js-cookie": "^2.2.1",
     "opencage-api-client": "^0.5.1",
     "react": "^16.12.0",
