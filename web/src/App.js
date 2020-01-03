@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
 import CreateGig from './components/CreateGig'
+import InviteToGig from './components/InviteToGig'
 
 
 
@@ -28,6 +29,12 @@ function App() {
           render={() => (
             Cookies.get('Bearer')?
             <CreateGig/> : 
+                alert("Please log in!")
+          )}/>
+          <Route path='/InviteToGig'
+          render={() => (
+            Cookies.get('Bearer')?
+            <InviteToGig/> : 
                 alert("Please log in!")
           )}/>
           <Route path='/Logout' exact component={Login}/>
