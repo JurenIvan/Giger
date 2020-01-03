@@ -53,7 +53,8 @@ export default class Login extends Component {
                     return response.json()
                 }
             ).then (json => {
-                if (json.token) {
+                if (json.token && json.userId) {
+                    Cookies.set("userId", json.userId);
                     Cookies.set("Bearer", json.token);
                     window.location.href = "/home"
                 } else {

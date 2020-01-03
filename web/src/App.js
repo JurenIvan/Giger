@@ -11,6 +11,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile'
 import CreateGig from './components/CreateGig'
+import ChangeProfileType from './components/Profile/ChangeProfileType';
 
 
 
@@ -51,6 +52,7 @@ function App() {
           <Route path='/error' exact component={ErrorComponent} />
           <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile' exact component = {ProfileClass} />
+          <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
         </Switch>
       </div>
     </BrowserRouter>
