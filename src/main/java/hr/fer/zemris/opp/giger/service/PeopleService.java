@@ -6,7 +6,6 @@ import hr.fer.zemris.opp.giger.domain.Review;
 import hr.fer.zemris.opp.giger.domain.SystemPerson;
 import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
-import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.PersonRepository;
 import hr.fer.zemris.opp.giger.repository.ReviewRepository;
 import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
@@ -27,14 +26,13 @@ public class PeopleService {
 	private EmailSender emailSender;
 	private SystemPersonRepository systemPersonRepository;
 	private PersonRepository peopleRepository;
-	private BandRepository bandRepository;
 	private ReviewRepository reviewRepository;
 
-	public PeopleService(EmailSender emailSender, SystemPersonRepository systemPersonRepository, PersonRepository peopleRepository, BandRepository bandRepository) {
+	public PeopleService(EmailSender emailSender, SystemPersonRepository systemPersonRepository, PersonRepository peopleRepository, ReviewRepository reviewRepository) {
 		this.emailSender = emailSender;
 		this.systemPersonRepository = systemPersonRepository;
 		this.peopleRepository = peopleRepository;
-		this.bandRepository = bandRepository;
+		this.reviewRepository = reviewRepository;
 	}
 
 	@Value("${spring.security.security.BCrypt.secret}")
@@ -78,7 +76,7 @@ public class PeopleService {
 		Person person = peopleRepository.findByUsername(username).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 		SystemPerson systemPerson = systemPersonRepository.findById(person.getId()).get();
 
-		if (systemPerson.getVerified() != null && systemPerson.getVerified() == true)
+		if (systemPerson.getVerified() != null && systemPerson.getVerified())
 			return true;
 		if (systemPerson.getEmail().hashCode() == Integer.parseInt(token))
 			systemPerson.setVerified(true);

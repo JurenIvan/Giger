@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public enum ErrorCode {
 	EXCEPTION(40001, "Exception occurred", BAD_REQUEST),
 	NO_SUCH_USER(40002, "No such user exists", BAD_REQUEST),

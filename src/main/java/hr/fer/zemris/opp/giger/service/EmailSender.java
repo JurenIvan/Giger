@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 public class EmailSender {
 
 	@Value("${server.developer.address}")
-	private String baseUrl;
+	public String baseUrl;
 
 	@Value("${server.servlet.context-path}")
-	private String contextPath;
+	public String contextPath;
 
 	@Autowired
 	private JavaMailSender emailSender;

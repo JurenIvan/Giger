@@ -1,11 +1,13 @@
 package hr.fer.zemris.opp.giger.domain.exception;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class GigerException extends RuntimeException {
 
-	private final ErrorCode errorCode;
+	private ErrorCode errorCode;
 
 	public GigerException(ErrorCode errorCode) {
 		super(errorCode.getMessage());

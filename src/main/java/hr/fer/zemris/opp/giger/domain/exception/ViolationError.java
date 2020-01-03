@@ -1,14 +1,16 @@
 package hr.fer.zemris.opp.giger.domain.exception;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-@Getter
+@NoArgsConstructor
+@Data
 public class ViolationError {
 
 	private String path;
-	private int code;
+	private Integer code;
 	private String message;
 
 	public ViolationError(int code, String message) {

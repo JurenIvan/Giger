@@ -34,12 +34,12 @@ public class RegistrationController {
 	}
 
 	@GetMapping("/nickname-available")
-	public boolean isNicknameAvailable(String nickname) {
+	public Boolean isNicknameAvailable(String nickname) {
 		return peopleService.isUserNameAvailable(nickname);
 	}
 
 	@GetMapping("/email-available")
-	public boolean isEmailAvailable(String email) {
+	public Boolean isEmailAvailable(String email) {
 		return peopleService.isEmailAvailable(email);
 	}
 }
