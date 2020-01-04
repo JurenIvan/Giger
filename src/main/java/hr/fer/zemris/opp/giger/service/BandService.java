@@ -95,7 +95,7 @@ public class BandService {
 		Band band = bandRepository.findById(bandEditProfileDto.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 
-		if (!band.getMembers().contains(loggedMusician) || !band.getLeader().getId().equals(loggedMusician.getId()))
+		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().equals(loggedMusician)))
 			throw new GigerException(ONLY_MEMBERS_CAN_EDIT_BAND);
 
 		band.editProfile(bandEditProfileDto);

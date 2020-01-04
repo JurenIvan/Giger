@@ -2,10 +2,12 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
+import hr.fer.zemris.opp.giger.domain.Location;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
 import org.junit.Before;
 import org.junit.Test;
@@ -258,9 +260,71 @@ public class BandServiceTest {
 	public void kickMusician() {
 	}
 
+	@Test
+	public void editProfile_asMember() {
+		Musician musician = mock(Musician.class);
+		BandEditProfileDto bandEditProfileDto = new BandEditProfileDto();
+		Location location = mock(Location.class);
+
+		bandEditProfileDto.setBio("bio");
+		bandEditProfileDto.setBandId(1L);
+		bandEditProfileDto.setLocation(location);
+		bandEditProfileDto.setRemovePostIds(newArrayList());
+
+		Band band = new Band();
+		band.setMembers(newArrayList(musician));
+		band.setPosts(newArrayList());
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+
+		band.setBio("bio");
+		band.setHome(location);
+
+		bandService.editProfile(bandEditProfileDto);
+		verify(bandRepository).save(band);
+	}
 
 	@Test
-	public void editProfile() {
+	public void editProfile_asLeader() {
+		Musician musician = mock(Musician.class);
+		Musician musicianOther = mock(Musician.class);
+		BandEditProfileDto bandEditProfileDto = new BandEditProfileDto();
+		Location location = mock(Location.class);
+
+		bandEditProfileDto.setBio("bio");
+		bandEditProfileDto.setBandId(1L);
+		bandEditProfileDto.setLocation(location);
+		bandEditProfileDto.setRemovePostIds(newArrayList());
+
+		Band band = new Band();
+		band.setMembers(newArrayList(musicianOther));
+		band.setLeader(musician);
+		band.setPosts(newArrayList());
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+
+		band.setBio("bio");
+		band.setHome(location);
+
+		bandService.editProfile(bandEditProfileDto);
+		verify(bandRepository).save(band);
+	}
+
+	@Test(expected = GigerException.class)
+	public void editProfile_notAuthorized() {
+		Musician musician = mock(Musician.class);
+		Musician musicianOther = mock(Musician.class);
+
+		Band band = new Band();
+		band.setMembers(newArrayList(musicianOther));
+		band.setLeader(musicianOther);
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+
+		bandService.editProfile(mock(BandEditProfileDto.class));
 	}
 
 	@Test

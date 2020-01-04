@@ -15,6 +15,8 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -141,7 +143,15 @@ public class Band {
 		if (bandEditProfileDto.getMaxDistance() != null) {
 			this.maxDistance = bandEditProfileDto.getMaxDistance();
 		}
-		bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));    //todo fix
+		removePost(bandEditProfileDto.getRemovePostIds());
+	}
+
+	private void removePost(List<Long> ids) {
+		if (ids == null) return;
+		HashMap<Long, Post> remaining = new HashMap<>();
+		this.posts.forEach(e -> remaining.put(e.getId(), e));
+		ids.forEach(remaining::remove);
+		this.posts = new ArrayList<>(remaining.values());
 	}
 
 	public BandDto toDto() {
