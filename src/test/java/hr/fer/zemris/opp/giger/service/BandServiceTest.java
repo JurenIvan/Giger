@@ -6,6 +6,7 @@ import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.KickDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
 import org.junit.Before;
@@ -316,6 +317,23 @@ public class BandServiceTest {
 
 	@Test
 	public void changeLeader() {
+		Musician musician_loggedIn = mock(Musician.class);
+		Musician new_leader = mock(Musician.class);
+
+		MusicianBandDto musicianBandDto = new MusicianBandDto();
+		Band band = new Band();
+		band.setLeader(musician_loggedIn);
+		band.setMembers(newArrayList(musician_loggedIn, new_leader));
+		band.setBackUpMembers(newArrayList());
+
+		when(bandRepository.findById(musicianBandDto.getBandId())).thenReturn(Optional.of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(musicianRepository.findById(musicianBandDto.getMusicianId())).thenReturn(Optional.of(new_leader));
+		when(band.getLeader().getId()).thenReturn(1L);
+		when(musician_loggedIn.getId()).thenReturn(1L);
+
+		bandService.changeLeader(musicianBandDto);
+		assertTrue(band.getLeader().equals(new_leader));
 	}
 
 	@Test
