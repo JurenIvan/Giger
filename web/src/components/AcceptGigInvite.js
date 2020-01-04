@@ -55,7 +55,6 @@ export default class AcceptGigInvite extends React.Component {
                                     //console.log(response)
                                     for(let i = 0; i < response.length; i++) {
                                         //console.log(response)
-<<<<<<< HEAD
                                         let helperArray = this.state.invitesId;
                                         let inviteId = response[i].id;
                                         let inviteLabel = "";
@@ -73,19 +72,6 @@ export default class AcceptGigInvite extends React.Component {
                                         //helperArray.push({value: inviteId, label: inviteLabel});
                                         this.setState({invitesId: helperArray}, () => console.log(this.state.invitesId))
                                         
-=======
-                                        this.setState(prevState => ({ 
-                                            invitesId: [...prevState.invitesId, {value: response[i].id, label: 
-                                                fetcingFactory(endpoints.GET_GIG, response[i].id).then(
-                                                    response => response.json().then(response => {
-                                                        return response;
-                                                    })
-                                                    )
-                                            }]
-                                            }))
-                                            console.log(this.state.invitesId)
-                                        //console.log(this.state.invitesId)
->>>>>>> 03e131812e51fb93286bd150d329ee0dc74bc30d
                                     }
                                 }   
                             });})
