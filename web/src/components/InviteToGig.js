@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import fetcingFactory from "../Utils/external";
 import {endpoints} from "../Utils/Types";
 import Select from 'react-dropdown-select';
+//import Cookies from 'js-cookie';
 
 
 export default class CreateGig extends React.Component {
@@ -29,6 +30,7 @@ export default class CreateGig extends React.Component {
 
     handleBandIdGet = event => {
         event.preventDefault();
+
         fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
             response => response.json()
             ).then(response => {
@@ -56,10 +58,14 @@ export default class CreateGig extends React.Component {
         fetcingFactory(endpoints.GET_MY_GIGS, "my").then(
             response => response.json()
             ).then(response => {
-                if (response.length === 0) {
+                if(response.code === 40001) {
+                    alert("You have to be an organizer")
+                }
+                else if (response.length === 0) {
                     alert("No gigs")
                 }
                 else {
+                    console.log(response)
                     for(let i = 0; i < response.length; i++) {
                         this.setState(prevState => ({
                             myGigs: [...prevState.myGigs, {value: response[i].id, label: response[i].name}]

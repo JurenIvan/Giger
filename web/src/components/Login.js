@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import * as Helpers from '../Utils/HelperMethods'
+//import * as Helpers from '../Utils/HelperMethods'
 import Cookies from 'js-cookie';
 import Modal from 'react-bootstrap/Modal';
 import fetcingFactory from "../Utils/external";

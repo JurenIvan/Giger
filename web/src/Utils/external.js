@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 const API = "https://giger-backend-dev.herokuapp.com/api";
 
 export default function fetcingFactory (endpoint, params) {
+    // eslint-disable-next-line
     switch (endpoint) {
         case Types.endpoints.LOGIN:
             return sendLoginInfo(params, endpoint);
@@ -75,13 +76,13 @@ function sendRegisterInfo(params, endpoint) {
 }
 
 function createGig(params, endpoint) {
-    return fetch(API + endpoint), {
+    return fetch(API + endpoint, {
         method: "POST",
         body: params,
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")}
-    }
+    })
 }
 
 function createMusician(params,endpoint) {
