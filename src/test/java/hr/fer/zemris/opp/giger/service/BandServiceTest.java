@@ -441,6 +441,28 @@ public class BandServiceTest {
 
 	@Test
 	public void acceptInvitation() {
+		Musician musician_loggedIn = mock(Musician.class);
+
+		BandInvitation bandInvitation = new BandInvitation();
+		Band band = new Band();
+		Gig gig = mock(Gig.class);
+		gig.setId(1L);
+		gig.setFinalDealAchieved(false);
+		band.setLeader(musician_loggedIn);
+		band.setGigs(newArrayList());
+		band.setInvitationGigs(newArrayList(gig));
+		band.setOccasions(newArrayList());
+
+		when(bandRepository.findById(bandInvitation.getBandId())).thenReturn(of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(userDetailsService.getLoggedMusician().getId()).thenReturn(1L);
+		when(gigRepository.findById(bandInvitation.getGigId())).thenReturn(of(gig));
+
+		GigPreviewDto result = bandService.acceptInvitation(bandInvitation);
+
+		assertTrue(result.isFinalDealAchieved());
+		verify(gigRepository).save(gig);
+		verify(bandRepository).save(band);
 	}
 
 	@Test
