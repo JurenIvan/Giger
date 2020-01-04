@@ -1,47 +1,11 @@
 import Cookies from "js-cookie";
-
-export function sendCreateGigInfo (name, desc, date, address, y, x, privateGig, duration, price, type, extraDescription, f) {
-    let xhr = new XMLHttpRequest();
-    let url = "https://giger-backend-dev.herokuapp.com/api/";
-    xhr.open("POST", "https://cors-anywhere.herokuapp.com/"+url);
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    let location = {
-        y,
-        x,
-        address,
-        extraDescription
-    };
-
-    let params = JSON.stringify({
-        "dateTime": date,
-        "location": location,
-        "description": desc,
-        "expectedDuration": duration,
-        "proposedPrice": price,
-        "gigType": type,
-        "privateGig": privateGig,
-        "gigName": name
-    });
-    console.log(params)
-    xhr.send(params);
-    xhr.onload = function() {
-        if (xhr.status !== 200) { // analyze HTTP status of the response
-            console.log(`Error ${xhr.status}: ${xhr.statusText}`);
-            f(xhr.status); 
-    // e.g. 404: Not Found
-        } else { // show the result
-            f(xhr.status);
-        }
-    }
-
-}
+const API = "https://giger-backend-dev.herokuapp.com/api/"
 
 export function sendRegisterInfo (email, username, phone, password, f) {
-    let xhr = new XMLHttpRequest();
-    let url = 'http://localhost:8080/api/register';
-    xhr.open('POST', url);
-    xhr.setRequestHeader('Content-type', 'application/json');
+    //let xhr = new XMLHttpRequest();
+    //let url = 'https://giger-backend-dev.herokuapp.com/api/register';
+    //xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
+    //xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({
                     "email": email,
@@ -49,7 +13,7 @@ export function sendRegisterInfo (email, username, phone, password, f) {
                     "phoneNumber": phone,
                     "password": password
                     });
-    console.log(params)
+    /*console.log(params)
     xhr.send(params);
     xhr.onload = function() {
         if (xhr.status !== 200) { // analyze HTTP status of the response
@@ -59,7 +23,14 @@ export function sendRegisterInfo (email, username, phone, password, f) {
         } else { // show the result
             f(xhr.status);
         }
-    }
+    }*/
+    fetch(API + "register", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: params
+    }).then(response => {
+        alert(response)
+    });
 
 }
 
@@ -137,4 +108,27 @@ export function pingHelloWorld(f) {
     xhr.onerror = function() {
         console.log("Request failed");
     };
+}
+
+export function getTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        if(month.toString().length === 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length === 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length === 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length === 1) {
+             minute = '0'+minute;
+        }
+        var dateTime = day+'.'+month+'.'+year+'.'+hour+':'+minute;   
+    return dateTime;
 }

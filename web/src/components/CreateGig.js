@@ -2,7 +2,7 @@ import React from 'react';
 import "./CreateGig.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import * as Helpers from '../Utils/HelperMethods'
+//import * as Helpers from '../Utils/HelperMethods'
 //import Geocode from 'react-geocode';
 import DatePicker, { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -93,7 +93,7 @@ export default class CreateGig extends React.Component {
 
     }
 
-    handleSubmit = event => {
+    /*handleSubmit = event => {
         event.preventDefault();
         (async () => {     
             await Helpers.sendCreateGigInfo(
@@ -111,7 +111,7 @@ export default class CreateGig extends React.Component {
                 this.handleCreation
                 );
         })();
-    }
+    }*/
 
     handleChange = event => {
         this.setState({
