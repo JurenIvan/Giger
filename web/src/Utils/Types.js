@@ -8,6 +8,7 @@ export const endpoints = {
     GET_MY_GIGS: "/gigs/",
     INVITE_TO_GIG: "/gigs/invite",
     GET_BAND_GIGS: "/bands/invitations/",
-    GET_GIG: "/gigs/"
+    GET_GIG: "/gigs/",
+    ACCEPT_GIG: "/bands/invitations/accept"
     /*TO DO: ostali endpointi*/
 }

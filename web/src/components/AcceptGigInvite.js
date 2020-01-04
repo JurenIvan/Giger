@@ -15,7 +15,8 @@ export default class AcceptGigInvite extends React.Component {
             bandId: "",
             selectedInvite: "",
             bandName: "",
-            invitesId: []
+            invitesId: [],
+            isSearching: false
         }
         //this.handleGetMyGigs = this.handleGetMyGigs.bind(this)
     }
@@ -28,6 +29,7 @@ export default class AcceptGigInvite extends React.Component {
 
     handleBandIdGet = event => {
         event.preventDefault();
+        this.setState({isSearching: true})
         if(this.state.bandName === "") {
             alert("Band name can't be empty")
         }
@@ -65,12 +67,15 @@ export default class AcceptGigInvite extends React.Component {
                                         ).then(
                                             json => {
                                                 inviteLabel = json.name
-                                                console.log(json.name)
+                                                //console.log(json.name)
                                                 helperArray.push({value: inviteId, label: inviteLabel});
                                             }
                                         )
                                         //helperArray.push({value: inviteId, label: inviteLabel});
-                                        this.setState({invitesId: helperArray}, () => console.log(this.state.invitesId))
+                                        this.setState({invitesId: helperArray}
+                                            //, () => console.log(this.state.invitesId)
+                                            )
+                                        this.setState({isSearching: false})
                                         
                                     }
                                 }   
@@ -90,12 +95,15 @@ export default class AcceptGigInvite extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        //console.log(this.state.selectedInvite)
+        //console.log(this.state.bandId)
+
         let params = JSON.stringify({
             "bandId": this.state.bandId,
-            "gigId": this.state.selectedGig
+            "gigId": this.state.selectedInvite
         });
         console.log(params)
-        fetcingFactory(endpoints.INVITE_TO_GIG, params).then(
+        fetcingFactory(endpoints.ACCEPT_GIG, params).then(
             response => {
                 if (response.status === 200) {
                     window.location.href = "/home";
@@ -123,7 +131,7 @@ export default class AcceptGigInvite extends React.Component {
 
                         <div className="col-6">
                             <Form.Group>
-                                <Button type="button" block onClick={this.handleBandIdGet}> Dohvati pozive za gigove </Button>
+                                <Button type="button" block disabled={this.state.isSearching} onClick={this.handleBandIdGet}> Dohvati pozive za gigove </Button>
                             </Form.Group>
                         </div>
 
@@ -133,6 +141,7 @@ export default class AcceptGigInvite extends React.Component {
                         <div className="col-6">
                             <Form.Group controlId="gigName">
                             <Select
+                                disabled={this.state.isSearching}
                                 name="selectedInvite"
                                 options={this.state.invitesId}
                                 value={this.state.selectedInvite}

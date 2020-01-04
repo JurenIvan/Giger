@@ -26,6 +26,8 @@ export default function fetcingFactory (endpoint, params) {
             return getInvites(params, endpoint);
         case Types.endpoints.GET_GIG:
             return getGig(params, endpoint);
+        case Types.endpoints.ACCEPT_GIG:
+            return acceptGig(params,endpoint);
     }
 }
 
@@ -91,6 +93,16 @@ function sendRegisterInfo(params, endpoint) {
 }
 
 function createGig(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
+function acceptGig(params, endpoint) {
     return fetch(API + endpoint, {
         method: "POST",
         body: params,
