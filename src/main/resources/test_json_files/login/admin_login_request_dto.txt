@@ -1,7 +1,4 @@
 {
-	
-"email":"admin@giger.com",
-
+    "email":"admin@giger.com",
 	"password":"adminadmin"
-
 }
