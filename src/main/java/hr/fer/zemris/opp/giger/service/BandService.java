@@ -212,4 +212,8 @@ public class BandService {
 		band.cancelGig(gig);
 		bandRepository.save(band);
 	}
+
+	public List<BandDto> myBands() {
+		return bandRepository.findAllByMembersContaining(userDetailsService.getLoggedMusician()).stream().map(Band::toDto).collect(toList());
+	}
 }
