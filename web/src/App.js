@@ -11,6 +11,7 @@ import createBandForm from './components/createBandForm'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile';
+import {DisplayBands} from "./components/Display/DisplayBands";
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path='/error' exact component={ErrorComponent} />
           <Route path='/create_band' exact component = {createBandForm} />
           <Route path='/profile' exact component = {ProfileClass} />
+          <Route path='/displaybands' exact component = {DisplayBands} />
         </Switch>
       </div>
     </BrowserRouter>
