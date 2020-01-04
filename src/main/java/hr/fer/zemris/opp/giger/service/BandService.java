@@ -197,4 +197,13 @@ public class BandService {
 		band.cancelGig(gig);
 		bandRepository.save(band);
 	}
+
+	public List<BandDto> myBandsMember() {
+		return bandRepository.findAllByMembersContaining(userDetailsService.getLoggedMusician()).stream().map(Band::toDto).collect(toList());
+	}
+
+	public List<BandDto> myBandsLeaders() {
+		Musician musician = userDetailsService.getLoggedMusician();
+		return bandRepository.findAllByMembersContaining(musician).stream().filter(e -> e.getLeader().getId().equals(musician.getId())).map(Band::toDto).collect(toList());
+	}
 }
