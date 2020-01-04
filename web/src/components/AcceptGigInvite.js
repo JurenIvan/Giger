@@ -55,16 +55,23 @@ export default class AcceptGigInvite extends React.Component {
                                     //console.log(response)
                                     for(let i = 0; i < response.length; i++) {
                                         //console.log(response)
-                                        this.setState(prevState => ({ 
-                                            invitesId: [...prevState.invitesId, {value: response[i].id, label: 
-                                                fetcingFactory(endpoints.GET_GIG, response[i].id).then(
-                                                    response => response.json().then(response => {
-                                                        console.log(response)
-                                                    })
-                                                    )
-                                            }]
-                                            }))
-                                        //console.log(this.state.invitesId)
+                                        let helperArray = this.state.invitesId;
+                                        let inviteId = response[i].id;
+                                        let inviteLabel = "";
+                                        fetcingFactory(endpoints.GET_GIG, inviteId).then(
+                                            response => {
+                                               return response.json()
+                                            }
+                                        ).then(
+                                            json => {
+                                                inviteLabel = json.name
+                                                console.log(json.name)
+                                                helperArray.push({value: inviteId, label: inviteLabel});
+                                            }
+                                        )
+                                        //helperArray.push({value: inviteId, label: inviteLabel});
+                                        this.setState({invitesId: helperArray}, () => console.log(this.state.invitesId))
+                                        
                                     }
                                 }   
                             });})
