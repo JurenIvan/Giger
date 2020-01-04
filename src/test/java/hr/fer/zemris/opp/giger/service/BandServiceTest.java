@@ -8,14 +8,17 @@ import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -36,14 +39,6 @@ public class BandServiceTest {
 	@InjectMocks
 	BandService bandService;
 
-	@Mock
-	private Musician musician1;
-	@Mock
-	private Musician musician2;
-	@Mock
-	private Band band;
-
-
 	@Before
 	public void setUp() {
 	}
@@ -63,21 +58,50 @@ public class BandServiceTest {
 		bandService.inviteMusician(musicianBandDto);
 	}
 
-	@Test
-	public void inviteMusician_assertCreated() {
-		when(bandRepository.findById(1L)).thenReturn(of(band));
-		when(band.getLeader()).thenReturn(musician2);
-		when(musician2.getId()).thenReturn(1L);
-		when(userDetailsService.getLoggedMusician()).thenReturn(musician2);
+	@Test(expected = GigerException.class)
+	public void inviteMusician_noSuchMusician() {
+		Musician musician_loggedIn = mock(Musician.class);
 
-		when(musicianRepository.findById(2L));
+		Band band = new Band();
+		band.setLeader(musician_loggedIn);
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(musician_loggedIn.getId()).thenReturn(1L);
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(musicianRepository.findById(2L)).thenReturn(empty());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(1);
+		musicianBandDto.setMusicianId(2);
 		musicianBandDto.setBandId(1);
 
 		bandService.inviteMusician(musicianBandDto);
 	}
+
+	@Test
+	public void inviteMusician_assertCreated() {
+		Musician musician_invitee = mock(Musician.class);
+		Musician musician_loggedIn = mock(Musician.class);
+
+		Band band = new Band();
+		band.setLeader(musician_loggedIn);
+		band.setInvited(new ArrayList<>());
+
+		MusicianBandDto musicianBandDto = new MusicianBandDto();
+		musicianBandDto.setMusicianId(2);
+		musicianBandDto.setBandId(1);
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(musician_loggedIn.getId()).thenReturn(1L);
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(musicianRepository.findById(2L)).thenReturn(of(musician_invitee));
+
+
+		bandService.inviteMusician(musicianBandDto);
+
+		verify(bandRepository).save(band);
+		Assertions.assertTrue(band.getInvited().contains(musician_invitee));
+	}
+
 
 	@Test
 	public void inviteBackUpMusician() {
