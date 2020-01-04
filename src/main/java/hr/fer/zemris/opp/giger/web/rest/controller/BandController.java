@@ -47,4 +47,9 @@ public class BandController {
 		bandService.cancelInvitation(bandInvitation);
 	}
 
+	@GetMapping("/my")
+	public List<BandDto> myBands() {
+		return bandService.myBands();
+	}
+
 }
