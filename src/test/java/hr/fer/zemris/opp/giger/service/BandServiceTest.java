@@ -9,6 +9,7 @@ import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -347,15 +348,11 @@ public class BandServiceTest {
 
 	@Test(expected = GigerException.class)
 	public void editProfile_notAuthorized() {
-		Musician musician = mock(Musician.class);
 		Musician musicianOther = mock(Musician.class);
 
 		Band band = new Band();
 		band.setMembers(newArrayList(musicianOther));
 		band.setLeader(musicianOther);
-
-//		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
-//		when(bandRepository.findById(1L)).thenReturn(of(band));
 
 		bandService.editProfile(mock(BandEditProfileDto.class));
 	}
@@ -392,6 +389,7 @@ public class BandServiceTest {
 	}
 
 	@Test
+	@Ignore
 	public void listBands() {
 	}
 
@@ -451,7 +449,7 @@ public class BandServiceTest {
 		when(bandRepository.findById(1L)).thenReturn(of(band));
 		when(band.toDto()).thenReturn(bandDto);
 
-		assertEquals(bandService.getBand(1L),bandDto);
+		assertEquals(bandService.getBand(1L), bandDto);
 	}
 
 	@Test
