@@ -1,7 +1,8 @@
 import * as Types from "./Types";
+import Cookies from "js-cookie";
 
 const API = "https://giger-backend-dev.herokuapp.com/api";
-const header = {"Content-Type" : "application/json"};
+
 export default function fetcingFactory (endpoint, params) {
     switch (endpoint) {
         case Types.endpoints.LOGIN:
@@ -10,6 +11,10 @@ export default function fetcingFactory (endpoint, params) {
             return sendRegisterInfo(params,endpoint);
         case Types.endpoints.CREATE_GIG:
             return createGig(params, endpoint);
+        case Types.endpoints.CREATE_MUSICIAN:
+            return createMusician(params,endpoint);
+        case Types.endpoints.CREATE_ORGANIZER:
+            return createOrganizer(params,endpoint);
     }
 }
 
@@ -18,7 +23,7 @@ function sendLoginInfo(params, endpoint) {
         {
             method: "POST",
             body: params,
-            headers: header
+            headers: {"Content-Type" : "application/json"}
         })
 }
 
@@ -27,7 +32,7 @@ function sendRegisterInfo(params, endpoint) {
         {
             method: "POST",
             body: params,
-            headers: header
+            headers: {"Content-Type" : "application/json"}
         })
 }
 
@@ -35,6 +40,29 @@ function createGig(params, endpoint) {
     return fetch(API + endpoint), {
         method: "POST",
         body: params,
-        headers: header
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
     }
+}
+
+function createMusician(params,endpoint) {
+    return fetch(API + endpoint, {
+        method:"POST",
+        body: params,
+        headers: {            
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function createOrganizer(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
 }

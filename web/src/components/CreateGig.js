@@ -93,7 +93,7 @@ export default class CreateGig extends React.Component {
 
     }
 
-    handleSubmit = event => {
+    /*handleSubmit = event => {
         event.preventDefault();
         (async () => {     
             await Helpers.sendCreateGigInfo(
@@ -111,7 +111,7 @@ export default class CreateGig extends React.Component {
                 this.handleCreation
                 );
         })();
-    }
+    }*/
 
     handleChange = event => {
         this.setState({

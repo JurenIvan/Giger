@@ -13,15 +13,12 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-datepicker": "^2.10.1",
     "react-dom": "^16.11.0",
-<<<<<<< HEAD
     "react-metismenu": "^1.4.0",
-=======
     "react-dropdown-select": "^3.6.8",
     "react-geocode": "^0.2.1",
     "react-google-autocomplete": "^1.1.2",
     "react-google-maps": "^9.4.5",
     "react-location-picker": "^1.5.0",
->>>>>>> GF-api
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0"
   },

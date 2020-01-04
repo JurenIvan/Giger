@@ -1,5 +1,7 @@
 import * as React from "react";
-import { Card, Button, Row } from "react-bootstrap";
+import { Button, Row } from "react-bootstrap";
+import fetchingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 
 export default class ChangeProfileType extends React.Component {
     constructor(props) {
@@ -26,10 +28,30 @@ export default class ChangeProfileType extends React.Component {
         this.setState({isMusician: checked})
     }
     handleMusicianCreate() {
-        /*submit*/
+        let params = {
+            "bio": this.state.musicianBio,
+            "publicCalendar": this.state.musicianPublicCalendar,
+            "instrumentids" : []
+        }
+       
+        fetchingFactory(endpoints.CREATE_MUSICIAN, JSON.stringify(params)).then(response => {
+            if (response.status === 200) {
+                alert("Musician created!")
+            } else {
+                alert("Musician creation failed!")
+            }
+        })
     }
     handleOrganiserCreate() {
-        /*submit*/
+        fetchingFactory(endpoints.CREATE_ORGANIZER, this.state.organiserName).then(
+            response => {
+                if(response.status === 200) {
+                    alert("Organizer created!");
+                } else {
+                    alert("Organizer creation failed!")
+                }
+            }
+        )
     }
 
     render() {
@@ -43,7 +65,7 @@ export default class ChangeProfileType extends React.Component {
                 {
                     this.state.isOragniser? 
                         <div>
-                            <input type="text" placeholder="Organiser name"></input>
+                            <input type="text" value = {this.state.organiserName} onChange = {(e => {this.setState({organiserName: e.currentTarget.value})})} placeholder="Organiser name"></input>
                             <div>
                                 <Button block onClick={this.handleOrganiserCreate}>Confirm</Button>
                             </div>
@@ -61,7 +83,7 @@ export default class ChangeProfileType extends React.Component {
                 this.state.isMusician? 
                     <div>
                         <Row>
-                            <textarea type="text" placeholder="Biography"></textarea>
+                            <textarea type="text" placeholder="Biography" value = {this.state.musicianBio} onChange = {(e) => {this.setState({musicianBio: e.currentTarget.value})}}/>
                         </Row>  
                         <Row>
                             <label>My calendar will be public: </label>
