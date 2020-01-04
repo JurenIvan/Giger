@@ -79,6 +79,7 @@ export default class Login extends Component {
                         }}>Close</Button>
                     </Modal.Footer>
                 </Modal>
+                
                 <div className="Login">
                     <Form onSubmit={this.handleSubmit}>
                         <div className="col-1">
