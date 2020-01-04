@@ -256,6 +256,19 @@ public class BandServiceTest {
 
 	@Test
 	public void leaveBand() {
+		Musician musician = mock(Musician.class);
+		Band band = new Band();
+		band.setMembers(newArrayList(musician));
+		band.setBackUpMembers(newArrayList());
+
+		when(bandRepository.findById(1L)).thenReturn(Optional.of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(userDetailsService.getLoggedMusician().getId()).thenReturn(1L);
+
+		bandService.leaveBand(1L);
+
+		verify(bandRepository).save(band);
+		assertFalse(band.getMembers().contains(musician));
 	}
 
 	@Test
