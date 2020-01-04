@@ -62,7 +62,7 @@ public class GigService {
 		if (userDetailsService.isLoggedUserOrganizer() && gig.getOrganizer().getId().equals(userDetailsService.getLoggedOrganizer().getId()))
 			return gig.toDto();
 
-		if (userDetailsService.isLoggedUserMusician() && bandRepository.findAllByMembersContaining(userDetailsService.getLoggedMusician()).stream().anyMatch(e -> e.getGigs().contains(gig)))
+		if (userDetailsService.isLoggedUserMusician() && bandRepository.findAllByMembersContaining(userDetailsService.getLoggedMusician()).stream().anyMatch(e -> e.getGigs().contains(gig) || e.getInvitationGigs().contains(gig)))
 			return gig.toDto();
 
 		if (!gig.isFinalDealAchieved() || gig.isPrivateGig())
@@ -78,6 +78,9 @@ public class GigService {
 
 		if (!gig.getOrganizer().getId().equals(organizer.getId()))
 			throw new GigerException(ErrorCode.NOT_ORGANIZER_FOR_THIS_EVENT);
+
+		if (gig.isFinalDealAchieved())
+			throw new GigerException(ErrorCode.DEAL_ACHIEVED);
 
 		if (band.getInvitationGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_ALREADY_INVITED);
