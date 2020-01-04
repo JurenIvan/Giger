@@ -18,7 +18,7 @@ export default class Login extends Component {
             token: "",
             showModal: false,
         };
-        this.handleLoginToken = this.handleLoginToken.bind(this);
+        
     }
 
     validateForm() {
@@ -31,12 +31,6 @@ export default class Login extends Component {
         });
     }
 
-    handleLoginToken(value) {
-        let substringJson = value.length - 4;
-        Cookies.set('Bearer', value.substring(14, substringJson));
-        console.log(Cookies.get());
-        window.location.href = '/home'
-    }
 
 
     handleSubmit = event => {
@@ -56,6 +50,9 @@ export default class Login extends Component {
                 if (json.token && json.userId) {
                     Cookies.set("userId", json.userId);
                     Cookies.set("Bearer", json.token);
+                    console.log(json);
+                    console.log(json.token);
+                    console.log(json.userId)
                     window.location.href = "/home"
                 } else {
                     alert(json.violationErrors[0].message)
