@@ -15,6 +15,8 @@ export default function fetcingFactory (endpoint, params) {
             return createMusician(params,endpoint);
         case Types.endpoints.CREATE_ORGANIZER:
             return createOrganizer(params,endpoint);
+        case Types.endpoints.CREATE_BAND:
+            return createBand(params, endpoint);
     }
 }
 
@@ -64,5 +66,16 @@ function createOrganizer(params, endpoint) {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
+    })
+}
+
+function createBand(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
     })
 }

@@ -2,6 +2,8 @@ import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Select from 'react-dropdown-select';
+import fetcingFactory from "../../Utils/external";
+import * as Types from "../../Utils/Types";
 
 export default class BandCreate extends React.Component {
   
@@ -29,6 +31,7 @@ export default class BandCreate extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.setValues = this.setValues.bind(this);
         this.handleSelection = this.handleSelection.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange (event) {
         event.preventDefault();
@@ -53,7 +56,28 @@ export default class BandCreate extends React.Component {
             console.log(helperArray);
         }
         this.setState({acceptableGigTypes : helperArray}, ()=>  console.log(this.state.acceptableGigTypes))
-       
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let params = {
+            "name": this.state.bandName,
+            "bio": this.state.bandBio,
+            "pictureUrl": "",
+            "acceptableGigTypes": this.state.acceptableGigTypes,
+            "homeLocation": this.state.homeLocation
+           }
+           console.log(params)
+        fetcingFactory(Types.endpoints.CREATE_BAND, JSON.stringify(params)).then(
+            response => {
+               if (response.ok) {
+                   window.location.href = "/home";
+               } else {
+                   alert("Band creation failed")
+               }
+               console.log(response)
+            }
+        )
     }
     render() {
         return (
@@ -74,7 +98,7 @@ export default class BandCreate extends React.Component {
                 </div>
                 <div className="col-6">
                     <Form.Group controlId="bandBio">
-                        <Form.Control value={this.state.password} onChange={this.bandBio} type="text" as ="textarea"/>
+                        <Form.Control value={this.state.bandBio} onChange={this.handleChange} type="text" as ="textarea"/>
                     </Form.Group>
                 </div>
                 <div className="col-6">
