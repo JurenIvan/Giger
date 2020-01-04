@@ -91,21 +91,11 @@ public class BandService {
 		bandRepository.save(band);
 	}
 
-	public void kickBackUpMusician(KickDto kickDto) {
-		Band band = bandRepository.findById(kickDto.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
-		Musician loggedMusician = userDetailsService.getLoggedMusician();
-		if (!band.getLeader().equals(loggedMusician))
-			throw new GigerException(ONLY_LEADER_CAN_KICK);
-		band.removeBackUpMember(kickDto.getMusicianId());
-
-		bandRepository.save(band);
-	}
-
 	public void editProfile(BandEditProfileDto bandEditProfileDto) {
 		Band band = bandRepository.findById(bandEditProfileDto.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 
-		if (!band.getMembers().contains(loggedMusician) || !band.getLeader().getId().equals(loggedMusician.getId()))
+		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().equals(loggedMusician)))
 			throw new GigerException(ONLY_MEMBERS_CAN_EDIT_BAND);
 
 		band.editProfile(bandEditProfileDto);
@@ -121,8 +111,7 @@ public class BandService {
 
 		List<MusicianInvitationsDto> result = new ArrayList<>();
 
-		var collection = typeOfInvitation == 1 ? band.getInvitedBackUpMembers() : band.getInvited();
-		for (var musician : collection) {
+		for (var musician : typeOfInvitation == 1 ? band.getInvitedBackUpMembers() : band.getInvited()) {
 			Person person = personRepository.getOne(musician.getId());
 			result.add(new MusicianInvitationsDto(musician.getId(), person.getUsername(), person.getPictureUrl(), musician.getBio(), musician.getInstruments()));
 		}
@@ -144,12 +133,8 @@ public class BandService {
 		bandRepository.save(band);
 	}
 
-	//needs some kind of smart algorithm to
+	//todo improve
 	public List<BandDto> listAvailableBands(FilterBandDto filterBandDto) {
-		Occasion o1 = new Occasion();
-		Occasion o2 = new Occasion();
-		o1.setLocalDateTime(filterBandDto.getSpecificDateFirst());
-		o2.setLocalDateTime(filterBandDto.getSpecificDateSecond());
 
 		return bandRepository.findAll()
 				.stream().map(Band::toDto).collect(toList());
@@ -163,7 +148,7 @@ public class BandService {
 		Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 
-		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().getId().equals(loggedMusician.getId())))
+		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().equals(loggedMusician)))
 			throw new GigerException(NOT_A_MEMBER_OF_BAND);
 
 		return band.getInvitationGigs().stream().map(Gig::toDto).collect(toList());
@@ -200,13 +185,13 @@ public class BandService {
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 		Gig gig = gigRepository.findById(bandInvitation.getGigId()).orElseThrow(() -> new GigerException(NO_SUCH_GIG));
 
-		if (!band.getLeader().getId().equals(loggedMusician.getId()))
+		if (!band.getLeader().equals(loggedMusician))
 			throw new GigerException(ONLY_LEADER_CAN_CANCEL_GIG);
 
-		if (band.getGigs().stream().anyMatch(e -> e.getId().equals(gig.getId())))
+		if (band.getGigs().stream().anyMatch(e -> e.equals(gig)))
 			throw new GigerException(BAND_ALREADY_ACCEPTED);
 
-		if (band.getInvitationGigs().stream().noneMatch(e -> e.getId().equals(gig.getId())))
+		if (band.getInvitationGigs().stream().noneMatch(e -> e.equals(gig)))
 			throw new GigerException(BAND_NOT_INVITED_TO_GIG);
 
 		band.cancelGig(gig);

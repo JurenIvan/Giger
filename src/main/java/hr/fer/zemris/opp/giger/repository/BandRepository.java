@@ -21,4 +21,14 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 	List<Band> findAllByMembersContaining(Musician musician);
 
 	Optional<Band> findByPostsContaining(Post post);
+// todo
+//	@Query(value = "SELECT " +
+//			"FROM band " +
+//			"JOIN band_occasions bo ON band.id = bo.band_id " +
+//			"JOIN occasion o ON bo.occasions_id = o.id " +
+//			"where YEAR(o.local_date_time) != YEAR(:localDate) \n" +
+//			"    AND MONTH(o.local_date_time) != MONTH(:localDate)\n" +
+//			"    AND DAY(o.local_date_time) != DAY(:localDate)"
+//			, nativeQuery = true)
+//	List<Band> findAllAvailableBands(LocalDate localDate);
 }

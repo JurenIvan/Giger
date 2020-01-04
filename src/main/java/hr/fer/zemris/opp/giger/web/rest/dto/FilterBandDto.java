@@ -11,6 +11,5 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class FilterBandDto {
 
-	private LocalDateTime specificDateFirst;
-	private LocalDateTime specificDateSecond;
+	private LocalDateTime when;
 }
