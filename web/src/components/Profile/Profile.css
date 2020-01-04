@@ -1,0 +1,39 @@
+
+div.profileInfo.row {
+  margin-left: 10vw;
+  width: 70vw !important;
+  margin-right: 2vw;
+  margin-bottom: 2vh;
+}
+
+.profileInfo.row img {
+  width:16vw;
+  height: 16vw;
+}
+
+div.profileInfo.row form {
+  width: 60vw !important;
+  align-self: center;
+  margin: auto;
+}
+
+div.profilePosts.row form {
+  width: 60vw !important;
+  align-self: center;
+  margin: auto;
+}
+
+div.profilePosts.card img {
+  width:6vw;
+  height: 6vw;
+  border-radius: 6vh;
+  margin: 1vh 1vw;
+}
+
+
+div.profilePosts.card .col {
+  margin: auto !important;
+  height: 12vh !important;
+
+}
+
