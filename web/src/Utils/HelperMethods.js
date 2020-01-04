@@ -1,10 +1,11 @@
 import Cookies from "js-cookie";
+const API = "https://giger-backend-dev.herokuapp.com/api/"
 
 export function sendRegisterInfo (email, username, phone, password, f) {
-    let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/register';
-    xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
-    xhr.setRequestHeader('Content-type', 'application/json');
+    //let xhr = new XMLHttpRequest();
+    //let url = 'https://giger-backend-dev.herokuapp.com/api/register';
+    //xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
+    //xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({
                     "email": email,
@@ -12,7 +13,7 @@ export function sendRegisterInfo (email, username, phone, password, f) {
                     "phoneNumber": phone,
                     "password": password
                     });
-    console.log(params)
+    /*console.log(params)
     xhr.send(params);
     xhr.onload = function() {
         if (xhr.status !== 200) { // analyze HTTP status of the response
@@ -22,7 +23,14 @@ export function sendRegisterInfo (email, username, phone, password, f) {
         } else { // show the result
             f(xhr.status);
         }
-    }
+    }*/
+    fetch(API + "register", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: params
+    }).then(response => {
+        alert(response)
+    });
 
 }
 

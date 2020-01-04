@@ -13,7 +13,7 @@
     margin-bottom: 50px;
 }
 
-.Header a, .Header .header-btn{
+.Header a, .Header .btn.btn-primary {
     color: white;
     background-color: black;
     padding: 5px 10px;
@@ -23,7 +23,7 @@
     text-decoration: none;
 }
 
-.Header a:hover {
+.Header a:hover, .Header .btn.btn-primary:hover {
     background: darkgray;
 }
 

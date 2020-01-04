@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class MusicianDto {
 
-    public String bio;
-    private List<Long> instrumentIdList = new ArrayList<>();
-    private boolean publicCalendar;
+	public String bio;
+	private List<Long> instrumentIdList = new ArrayList<>();
+	private Boolean publicCalendar;
 }

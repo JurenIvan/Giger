@@ -1,6 +1,8 @@
 package hr.fer.zemris.opp.giger.domain;
 
+import hr.fer.zemris.opp.giger.web.rest.dto.BandDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MessagePreview;
+import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,26 +20,27 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Message {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime sentTime;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime sentTime;
 
-    @ManyToOne(fetch = EAGER)
-    @JoinColumn(name = "fk_sender")
-    @NotNull
-    private Person sender;
+	@ManyToOne(fetch = EAGER)
+	@JoinColumn(name = "fk_sender")
+	private Person sender;
 
-    @ManyToOne(fetch = EAGER)
-    @JoinColumn(name = "fk_sender_band")
-    @NotNull
-    private Band senderBand;
+	@ManyToOne(fetch = EAGER)
+	@JoinColumn(name = "fk_sender_band")
+	private Band senderBand;
 
 
-    public MessagePreview toDto() {
-        return new MessagePreview(id, content, sentTime, sender.toDto(), senderBand.toDto());
-    }
+	public MessagePreview toDto() {
+		PersonPreviewDto personPreviewDto = sender != null ? sender.toDto() : null;
+		BandDto bandDto = senderBand != null ? senderBand.toDto() : null;
+
+		return new MessagePreview(id, content, sentTime, personPreviewDto, bandDto);
+	}
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import {Button} from "react-bootstrap";
+import {CommentClass as Comment} from "./Comment";
 
 export class PostClass extends React.Component {
     constructor(props){
@@ -52,7 +53,7 @@ export class PostClass extends React.Component {
                 {
                     this.state.isCommentButtonClicked?
                         <div className="commentSection">
-                            \\\\\\\\\TODO: mapirat komentare
+                            <Comment />
                             <div className="row">
                                 <input type="text" value={this.state.isCommentButtonClicked}></input>
                                 <Button style = {{marginLeft: "auto" }} >Submit comment</Button>

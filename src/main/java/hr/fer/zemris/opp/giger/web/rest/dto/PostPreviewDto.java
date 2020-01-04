@@ -12,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class PostPreviewDto {
 
-    private Long id;
-    private String content;
-    private LocalDateTime publishedOn;
-    private List<CommentPreviewDto> comments;
+	private Long id;
+	private String content;
+	private LocalDateTime publishedOn;
+	private List<CommentDto> comments;
 }

@@ -1,5 +1,5 @@
 package hr.fer.zemris.opp.giger.domain.enums;
 
 public enum MusicGenre {
-    pop, rock, dance, folk, tamburica, evergreen, jazz
+	POP, ROCK, DANCE, FOLK, TAMBURICA, EVERGREEN, JAZZ
 }

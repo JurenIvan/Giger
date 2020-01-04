@@ -25,6 +25,10 @@ export default class ProfileSideNav extends React.Component {
                     label: 'Delete profile',
                     to: '/delete_profile',
                 },
+                {
+                    label: 'Change profile type',
+                    to: '/profile/change_type'
+                }
             ],
         },
     ];

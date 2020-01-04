@@ -1,0 +1,13 @@
+@media all and (max-width: 720px) {
+    .CreateGig form {
+      margin: 10 auto;
+      max-width: 480px;
+    }
+    .btn.btn-primary.btn-block {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .check-space{
+        margin-right: 40px;
+      }
+}

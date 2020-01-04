@@ -10,8 +10,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
-import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -36,19 +37,33 @@ public class Gig {
     private String description;
     private String expectedDuration;
     private Integer proposedPrice;
+    private String name;
 
     @Enumerated(EnumType.ORDINAL)
     private GigType gigType;
     private boolean finalDealAchieved;
     private boolean privateGig;
 
-    @ManyToMany(fetch = LAZY, cascade = ALL)
-    @JoinTable(name = "review_gig",
-            joinColumns = {@JoinColumn(name = "fk_gig")},
-            inverseJoinColumns = {@JoinColumn(name = "fk_review")})
-    private List<Review> reviews;
+	@ManyToMany(fetch = LAZY, cascade = MERGE)
+	@JoinTable(name = "review_gig",
+			joinColumns = {@JoinColumn(name = "fk_gig")},
+			inverseJoinColumns = {@JoinColumn(name = "fk_review")})
+	private List<Review> reviews;
 
-    public GigPreviewDto toDto() {
-        return new GigPreviewDto(id, organizer, dateTime, location, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
-    }
+	public GigPreviewDto toDto() {
+		return new GigPreviewDto(id, organizer.getId(), dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Gig)) return false;
+		Gig gig = (Gig) o;
+		return id.equals(gig.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

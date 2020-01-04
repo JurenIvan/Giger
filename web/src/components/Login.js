@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import * as Helpers from '../Utils/HelperMethods'
+//import * as Helpers from '../Utils/HelperMethods'
 import Cookies from 'js-cookie';
 import Modal from 'react-bootstrap/Modal';
 import { Card } from "react-bootstrap";
+import fetcingFactory from "../Utils/external";
+import {endpoints} from "../Utils/Types";
 
 
 export default class Login extends Component {
@@ -17,7 +19,7 @@ export default class Login extends Component {
             token: "",
             showModal: false,
         };
-        this.handleLoginToken = this.handleLoginToken.bind(this);
+        
     }
 
     validateForm() {
@@ -30,12 +32,6 @@ export default class Login extends Component {
         });
     }
 
-    handleLoginToken(value) {
-        let substringJson = value.length - 4;
-        Cookies.set('Bearer', value.substring(14, substringJson));
-        console.log(Cookies.get());
-        window.location.href = '/home'
-    }
 
 
     handleSubmit = event => {
@@ -43,9 +39,26 @@ export default class Login extends Component {
         if (!this.validateForm()) {
             this.setState({showModal: true})
         } else {
-            (async () => {
-                await Helpers.sendLoginInfo(this.state.email, this.state.password, this.handleLoginToken);
-            })();
+            let params = JSON.stringify({
+                "email": this.state.email,
+                "password": this.state.password
+                });
+            fetcingFactory(endpoints.LOGIN, params).then(
+                response => {
+                    return response.json()
+                }
+            ).then (json => {
+                if (json.token && json.userId) {
+                    Cookies.set("userId", json.userId);
+                    Cookies.set("Bearer", json.token);
+                    console.log(json);
+                    console.log(json.token);
+                    console.log(json.userId)
+                    window.location.href = "/home"
+                } else {
+                    alert(json.violationErrors[0].message)
+                }
+            });
         }
     }
 
@@ -54,7 +67,10 @@ export default class Login extends Component {
         return (
             <Card>
                 <Modal show={this.state.showModal} animation={false}>
-                    <Modal.Body style={{color: "red"}}> Your password must be at least 8 characters long! </Modal.Body>
+                    <Modal.Body style={{color: "red"}}>
+                    {this.state.email.length <= 0 ? ["You must enter e-mail!",  <br></br>] : ""}
+                    {this.state.password.length < 8 ? "Your password must be at least 8 characters long!" : ""}
+                    </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={(e) => {
                             this.setState({showModal: false})
@@ -63,15 +79,15 @@ export default class Login extends Component {
                 </Modal>
                 <div className="container">
                     <Form onSubmit={this.handleSubmit}>
-                        
-                        <Form.Label controlId="email"> E-mail: </Form.Label>
-                        <Form.Group controlId="email">
-                            <Form.Control 
-                            placeholder="Email"
-                            autoFocus type="text"
-                            value={this.state.username}
-                            onChange={this.handleChange}/>
-                        </Form.Group>
+                        <div className="col-1">
+                            <Form.Label controlId="email"> E-mail: </Form.Label>
+                        </div>
+                        <div className="col-6">
+                            <Form.Group controlId="email">
+                                <Form.Control autoFocus type="text" value={this.state.username}
+                                              onChange={this.handleChange}/>
+                            </Form.Group>
+                        </div>
 
                         <Form.Label controlId="password"> Password: </Form.Label>
                         <Form.Group controlId="password">
