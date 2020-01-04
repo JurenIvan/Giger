@@ -30,21 +30,25 @@ export default class CreateGig extends React.Component {
 
     handleBandIdGet = event => {
         event.preventDefault();
-
-        fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
-            response => response.json()
-            ).then(response => {
-                if (response.length === 0) {
-                    alert("No bands with that name")
-                }
-                else {
-                    console.log(response)
-                    this.setState({
-                        bandId: response[0].id
-                    })
-                    console.log(this.state.bandId)
-                }   
+        if(this.state.bandName === "") {
+            alert("Band name can't be empty")
+        }
+        else {
+            fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
+                response => response.json()
+                ).then(response => {
+                    if (response.length === 0) {
+                        alert("No bands with that name")
+                    }
+                    else {
+                        console.log(response)
+                        this.setState({
+                            bandId: response[0].id
+                        })
+                        console.log(this.state.bandId)
+                    }   
             });
+        } 
     }
 
     setValues = selectedGig => {

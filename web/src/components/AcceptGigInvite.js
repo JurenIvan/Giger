@@ -28,59 +28,57 @@ export default class AcceptGigInvite extends React.Component {
 
     handleBandIdGet = event => {
         event.preventDefault();
-        fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
-            response => response.json()
-            ).then(response => {
-                if (response.length === 0) {
-                    alert("No bands with that name")
-                }
-                else {
-                    console.log(response)
-                    this.setState({
-                        bandId: response[0].id
-                    })
-                    console.log(this.state.bandId)
-                }   
-            });
-        fetcingFactory(endpoints.GET_BAND_GIGS, this.state.bandId).then(
-            response => response.json()
-            ).then(response => {
-                if (response.length === 0) {
-                    alert("No gigs with that id")
-                }
-                else {
-                    for(let i = 0; i < response.length; i++) {
-                        this.setState(prevState => ({ 
-                            invitesId: [...prevState.invitesId, response]
-                          }))
-                        console.log(this.state.invites)
+        if(this.state.bandName === "") {
+            alert("Band name can't be empty")
+        }
+        else {
+            fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
+                response => response.json()
+                ).then(response => {
+                    if (response.length === 0) {
+                        alert("No bands with that name")
                     }
-                }   
+                    else {
+                        //console.log(response)
+                        this.setState({
+                            bandId: response[0].id
+                        }, () => {fetcingFactory(endpoints.GET_BAND_GIGS, this.state.bandId).then(
+                            response => response.json()
+                            ).then(response => {
+                                if (response.code === 40001) {
+                                    alert("You are not in that bend")
+                                }
+                                else if (response.length === 0) {
+                                    alert("No gigs with that id")
+                                }
+                                else {
+                                    //console.log(response)
+                                    for(let i = 0; i < response.length; i++) {
+                                        //console.log(response)
+                                        this.setState(prevState => ({ 
+                                            invitesId: [...prevState.invitesId, {value: response[i].id, label: 
+                                                fetcingFactory(endpoints.GET_GIG, response[i].id).then(
+                                                    response => response.json().then(response => {
+                                                        console.log(response)
+                                                    })
+                                                    )
+                                            }]
+                                            }))
+                                        //console.log(this.state.invitesId)
+                                    }
+                                }   
+                            });})
+                        //console.log(this.state.bandId)
+                    }   
             });
+            
+        }
     }
 
-    setValues = selectedGig => {
-        this.setState({ selectedGig }
-            , () => console.log(this.state.selectedGig)
+    setValues = selectedInvite => {
+        this.setState({ selectedInvite }
+            , () => console.log(this.state.selectedInvite)
         );
-    }
-
-    handleGetMyGigs = event => {
-        event.preventDefault();
-        fetcingFactory(endpoints.GET_MY_GIGS, "my").then(
-            response => response.json()
-            ).then(response => {
-                if (response.length === 0) {
-                    alert("No gigs")
-                }
-                else {
-                    for(let i = 0; i < response.length; i++) {
-                        this.setState(prevState => ({
-                            myGigs: [...prevState.myGigs, {value: response[i].id, label: response[i].name}]
-                          }))
-                    }
-                }   
-            });
     }
 
     handleSubmit = event => {
@@ -128,9 +126,9 @@ export default class AcceptGigInvite extends React.Component {
                         <div className="col-6">
                             <Form.Group controlId="gigName">
                             <Select
-                                name="selectedGigName"
-                                options={this.state.myGigs}
-                                value={this.state.selectedGigName}
+                                name="selectedInvite"
+                                options={this.state.invitesId}
+                                value={this.state.selectedInvite}
                                 //onChange={this.updateEventType}
                                 onChange={value => this.setValues(value[0].value)}
                             />
