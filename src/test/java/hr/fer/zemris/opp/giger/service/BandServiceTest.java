@@ -2,9 +2,11 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
+import hr.fer.zemris.opp.giger.domain.Location;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +16,11 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
+import static hr.fer.zemris.opp.giger.domain.enums.GigType.BACHELORS_PARTY;
+import static hr.fer.zemris.opp.giger.domain.enums.GigType.CONCERT;
 import static java.util.Optional.empty;
 import static java.util.Optional.of;
 import static org.assertj.core.util.Lists.newArrayList;
@@ -47,6 +53,14 @@ public class BandServiceTest {
 
 	@Test
 	public void createBand() {
+		Musician musician = new Musician();
+		Location location = new Location(24.0, 25.0, "Kneza Branimira 10", "desc");
+		BandCreationDto bandCreationDto = new BandCreationDto("band", "bio", "https://www.eatatbubbas.com/wp-content/uploads/2018/06/band-image.jpg", List.of(BACHELORS_PARTY, CONCERT), location);
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(Optional.of(musician).get());
+		when(bandRepository.findByName("noBand")).thenReturn(Optional.empty());
+		bandService.createBand(bandCreationDto);
+		verify(bandRepository).findByName(bandCreationDto.getName());
 	}
 
 	@Test(expected = GigerException.class)
