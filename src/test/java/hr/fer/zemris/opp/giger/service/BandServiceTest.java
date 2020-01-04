@@ -1,14 +1,10 @@
 package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
-import hr.fer.zemris.opp.giger.domain.Band;
-import hr.fer.zemris.opp.giger.domain.Gig;
-import hr.fer.zemris.opp.giger.domain.Location;
-import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,10 +39,6 @@ public class BandServiceTest {
 	private OccasionRepository occasionRepository;
 	@InjectMocks
 	BandService bandService;
-
-	@Before
-	public void setUp() {
-	}
 
 	@Test
 	public void createBand() {
@@ -358,7 +350,65 @@ public class BandServiceTest {
 	}
 
 	@Test
-	public void listInvitations() {
+	public void listInvitations_backUpMembers() {
+		Musician musician = mock(Musician.class);
+		Musician musicianOther = mock(Musician.class);
+
+		Band band = new Band();
+		band.setMembers(newArrayList(musicianOther));
+		band.setLeader(musician);
+		band.setPosts(newArrayList());
+		band.setInvitedBackUpMembers(newArrayList(musicianOther));
+
+		Person person = new Person();
+		person.setUsername("Mickey");
+		person.setPictureUrl("picture url");
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(musicianOther.getId()).thenReturn(2L);
+		when(musicianOther.getBio()).thenReturn("bio");
+		when(musicianOther.getInstruments()).thenReturn(newArrayList());
+		when(personRepository.getOne(2L)).thenReturn(person);
+
+		var results = bandService.listInvitations(1L, 1);
+
+		assertEquals(1, results.size());
+		assertEquals(2, results.get(0).getId());
+		assertEquals("picture url", results.get(0).getPictureUrl());
+		assertEquals("Mickey", results.get(0).getName());
+		assertEquals(0, results.get(0).getInstrumentList().size());
+	}
+
+	@Test
+	public void listInvitations_members () {
+		Musician musician = mock(Musician.class);
+		Musician musicianOther = mock(Musician.class);
+
+		Band band = new Band();
+		band.setMembers(newArrayList(musicianOther));
+		band.setLeader(musician);
+		band.setPosts(newArrayList());
+		band.setInvited(newArrayList(musicianOther));
+
+		Person person = new Person();
+		person.setUsername("Mickey");
+		person.setPictureUrl("picture url");
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(musicianOther.getId()).thenReturn(2L);
+		when(musicianOther.getBio()).thenReturn("bio");
+		when(musicianOther.getInstruments()).thenReturn(newArrayList());
+		when(personRepository.getOne(2L)).thenReturn(person);
+
+		var results = bandService.listInvitations(1L, 0);
+
+		assertEquals(1, results.size());
+		assertEquals(2, results.get(0).getId());
+		assertEquals("picture url", results.get(0).getPictureUrl());
+		assertEquals("Mickey", results.get(0).getName());
+		assertEquals(0, results.get(0).getInstrumentList().size());
 	}
 
 	@Test
@@ -385,12 +435,23 @@ public class BandServiceTest {
 	}
 
 	@Test
+	@Ignore
 	public void listAvailableBands() {
 	}
 
 	@Test
-	@Ignore
 	public void listBands() {
+		Band bandSixtyOne = mock(Band.class);
+		Band bandSixtyTwo = mock(Band.class);
+		BandDto bandDtoSixtyOn = mock(BandDto.class);
+		BandDto bandDtoSixtyTwo = mock(BandDto.class);
+
+
+		when(bandRepository.findAllByNameLike("Sixty")).thenReturn(newArrayList(bandSixtyOne, bandSixtyTwo));
+		when(bandSixtyOne.toDto()).thenReturn(bandDtoSixtyOn);
+		when(bandSixtyTwo.toDto()).thenReturn(bandDtoSixtyTwo);
+
+		assertEquals(newArrayList(bandDtoSixtyOn, bandDtoSixtyTwo), bandService.listBands("Sixty"));
 	}
 
 	@Test
@@ -456,9 +517,9 @@ public class BandServiceTest {
 		when(userDetailsService.getLoggedMusician().getId()).thenReturn(1L);
 		when(gigRepository.findById(bandInvitation.getGigId())).thenReturn(of(gig));
 
-		GigPreviewDto result = bandService.acceptInvitation(bandInvitation);
+		bandService.acceptInvitation(bandInvitation);
 
-		assertTrue(result.isFinalDealAchieved());
+		verify(gig).setFinalDealAchieved(true);
 		verify(gigRepository).save(gig);
 		verify(bandRepository).save(band);
 	}
@@ -476,5 +537,24 @@ public class BandServiceTest {
 
 	@Test
 	public void cancelInvitation() {
+		Musician musician_loggedIn = mock(Musician.class);
+
+		Gig gig = mock(Gig.class);
+		gig.setId(1L);
+		gig.setFinalDealAchieved(false);
+
+		Band band = new Band();
+		band.setLeader(musician_loggedIn);
+		band.setGigs(newArrayList());
+		band.setInvitationGigs(newArrayList(gig));
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(gigRepository.findById(1L)).thenReturn(of(gig));
+
+		bandService.cancelInvitation(new BandInvitation(1L, 1L));
+
+		band.setInvitationGigs(newArrayList());
+		verify(bandRepository).save(band);
 	}
 }
