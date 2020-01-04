@@ -91,16 +91,6 @@ public class BandService {
 		bandRepository.save(band);
 	}
 
-	public void kickBackUpMusician(KickDto kickDto) {
-		Band band = bandRepository.findById(kickDto.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
-		Musician loggedMusician = userDetailsService.getLoggedMusician();
-		if (!band.getLeader().equals(loggedMusician))
-			throw new GigerException(ONLY_LEADER_CAN_KICK);
-		band.removeBackUpMember(kickDto.getMusicianId());
-
-		bandRepository.save(band);
-	}
-
 	public void editProfile(BandEditProfileDto bandEditProfileDto) {
 		Band band = bandRepository.findById(bandEditProfileDto.getBandId()).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
