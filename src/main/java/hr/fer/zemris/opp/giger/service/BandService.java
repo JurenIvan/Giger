@@ -111,8 +111,7 @@ public class BandService {
 
 		List<MusicianInvitationsDto> result = new ArrayList<>();
 
-		var collection = typeOfInvitation == 1 ? band.getInvitedBackUpMembers() : band.getInvited();
-		for (var musician : collection) {
+		for (var musician : typeOfInvitation == 1 ? band.getInvitedBackUpMembers() : band.getInvited()) {
 			Person person = personRepository.getOne(musician.getId());
 			result.add(new MusicianInvitationsDto(musician.getId(), person.getUsername(), person.getPictureUrl(), musician.getBio(), musician.getInstruments()));
 		}
@@ -134,12 +133,8 @@ public class BandService {
 		bandRepository.save(band);
 	}
 
-	//needs some kind of smart algorithm to
+	//todo improve
 	public List<BandDto> listAvailableBands(FilterBandDto filterBandDto) {
-		Occasion o1 = new Occasion();
-		Occasion o2 = new Occasion();
-		o1.setLocalDateTime(filterBandDto.getSpecificDateFirst());
-		o2.setLocalDateTime(filterBandDto.getSpecificDateSecond());
 
 		return bandRepository.findAll()
 				.stream().map(Band::toDto).collect(toList());
@@ -153,7 +148,7 @@ public class BandService {
 		Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 
-		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().getId().equals(loggedMusician.getId())))
+		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().equals(loggedMusician)))
 			throw new GigerException(NOT_A_MEMBER_OF_BAND);
 
 		return band.getInvitationGigs().stream().map(Gig::toDto).collect(toList());

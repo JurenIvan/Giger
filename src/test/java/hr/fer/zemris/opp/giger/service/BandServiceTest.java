@@ -2,14 +2,12 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Band;
+import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Location;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.BandEditProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.KickDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -287,7 +285,6 @@ public class BandServiceTest {
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
 		when(musician_loggedIn.getId()).thenReturn(2L);
 		when(musician_kicked.getId()).thenReturn(1L);
-		when(musicianRepository.findById(1L)).thenReturn(of(musician_kicked));
 		when(bandRepository.findById(1L)).thenReturn(of(band));
 
 		bandService.kickMusician(kickDto);
@@ -357,8 +354,8 @@ public class BandServiceTest {
 		band.setMembers(newArrayList(musicianOther));
 		band.setLeader(musicianOther);
 
-		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
-		when(bandRepository.findById(1L)).thenReturn(of(band));
+//		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
+//		when(bandRepository.findById(1L)).thenReturn(of(band));
 
 		bandService.editProfile(mock(BandEditProfileDto.class));
 	}
@@ -400,7 +397,47 @@ public class BandServiceTest {
 
 	@Test
 	public void getInvitations() {
+		Musician musician_loggedIn = mock(Musician.class);
+		Gig gig1 = mock(Gig.class);
+		Gig gig2 = mock(Gig.class);
+		GigPreviewDto gigPreviewDto1 = mock(GigPreviewDto.class);
+		GigPreviewDto gigPreviewDto2 = mock(GigPreviewDto.class);
+
+		Band band = new Band();
+		band.setLeader(musician_loggedIn);
+		band.setMembers(newArrayList(musician_loggedIn));
+		band.setInvitationGigs(newArrayList(gig1, gig2));
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+		when(gig1.toDto()).thenReturn(gigPreviewDto1);
+		when(gig2.toDto()).thenReturn(gigPreviewDto2);
+
+		var result = bandService.getInvitations(1L);
+		assertEquals(newArrayList(gigPreviewDto1, gigPreviewDto2), result);
 	}
+
+	@Test(expected = GigerException.class)
+	public void getInvitations_notMemberNorLeader() {
+		Musician musician_loggedIn = mock(Musician.class);
+		Musician new_leader = mock(Musician.class);
+
+		Band band = new Band();
+		band.setLeader(new_leader);
+		band.setMembers(newArrayList(new_leader));
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
+
+		bandService.getInvitations(1L);
+	}
+
+	@Test(expected = GigerException.class)
+	public void getInvitations_notValidBand() {
+		when(bandRepository.findById(1L)).thenReturn(empty());
+		bandService.getInvitations(1L);
+	}
+
 
 	@Test
 	public void acceptInvitation() {
@@ -408,6 +445,13 @@ public class BandServiceTest {
 
 	@Test
 	public void getBand() {
+		Band band = mock(Band.class);
+		BandDto bandDto = mock(BandDto.class);
+
+		when(bandRepository.findById(1L)).thenReturn(of(band));
+		when(band.toDto()).thenReturn(bandDto);
+
+		assertEquals(bandService.getBand(1L),bandDto);
 	}
 
 	@Test
