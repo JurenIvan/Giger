@@ -6,15 +6,19 @@ import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandCreationDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.KickDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianBandDto;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import static java.time.LocalDateTime.now;
 import static java.util.Optional.empty;
@@ -256,6 +260,36 @@ public class BandServiceTest {
 
 	@Test
 	public void kickMusician() {
+		Musician musician_kicked = mock(Musician.class);
+		Musician musician_loggedIn = mock(Musician.class);
+
+		List<Musician> members = new ArrayList<>();
+		members.add(musician_kicked);
+		members.add(musician_loggedIn);
+
+		Band band = new Band();
+		band.setId(1L);
+		band.setLeader(musician_loggedIn);
+		band.setMembers(members);
+		band.setBackUpMembers(new ArrayList<>());
+
+		KickDto kickDto = new KickDto();
+		kickDto.setBandId(1L);
+		kickDto.setMusicianId(1L);
+
+		when(userDetailsService.getLoggedMusician()).thenReturn(Optional.of(musician_loggedIn).get());
+		when(userDetailsService.getLoggedMusician().getId()).thenReturn(2L);
+		when(musician_kicked.getId()).thenReturn(1L);
+		when(musicianRepository.findById(1L)).thenReturn(Optional.of(musician_kicked));
+		when(bandRepository.findById(1L)).thenReturn(Optional.of(band));
+		when(band.getLeader().getId()).thenReturn(2L);
+
+		bandService.kickMusician(kickDto);
+
+		verify(bandRepository).findById(kickDto.getBandId());
+		verify(bandRepository).save(band);
+
+		Assertions.assertFalse(band.getMembers().contains(musician_kicked));
 	}
 
 
