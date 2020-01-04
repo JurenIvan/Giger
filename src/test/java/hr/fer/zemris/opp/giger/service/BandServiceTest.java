@@ -5,12 +5,13 @@ import hr.fer.zemris.opp.giger.repository.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class BandService {
+public class BandServiceTest {
 
 	@Mock
 	private BandRepository bandRepository;
@@ -24,6 +25,8 @@ public class BandService {
 	private GigRepository gigRepository;
 	@Mock
 	private OccasionRepository occasionRepository;
+	@InjectMocks
+	BandService bandService;
 
 	@Before
 	public void setUp() {
