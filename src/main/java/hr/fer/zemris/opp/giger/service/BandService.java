@@ -183,6 +183,8 @@ public class BandService {
 		if (band.getInvitationGigs().stream().noneMatch(e -> e.getId().equals(gig.getId())))
 			throw new GigerException(BAND_NOT_INVITED_TO_GIG);
 
+		gig.setFinalDealAchieved(true);
+		gigRepository.save(gig);
 		band.acceptGig(occasionRepository.save(Occasion.createOccasion(gig, false)), gig);
 		bandRepository.save(band);
 

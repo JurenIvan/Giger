@@ -40,7 +40,8 @@ public enum ErrorCode {
 	ONLY_LEADER_CAN_CANCEL_GIG(40029, "Only leader can cancel gig.", BAD_REQUEST),
 	BAND_NOT_INVITED_TO_GIG(40030, "No invitation to this event received.", BAD_REQUEST),
 	BAND_ALREADY_ACCEPTED(40031, "Band already accepted invitation to this event", BAD_REQUEST),
-	BAND_ALREADY_INVITED(40032, "Band aldready invited to event", BAD_REQUEST);
+	BAND_ALREADY_INVITED(40032, "Band already invited to event", BAD_REQUEST),
+	DEAL_ACHIEVED(40033, "Deal il already achieved", BAD_REQUEST);
 
 	private final int code;
 	private final String message;

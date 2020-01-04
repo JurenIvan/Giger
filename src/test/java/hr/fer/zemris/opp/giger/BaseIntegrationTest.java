@@ -24,6 +24,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 public class BaseIntegrationTest {
 
 	protected static final String JSON_BASEPATH = "src/main/resources/test_json_files";
+	protected final static String AUTHENTICATION_HEADER = "Authorization";
+
 	@Autowired
 	protected ObjectMapper objectMapper;
 
