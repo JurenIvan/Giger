@@ -2,7 +2,9 @@ import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import * as Helpers from "../Utils/HelperMethods";
+import { Card } from "react-bootstrap";
+import fetcingFactory from "../Utils/external";
+import {endpoints} from "../Utils/Types";
 
 export default class RegisterClass extends React.Component{
 
@@ -59,9 +61,20 @@ export default class RegisterClass extends React.Component{
         if (shouldShow) {
             this.setState({showModal: true});
         } else {
-            (async () => {     
-                await Helpers.sendRegisterInfo(this.state.eMail, this.state.userName, this.state.phone, this.state.password, this.handleRegister);
-            })();
+           let params = JSON.stringify({
+            "email": this.state.eMail,
+            "username": this.state.userName,
+            "phoneNumber": this.state.phone,
+            "password": this.state.password
+           })
+           fetcingFactory(endpoints.REGISTER, params).then(
+            response => {
+               if (response.status === 200) {
+                   window.location.href = "/login";
+               } else {
+                  this.setState({inValidRegister: true})
+               }
+            });
         }
     }
       
@@ -69,7 +82,7 @@ export default class RegisterClass extends React.Component{
     render() {
         return (
           
-            
+            <Card>
             <div className="container">
                 <Modal show={this.state.inValidRegister} animation={false}>
                 <Modal.Body style={{color:"red"}}> Something went wrong with your registration. Please, try again! </Modal.Body>
@@ -85,10 +98,10 @@ export default class RegisterClass extends React.Component{
                 </Modal.Footer>
                 </Modal>
             <Modal show={this.state.showModal} animation={false}>
-                <Modal.Body style={{color:"red"}}> You did not meet requierments to register! </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer style={{color:"red", textAlign:"center"}}> 
+                    <p style={{textAlign:"center"}}>You did not meet requierments to register!</p>
                     <Button
-                        variant="secondary"
+                        variant="danger"
                         onClick={(e) => {
                                         this.setState({showModal: false})}
                                         }
@@ -181,7 +194,7 @@ export default class RegisterClass extends React.Component{
 
             </div>
             </div>
-
+            </Card>
         );
     }
 
