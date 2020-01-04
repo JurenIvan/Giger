@@ -106,7 +106,7 @@ function createOrganizer(params, endpoint) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
     })
-
+}
 function getInvites(params, endpoint) {
     console.log(API + endpoint + params)
     return fetch(API + endpoint + params, {
@@ -117,5 +117,4 @@ function getInvites(params, endpoint) {
         }
     })
 }
->>>>>>> dev
-}
+
