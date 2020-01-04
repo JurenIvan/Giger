@@ -59,11 +59,12 @@ export default class AcceptGigInvite extends React.Component {
                                             invitesId: [...prevState.invitesId, {value: response[i].id, label: 
                                                 fetcingFactory(endpoints.GET_GIG, response[i].id).then(
                                                     response => response.json().then(response => {
-                                                        console.log(response)
+                                                        return response;
                                                     })
                                                     )
                                             }]
                                             }))
+                                            console.log(this.state.invitesId)
                                         //console.log(this.state.invitesId)
                                     }
                                 }   
