@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Select from 'react-dropdown-select';
 import fetcingFactory from "../../Utils/external";
 import * as Types from "../../Utils/Types";
+import * as opencage from 'opencage-api-client';
+import GeocodingForm from '../GeocodingForm';
 
 export default class BandCreate extends React.Component {
   
@@ -13,12 +15,13 @@ export default class BandCreate extends React.Component {
             bandName :"",
             bandBio: "",
             acceptableGigTypes: [],
-            homeLocation: {
-                x: "",
-                y: "",
-                address: "",
-                extraDescription: ""
-            },
+            y: "",
+            x: "",
+            address:"",
+            extraDescription:"",
+            query: '',
+            apikey: 'd77313f368154e0d8313ae506740f103',
+            isSubmitting: false,
             eventType: [
                 {value: "WEDDING", label: "Svadba"},
                 {value: "BIRTHDAY", label: "Rođendan"},
@@ -32,12 +35,40 @@ export default class BandCreate extends React.Component {
         this.setValues = this.setValues.bind(this);
         this.handleSelection = this.handleSelection.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleGeoSubmit = this.handleGeoSubmit.bind(this);
+        this.handleGeoChange = this.handleGeoChange.bind(this);
     }
     handleChange (event) {
         event.preventDefault();
         this.setState({
             [event.target.id]: event.target.value
         });
+    }
+
+    handleGeoChange(key, value) {
+        this.setState({ [key]: value });
+      }
+
+    handleGeoSubmit(event) {
+        event.preventDefault();
+        this.setState({ isSubmitting: true });
+        opencage
+            .geocode({ key: this.state.apikey, q: this.state.query })
+            .then(response => {
+            //console.log(response);
+            this.setState({ response, isSubmitting: false });
+            this.setState({y: response.results[0].geometry.lat}
+                //, () => console.log(this.state.y)
+                );
+            this.setState({x: response.results[0].geometry.lng});
+            this.setState({address: response.results[0].formatted}
+                //, () => console.log(this.state.address)
+                );
+            })
+            .catch(err => {
+            console.error(err);
+            this.setState({ response: {}, isSubmitting: false });
+            });
     }
 
     setValues = selectedEventType => {
@@ -60,6 +91,16 @@ export default class BandCreate extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        let y = this.state.y;
+        let x = this.state.y;
+        let address = this.state.address;
+        let extraDescription = this.state.extraDescription;
+        let location = {
+            y,
+            x,
+            address,
+            extraDescription
+        }
         let params = {
             "name": this.state.bandName,
             "bio": this.state.bandBio,
@@ -101,6 +142,17 @@ export default class BandCreate extends React.Component {
                         <Form.Control value={this.state.bandBio} onChange={this.handleChange} type="text" as ="textarea"/>
                     </Form.Group>
                 </div>
+
+                <div className="col-2">
+                    <GeocodingForm
+                        apikey={this.state.apikey}
+                        query={this.state.query}
+                        isSubmitting={this.state.isSubmitting}
+                        onSubmit={this.handleGeoSubmit}
+                        onChange={this.handleGeoChange}
+                    />
+                </div>
+
                 <div className="col-6">
                    {this.state.eventType.map(element => {
                     return (
