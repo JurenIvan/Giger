@@ -6,6 +6,11 @@ export const endpoints = {
     CREATE_ORGANIZER: "/organizers/create/",
     GET_BAND_ID: "/bands/like/",
     GET_MY_GIGS: "/gigs/",
-    INVITE_TO_GIG: "/gigs/invite"
+    INVITE_TO_GIG: "/gigs/invite",
+    GET_BAND_GIGS: "/bands/invitations/",
+    GET_GIG: "/gigs/",
+    ACCEPT_GIG: "/bands/invitations/accept",
+    CANCEL_GIG: "/bands/invitations/cancel",
+    GET_BANDS_LEAD: "/bands/my/leader"
     /*TO DO: ostali endpointi*/
 }
