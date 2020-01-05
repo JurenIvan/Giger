@@ -42,7 +42,7 @@ public class BandController {
 		return bandService.acceptInvitation(bandInvitation);
 	}
 
-	@GetMapping("/invitations/cancel")
+	@PostMapping("/invitations/cancel")
 	public void cancelInvitation(@RequestBody BandInvitation bandInvitation) {
 		bandService.cancelInvitation(bandInvitation);
 	}
