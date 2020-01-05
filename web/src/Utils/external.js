@@ -25,6 +25,21 @@ export default function fetcingFactory (endpoint, params) {
     }
 }
 
+function getBandslist(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            //"Authorization" : "Bearer " + Cookies.get("Bearer")
+            "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBnaWdlci5jb20iLCJleHAiOjE1NzgyNDk1ODAsImlhdCI6MTU3ODI0NTk4MH0.d2wkwpWxWeDULPHPYDijXAln7ydARjgd3u31kmOgI7g"
+
+        }
+    })
+}
+
+
+
 function getBandId(params, endpoint) {
     console.log(API + endpoint + params)
     return fetch(API + endpoint + params, {

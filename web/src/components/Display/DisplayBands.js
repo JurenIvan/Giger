@@ -12,13 +12,7 @@ export class DisplayBands extends React.Component{
 
             //dohvat liste bendova
            //BandList:
-           BandListTest: [
-            "ABBA",
-            "Brkovi",
-            "Daleka obala",
-            "Prljavo kazaliste",
-            "Parni valjak"
-          ]
+          Bands : []
         };
     }
 
