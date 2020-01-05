@@ -45,41 +45,36 @@ public class Band {
 	private Location home;
 	private double maxDistance;
 
-	//todo members
 	@ManyToOne(fetch = LAZY)
 	private Musician leader;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> members;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> backUpMembers;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> invited;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> invitedBackUpMembers;
 
-	@OneToMany(fetch = LAZY)
-	@JoinColumn(name = "fk_band")
+	@OneToMany
 	private List<Post> posts;
 
 	@ElementCollection(targetClass = GigType.class)
-	@CollectionTable(name = "gig_type", joinColumns = @JoinColumn(name = "band_id"))
-	@Column(name = "gig_type", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private List<GigType> acceptableGigTypes;
 
 	@OneToMany
 	private List<Occasion> occasions;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Gig> gigs;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Gig> invitationGigs;
-
 
 	public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {
 		Band band = new Band();
@@ -105,7 +100,6 @@ public class Band {
 	public void inviteMember(Musician musician) {
 		invited.add(musician);
 	}
-
 
 	public void inviteBackupMember(Musician musician) {
 		invitedBackUpMembers.add(musician);
@@ -178,13 +172,15 @@ public class Band {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof Band)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Band)) return false;
 		Band band = (Band) o;
-		return id.equals(band.getId());
+		return Objects.equals(id, band.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -36,14 +35,16 @@ public class Comment {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof Comment)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Comment)) return false;
 		Comment comment = (Comment) o;
-		return id.equals(comment.getId());
+		return Objects.equals(id, comment.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }
 

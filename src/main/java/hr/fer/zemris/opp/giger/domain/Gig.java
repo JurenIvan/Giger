@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.EnumType.ORDINAL;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -22,32 +23,28 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 public class Gig {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "organizer_id")
-    @NotNull
-    private Organizer organizer;
-    @NotNull
-    private LocalDateTime dateTime;
-    @Embedded
-    private Location location;
-    private String description;
-    private String expectedDuration;
-    private Integer proposedPrice;
-    private String name;
+	@ManyToOne(fetch = LAZY)
+	@NotNull
+	private Organizer organizer;
+	@NotNull
+	private LocalDateTime dateTime;
+	@Embedded
+	private Location location;
+	private String description;
+	private String expectedDuration;
+	private Integer proposedPrice;
+	private String name;
 
-    @Enumerated(EnumType.ORDINAL)
-    private GigType gigType;
-    private boolean finalDealAchieved;
-    private boolean privateGig;
+	@Enumerated(ORDINAL)
+	private GigType gigType;
+	private boolean finalDealAchieved;
+	private boolean privateGig;
 
-	@ManyToMany(fetch = LAZY, cascade = MERGE)
-	@JoinTable(name = "review_gig",
-			joinColumns = {@JoinColumn(name = "fk_gig")},
-			inverseJoinColumns = {@JoinColumn(name = "fk_review")})
+	@ManyToMany(cascade = MERGE)
 	private List<Review> reviews;
 
 	public GigPreviewDto toDto() {
@@ -59,7 +56,7 @@ public class Gig {
 		if (this == o) return true;
 		if (!(o instanceof Gig)) return false;
 		Gig gig = (Gig) o;
-		return id.equals(gig.getId());
+		return Objects.equals(id, gig.getId());
 	}
 
 	@Override

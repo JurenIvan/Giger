@@ -40,13 +40,15 @@ public class Occasion {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof Occasion)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Occasion)) return false;
 		Occasion occasion = (Occasion) o;
-		return id.equals(occasion.getId());
+		return Objects.equals(id, occasion.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

@@ -7,7 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -33,7 +36,6 @@ public class Post {
 	private LocalDateTime publishedOn;
 
 	@OneToMany(fetch = EAGER, cascade = MERGE)
-	@JoinColumn(name = "fk_post")
 	private List<Comment> comments;
 
 	public PostDto toDto(MusicianProfileDto author, BandDto bandAuthor) {
@@ -49,13 +51,15 @@ public class Post {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof Post)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Post)) return false;
 		Post post = (Post) o;
-		return id.equals(post.getId());
+		return Objects.equals(id, post.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

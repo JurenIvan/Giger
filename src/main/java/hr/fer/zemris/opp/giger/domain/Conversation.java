@@ -32,21 +32,14 @@ public class Conversation {
 	private String title;
 	private String pictureUrl;
 
-	@ManyToMany(fetch = LAZY)
-	@JoinTable(name = "conversation_user",
-			joinColumns = {@JoinColumn(name = "fk_conversation")},
-			inverseJoinColumns = {@JoinColumn(name = "fk_user")})
+	@ManyToMany
 	private List<Person> participants;
 
 	@ManyToOne(fetch = LAZY)
-	@JoinColumn(name = "fk_band")
-	private Band band; //todo add list of bands?
+	private Band band;
 
-
-	@OneToMany(fetch = LAZY, cascade = MERGE)
-	@JoinColumn(name = "fk_conversation")
+	@OneToMany(cascade = MERGE)
 	private List<Message> messages;
-
 
 	public static Conversation createConversation(ConversationCreationDto other, Person creator) {
 		return new Conversation(null, other.getTitle(), other.getPictureUrl(), List.of(creator), null, null);
@@ -77,13 +70,15 @@ public class Conversation {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof Conversation)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Conversation)) return false;
 		Conversation conversation = (Conversation) o;
-		return id.equals(conversation.getId());
+		return Objects.equals(id, conversation.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

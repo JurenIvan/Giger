@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
@@ -36,7 +37,7 @@ public class SystemPerson implements UserDetails {
 	@NotNull
 	private String passwordHash;
 
-	@ElementCollection(fetch = FetchType.EAGER)
+	@ElementCollection(fetch = EAGER)
 	private List<Role> roles;
 
 	@Override
@@ -80,13 +81,15 @@ public class SystemPerson implements UserDetails {
 	}
 
 	@Override
-	public boolean equals(Object o){
-		if(this == o) return true;
-		if(!(o instanceof SystemPerson)) return false;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof SystemPerson)) return false;
 		SystemPerson systemPerson = (SystemPerson) o;
-		return id.equals(systemPerson.getId());
+		return Objects.equals(id, systemPerson.getId());
 	}
 
 	@Override
-	public int hashCode(){ return Objects.hash(id); }
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }
