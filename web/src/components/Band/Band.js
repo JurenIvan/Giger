@@ -12,10 +12,12 @@ export default class Band extends React.Component {
         this.state = {
             showModal: false,
             bandBio: "",
-            y: "",
-            x: "",
-            address:"",
-            extraDescription:"",
+            location: {
+                y: "",
+                x: "",
+                address: "",
+                extraDescription: ""
+            },
             query: '',
             apikey: 'd77313f368154e0d8313ae506740f103',
             isSubmitting: false
@@ -39,15 +41,13 @@ export default class Band extends React.Component {
             .then(response => {
             //console.log(response);
             this.setState({ response, isSubmitting: false });
-            this.setState({y: response.results[0].geometry.lat}
-                //, () => console.log(this.state.y)
-                );
-            this.setState({x: response.results[0].geometry.lng}
-                //, () => console.log(this.state.x)
-                );
-            this.setState({address: response.results[0].formatted}
-                //, () => console.log(this.state.address)
-                );
+            let helperLocation = {
+                x: response.results[0].geometry.lat,
+                y: response.results[0].geometry.lng,
+                address: response.results[0].geometry.formatted,
+                extraDescription: ""
+            }
+            this.setState({location: helperLocation});
             })
             .catch(err => {
             console.error(err);
@@ -95,6 +95,10 @@ export default class Band extends React.Component {
                                 <Form.Control autoFocus type="text" value={this.state.bandBio}
                                                 onChange={this.handleChange}/>
                             </Form.Group>
+                        </div>
+                        <div>
+                            Current location: 
+                            {this.state.location.address}
                         </div>
                         <div className="col-12">
                             <GeocodingForm
