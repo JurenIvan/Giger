@@ -4,22 +4,53 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import fetcingFactory from "../../Utils/external";
 import { endpoints } from "../../Utils/Types";
+import * as opencage from 'opencage-api-client';
+import GeocodingForm from '../GeocodingForm';
 export default class Band extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showModal: false,
             bandBio: "",
-            bandLocation: {
-                x: "",
-                y: "",
-                address: "",
-                extraDescription: ""
-            }
+            y: "",
+            x: "",
+            address:"",
+            extraDescription:"",
+            query: '',
+            apikey: 'd77313f368154e0d8313ae506740f103',
+            isSubmitting: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleGeoSubmit = this.handleGeoSubmit.bind(this);
+        this.handleGeoChange = this.handleGeoChange.bind(this);
+    }
+    
+    handleGeoChange(key, value) {
+        this.setState({ [key]: value });
+      }
+
+    handleGeoSubmit(event) {
+        event.preventDefault();
+        this.setState({ isSubmitting: true });
+        opencage
+            .geocode({ key: this.state.apikey, q: this.state.query })
+            .then(response => {
+            //console.log(response);
+            this.setState({ response, isSubmitting: false });
+            this.setState({y: response.results[0].geometry.lat}
+                //, () => console.log(this.state.y)
+                );
+            this.setState({x: response.results[0].geometry.lng});
+            this.setState({address: response.results[0].formatted}
+                //, () => console.log(this.state.address)
+                );
+            })
+            .catch(err => {
+            console.error(err);
+            this.setState({ response: {}, isSubmitting: false });
+            });
     }
     componentDidMount() {
         fetcingFactory(endpoints.GET_BAND, this.props.bandId).then(
@@ -62,6 +93,15 @@ export default class Band extends React.Component {
                                 <Form.Control autoFocus type="text" value={this.state.bandBio}
                                                 onChange={this.handleChange}/>
                             </Form.Group>
+                        </div>
+                        <div className="col-12">
+                            <GeocodingForm
+                                apikey={this.state.apikey}
+                                query={this.state.query}
+                                isSubmitting={this.state.isSubmitting}
+                                onSubmit={this.handleGeoSubmit}
+                                onChange={this.handleGeoChange}
+                            />
                         </div>
                     </Form>
                 </Modal.Body>
