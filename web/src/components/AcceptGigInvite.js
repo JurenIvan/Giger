@@ -221,19 +221,13 @@ export default class AcceptGigInvite extends React.Component {
                         <div className="col-6">
                             <Form.Group controlId="chooseBand">
                             <Select
-                                //disabled={this.state.isSearching}
+                                disabled={this.state.isSearching}
                                 name="selectedBand"
                                 options={this.state.bands}
                                 value={this.state.selectedband}
                                 //onChange={this.updateEventType}
                                 onChange={value => this.setValues(value[0].value)}
                             />
-                            </Form.Group>
-                        </div>
-
-                        <div className="col-6">
-                            <Form.Group>
-                                <Button type="button" block disabled={this.state.isSearching} onClick={this.handleBandIdGet}> Dohvati pozive za gigove </Button>
                             </Form.Group>
                         </div>
 
@@ -272,7 +266,7 @@ export default class AcceptGigInvite extends React.Component {
 
                         <div nameClass="col-6">
                             <Form.Group>
-                                <Button type="submit" block> Pozovi bend u gig </Button>
+                                <Button type="submit" block> Pozovi/odbij poziv za gig </Button>
                             </Form.Group>
                         </div>
                     </Form>
