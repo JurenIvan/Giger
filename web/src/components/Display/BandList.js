@@ -108,7 +108,7 @@ export class BandList extends React.Component{
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
                 <div style={{ background: '#ECECEC', padding: '30px' }}>
-                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 400 }}>
+                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 600 }}>
                     <Avatar size={128} src={item.pictureURl} />
                     <br></br>
                     <br></br>
