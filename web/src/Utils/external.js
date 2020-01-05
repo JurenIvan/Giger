@@ -17,6 +17,8 @@ export default function fetcingFactory (endpoint, params) {
             return createOrganizer(params,endpoint);
         case Types.endpoints.CREATE_BAND:
             return createBand(params, endpoint);
+        case Types.endpoints.GET_BAND:
+            return getBand(params, endpoint);
     }
 }
 
@@ -77,5 +79,15 @@ function createBand(params, endpoint) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         },
         body: params
+    })
+}
+
+function getBand(params, endpoint) {
+    return fetch(API + endpoint + params,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
     })
 }

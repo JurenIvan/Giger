@@ -13,6 +13,7 @@ import ProfileClass from './components/Profile/Profile'
 import CreateGig from './components/CreateGig'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 import BandCreate from './components/Band/BandCreate';
+import BandView from './components/Band/BandView';
 
 
 
@@ -55,6 +56,7 @@ function App() {
           <Route path='/profile' exact component = {ProfileClass} />
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
           <Route path='/createBand' exact component = {BandCreate} />
+          <Route path ='/viewBand' exact component = {BandView} />
         </Switch>
       </div>
     </BrowserRouter>

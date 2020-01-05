@@ -106,7 +106,7 @@ export default class BandCreate extends React.Component {
             "bio": this.state.bandBio,
             "pictureUrl": "",
             "acceptableGigTypes": this.state.acceptableGigTypes,
-            "homeLocation": this.state.homeLocation
+            "homeLocation": location
            }
            console.log(params)
         fetcingFactory(Types.endpoints.CREATE_BAND, JSON.stringify(params)).then(
@@ -143,7 +143,7 @@ export default class BandCreate extends React.Component {
                     </Form.Group>
                 </div>
 
-                <div className="col-2">
+                <div className="col-12">
                     <GeocodingForm
                         apikey={this.state.apikey}
                         query={this.state.query}
