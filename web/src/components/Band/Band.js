@@ -6,6 +6,8 @@ import fetcingFactory from "../../Utils/external";
 import { endpoints } from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
 import GeocodingForm from '../GeocodingForm';
+import { Card } from 'antd';
+
 export default class Band extends React.Component {
     constructor(props) {
         super(props);
@@ -119,12 +121,9 @@ export default class Band extends React.Component {
                 </Modal.Footer>
             </Modal>
                 <div>
-                    <div className = "row">
-                    {this.props.bandName}
-                    </div>
-                    <div>
-                    Gig Types: 
-                    {this.props.gigTypes.map(
+                <Card title={this.props.bandName} style={{ width: 300 }}>
+                    <p>Gig Types: </p>
+                    <p>   {this.props.gigTypes.map(
                         element => {
                             return(
                                 <div>
@@ -132,10 +131,11 @@ export default class Band extends React.Component {
                                 </div>
                             )
                         }
-                    )}
+                    )}</p>
                     {this.props.leader? 
                     <Button onClick = {this.handleEdit}> Edit</Button> : null}
-                    </div>
+                </Card>
+                <br></br>
                 </div>
             </React.Fragment>
         )
