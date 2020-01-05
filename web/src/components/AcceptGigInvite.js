@@ -19,7 +19,7 @@ export default class AcceptGigInvite extends React.Component {
             bandName: "",
             invitesId: [],
             isSearching: false,
-            accept: false
+            accept: true
         }
         this.handleRadioChange = this.handleRadioChange.bind(this)
     }
