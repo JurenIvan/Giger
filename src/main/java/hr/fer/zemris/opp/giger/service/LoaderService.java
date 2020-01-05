@@ -201,7 +201,7 @@ public class LoaderService implements ApplicationRunner {
 
 	private void createPosts() {
 		posts.add(new Post(null, "What a beautiful day for music", of(2019, 12, 1, 19, 20, 0), List.of(comments.get(0), comments.get(1))));
-		posts.add(new Post(null, "Having my first concert tonight", of(2019, 12, 8, 19, 0), List.of(comments.get(1))));
+		posts.add(new Post(null, "Having my first concert tonight", of(2019, 12, 8, 19, 0), List.of()));
 		posts.add(new Post(null, "First post", of(2019, 12, 7, 19, 0), List.of(comments.get(2))));
 		posts.add(new Post(null, "Just became a band member hehe", of(2019, 12, 1, 9, 0), List.of(comments.get(3))));
 		posts.add(new Post(null, "Tonight is the first gig in my cafe", of(2019, 11, 5, 11, 0), List.of(comments.get(4))));
@@ -210,14 +210,14 @@ public class LoaderService implements ApplicationRunner {
 		posts.add(new Post(null, "Found the best shop for guitars.", of(2019, 6, 8, 19, 0), List.of(comments.get(7))));
 		posts.add(new Post(null, "Hahahah", of(2019, 8, 8, 7, 0), List.of(comments.get(8))));
 		posts.add(new Post(null, "lol", of(2019, 2, 7, 13, 0), List.of(comments.get(9))));
-		posts.add(new Post(null, "My post", of(2019, 12, 1, 19, 0), List.of(comments.get(2))));
-		posts.add(new Post(null, "Having a big concert tonight.", of(2019, 12, 2, 19, 0), List.of(comments.get(3))));
-		posts.add(new Post(null, "New album coming soon.", of(2019, 12, 3, 19, 0), List.of(comments.get(4))));
-		posts.add(new Post(null, "New song coming soon.", of(2019, 12, 4, 19, 0), List.of(comments.get(5))));
-		posts.add(new Post(null, "Did you listen my xyz song?", of(2019, 12, 5, 19, 0), List.of(comments.get(6))));
-		posts.add(new Post(null, "Loved the concert tonight.", of(2019, 12, 6, 19, 0), List.of(comments.get(7))));
-		posts.add(new Post(null, "Working on something big.", of(2019, 12, 7, 19, 0), List.of(comments.get(8))));
-		posts.add(new Post(null, "Got promoted to a band leader!!", of(2019, 12, 8, 19, 0), List.of(comments.get(9))));
+		posts.add(new Post(null, "My post", of(2019, 12, 1, 19, 0), List.of()));
+		posts.add(new Post(null, "Having a big concert tonight.", of(2019, 12, 2, 19, 0), List.of()));
+		posts.add(new Post(null, "New album coming soon.", of(2019, 12, 3, 19, 0), List.of()));
+		posts.add(new Post(null, "New song coming soon.", of(2019, 12, 4, 19, 0), List.of()));
+		posts.add(new Post(null, "Did you listen my xyz song?", of(2019, 12, 5, 19, 0), List.of()));
+		posts.add(new Post(null, "Loved the concert tonight.", of(2019, 12, 6, 19, 0), List.of()));
+		posts.add(new Post(null, "Working on something big.", of(2019, 12, 7, 19, 0), List.of()));
+		posts.add(new Post(null, "Got promoted to a band leader!!", of(2019, 12, 8, 19, 0), List.of()));
 
 		this.posts = postRepository.saveAll(posts);
 	}
