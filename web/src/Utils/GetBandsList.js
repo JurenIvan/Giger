@@ -8,7 +8,7 @@ export default function getBandslist(param) {
         headers: {
           "Content-Type" : "application/json",
           //"Authorization" : "Bearer " + Cookies.get("Bearer")
-          "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBnaWdlci5jb20iLCJleHAiOjE1NzgyNTU2NjUsImlhdCI6MTU3ODI1MjA2NX0.BuPLEsZ8j8vEOkMZeTzqgqNRVjaFGZv0TCmj5WZ2oRI"
+          "Authorization" : "Bearer " + Cookies.get("Bearer")
       }})
       
 

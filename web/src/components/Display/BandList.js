@@ -22,11 +22,23 @@ export class BandList extends React.Component{
     }
 
     componentDidMount() {
-        this.setState({
-          Bands :  fetcingFactory(endpoints.BANDS_FILTER,null),
-          filtered: this.props.items,
-        });
-      }
+      let helperArray = this.state.Bands;
+      fetcingFactory(endpoints.BANDS_FILTER,null).then(
+        response=> response.json()
+        ).then(
+          json=> {
+            console.log(json)
+            for (let i= 0; i< json.length; i++) {
+              helperArray.push(json[i]);
+            }
+            this.setState({Bands: helperArray}, () => console.log(this.state.Bands))
+          }
+      )
+        /*this.setState({
+          Bands :  filtered: this.props.items,
+        }, ()=> console.log(this.state.Bands));
+      }*/
+    }
 
     /*
     componentWillReceiveProps(nextProps) {
