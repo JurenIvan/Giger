@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile'
 import CreateGig from './components/CreateGig'
 import InviteToGig from './components/InviteToGig'
+import AcceptGigInvite from './components/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 
 
@@ -41,23 +42,58 @@ function App() {
               </Modal.Footer>
               </Modal>
             )}/>
+          <Route path='/AcceptGigInvite'
+            render={() => (
+              isLoggedIn?
+                <AcceptGigInvite/> : 
+                <Modal show={true} animation={false}>
+                <Modal.Footer>
+                  <p  style={{color:"red"}}> You are not logged in! </p>
+                    <Button
+                        variant="danger"
+                        href="/login"
+                    >
+                        Go to login...
+                    </Button>
+                </Modal.Footer>
+                </Modal>
+          )}/>
           <Route path='/CreateGig'
           render={() => (
-            Cookies.get('Bearer')?
-            <CreateGig/> : 
-                alert("Please log in!")
+            isLoggedIn?
+              <CreateGig/> : 
+              <Modal show={true} animation={false}>
+              <Modal.Footer>
+                <p  style={{color:"red"}}> You are not logged in! </p>
+                  <Button
+                      variant="danger"
+                      href="/login"
+                  >
+                      Go to login...
+                  </Button>
+              </Modal.Footer>
+              </Modal>
           )}/>
           <Route path='/InviteToGig'
           render={() => (
-            Cookies.get('Bearer')?
-            <InviteToGig/> : 
-                alert("Please log in!")
+            isLoggedIn?
+              <InviteToGig/> : 
+              <Modal show={true} animation={false}>
+              <Modal.Footer>
+                <p  style={{color:"red"}}> You are not logged in! </p>
+                  <Button
+                      variant="danger"
+                      href="/login"
+                  >
+                      Go to login...
+                  </Button>
+              </Modal.Footer>
+              </Modal>
           )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
-          <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile' exact component = {ProfileClass} />
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
         </Switch>
