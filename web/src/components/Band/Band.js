@@ -13,8 +13,8 @@ export default class Band extends React.Component {
             showModal: false,
             bandBio: "",
             location: {
-                y: "",
-                x: "",
+                y: null,
+                x: null,
                 address: "",
                 extraDescription: ""
             },
@@ -44,10 +44,10 @@ export default class Band extends React.Component {
             let helperLocation = {
                 x: response.results[0].geometry.lat,
                 y: response.results[0].geometry.lng,
-                address: response.results[0].geometry.formatted,
+                address: response.results[0].formatted,
                 extraDescription: ""
             }
-            this.setState({location: helperLocation});
+            this.setState({location: helperLocation}, () => console.log(this.state.location));
             })
             .catch(err => {
             console.error(err);
@@ -55,19 +55,18 @@ export default class Band extends React.Component {
             });
     }
     componentDidMount() {
+        
+    }
+    handleEdit() {
         fetcingFactory(endpoints.GET_BAND, this.props.bandId).then(
             response=>{
                 return response.json()
             }
         ).then(
             json =>{
-                console.log("********")
-                console.log(json);
-                this.setState({bandBio: json.bio, bandLocation: json.location}, () => console.log(this.state))
+                this.setState({bandBio: json.bio, bandLocation: json.location})
             }
         )
-    }
-    handleEdit() {
         this.setState({showModal: true})
     }
 
@@ -79,7 +78,24 @@ export default class Band extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
+        let params = {
+            bandId: this.props.bandId,
+            bio: this.state.bandBio,
+            location: this.state.location,
+            maxDistance: 0,
+            pictureUrl: "",
+            removePostIds: []
+        }
+        console.log(params);
+        fetcingFactory(endpoints.EDIT_BAND, JSON.stringify(params)).then(
+            response => {
+                if (response.ok) {
+                    alert("Edited succesfully");
+                } else {
+                    alert("Failed edit");
+                }
+            }
+        )
     }
     render() {
         return (
@@ -109,6 +125,7 @@ export default class Band extends React.Component {
                                 onChange={this.handleGeoChange}
                             />
                         </div>
+                        <Button type="submit" block> Confirm changes </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -125,6 +142,10 @@ export default class Band extends React.Component {
                 <div>
                     <div className = "row">
                     {this.props.bandName}
+                    </div>
+                    <div>
+                    Biography: 
+                    {this.props.bandBio}
                     </div>
                     <div>
                     Gig Types: 

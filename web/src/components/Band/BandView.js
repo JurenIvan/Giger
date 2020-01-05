@@ -33,7 +33,7 @@ export default class BandView extends React.Component {
                 response => response.json()).then(
                     json => {
                         for (let i= 0; i < json.length; i++){
-                            let helperBand = {bandName: json[i].name, bandId: json[i].id, gigTypes: []};
+                            let helperBand = {bandName: json[i].name, bandId: json[i].id, bandBio: json[i].bio, gigTypes: []};
                             for (let j = 0; j < json[i].gigTypes.length; j++) {
                                 helperBand.gigTypes.push(json[i].gigTypes[j])
                             }
@@ -56,7 +56,7 @@ export default class BandView extends React.Component {
                 console.log(element);
                 return (
                     <div>
-                        <Band bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {true}/>
+                        <Band bandId = {element.bandId} bandName = {element.bandName} bandBio = {element.bandBio} gigTypes = {element.gigTypes} leader = {true}/>
                      </div>
                 )
             })}
@@ -65,7 +65,7 @@ export default class BandView extends React.Component {
             {this.state.memberBands.map(element => {
                 return (
                     <div>
-                        <Band bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {false}/>
+                        <Band bandId = {element.bandId} bandName = {element.bandName} bandBio = {element.bandBio} gigTypes = {element.gigTypes} leader = {false}/>
                     </div>
                 )
             })}
