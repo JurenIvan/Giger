@@ -148,7 +148,7 @@ public class BandService {
 		Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 
-		if (!band.getMembers().contains(loggedMusician) || !band.getLeader().getId().equals(loggedMusician.getId()))
+		if (!(band.getMembers().contains(loggedMusician) || band.getLeader().getId().equals(loggedMusician.getId())))
 			throw new GigerException(NOT_A_MEMBER_OF_BAND);
 
 		return band.getInvitationGigs().stream().map(Gig::toDto).collect(toList());
