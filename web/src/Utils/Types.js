@@ -10,7 +10,7 @@ export const endpoints = {
     GET_BAND_GIGS: "/bands/invitations/",
     GET_GIG: "/gigs/",
     ACCEPT_GIG: "/bands/invitations/accept",
-    DECLINE_GIG: "/bands/invitations/cancel",
+    CANCEL_GIG: "/bands/invitations/cancel",
     GET_BANDS_LEAD: "/bands/my/leader"
     /*TO DO: ostali endpointi*/
 }

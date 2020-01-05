@@ -50,7 +50,7 @@ export default class AcceptGigInvite extends React.Component {
             [event.target.id]: event.target.value
         });
     }
-
+/*
     handleBandIdGet = event => {
         event.preventDefault();
         this.setState({isSearching: true})
@@ -114,11 +114,52 @@ export default class AcceptGigInvite extends React.Component {
             
         }
     }
-
+*/
     setValues = selectedBand => {
+        this.setState({isSearching: true});
         this.setState({ selectedBand }
-            , () => console.log(this.state.selectedBand)
-        );
+            //, () => console.log(this.state.selectedBand)
+            , () =>
+        fetcingFactory(endpoints.GET_BAND_GIGS, this.state.selectedBand).then(
+            response => response.json()
+            ).then(response => {
+                if (response.code === 40001) {
+                    alert("You are not in that bend")
+                    this.setState({isSearching: false})
+                }
+                else if (response.length === 0) {
+                    console.log(response)
+                    alert("No gigs with that id")
+                    this.setState({isSearching: false})
+                }
+                else {
+                    //console.log(response)
+                    for(let i = 0; i < response.length; i++) {
+                        //console.log(response)
+                        let helperArray = this.state.invitesId;
+                        let inviteId = response[i].id;
+                        let inviteLabel = "";
+                        fetcingFactory(endpoints.GET_GIG, inviteId).then(
+                            response => {
+                               return response.json()
+                            }
+                        ).then(
+                            json => {
+                                inviteLabel = json.name
+                                //console.log(json.name)
+                                helperArray.push({value: inviteId, label: inviteLabel});
+                            }
+                        )
+                        //helperArray.push({value: inviteId, label: inviteLabel});
+                        this.setState({invitesId: helperArray}
+                            //, () => console.log(this.state.invitesId)
+                            )
+                        this.setState({isSearching: false})
+                        
+                    }
+                }   
+            })
+         );
     }
 
     setGigValues = selectedInvite => {
@@ -133,7 +174,7 @@ export default class AcceptGigInvite extends React.Component {
         //console.log(this.state.bandId)
 
         let params = JSON.stringify({
-            "bandId": this.state.bandId,
+            "bandId": this.state.selectedBand,
             "gigId": this.state.selectedInvite
         });
         console.log(params)
@@ -150,7 +191,7 @@ export default class AcceptGigInvite extends React.Component {
             }); }
         else {
             console.log("Odbij")
-            fetcingFactory(endpoints.DECLINE_GIG, params).then(
+            fetcingFactory(endpoints.CANCEL_GIG, params).then(
                 response => {
                     if (response.status === 200) {
                         window.location.href = "/home";
@@ -174,13 +215,7 @@ export default class AcceptGigInvite extends React.Component {
                 <div className = "InviteToGig">
                     <Form onSubmit={this.handleSubmit}>
                         <div className="col-2">
-                            <Form.Label controlId="bandName"> Ime benda: </Form.Label>
-                        </div>
-                        <div className="col-6">
-                            <Form.Group controlId="bandName">
-                                <Form.Control autoFocus type="text" value={this.state.bandName}
-                                              onChange={this.handleChange}/>
-                            </Form.Group>
+                            <Form.Label controlId="chooseBend"> Odaberi bend: </Form.Label>
                         </div>
 
                         <div className="col-6">
