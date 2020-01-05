@@ -42,7 +42,9 @@ export default class Band extends React.Component {
             this.setState({y: response.results[0].geometry.lat}
                 //, () => console.log(this.state.y)
                 );
-            this.setState({x: response.results[0].geometry.lng});
+            this.setState({x: response.results[0].geometry.lng}
+                //, () => console.log(this.state.x)
+                );
             this.setState({address: response.results[0].formatted}
                 //, () => console.log(this.state.address)
                 );
