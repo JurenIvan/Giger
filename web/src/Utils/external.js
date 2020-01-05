@@ -6,6 +6,8 @@ const API = "https://giger-backend-dev.herokuapp.com/api";
 export default function fetcingFactory (endpoint, params) {
     // eslint-disable-next-line
     switch (endpoint) {
+        case Types.endpoints.BANDS_FILTER:
+            return getBandslist(params,endpoint)
         case Types.endpoints.LOGIN:
             return sendLoginInfo(params, endpoint);
         case Types.endpoints.REGISTER:
@@ -26,13 +28,12 @@ export default function fetcingFactory (endpoint, params) {
 }
 
 function getBandslist(params, endpoint) {
-    console.log(API + endpoint + params)
-    return fetch(API + endpoint + params, {
-        method: "GET",
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "POST",
         headers: {
             "Content-Type" : "application/json",
-            //"Authorization" : "Bearer " + Cookies.get("Bearer")
-            "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huLmRvZUBnaWdlci5jb20iLCJleHAiOjE1NzgyNDk1ODAsImlhdCI6MTU3ODI0NTk4MH0.d2wkwpWxWeDULPHPYDijXAln7ydARjgd3u31kmOgI7g"
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
 
         }
     })

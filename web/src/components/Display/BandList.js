@@ -1,7 +1,11 @@
 import React, { Component } from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
+import { Avatar } from 'antd';
+import fetcingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 const { Search } = Input;
+
 
 export class BandList extends React.Component{
 
@@ -9,19 +13,22 @@ export class BandList extends React.Component{
     {
         super(props);
         this.state= {
-            filtered: []
+            filtered: [],
+            Bands:[]
         }
-        this.handleChange = this.handleChange.bind(this);
+        //this.handleChange = this.handleChange.bind(this);
 
 
     }
 
     componentDidMount() {
         this.setState({
-          filtered: this.props.items
+          Bands :  fetcingFactory(endpoints.BANDS_FILTER,null),
+          filtered: this.props.items,
         });
       }
-      
+
+    /*
     componentWillReceiveProps(nextProps) {
         this.setState({
           filtered: nextProps.items
@@ -60,20 +67,14 @@ export class BandList extends React.Component{
       filtered: newList
     });
   }
+  */
 
     render()
     {
         return(
         <div>
 
-            <div style ={{position:"relative",left:"23px", top:"2px"}}>
-            <Search
-            placeholder="input search text"
-            enterButton="Search"
-            size="large"
-            onChange={this.handleChange}
-            />
-            </div>
+
 
             <br></br>
             <br></br>
@@ -82,12 +83,13 @@ export class BandList extends React.Component{
             <ul>
 
             <div className ="band-item">
-            {this.state.filtered.map(item => (
+            
+            {this.state.Bands.map(item => (
                 //extra ce bit link na stranicu benda
                 <div>
                 <div style={{ background: '#ECECEC', padding: '30px' }}>
-                <Card title={item} extra={<a href="#">More</a>} style={{ width: 300 }}>
-                    <p>-Picture url-</p>
+                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 300 }}>
+                    <Avatar size="large" src={item.pictureURl} />
                     <p>-Gig type-</p>
                 </Card>
                 </div>
