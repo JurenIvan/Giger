@@ -1,6 +1,9 @@
 import * as Types from "./Types";
 import Cookies from "js-cookie";
 
+require('dotenv').config();
+console.log(process.env.API_URL)
+
 const API = "https://giger-backend-dev.herokuapp.com/api";
 
 export default function fetcingFactory (endpoint, params) {
@@ -19,6 +22,8 @@ export default function fetcingFactory (endpoint, params) {
             return createBand(params, endpoint);
         case Types.endpoints.GET_BAND:
             return getBand(params, endpoint);
+        case Types.endpoints.EDIT_BAND:
+            return editBand(params,endpoint);
     }
 }
 
@@ -89,5 +94,16 @@ function getBand(params, endpoint) {
             "Content-Type": "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
+    })
+}
+
+function editBand(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
     })
 }

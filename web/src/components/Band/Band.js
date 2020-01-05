@@ -14,10 +14,12 @@ export default class Band extends React.Component {
         this.state = {
             showModal: false,
             bandBio: "",
-            y: "",
-            x: "",
-            address:"",
-            extraDescription:"",
+            location: {
+                y: null,
+                x: null,
+                address: "",
+                extraDescription: ""
+            },
             query: '',
             apikey: 'd77313f368154e0d8313ae506740f103',
             isSubmitting: false
@@ -41,15 +43,13 @@ export default class Band extends React.Component {
             .then(response => {
             //console.log(response);
             this.setState({ response, isSubmitting: false });
-            this.setState({y: response.results[0].geometry.lat}
-                //, () => console.log(this.state.y)
-                );
-            this.setState({x: response.results[0].geometry.lng}
-                //, () => console.log(this.state.x)
-                );
-            this.setState({address: response.results[0].formatted}
-                //, () => console.log(this.state.address)
-                );
+            let helperLocation = {
+                x: response.results[0].geometry.lat,
+                y: response.results[0].geometry.lng,
+                address: response.results[0].formatted,
+                extraDescription: ""
+            }
+            this.setState({location: helperLocation}, () => console.log(this.state.location));
             })
             .catch(err => {
             console.error(err);
@@ -57,19 +57,18 @@ export default class Band extends React.Component {
             });
     }
     componentDidMount() {
+        
+    }
+    handleEdit() {
         fetcingFactory(endpoints.GET_BAND, this.props.bandId).then(
             response=>{
                 return response.json()
             }
         ).then(
             json =>{
-                console.log("********")
-                console.log(json);
-                this.setState({bandBio: json.bio, bandLocation: json.location}, () => console.log(this.state))
+                this.setState({bandBio: json.bio, bandLocation: json.location})
             }
         )
-    }
-    handleEdit() {
         this.setState({showModal: true})
     }
 
@@ -81,7 +80,24 @@ export default class Band extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
+        let params = {
+            bandId: this.props.bandId,
+            bio: this.state.bandBio,
+            location: this.state.location,
+            maxDistance: 0,
+            pictureUrl: "",
+            removePostIds: []
+        }
+        console.log(params);
+        fetcingFactory(endpoints.EDIT_BAND, JSON.stringify(params)).then(
+            response => {
+                if (response.ok) {
+                    alert("Edited succesfully");
+                } else {
+                    alert("Failed edit");
+                }
+            }
+        )
     }
     render() {
         return (
@@ -98,6 +114,10 @@ export default class Band extends React.Component {
                                                 onChange={this.handleChange}/>
                             </Form.Group>
                         </div>
+                        <div>
+                            Current location: 
+                            {this.state.location.address}
+                        </div>
                         <div className="col-12">
                             <GeocodingForm
                                 apikey={this.state.apikey}
@@ -107,6 +127,7 @@ export default class Band extends React.Component {
                                 onChange={this.handleGeoChange}
                             />
                         </div>
+                        <Button type="submit" block> Confirm changes </Button>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -121,9 +142,22 @@ export default class Band extends React.Component {
                 </Modal.Footer>
             </Modal>
                 <div>
+<<<<<<< HEAD
                 <Card title={this.props.bandName} style={{ width: 300 }}>
                     <p>Gig Types: </p>
                     <p>   {this.props.gigTypes.map(
+=======
+                    <div className = "row">
+                    {this.props.bandName}
+                    </div>
+                    <div>
+                    Biography: 
+                    {this.props.bandBio}
+                    </div>
+                    <div>
+                    Gig Types: 
+                    {this.props.gigTypes.map(
+>>>>>>> 5013d714823df78455f496dc261b4136ea97e2ac
                         element => {
                             return(
                                 <div>
