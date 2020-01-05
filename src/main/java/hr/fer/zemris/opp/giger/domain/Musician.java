@@ -45,7 +45,7 @@ public class Musician {
 		if (this == o) return true;
 		if (!(o instanceof Musician)) return false;
 		Musician musician = (Musician) o;
-		return Objects.equals(id, musician.id);
+		return id.equals(musician.getId());
 	}
 
 	@Override

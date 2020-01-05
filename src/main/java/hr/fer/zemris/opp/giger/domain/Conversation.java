@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toList;
 import static javax.persistence.CascadeType.MERGE;
@@ -74,4 +75,15 @@ public class Conversation {
 		else
 			throw new GigerException(ErrorCode.CONVERSATION_ALREADY_HAS_BAND);
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Conversation)) return false;
+		Conversation conversation = (Conversation) o;
+		return id.equals(conversation.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }

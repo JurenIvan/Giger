@@ -47,6 +47,7 @@ public class BandServiceTest {
 
 		bandCreationDto.setName("name");
 
+
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician);
 		when(bandRepository.findByName("name")).thenReturn(empty());
 

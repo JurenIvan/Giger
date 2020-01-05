@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -77,4 +78,15 @@ public class SystemPerson implements UserDetails {
 		if (this.roles == null) this.roles = new ArrayList<>();
 		this.roles.add(role);
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof SystemPerson)) return false;
+		SystemPerson systemPerson = (SystemPerson) o;
+		return id.equals(systemPerson.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }

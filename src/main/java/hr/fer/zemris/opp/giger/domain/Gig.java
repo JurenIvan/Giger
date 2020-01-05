@@ -59,7 +59,7 @@ public class Gig {
 		if (this == o) return true;
 		if (!(o instanceof Gig)) return false;
 		Gig gig = (Gig) o;
-		return id.equals(gig.id);
+		return id.equals(gig.getId());
 	}
 
 	@Override

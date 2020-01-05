@@ -15,10 +15,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
@@ -179,4 +176,15 @@ public class Band {
 	public void cancelGig(Gig gig) {
 		invitationGigs.remove(gig);
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Band)) return false;
+		Band band = (Band) o;
+		return id.equals(band.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }

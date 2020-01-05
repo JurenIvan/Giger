@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.util.Objects;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -22,4 +24,15 @@ public class Instrument {
 	private Long id;
 	private String name;
 	private InstrumentType type;
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Instrument)) return false;
+		Instrument instrument = (Instrument) o;
+		return id.equals(instrument.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }

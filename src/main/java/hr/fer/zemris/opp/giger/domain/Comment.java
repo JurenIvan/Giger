@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.awt.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -32,4 +34,16 @@ public class Comment {
 	public CommentDto toDto() {
 		return new CommentDto(id, content, postedOn, author.toDto());
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Comment)) return false;
+		Comment comment = (Comment) o;
+		return id.equals(comment.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }
+

@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -41,4 +42,16 @@ public class Person {
 
 		return this;
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Person)) return false;
+		Person person = (Person) o;
+		return id.equals(person.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
+
 }

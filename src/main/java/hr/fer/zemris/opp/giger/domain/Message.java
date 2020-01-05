@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -43,4 +44,15 @@ public class Message {
 
 		return new MessagePreview(id, content, sentTime, personPreviewDto, bandDto);
 	}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof Message)) return false;
+		Message message = (Message) o;
+		return id.equals(message.getId());
+	}
+
+	@Override
+	public int hashCode(){ return Objects.hash(id); }
 }
