@@ -185,7 +185,7 @@ public class BandService {
 		Musician loggedMusician = userDetailsService.getLoggedMusician();
 		Gig gig = gigRepository.findById(bandInvitation.getGigId()).orElseThrow(() -> new GigerException(NO_SUCH_GIG));
 
-		if (!band.getLeader().equals(loggedMusician))
+		if (!band.getLeader().getId().equals(loggedMusician.getId()))
 			throw new GigerException(ONLY_LEADER_CAN_CANCEL_GIG);
 
 		if (band.getGigs().stream().anyMatch(e -> e.equals(gig)))
