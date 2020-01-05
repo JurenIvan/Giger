@@ -155,7 +155,7 @@ public class Band {
 	}
 
 	public BandDto toDto() {
-		return new BandDto(id, name, pictureUrl, acceptableGigTypes);
+		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes);
 	}
 
 	public void removeBackUpMember(Long musicianId) {
