@@ -81,7 +81,6 @@ public class BandServiceTest {
 		band.setLeader(musician_loggedIn);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
-		when(musician_loggedIn.getId()).thenReturn(1L);
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
 		when(musicianRepository.findById(2L)).thenReturn(empty());
 
@@ -106,7 +105,6 @@ public class BandServiceTest {
 		musicianBandDto.setBandId(1);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
-		when(musician_loggedIn.getId()).thenReturn(1L);
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
 		when(musicianRepository.findById(2L)).thenReturn(of(musician_invitee));
 
@@ -136,7 +134,6 @@ public class BandServiceTest {
 		band.setLeader(musician_loggedIn);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
-		when(musician_loggedIn.getId()).thenReturn(1L);
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
 		when(musicianRepository.findById(2L)).thenReturn(empty());
 
@@ -161,7 +158,6 @@ public class BandServiceTest {
 		musicianBandDto.setBandId(1);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
-		when(musician_loggedIn.getId()).thenReturn(1L);
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
 		when(musicianRepository.findById(2L)).thenReturn(of(musician_invitee));
 
@@ -243,7 +239,6 @@ public class BandServiceTest {
 		bandService.joinBand(1L);
 	}
 
-
 	@Test
 	public void leaveBand() {
 		Musician musician = mock(Musician.class);
@@ -277,7 +272,6 @@ public class BandServiceTest {
 		kickDto.setMusicianId(1L);
 
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
-		when(musician_loggedIn.getId()).thenReturn(2L);
 		when(musician_kicked.getId()).thenReturn(1L);
 		when(bandRepository.findById(1L)).thenReturn(of(band));
 
@@ -382,7 +376,7 @@ public class BandServiceTest {
 	}
 
 	@Test
-	public void listInvitations_members () {
+	public void listInvitations_members() {
 		Musician musician = mock(Musician.class);
 		Musician musicianOther = mock(Musician.class);
 
@@ -515,7 +509,6 @@ public class BandServiceTest {
 
 		when(bandRepository.findById(bandInvitation.getBandId())).thenReturn(of(band));
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
-		when(userDetailsService.getLoggedMusician().getId()).thenReturn(1L);
 		when(gigRepository.findById(bandInvitation.getGigId())).thenReturn(of(gig));
 
 		bandService.acceptInvitation(bandInvitation);
