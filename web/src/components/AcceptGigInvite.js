@@ -50,71 +50,7 @@ export default class AcceptGigInvite extends React.Component {
             [event.target.id]: event.target.value
         });
     }
-/*
-    handleBandIdGet = event => {
-        event.preventDefault();
-        this.setState({isSearching: true})
-        if(this.state.bandName === "") {
-            alert("Band name can't be empty")
-            this.setState({isSearching: false})
-        }
-        else {
-            fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
-                response => response.json()
-                ).then(response => {
-                    if (response.length === 0) {
-                        alert("No bands with that name")
-                        this.setState({isSearching: false})
-                    }
-                    else {
-                        //console.log(response)
-                        this.setState({
-                            bandId: response[0].id
-                        }, () => {fetcingFactory(endpoints.GET_BAND_GIGS, this.state.bandId).then(
-                            response => response.json()
-                            ).then(response => {
-                                if (response.code === 40001) {
-                                    alert("You are not in that bend")
-                                    this.setState({isSearching: false})
-                                }
-                                else if (response.length === 0) {
-                                    alert("No gigs with that id")
-                                    this.setState({isSearching: false})
-                                }
-                                else {
-                                    //console.log(response)
-                                    for(let i = 0; i < response.length; i++) {
-                                        //console.log(response)
-                                        let helperArray = this.state.invitesId;
-                                        let inviteId = response[i].id;
-                                        let inviteLabel = "";
-                                        fetcingFactory(endpoints.GET_GIG, inviteId).then(
-                                            response => {
-                                               return response.json()
-                                            }
-                                        ).then(
-                                            json => {
-                                                inviteLabel = json.name
-                                                //console.log(json.name)
-                                                helperArray.push({value: inviteId, label: inviteLabel});
-                                            }
-                                        )
-                                        //helperArray.push({value: inviteId, label: inviteLabel});
-                                        this.setState({invitesId: helperArray}
-                                            //, () => console.log(this.state.invitesId)
-                                            )
-                                        this.setState({isSearching: false})
-                                        
-                                    }
-                                }   
-                            });})
-                        //console.log(this.state.bandId)
-                    }   
-            });
-            
-        }
-    }
-*/
+
     setValues = selectedBand => {
         this.setState({isSearching: true});
         this.setState({ selectedBand }
