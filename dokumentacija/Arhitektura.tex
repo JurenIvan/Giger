@@ -577,7 +577,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			
 			\begin{figure}[H]
 				\begin{center}
-					\includegraphics[width=17cm]{slike/DTO.PNG}
+					\includegraphics[width=17cm]{slike/pravi_dto2.PNG}
 				\end{center}
 				\caption{Dijagram razreda - dio Data transfer objects}
 				\label{fig:dto}
@@ -600,11 +600,19 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[width=17cm]{slike/domena.PNG}
+				\includegraphics[width=17cm]{slike/entiteti_1.PNG}
 			\end{center}
-			\caption{Dijagram razreda - razredi entiteta}
+			\caption{Dijagram razreda - razredi entiteta 1}
 			\label{fig:domena}
 		\end{figure}
+	
+		\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=17cm]{slike/entiteti_2.PNG}
+		\end{center}
+		\caption{Dijagram razreda - razredi entiteta 2}
+		\label{fig:domena2}
+	\end{figure}
 	
 	Na slici 4.7 prikazan je dijagram razreda zaduženih za Spring Security.
 	Ulazna točka za autorizaciju zahtjeva je definirana u JwtRequestFilteru koji poziva UserDetailsServiceImpl da provjeri postoji li u bazi podataka zapis s akreditacijama koje se dekodiraju iz jwt tokena.
@@ -616,7 +624,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[width=17cm]{slike/security.PNG}
+				\includegraphics[width=17cm]{slike/security1.PNG}
 			\end{center}
 			\caption{Dijagram razreda - security}
 			\label{fig:sec}
@@ -629,6 +637,17 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\caption{Dijagram repozitorija - repository}
 			\label{fig:repository}
 		\end{figure}
+	
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=17cm]{slike/errors1.PNG}
+			\end{center}
+			\caption{Dijagram razreda - errors}
+			\label{fig:err}
+		\end{figure}
+	
+		
 	
 	
 	\eject
