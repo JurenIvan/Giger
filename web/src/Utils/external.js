@@ -28,6 +28,10 @@ export default function fetcingFactory (endpoint, params) {
             return getGig(params, endpoint);
         case Types.endpoints.ACCEPT_GIG:
             return acceptGig(params,endpoint);
+        case Types.endpoints.CANCEL_GIG:
+            return declineGig(params,endpoint);
+        case Types.endpoints.GET_BANDS_LEAD:
+            return getBandsLeader(params,endpoint);
     }
 }
 
@@ -112,6 +116,16 @@ function acceptGig(params, endpoint) {
     })
 }
 
+function declineGig(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
 function createMusician(params,endpoint) {
     return fetch(API + endpoint, {
         method:"POST",
@@ -135,6 +149,17 @@ function createOrganizer(params, endpoint) {
 function getInvites(params, endpoint) {
     console.log(API + endpoint + params)
     return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getBandsLeader(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
         method: "GET",
         headers: {
             "Content-Type" : "application/json",

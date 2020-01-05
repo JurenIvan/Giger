@@ -12,13 +12,37 @@ export default class AcceptGigInvite extends React.Component {
         super(props);
 
         this.state = {
+            bands: [],
+            selectedBand: "",
             bandId: "",
             selectedInvite: "",
             bandName: "",
             invitesId: [],
-            isSearching: false
+            isSearching: false,
+            accept: false
         }
-        //this.handleGetMyGigs = this.handleGetMyGigs.bind(this)
+        this.handleRadioChange = this.handleRadioChange.bind(this)
+    }
+
+    componentDidMount() {
+        fetcingFactory(endpoints.GET_BANDS_LEAD, "").then(
+            response => response.json()
+            ).then(response => {
+                console.log(response.code)
+                if(response.code === 40001){
+                    if(response.violationErrors[0].code === 40003) {
+                        alert("You are not a leader of any bands")
+                    }
+                }
+                else {
+                    for(let i=0; i<response.length;i++) {
+                        this.setState(prevState => ({
+                            bands: [...prevState.bands, {value: response[i].id, label: response[i].name}]
+                          }))
+                    }
+                    console.log(this.state.bands)
+                }
+            })
     }
 
     handleChange = event => {
@@ -32,6 +56,7 @@ export default class AcceptGigInvite extends React.Component {
         this.setState({isSearching: true})
         if(this.state.bandName === "") {
             alert("Band name can't be empty")
+            this.setState({isSearching: false})
         }
         else {
             fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
@@ -39,6 +64,7 @@ export default class AcceptGigInvite extends React.Component {
                 ).then(response => {
                     if (response.length === 0) {
                         alert("No bands with that name")
+                        this.setState({isSearching: false})
                     }
                     else {
                         //console.log(response)
@@ -49,9 +75,11 @@ export default class AcceptGigInvite extends React.Component {
                             ).then(response => {
                                 if (response.code === 40001) {
                                     alert("You are not in that bend")
+                                    this.setState({isSearching: false})
                                 }
                                 else if (response.length === 0) {
                                     alert("No gigs with that id")
+                                    this.setState({isSearching: false})
                                 }
                                 else {
                                     //console.log(response)
@@ -87,7 +115,13 @@ export default class AcceptGigInvite extends React.Component {
         }
     }
 
-    setValues = selectedInvite => {
+    setValues = selectedBand => {
+        this.setState({ selectedBand }
+            , () => console.log(this.state.selectedBand)
+        );
+    }
+
+    setGigValues = selectedInvite => {
         this.setState({ selectedInvite }
             , () => console.log(this.state.selectedInvite)
         );
@@ -103,7 +137,9 @@ export default class AcceptGigInvite extends React.Component {
             "gigId": this.state.selectedInvite
         });
         console.log(params)
-        fetcingFactory(endpoints.ACCEPT_GIG, params).then(
+        if(this.state.accept === true) {
+            console.log("Prihvati")
+            fetcingFactory(endpoints.ACCEPT_GIG, params).then(
             response => {
                 if (response.status === 200) {
                     window.location.href = "/home";
@@ -111,7 +147,25 @@ export default class AcceptGigInvite extends React.Component {
                     console.log(response)
                     alert(response.json())
                 }
-            });
+            }); }
+        else {
+            console.log("Odbij")
+            fetcingFactory(endpoints.DECLINE_GIG, params).then(
+                response => {
+                    if (response.status === 200) {
+                        window.location.href = "/home";
+                    } else {
+                        console.log(response)
+                        alert(response.json())
+                    }
+                }); 
+        }
+    }
+
+    handleRadioChange(event) {
+        const accept = event.currentTarget.value === 'true' ? true: false;
+        this.setState({ accept });
+        console.log(this.state.accept)
     }
 
     render () {
@@ -126,6 +180,19 @@ export default class AcceptGigInvite extends React.Component {
                             <Form.Group controlId="bandName">
                                 <Form.Control autoFocus type="text" value={this.state.bandName}
                                               onChange={this.handleChange}/>
+                            </Form.Group>
+                        </div>
+
+                        <div className="col-6">
+                            <Form.Group controlId="chooseBand">
+                            <Select
+                                //disabled={this.state.isSearching}
+                                name="selectedBand"
+                                options={this.state.bands}
+                                value={this.state.selectedband}
+                                //onChange={this.updateEventType}
+                                onChange={value => this.setValues(value[0].value)}
+                            />
                             </Form.Group>
                         </div>
 
@@ -146,9 +213,26 @@ export default class AcceptGigInvite extends React.Component {
                                 options={this.state.invitesId}
                                 value={this.state.selectedInvite}
                                 //onChange={this.updateEventType}
-                                onChange={value => this.setValues(value[0].value)}
+                                onChange={value => this.setGigValues(value[0].value)}
                             />
                             </Form.Group>
+                        </div>
+
+                        <div className="col-6">
+                            <label><input 
+                                type="radio"
+                                name="accept"
+                                value="true"
+                                checked={this.state.accept === true}
+                                onChange={this.handleRadioChange}
+                                ></input>Prihvati</label>
+                                <label><input 
+                                type="radio"
+                                name="accept"
+                                value="false"
+                                checked={this.state.accept === false}
+                                onChange={this.handleRadioChange}
+                                ></input>Odbij</label>
                         </div>
 
                         <div nameClass="col-6">
