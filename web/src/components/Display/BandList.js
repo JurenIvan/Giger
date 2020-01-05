@@ -13,16 +13,18 @@ export class BandList extends React.Component{
     {
         super(props);
         this.state= {
+            BandNames: [],
             filtered: [],
             Bands:[]
         }
-        //this.handleChange = this.handleChange.bind(this);
-
+        this.handleChange = this.handleChange.bind(this);
 
     }
 
     componentDidMount() {
       let helperArray = this.state.Bands;
+      let helperNames=this.state.BandNames;
+      let helperFiltered=this.state.filtered;
       fetcingFactory(endpoints.BANDS_FILTER,null).then(
         response=> response.json()
         ).then(
@@ -30,22 +32,18 @@ export class BandList extends React.Component{
             console.log(json)
             for (let i= 0; i< json.length; i++) {
               helperArray.push(json[i]);
+              helperFiltered.push(json[i].name)
+              helperNames.push(json[i].name)
             }
-            this.setState({Bands: helperArray}, () => console.log(this.state.Bands))
+            this.setState({Bands: helperArray,
+            filtered:helperFiltered,
+            BandNames:helperNames}, () => console.log(this.state.Bands))
           }
       )
-        /*this.setState({
-          Bands :  filtered: this.props.items,
-        }, ()=> console.log(this.state.Bands));
-      }*/
+
     }
 
-    /*
-    componentWillReceiveProps(nextProps) {
-        this.setState({
-          filtered: nextProps.items
-        });
-    }
+
 
     handleChange(e) {
         // Variable to hold the original version of the list
@@ -56,7 +54,7 @@ export class BandList extends React.Component{
         // If the search bar isn't empty
     if (e.target.value !== "") {
             // Assign the original list to currentList
-      currentList = this.props.items;
+      currentList = this.state.BandNames;
 
             // Use .filter() to determine which items should be displayed
             // based on the search terms
@@ -72,20 +70,27 @@ export class BandList extends React.Component{
       });
     } else {
             // If the search bar is empty, set newList to original task list
-      newList = this.props.items;
+      newList = this.state.BandNames;
     }
         // Set the filtered state based on what our rules added to newList
     this.setState({
       filtered: newList
     });
   }
-  */
 
     render()
     {
         return(
         <div>
-
+          
+            <div style ={{position:"relative",left:"23px", top:"2px"}}>
+            <Search
+            placeholder="input search text"
+            enterButton="Search"
+            size="large"
+            onChange={this.handleChange}
+            />
+            </div>
 
 
             <br></br>
@@ -98,14 +103,19 @@ export class BandList extends React.Component{
             
             {this.state.Bands.map(item => (
                 //extra ce bit link na stranicu benda
+
+
                 <div>
+                {this.state.filtered.indexOf(item.name)>-1 &&
                 <div style={{ background: '#ECECEC', padding: '30px' }}>
-                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 300 }}>
-                    <Avatar size="large" src={item.pictureURl} />
-                    <p>-Gig type-</p>
+                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 400 }}>
+                    <Avatar size={128} src={item.pictureURl} />
+                    <br></br>
+                    <br></br>
+                    <p>Gig type: {item.gigTypes[0]}</p>
                 </Card>
                 </div>
-
+                }
                 <div>
                 <br></br>
                 <br></br>
