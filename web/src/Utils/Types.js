@@ -19,6 +19,7 @@ export const endpoints = {
     GET_BANDS_LEAD: "/bands/my/leader",
     GET_MUSICIAN: "/musicians/find",
     INVITE_MAIN_MEMB: "/band-administration/invite",
-    INVITE_BACKUP_MEMB: "/band-administration/invite-as-backup"
+    INVITE_BACKUP_MEMB: "/band-administration/invite-as-backup",
+    GET_BAND_INVITATIONS: "/musicians/invitations"
     /*TO DO: ostali endpointi*/
 }

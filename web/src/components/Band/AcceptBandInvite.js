@@ -10,15 +10,41 @@ export default class AcceptBandInvite extends React.Component {
         super(props);
 
         this.state = {
-            musicians: [],
-            selectedBand: "",
-            musicianName: "",
-            bands: [],
-            selectedMusician: "",
             isSearching: false,
-            main: true
+            mainInvites: [],
+            backupInvites: []
         }
-        this.handleRadioChange = this.handleRadioChange.bind(this)
+        //this.handleRadioChange = this.handleRadioChange.bind(this)
+    }
+
+    componentDidMount() {
+        this.setState({isSearching: true})
+        fetcingFactory(endpoints.GET_BAND_INVITATIONS, "").then(
+            response => response.json()
+            ).then(response => {
+                console.log(response.code)
+                if(response.code === 40001){
+                    console.log(response)
+                    alert("Error")
+                }
+                else {
+                    for(let i=0; i<response.length;i++) {
+                        if(response[i].asMember === true) {
+                            this.setState(prevState => ({
+                                mainInvites: [...prevState.mainInvites, {value: response[i].bandId, label: response[i].bandId}]
+                              }))
+                        }
+                        else {
+                            this.setState(prevState => ({
+                                backupInvites: [...prevState.backupInvites, {value: response[i].bandId, label: response[i].bandId}]
+                              }))
+                        }
+                    }
+                    console.log(this.state.mainInvites)
+                    console.log(this.state.backupInvites)
+                }
+            }).then( () => 
+        this.setState({isSearching: false}))
     }
 
     render() {

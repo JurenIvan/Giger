@@ -49,6 +49,8 @@ export default function fetcingFactory (endpoint, params) {
             return inviteMainMemb(params, endpoint);
         case Types.endpoints.INVITE_BACKUP_MEMB:
             return inviteBackupMemb(params, endpoint);
+        case Types.endpoints.GET_BAND_INVITATIONS:
+            return getBandInvitations(params, endpoint);
     }
 }
 
@@ -257,5 +259,15 @@ function inviteBackupMemb(params,endpoint) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         },
         body: params
+    })
+}
+
+function getBandInvitations(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
     })
 }
