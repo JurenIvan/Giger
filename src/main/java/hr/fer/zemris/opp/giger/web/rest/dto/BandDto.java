@@ -17,4 +17,8 @@ public class BandDto {
 	private String bio;
 	private String pictureURl;
 	private List<GigType> gigTypes;
+
+	private List<Long> membersIds;
+	private List<Long> backupMembersIds;
+	private Long leaderId;
 }

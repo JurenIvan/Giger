@@ -26,7 +26,7 @@ public class GigController {
 		return gigService.createGig(gigCreationDto);
 	}
 
-	@GetMapping("/{gigId}")
+	@GetMapping("/view/{gigId}")
 	public GigPreviewDto viewGig(@PathVariable Long gigId) {
 		return gigService.viewGig(gigId);
 	}
