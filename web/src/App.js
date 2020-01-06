@@ -17,6 +17,7 @@ import ChangeProfileType from './components/Profile/ChangeProfileType';
 import BandCreate from './components/Band/BandCreate';
 import BandView from './components/Band/BandView';
 import InviteToBand from './components/Band/InviteToBand'
+import AcceptBandInvite from './components/Band/AcceptBandInvite'
 
 
 
@@ -102,6 +103,7 @@ function App() {
           <Route path='/createBand' exact component = {BandCreate} />
           <Route path ='/viewBand' exact component = {BandView} />
           <Route path ='/InviteToBand' exact component = {InviteToBand} />
+          <Route path ='/AcceptBandInvite' exact component = {AcceptBandInvite} />
         </Switch>
       </div>
     </BrowserRouter>

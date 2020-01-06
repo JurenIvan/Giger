@@ -128,7 +128,7 @@ export default class InviteToBand extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <div className = "InviteToGig">
+                <div className = "InviteToBand">
                     <Form onSubmit={this.handleSubmit}>
                         <div className="col-2">
                             <Form.Label controlId="chooseBand"> Odaberi bend: </Form.Label>
