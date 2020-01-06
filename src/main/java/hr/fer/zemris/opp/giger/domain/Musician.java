@@ -1,10 +1,12 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewPictureDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -72,5 +74,9 @@ public class Musician {
 
 	public void addPost(Post post) {
 		posts.add(post);
+	}
+
+	public MusicianPreviewPictureDto createMusicianPreviewPicture(String username, @Length(max = 10000) String pictureUrl) {
+		return new MusicianPreviewPictureDto(id, bio, publicCalendar, instruments, username, pictureUrl);
 	}
 }

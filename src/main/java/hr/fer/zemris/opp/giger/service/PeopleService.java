@@ -10,6 +10,7 @@ import hr.fer.zemris.opp.giger.repository.PersonRepository;
 import hr.fer.zemris.opp.giger.repository.ReviewRepository;
 import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -88,12 +89,15 @@ public class PeopleService {
 	}
 
 	public List<Person> findPeople(FindUsersDto findUsersDto) {
-		List<Person> usersWithSimilarName = peopleRepository.findAllByUsernameLike(findUsersDto.getName());
-		return usersWithSimilarName;
+		return peopleRepository.findByUsernameContaining(findUsersDto.getName());
 	}
 
 	public List<ReviewPreviewDto> getReviews(Long personId) {
 		Person person = peopleRepository.findById(personId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 		return reviewRepository.findAllByAuthor(person).stream().map(Review::toDto).collect(toList());
+	}
+
+	public PersonPreviewDto findPerson(Long personId) {
+		return peopleRepository.findById(personId).orElseThrow(() -> new GigerException(NO_SUCH_USER)).toDto();
 	}
 }

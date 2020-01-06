@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigPreviewDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,5 +63,48 @@ public class Gig {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	public static Gig createGig(GigCreationDto gigCreationDto, Organizer organizer) {
+		Gig gig = new Gig();
+		gig.dateTime = gigCreationDto.getDateTime();
+		gig.location = gigCreationDto.getLocation();
+		gig.description = gigCreationDto.getDescription();
+		gig.expectedDuration = gigCreationDto.getExpectedDuration();
+		gig.proposedPrice = gigCreationDto.getProposedPrice();
+		gig.gigType = gigCreationDto.getGigType();
+		gig.privateGig = gigCreationDto.getPrivateGig();
+		gig.name = gigCreationDto.getGigName();
+		gig.organizer = organizer;
+
+		return gig;
+	}
+
+	public Gig editGig(GigCreationDto gigCreationDto) {
+		if (gigCreationDto.getDateTime() != null)
+			dateTime = gigCreationDto.getDateTime();
+
+		if (gigCreationDto.getLocation() != null)
+			location = gigCreationDto.getLocation();
+
+		if (gigCreationDto.getDescription() != null)
+			description = gigCreationDto.getDescription();
+
+		if (gigCreationDto.getExpectedDuration() != null)
+			expectedDuration = gigCreationDto.getExpectedDuration();
+
+		if (gigCreationDto.getProposedPrice() != null)
+			proposedPrice = gigCreationDto.getProposedPrice();
+
+		if (gigCreationDto.getGigType() != null)
+			gigType = gigCreationDto.getGigType();
+
+		if (gigCreationDto.getPrivateGig() != null)
+			privateGig = gigCreationDto.getPrivateGig();
+
+		if (gigCreationDto.getGigName() != null)
+			name = gigCreationDto.getGigName();
+
+		return this;
 	}
 }

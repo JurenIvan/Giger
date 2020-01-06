@@ -40,4 +40,9 @@ public class GigController {
 	public List<GigPreviewDto> viewMyGigs() {
 		return gigService.listMyGigs();
 	}
+
+	@PostMapping("/edit/{gigId}")
+	public GigPreviewDto editGig(@RequestBody GigCreationDto gigCreationDto, @PathVariable Long gigId) {
+		return gigService.editGig(gigCreationDto, gigId);
+	}
 }
