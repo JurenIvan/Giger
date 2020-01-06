@@ -17,7 +17,7 @@ import CreateGig from './components/CreateGig'
 import InviteToGig from './components/InviteToGig'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 
-
+import WelcomePage from "./components/BasicComponents/WelcomePage";
 
 function App() {
 
@@ -68,7 +68,10 @@ function App() {
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
         </Switch>
       </div>
+      
+      <WelcomePage/>
     </BrowserRouter>
+   
   );
 }
 
