@@ -146,18 +146,6 @@ export default class Band extends React.Component {
                 <Card title={this.props.bandName} style={{ width: 300 }}>
                     <p>Gig Types: </p>
                     <p>   {this.props.gigTypes.map(
-=======
-                    <div className = "row">
-                    {this.props.bandName}
-                    </div>
-                    <div>
-                    Biography: 
-                    {this.props.bandBio}
-                    </div>
-                    <div>
-                    Gig Types: 
-                    {this.props.gigTypes.map(
->>>>>>> 5013d714823df78455f496dc261b4136ea97e2ac
                         element => {
                             return(
                                 <div>
