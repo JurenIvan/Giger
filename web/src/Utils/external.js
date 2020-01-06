@@ -24,6 +24,8 @@ export default function fetcingFactory (endpoint, params) {
             return getBand(params, endpoint);
         case Types.endpoints.EDIT_BAND:
             return editBand(params,endpoint);
+        case Types.endpoints.GET_MUSICIAN_BASIC:
+            return getBasicMusician(params,endpoint);
     }
 }
 
@@ -105,5 +107,15 @@ function editBand(params,endpoint) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         },
         body: params
+    })
+}
+
+function getBasicMusician(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
     })
 }

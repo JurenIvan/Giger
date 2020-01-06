@@ -6,6 +6,8 @@ export const endpoints = {
     CREATE_ORGANIZER: "/organizers/create/",
     CREATE_BAND: "/band-administration/create",
     GET_BAND: "/bands/",
-    EDIT_BAND: "/band-administration/edit"
+    EDIT_BAND: "/band-administration/edit",
+    GET_MUSICIAN_BASIC: "musicians/show/basic/",
+    
     /*TO DO: ostali endpointi*/
 }

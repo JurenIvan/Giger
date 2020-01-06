@@ -7,6 +7,7 @@ import { endpoints } from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
 import GeocodingForm from '../GeocodingForm';
 import { Card } from 'antd';
+import DisplayBandMembers from "./DisplayBandMembers"
 
 export default class Band extends React.Component {
     constructor(props) {
@@ -141,6 +142,18 @@ export default class Band extends React.Component {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            <Modal show={this.state.showAdministrateModal} animation={false}>
+                <Modal.Body>
+                    <DisplayBandMembers bandId = {this.props.bandId}/>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={(e) => {
+                        this.setState({showAdministrateModal: false})
+                    }}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
                 <div>
                 <Card title={this.props.bandName} style={{ width: 300 }}>
                     <p>Gig Types: </p>
@@ -154,7 +167,14 @@ export default class Band extends React.Component {
                         }
                     )}</p>
                     {this.props.leader? 
-                    <Button onClick = {this.handleEdit}> Edit</Button> : null}
+                        <React.Fragment>
+                            <Button onClick = {this.handleEdit}> Edit</Button> 
+                            <Button onClick={(e) => {
+                                this.setState({showAdministrateModal: true})
+                            }}> Administrate</Button>
+                        </React.Fragment>
+                        :
+                     null}
                 </Card>
                 <br></br>
                 </div>
