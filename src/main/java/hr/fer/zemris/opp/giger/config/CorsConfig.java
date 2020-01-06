@@ -17,7 +17,7 @@ public class CorsConfig {
 	public FilterRegistrationBean<CorsFilter> simpleCorsFilter() {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.setAllowedOrigins(of("http://localhost:3000", "http://localhost:8080"));
+		config.setAllowedOrigins(of("http://localhost:3000", "http://localhost:8080", "https://giger-fer.herokuapp.com", "https://giger-fer-dev.herokuapp.com", "https://giger-fer.herokuapp.com/", "https://giger-fer-dev.herokuapp.com/"));
 		config.setAllowedMethods(of("*"));
 		config.setAllowedHeaders(of("*"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
