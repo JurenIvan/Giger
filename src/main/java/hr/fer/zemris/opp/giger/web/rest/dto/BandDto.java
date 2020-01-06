@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.web.rest.dto;
 
+import hr.fer.zemris.opp.giger.domain.Location;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,4 +22,6 @@ public class BandDto {
 	private List<Long> membersIds;
 	private List<Long> backupMembersIds;
 	private Long leaderId;
+
+	private Location location;
 }

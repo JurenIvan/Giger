@@ -147,7 +147,7 @@ public class Band {
 	}
 
 	public BandDto toDto() {
-		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes, members.stream().map(Musician::getId).collect(toList()), backUpMembers.stream().map(Musician::getId).collect(toList()), leader.getId());
+		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes, members.stream().map(Musician::getId).collect(toList()), backUpMembers.stream().map(Musician::getId).collect(toList()), leader.getId(),home);
 	}
 
 	public void removeBackUpMember(Long musicianId) {
