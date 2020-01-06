@@ -3,6 +3,7 @@ import { Card } from 'antd';
 import { Input } from 'antd';
 import { Avatar } from 'antd';
 import fetcingFactory from "../../Utils/external";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import {endpoints} from "../../Utils/Types";
 const { Search } = Input;
 
@@ -81,6 +82,7 @@ export class BandList extends React.Component{
     render()
     {
         return(
+        <ErrorBoundary>
         <div>
           
             <div style ={{position:"relative",left:"23px", top:"2px"}}>
@@ -126,6 +128,7 @@ export class BandList extends React.Component{
             </div>
             </ul>
         </div>
+        </ErrorBoundary>
         )
     }
 
