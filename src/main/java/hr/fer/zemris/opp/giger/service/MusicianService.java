@@ -100,8 +100,8 @@ public class MusicianService {
 
 		List<MusicianInvitationDto> invitations = new ArrayList<>();
 
-		bandsInvitedAsMember.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), true)));
-		bandsInvitedAsBackup.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), false)));
+		bandsInvitedAsMember.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), true, e.getName())));
+		bandsInvitedAsBackup.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), false, e.getName())));
 
 		return invitations;
 	}

@@ -11,4 +11,5 @@ public class MusicianInvitationDto {
 
 	private Long bandId;
 	private Boolean asMember;
+	private String bandName;
 }
