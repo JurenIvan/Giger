@@ -31,12 +31,12 @@ export default class AcceptBandInvite extends React.Component {
                     for(let i=0; i<response.length;i++) {
                         if(response[i].asMember === true) {
                             this.setState(prevState => ({
-                                mainInvites: [...prevState.mainInvites, {value: response[i].bandId, label: response[i].bandId}]
+                                mainInvites: [...prevState.mainInvites, {value: response[i].bandId, label: response[i].bandName}]
                               }))
                         }
                         else {
                             this.setState(prevState => ({
-                                backupInvites: [...prevState.backupInvites, {value: response[i].bandId, label: response[i].bandId}]
+                                backupInvites: [...prevState.backupInvites, {value: response[i].bandId, label: response[i].bandName}]
                               }))
                         }
                     }
