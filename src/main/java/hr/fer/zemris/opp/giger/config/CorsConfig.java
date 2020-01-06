@@ -8,27 +8,23 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.util.Collections;
-import java.util.List;
-
-import static java.util.Collections.*;
-import static java.util.List.*;
+import static java.util.List.of;
 
 @Configuration
 public class CorsConfig {
 
-    @Bean
-    public FilterRegistrationBean<CorsFilter> simpleCorsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.setAllowedOrigins(of("http://localhost:3000","http://localhost:8080"));
-        config.setAllowedMethods(of("*"));
-        config.setAllowedHeaders(of("*"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	@Bean
+	public FilterRegistrationBean<CorsFilter> simpleCorsFilter() {
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.setAllowedOrigins(of("http://localhost:3000", "http://localhost:8080"));
+		config.setAllowedMethods(of("*"));
+		config.setAllowedHeaders(of("*"));
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return bean;
-    }
+		source.registerCorsConfiguration("/**", config);
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		return bean;
+	}
 }

@@ -4,11 +4,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public enum Role {
-    PERSON,
-    MUSICIAN,
-    ORGANIZER;
+	PERSON,
+	MUSICIAN,
+	ORGANIZER;
 
-    public GrantedAuthority getGrantedAuthority() {
-        return new SimpleGrantedAuthority(name());
-    }
+	public GrantedAuthority getGrantedAuthority() {
+		return new SimpleGrantedAuthority(name());
+	}
 }

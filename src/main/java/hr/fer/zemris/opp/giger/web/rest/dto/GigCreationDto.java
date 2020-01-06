@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class GigCreationDto {
 
-    private LocalDateTime dateTime;
-    private Location location;
-    private String description;
-    private String expectedDuration;
-    private Integer proposedPrice;
-    private GigType gigType;
-    private Boolean privateGig;
-    private String gigName;
+	private LocalDateTime dateTime;
+	private Location location;
+	private String description;
+	private String expectedDuration;
+	private Integer proposedPrice;
+	private GigType gigType;
+	private Boolean privateGig;
+	private String gigName;
 }

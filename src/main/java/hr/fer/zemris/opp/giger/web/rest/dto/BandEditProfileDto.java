@@ -12,10 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BandEditProfileDto {
 
-    private Long bandId;
-    private String bio;
-    private String pictureUrl;
-    private Location location;
-    private List<Long> removePostIds;
-    private Long maxDistance;
+	private Long bandId;
+	private String bio;
+	private String pictureUrl;
+	private Location location;
+	private List<Long> removePostIds;
+	private Long maxDistance;
 }

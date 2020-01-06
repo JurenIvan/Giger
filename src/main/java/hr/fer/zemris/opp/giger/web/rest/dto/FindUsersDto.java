@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class FindUsersDto {
 
-    private String name;
-    private String band;
+	private String name;
+	private String band;
 }

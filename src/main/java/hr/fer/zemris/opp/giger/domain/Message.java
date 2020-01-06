@@ -7,11 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -20,27 +23,37 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 public class Message {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime sentTime;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime sentTime;
 
-	@ManyToOne(fetch = EAGER)
-	@JoinColumn(name = "fk_sender")
+	@ManyToOne
 	private Person sender;
 
-	@ManyToOne(fetch = EAGER)
-	@JoinColumn(name = "fk_sender_band")
+	@ManyToOne
 	private Band senderBand;
-
 
 	public MessagePreview toDto() {
 		PersonPreviewDto personPreviewDto = sender != null ? sender.toDto() : null;
 		BandDto bandDto = senderBand != null ? senderBand.toDto() : null;
 
 		return new MessagePreview(id, content, sentTime, personPreviewDto, bandDto);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Message)) return false;
+		Message message = (Message) o;
+		return Objects.equals(id, message.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

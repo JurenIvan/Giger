@@ -7,6 +7,7 @@ console.log(process.env.API_URL)
 const API = "https://giger-backend-dev.herokuapp.com/api";
 
 export default function fetcingFactory (endpoint, params) {
+    // eslint-disable-next-line
     switch (endpoint) {
         case Types.endpoints.LOGIN:
             return sendLoginInfo(params, endpoint);
@@ -26,9 +27,74 @@ export default function fetcingFactory (endpoint, params) {
             return editBand(params,endpoint);
         case Types.endpoints.GET_MUSICIAN_BASIC:
             return getBasicMusician(params,endpoint);
+        case Types.endpoints.GET_BAND_ID:
+            return getBandId(params, endpoint);
+        case Types.endpoints.GET_MY_GIGS:
+            return getGigs(params, endpoint);
+        case Types.endpoints.INVITE_TO_GIG:
+            return inviteToGig(params, endpoint);
+        case Types.endpoints.GET_BAND_GIGS:
+            return getInvites(params, endpoint);
+        case Types.endpoints.GET_GIG:
+            return getGig(params, endpoint);
+        case Types.endpoints.ACCEPT_GIG:
+            return acceptGig(params,endpoint);
+        case Types.endpoints.CANCEL_GIG:
+            return declineGig(params,endpoint);
+        case Types.endpoints.GET_BANDS_LEAD:
+            return getBandsLeader(params,endpoint);
+        case Types.endpoints.GET_MUSICIAN:
+            return getMusician(params,endpoint);
+        case Types.endpoints.INVITE_MAIN_MEMB:
+            return inviteMainMemb(params, endpoint);
+        case Types.endpoints.INVITE_BACKUP_MEMB:
+            return inviteBackupMemb(params, endpoint);
     }
 }
 
+function getBandId(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getGigs(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getGig(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function inviteToGig(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
 function sendLoginInfo(params, endpoint) {
     return fetch(API + endpoint, 
         {
@@ -48,13 +114,33 @@ function sendRegisterInfo(params, endpoint) {
 }
 
 function createGig(params, endpoint) {
-    return fetch(API + endpoint), {
+    return fetch(API + endpoint, {
         method: "POST",
         body: params,
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")}
-    }
+    })
+}
+
+function acceptGig(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
+function declineGig(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
 }
 
 function createMusician(params,endpoint) {
@@ -94,6 +180,27 @@ function getBand(params, endpoint) {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
+        }
+    })
+}
+
+function getInvites(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getBandsLeader(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
     })
@@ -117,5 +224,38 @@ function getBasicMusician(params, endpoint) {
             "Content-Type": "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
+    })
+}
+function getMusician(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {            
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function inviteMainMemb(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function inviteBackupMemb(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
     })
 }

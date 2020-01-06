@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class CommentDto {
 
-    private Long id;
-    private String content;
-    private LocalDateTime postedOn;
-    private PersonPreviewDto personPreviewDto;
+	private Long id;
+	private String content;
+	private LocalDateTime postedOn;
+	private PersonPreviewDto personPreviewDto;
 }

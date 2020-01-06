@@ -1,0 +1,4 @@
+{
+	"email":"david.doe@giger.com",
+	"password":"12345678"
+}

@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MusicianBandDto {
 
-    private long bandId;
-    private long musicianId;
+	private long bandId;
+	private long musicianId;
 }
