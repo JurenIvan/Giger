@@ -11,8 +11,8 @@ export default class AcceptBandInvite extends React.Component {
 
         this.state = {
             isSearching: false,
-            mainInvites: [],
-            backupInvites: []
+            invites: [],
+            selectedInvite: ""
         }
         //this.handleRadioChange = this.handleRadioChange.bind(this)
     }
@@ -31,20 +31,25 @@ export default class AcceptBandInvite extends React.Component {
                     for(let i=0; i<response.length;i++) {
                         if(response[i].asMember === true) {
                             this.setState(prevState => ({
-                                mainInvites: [...prevState.mainInvites, {value: response[i].bandId, label: response[i].bandName}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)", main: true}]
                               }))
                         }
                         else {
                             this.setState(prevState => ({
-                                backupInvites: [...prevState.backupInvites, {value: response[i].bandId, label: response[i].bandName}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)", main: false}]
                               }))
                         }
                     }
-                    console.log(this.state.mainInvites)
-                    console.log(this.state.backupInvites)
+                    console.log(this.state.invites)
                 }
             }).then( () => 
         this.setState({isSearching: false}))
+    }
+
+    setValues = selectedInvite => {
+        this.setState({ selectedInvite }
+            , () => console.log(this.state.selectedInvite)
+        );
     }
 
     render() {
@@ -52,7 +57,31 @@ export default class AcceptBandInvite extends React.Component {
             <React.Fragment>
                 <div className="AcceptBandInvite">
                     <Form onSubmit={this.handleSubmit}>
-                        
+                        <div className="col-2">
+                            <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
+                        </div>
+
+                        <div className="col-6">
+                            <Form.Group controlId="chooseInvite">
+                            <Select
+                                disabled={this.state.isSearching}
+                                name="selectedInvite"
+                                options={this.state.invites}
+                                value={this.state.selectedInvite}
+                                //onChange={this.updateEventType}
+                                onChange={value => {
+                                    this.setValues(value[0])
+                                    console.log(value)}
+                                }
+                            />
+                            </Form.Group>
+                        </div>
+
+                        <div nameClass="col-6">
+                            <Form.Group>
+                                <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
+                            </Form.Group>
+                        </div>
                     </Form>
                 </div>
             </React.Fragment>
