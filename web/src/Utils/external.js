@@ -41,6 +41,12 @@ export default function fetcingFactory (endpoint, params) {
             return declineGig(params,endpoint);
         case Types.endpoints.GET_BANDS_LEAD:
             return getBandsLeader(params,endpoint);
+        case Types.endpoints.GET_MUSICIAN:
+            return getMusician(params,endpoint);
+        case Types.endpoints.INVITE_MAIN_MEMB:
+            return inviteMainMemb(params, endpoint);
+        case Types.endpoints.INVITE_BACKUP_MEMB:
+            return inviteBackupMemb(params, endpoint);
     }
 }
 
@@ -199,6 +205,40 @@ function getBandsLeader(params, endpoint) {
 }
 
 function editBand(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function getMusician(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {            
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function inviteMainMemb(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function inviteBackupMemb(params,endpoint) {
     return fetch(API + endpoint, {
         method: "POST",
         headers: {
