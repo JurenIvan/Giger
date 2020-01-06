@@ -1,43 +1,37 @@
 package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
-import hr.fer.zemris.opp.giger.domain.Person;
-import hr.fer.zemris.opp.giger.domain.Review;
-import hr.fer.zemris.opp.giger.domain.SystemPerson;
+import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
+import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.PersonRepository;
 import hr.fer.zemris.opp.giger.repository.ReviewRepository;
 import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
+@AllArgsConstructor
 public class PeopleService {
 
 	private EmailSender emailSender;
 	private SystemPersonRepository systemPersonRepository;
 	private PersonRepository peopleRepository;
 	private ReviewRepository reviewRepository;
+	private BandRepository bandRepository;
 
-	public PeopleService(EmailSender emailSender, SystemPersonRepository systemPersonRepository, PersonRepository peopleRepository, ReviewRepository reviewRepository) {
-		this.emailSender = emailSender;
-		this.systemPersonRepository = systemPersonRepository;
-		this.peopleRepository = peopleRepository;
-		this.reviewRepository = reviewRepository;
-	}
-
-	@Value("${spring.security.security.BCrypt.secret}")
-	private String SECRET_KEY;
 
 	public boolean isUserNameAvailable(String username) {
 		return peopleRepository.findByUsername(username).isEmpty();
@@ -89,7 +83,21 @@ public class PeopleService {
 	}
 
 	public List<Person> findPeople(FindUsersDto findUsersDto) {
-		return peopleRepository.findByUsernameContaining(findUsersDto.getName());
+		List<Person> usernameMatches = newArrayList();
+		List<Person> bandNameMatches = newArrayList();
+
+		if (findUsersDto.getName() != null) {
+			usernameMatches = peopleRepository.findByUsernameContaining(findUsersDto.getName());
+		}
+		if (findUsersDto.getBand() != null) {
+			bandNameMatches = peopleRepository.findAllByIdIn(
+					bandRepository.findAllByNameContaining(findUsersDto.getBand()).stream()
+							.map(Band::getMembers)
+							.flatMap(List::stream)
+							.map(Musician::getId)
+							.collect(toList()));
+		}
+		return Stream.concat(usernameMatches.stream(), bandNameMatches.stream()).collect(toList());
 	}
 
 	public List<ReviewPreviewDto> getReviews(Long personId) {
