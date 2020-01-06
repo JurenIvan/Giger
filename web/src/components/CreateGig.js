@@ -2,7 +2,7 @@ import React from 'react';
 import "./CreateGig.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import * as Helpers from '../Utils/HelperMethods'
+//import * as Helpers from '../Utils/HelperMethods'
 //import Geocode from 'react-geocode';
 import DatePicker, { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -12,6 +12,8 @@ import GeocodingForm from './GeocodingForm';
 //import GeocodingResults from './GeocodingResults';
 import * as opencage from 'opencage-api-client';
 import InputGroup from 'react-bootstrap/InputGroup'
+import fetcingFactory from "../Utils/external";
+import {endpoints} from "../Utils/Types";
 registerLocale('hr', hr)
 
 
@@ -93,25 +95,40 @@ export default class CreateGig extends React.Component {
 
     }
 
-    /*handleSubmit = event => {
+    handleSubmit = event => {
         event.preventDefault();
-        (async () => {     
-            await Helpers.sendCreateGigInfo(
-                this.state.eventName, 
-                this.state.eventDesc, 
-                this.state.eventDate, 
-                this.state.eventAddress,
-                this.state.lat,
-                this.state.lng,
-                this.state.privateGig,
-                this.state.eventDuration,
-                this.state.eventPrice,
-                this.state.selectedEventType,
-                this.state.eventLocDesc,
-                this.handleCreation
-                );
-        })();
-    }*/
+        let y = this.state.lat;
+        let x = this.state.lng;
+        let address = this.state.eventAddress;
+        let extraDescription = this.state.eventLocDesc;
+        let location = {
+            y,
+            x,
+            address,
+            extraDescription
+        };
+        let params = JSON.stringify({
+            "dateTime": this.state.eventDate,
+            "location": location,
+            "description": this.state.eventDesc,
+            "expectedDuration": this.state.eventDuration,
+            "proposedPrice": this.state.eventPrice,
+            "gigType": this.state.selectedEventType,
+            "privateGig": this.state.privateGig,
+            "gigName": this.state.eventName
+        });
+        console.log(params)
+        fetcingFactory(endpoints.CREATE_GIG, params).then(
+            response => {
+                if (response.status === 200) {
+                    window.location.href = "/home";
+                } else {
+                    console.log(response)
+                    alert(response.json())
+                }
+            });
+    }
+
 
     handleChange = event => {
         this.setState({
@@ -273,7 +290,7 @@ export default class CreateGig extends React.Component {
                             </div>
                         <div nameClass="col-6">
                             <Form.Group>
-                                <Button type="submit" block> Create Gig </Button>
+                                <Button type="submit" block> Stvori gig </Button>
                             </Form.Group>
                         </div>
                     </Form>

@@ -9,6 +9,5 @@ import java.util.Optional;
 @Repository
 public interface OrganizerRepository extends JpaRepository<Organizer, Long> {
 
-    Optional<Organizer> findAllByManagerName(String managerName);
-
+	Optional<Organizer> findAllByManagerName(String managerName);
 }

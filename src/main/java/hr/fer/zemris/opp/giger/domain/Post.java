@@ -7,10 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toList;
 import static javax.persistence.CascadeType.MERGE;
@@ -23,27 +27,39 @@ import static javax.persistence.GenerationType.IDENTITY;
 @NoArgsConstructor
 public class Post {
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    private Long id;
-    @NotNull
-    private String content;
-    @NotNull
-    private LocalDateTime publishedOn;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	private Long id;
+	@NotNull
+	private String content;
+	@NotNull
+	private LocalDateTime publishedOn;
 
-    @OneToMany(fetch = EAGER, cascade = MERGE)
-    @JoinColumn(name = "fk_post")
-    private List<Comment> comments;
+	@OneToMany(fetch = EAGER, cascade = MERGE)
+	private List<Comment> comments;
 
-    public PostDto toDto(MusicianProfileDto author, BandDto bandAuthor) {
-        return new PostDto(id, content, publishedOn, comments.stream().map(Comment::toDto).collect(toList()), author, bandAuthor);
-    }
+	public PostDto toDto(MusicianProfileDto author, BandDto bandAuthor) {
+		return new PostDto(id, content, publishedOn, comments.stream().map(Comment::toDto).collect(toList()), author, bandAuthor);
+	}
 
-    public static Post createPost(String content) {
-        return new Post(null, content, LocalDateTime.now(), null);
-    }
+	public static Post createPost(String content) {
+		return new Post(null, content, LocalDateTime.now(), null);
+	}
 
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
+	public void addComment(Comment comment) {
+		comments.add(comment);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Post)) return false;
+		Post post = (Post) o;
+		return Objects.equals(id, post.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class ReviewController {
 
-    private ReviewService reviewService;
+	private ReviewService reviewService;
 
-    @PostMapping("/create")
-    public void createReview(ReviewCreationDto reviewDto) {
-        reviewService.createReview(reviewDto);
-    }
+	@PostMapping("/create")
+	public void createReview(ReviewCreationDto reviewDto) {
+		reviewService.createReview(reviewDto);
+	}
 
-    @GetMapping("/band/{bandId}")
-    public ReviewsDto getReviewsForBand(@PathVariable Long bandId) {
-        return reviewService.getReviewsForBand(bandId);
-    }
+	@GetMapping("/band/{bandId}")
+	public ReviewsDto getReviewsForBand(@PathVariable Long bandId) {
+		return reviewService.getReviewsForBand(bandId);
+	}
 
-    @GetMapping("/organizer/{organizerId}")
-    public ReviewsDto getReviewsForOrganizer(@PathVariable Long organizerId) {
-        return reviewService.getReviewsForOrganizer(organizerId);
-    }
+	@GetMapping("/organizer/{organizerId}")
+	public ReviewsDto getReviewsForOrganizer(@PathVariable Long organizerId) {
+		return reviewService.getReviewsForOrganizer(organizerId);
+	}
 
-    @GetMapping("/gig/{gigId}")
-    public ReviewsDto getReviewsForGig(@PathVariable Long gigId) {
-        return reviewService.getReviewsForGig(gigId);
-    }
+	@GetMapping("/gig/{gigId}")
+	public ReviewsDto getReviewsForGig(@PathVariable Long gigId) {
+		return reviewService.getReviewsForGig(gigId);
+	}
 }

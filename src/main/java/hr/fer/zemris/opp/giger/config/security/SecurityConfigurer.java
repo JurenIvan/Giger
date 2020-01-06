@@ -55,13 +55,11 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
         httpSecurity.cors().and()
-                .csrf().disable().authorizeRequests()
-                .antMatchers(POST, "/authenticate").permitAll()
-                .antMatchers(POST, "/register").permitAll()
-                .antMatchers(GET, "/register/nickname-available").permitAll()
-                .antMatchers(GET, "/register/verification").permitAll()
+		        .csrf().disable().authorizeRequests()
+		        .antMatchers(POST, "/authenticate").permitAll()
+		        .antMatchers(POST, "/register").permitAll()
+		        .antMatchers(GET, "/register/*").permitAll()
                 .antMatchers(POST, "/register/resend-verification-email").permitAll()
-  //              .antMatchers(GET,"/v2/*").permitAll() //todo check if works while beeing commented
                 .anyRequest().authenticated();
 
         httpSecurity

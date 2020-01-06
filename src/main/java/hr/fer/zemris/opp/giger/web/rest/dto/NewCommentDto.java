@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class NewCommentDto {
 
-    private String content;
+	private String content;
 }

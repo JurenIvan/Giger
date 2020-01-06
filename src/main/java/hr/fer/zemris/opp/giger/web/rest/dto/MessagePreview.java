@@ -11,9 +11,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class MessagePreview {
 
-    private Long id;
-    private String content;
-    private LocalDateTime sentTime;
-    private PersonPreviewDto sender;
-    private BandDto senderBand;
+	private Long id;
+	private String content;
+	private LocalDateTime sentTime;
+	private PersonPreviewDto sender;
+	private BandDto senderBand;
 }

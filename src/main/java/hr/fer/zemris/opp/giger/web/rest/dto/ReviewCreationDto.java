@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ReviewCreationDto {
 
-    private String contentOfReviewForBand;
-    private String contentOfReviewForOrganizer;
-    private Integer gradeBand;
-    private Integer gradeOrganizer;
+	private String contentOfReviewForBand;
+	private String contentOfReviewForOrganizer;
+	private Integer gradeBand;
+	private Integer gradeOrganizer;
 
-    public Review createReview(Person person) {
-        return new Review(null, contentOfReviewForBand, contentOfReviewForOrganizer, gradeBand, gradeOrganizer, LocalDateTime.now(), person);
-    }
+	public Review createReview(Person person) {
+		return new Review(null, contentOfReviewForBand, contentOfReviewForOrganizer, gradeBand, gradeOrganizer, LocalDateTime.now(), person);
+	}
 }

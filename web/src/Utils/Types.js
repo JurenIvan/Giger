@@ -1,3 +1,4 @@
+
 export const endpoints = {
     LOGIN : "/authenticate",
     REGISTER : "/register",
@@ -6,6 +7,14 @@ export const endpoints = {
     CREATE_ORGANIZER: "/organizers/create/",
     CREATE_BAND: "/band-administration/create",
     GET_BAND: "/bands/",
-    EDIT_BAND: "/band-administration/edit"
+    EDIT_BAND: "/band-administration/edit",
+    GET_BAND_ID: "/bands/like/",
+    GET_MY_GIGS: "/gigs/",
+    INVITE_TO_GIG: "/gigs/invite",
+    GET_BAND_GIGS: "/bands/invitations/",
+    GET_GIG: "/gigs/",
+    ACCEPT_GIG: "/bands/invitations/accept",
+    CANCEL_GIG: "/bands/invitations/cancel",
+    GET_BANDS_LEAD: "/bands/my/leader"
     /*TO DO: ostali endpointi*/
 }

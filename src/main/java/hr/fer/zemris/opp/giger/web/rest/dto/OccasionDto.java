@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class OccasionDto {
 
 	private Long id;
-	private LocalDate localDate;
+	private LocalDateTime localDate;
 	private String description;
 	private Boolean personalOccasion;
 }

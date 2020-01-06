@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ConversationRequestDto {
 
-    private long conversationId;
-    private int messagesCount;
+	private long conversationId;
+	private int messagesCount;
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MusicianDto {
 
-    public String bio;
-    private List<Long> instrumentIdList = new ArrayList<>();
-    private Boolean publicCalendar;
+	public String bio;
+	private List<Long> instrumentIdList = new ArrayList<>();
+	private Boolean publicCalendar;
 }

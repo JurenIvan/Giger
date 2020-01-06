@@ -12,8 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 public class BandDto {
 
-    private long id;
-    private String name;
-    private String pictureURl;
-    private List<GigType> gigTypes;
+	private long id;
+	private String name;
+	private String bio;
+	private String pictureURl;
+	private List<GigType> gigTypes;
 }
