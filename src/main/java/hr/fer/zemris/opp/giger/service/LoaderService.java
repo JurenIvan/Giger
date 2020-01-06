@@ -84,6 +84,10 @@ public class LoaderService implements ApplicationRunner {
 		systemPeople.add(new SystemPerson(null, "charles@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
 		systemPeople.add(new SystemPerson(null, "daniel.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
 		systemPeople.add(new SystemPerson(null, "mark.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+		systemPeople.add(new SystemPerson(null, "henry.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+		systemPeople.add(new SystemPerson(null, "jack.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+		systemPeople.add(new SystemPerson(null, "alan.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON)));
+
 
 		this.systemPeople = systemPersonRepository.saveAll(systemPeople);
 	}
@@ -143,6 +147,9 @@ public class LoaderService implements ApplicationRunner {
 		people.add(new Person(systemPeople.get(13).getId(), "charles.doe", "091536713", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
 		people.add(new Person(systemPeople.get(14).getId(), "daniel.doe", "091536714", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
 		people.add(new Person(systemPeople.get(15).getId(), "mark.doe", "091536715", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
+		people.add(new Person(systemPeople.get(16).getId(), "henry.doe", "091536716", "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/200px-Snoopy_Peanuts.png"));
+		people.add(new Person(systemPeople.get(17).getId(), "jack.doe", "091536717", "https://cdn.shopify.com/s/files/1/0456/3093/products/Peanuts-Astronaut_Snoopy_Standing_Pin_82eb7563-d533-4ede-91b2-7dd9267d0651_x800.jpg?v=1562088968"));
+		people.add(new Person(systemPeople.get(18).getId(), "alan.doe", "091536718", "https://lumiere-a.akamaihd.net/v1/images/ct_mickeymouseandfriends_mickey_ddt-16970_4e99445d.jpeg"));
 
 
 		this.people = personRepository.saveAll(people);
@@ -244,6 +251,10 @@ public class LoaderService implements ApplicationRunner {
 		musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
 		musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
 		musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(1))));
+		musicians.add(new Musician(systemPeople.get(16).getId(), "bio7", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(), List.of(), List.of()));
+		musicians.add(new Musician(systemPeople.get(17).getId(), "bio8", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(), List.of(), List.of()));
+		musicians.add(new Musician(systemPeople.get(18).getId(), "bio9", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(), List.of(), List.of()));
+
 
 		this.musicians = musicianRepository.saveAll(musicians);
 	}
