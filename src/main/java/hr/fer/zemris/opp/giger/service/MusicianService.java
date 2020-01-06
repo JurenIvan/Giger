@@ -7,10 +7,7 @@ import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.InstrumentRepository;
 import hr.fer.zemris.opp.giger.repository.MusicianRepository;
 import hr.fer.zemris.opp.giger.repository.PersonRepository;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.OccasionDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.PostDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -76,5 +73,22 @@ public class MusicianService {
 
 		musicianRepository.save(musician);
 		personRepository.save(person);
+	}
+
+	public List<MusicianPreviewPictureDto> getAllMusicians() {
+		List<Musician> musicians = musicianRepository.findAll();
+		return musicians.stream().map(e -> {
+			Person person = personRepository.findById(e.getId()).orElseThrow(() -> new GigerException(NO_SUCH_USER));
+			return e.createMusicianPreviewPicture(person.getUsername(), person.getPictureUrl());
+		}).collect(toList());
+	}
+
+	public List<MusicianPreviewPictureDto> findMusician(MusicianFinderDto musicianFinderDto) {
+		List<Person> people = personRepository.findByUsernameContaining(musicianFinderDto.getUserName());
+		if (people.size() == 0) return List.of();
+		return people.stream()
+				.filter(e -> musicianRepository.findById(e.getId()).isPresent())
+				.map(e -> musicianRepository.findById(e.getId()).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN)).createMusicianPreviewPicture(e.getUsername(), e.getPictureUrl()))
+				.collect(toList());
 	}
 }

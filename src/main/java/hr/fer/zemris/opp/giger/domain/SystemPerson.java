@@ -13,8 +13,10 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
@@ -35,7 +37,7 @@ public class SystemPerson implements UserDetails {
 	@NotNull
 	private String passwordHash;
 
-	@ElementCollection(fetch = FetchType.EAGER)
+	@ElementCollection(fetch = EAGER)
 	private List<Role> roles;
 
 	@Override
@@ -76,5 +78,18 @@ public class SystemPerson implements UserDetails {
 	public void addRole(Role role) {
 		if (this.roles == null) this.roles = new ArrayList<>();
 		this.roles.add(role);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof SystemPerson)) return false;
+		SystemPerson systemPerson = (SystemPerson) o;
+		return Objects.equals(id, systemPerson.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

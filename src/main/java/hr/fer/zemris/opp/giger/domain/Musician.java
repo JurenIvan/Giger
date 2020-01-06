@@ -1,12 +1,17 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewPictureDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,17 +32,12 @@ public class Musician {
 	private List<Instrument> instruments;
 
 	@ManyToMany
-	@JoinTable(name = "musician_gig_history",
-			joinColumns = {@JoinColumn(name = "fk_musician")},
-			inverseJoinColumns = {@JoinColumn(name = "fk_gig")})
 	private List<Gig> pastGigs;
 
 	@OneToMany
-	@JoinColumn(name = "fk_user")
 	private List<Post> posts;
 
-	@ElementCollection
-	@CollectionTable(name = "musician_occasions", joinColumns = @JoinColumn(name = "musician_id"))
+	@ManyToMany
 	private List<Occasion> occasions;
 
 	@Override
@@ -45,7 +45,7 @@ public class Musician {
 		if (this == o) return true;
 		if (!(o instanceof Musician)) return false;
 		Musician musician = (Musician) o;
-		return Objects.equals(id, musician.id);
+		return Objects.equals(id, musician.getId());
 	}
 
 	@Override
@@ -74,5 +74,9 @@ public class Musician {
 
 	public void addPost(Post post) {
 		posts.add(post);
+	}
+
+	public MusicianPreviewPictureDto createMusicianPreviewPicture(String username, @Length(max = 10000) String pictureUrl) {
+		return new MusicianPreviewPictureDto(id, bio, publicCalendar, instruments, username, pictureUrl);
 	}
 }

@@ -38,17 +38,7 @@ public class GigService {
 
 	public Gig createGig(GigCreationDto gigCreationDto) {
 		Organizer organizer = userDetailsService.getLoggedOrganizer();
-
-		Gig gig = new Gig();
-		gig.setDateTime(gigCreationDto.getDateTime());
-		gig.setLocation(gigCreationDto.getLocation());
-		gig.setDescription(gigCreationDto.getDescription());
-		gig.setExpectedDuration(gigCreationDto.getExpectedDuration());
-		gig.setProposedPrice(gigCreationDto.getProposedPrice());
-		gig.setGigType(gigCreationDto.getGigType());
-		gig.setPrivateGig(gigCreationDto.getPrivateGig());
-		gig.setName(gigCreationDto.getGigName());
-		gig.setOrganizer(organizer);
+		Gig gig = Gig.createGig(gigCreationDto, organizer);
 
 		return gigRepository.save(gig);
 	}
@@ -58,6 +48,9 @@ public class GigService {
 
 		if (!gig.isPrivateGig() && gig.isFinalDealAchieved())
 			return gig.toDto();
+
+		if (!userDetailsService.isLoggedUser())
+			throw new GigerException(NO_SUCH_GIG);
 
 		if (userDetailsService.isLoggedUserOrganizer() && gig.getOrganizer().getId().equals(userDetailsService.getLoggedOrganizer().getId()))
 			return gig.toDto();
@@ -96,5 +89,20 @@ public class GigService {
 	public List<GigPreviewDto> listMyGigs() {
 		Organizer organizer = userDetailsService.getLoggedOrganizer();
 		return gigRepository.findAllByOrganizer(organizer).stream().map(Gig::toDto).collect(toList());
+	}
+
+	public GigPreviewDto editGig(GigCreationDto gigCreationDto, Long gigId) {
+		Gig gig = gigRepository.findById(gigId).orElseThrow(() -> new GigerException(NO_SUCH_GIG));
+		Organizer organizer = userDetailsService.getLoggedOrganizer();
+
+		if (!gig.getOrganizer().equals(organizer))
+			throw new GigerException(NOT_ORGANIZER_FOR_THIS_EVENT);
+
+		if (gig.isFinalDealAchieved())
+			throw new GigerException(DEAL_ACHIEVED);
+
+		gig.editGig(gigCreationDto);
+
+		return gigRepository.save(gig).toDto();
 	}
 }

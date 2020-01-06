@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import static java.util.stream.Collectors.toList;
 import static javax.persistence.CascadeType.MERGE;
@@ -31,21 +32,14 @@ public class Conversation {
 	private String title;
 	private String pictureUrl;
 
-	@ManyToMany(fetch = LAZY)
-	@JoinTable(name = "conversation_user",
-			joinColumns = {@JoinColumn(name = "fk_conversation")},
-			inverseJoinColumns = {@JoinColumn(name = "fk_user")})
+	@ManyToMany
 	private List<Person> participants;
 
 	@ManyToOne(fetch = LAZY)
-	@JoinColumn(name = "fk_band")
-	private Band band; //todo add list of bands?
+	private Band band;
 
-
-	@OneToMany(fetch = LAZY, cascade = MERGE)
-	@JoinColumn(name = "fk_conversation")
+	@OneToMany(cascade = MERGE)
 	private List<Message> messages;
-
 
 	public static Conversation createConversation(ConversationCreationDto other, Person creator) {
 		return new Conversation(null, other.getTitle(), other.getPictureUrl(), List.of(creator), null, null);
@@ -73,5 +67,18 @@ public class Conversation {
 			this.band = band;
 		else
 			throw new GigerException(ErrorCode.CONVERSATION_ALREADY_HAS_BAND);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Conversation)) return false;
+		Conversation conversation = (Conversation) o;
+		return Objects.equals(id, conversation.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

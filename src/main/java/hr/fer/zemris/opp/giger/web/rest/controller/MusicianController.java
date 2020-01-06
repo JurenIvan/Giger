@@ -1,10 +1,7 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.service.MusicianService;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.OccasionDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.PostDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,5 +37,15 @@ public class MusicianController {
 	@GetMapping("/show/posts/{musicianId}")
 	public List<PostDto> listPostsForMusician(@PathVariable Long musicianId) {
 		return musicianService.getPosts(musicianId);
+	}
+
+	@GetMapping("/all")
+	public List<MusicianPreviewPictureDto> listAllMusicians() {
+		return musicianService.getAllMusicians();
+	}
+
+	@PostMapping("/find")
+	public List<MusicianPreviewPictureDto> findMusician(@RequestBody MusicianFinderDto musicianFinderDto) {
+		return musicianService.findMusician(musicianFinderDto);
 	}
 }

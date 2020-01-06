@@ -16,6 +16,7 @@ import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
 import CreateGig from './components/CreateGig'
 import InviteToGig from './components/InviteToGig'
+import AcceptGigInvite from './components/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 
 import WelcomePage from "./components/BasicComponents/WelcomePage";
@@ -45,17 +46,53 @@ function App() {
               </Modal.Footer>
               </Modal>
             )}/>
+          <Route path='/AcceptGigInvite'
+            render={() => (
+              isLoggedIn?
+                <AcceptGigInvite/> : 
+                <Modal show={true} animation={false}>
+                <Modal.Footer>
+                  <p  style={{color:"red"}}> You are not logged in! </p>
+                    <Button
+                        variant="danger"
+                        href="/login"
+                    >
+                        Go to login...
+                    </Button>
+                </Modal.Footer>
+                </Modal>
+          )}/>
           <Route path='/CreateGig'
           render={() => (
-            Cookies.get('Bearer')?
-            <CreateGig/> : 
-                alert("Please log in!")
+            isLoggedIn?
+              <CreateGig/> : 
+              <Modal show={true} animation={false}>
+              <Modal.Footer>
+                <p  style={{color:"red"}}> You are not logged in! </p>
+                  <Button
+                      variant="danger"
+                      href="/login"
+                  >
+                      Go to login...
+                  </Button>
+              </Modal.Footer>
+              </Modal>
           )}/>
           <Route path='/InviteToGig'
           render={() => (
-            Cookies.get('Bearer')?
-            <InviteToGig/> : 
-                alert("Please log in!")
+            isLoggedIn?
+              <InviteToGig/> : 
+              <Modal show={true} animation={false}>
+              <Modal.Footer>
+                <p  style={{color:"red"}}> You are not logged in! </p>
+                  <Button
+                      variant="danger"
+                      href="/login"
+                  >
+                      Go to login...
+                  </Button>
+              </Modal.Footer>
+              </Modal>
           )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
@@ -65,7 +102,6 @@ function App() {
           <Route path='/profile' exact component = {ProfileClass} />
           <Route path='/displaybands' exact component = {DisplayBands} />
           <Route path='/CreateGig' exact component={CreateGig} />
-          <Route path='/profile' exact component = {ProfileClass} />
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
           <Route path='/displayGigs' exact component = {DisplayGigs}/>
         </Switch>

@@ -15,10 +15,12 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
+import static com.google.common.collect.Lists.newArrayList;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
+import static java.time.LocalDateTime.now;
+import static java.util.stream.Collectors.toList;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -44,41 +46,36 @@ public class Band {
 	private Location home;
 	private double maxDistance;
 
-	//todo members
 	@ManyToOne(fetch = LAZY)
 	private Musician leader;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> members;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> backUpMembers;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> invited;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Musician> invitedBackUpMembers;
 
-	@OneToMany(fetch = LAZY)
-	@JoinColumn(name = "fk_band")
+	@OneToMany
 	private List<Post> posts;
 
 	@ElementCollection(targetClass = GigType.class)
-	@CollectionTable(name = "gig_type", joinColumns = @JoinColumn(name = "band_id"))
-	@Column(name = "gig_type", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private List<GigType> acceptableGigTypes;
 
 	@OneToMany
 	private List<Occasion> occasions;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Gig> gigs;
 
-	@ManyToMany(fetch = LAZY)
+	@ManyToMany
 	private List<Gig> invitationGigs;
-
 
 	public static Band createBand(BandCreationDto bandCreationDto, Musician loggedMusician) {
 		Band band = new Band();
@@ -86,11 +83,11 @@ public class Band {
 		band.setName(bandCreationDto.getName());
 		band.setAcceptableGigTypes(bandCreationDto.getAcceptableGigTypes());
 		band.setBio(bandCreationDto.getBio());
-		band.setFormedDate(LocalDateTime.now());
+		band.setFormedDate(now().withNano(0));
 		band.setHome(bandCreationDto.getHomeLocation());
 		band.setPictureUrl(bandCreationDto.getPictureUrl());
 		band.setLeader(loggedMusician);
-		band.setMembers(List.of(loggedMusician));
+		band.setMembers(newArrayList(loggedMusician));
 
 		return band;
 	}
@@ -104,7 +101,6 @@ public class Band {
 	public void inviteMember(Musician musician) {
 		invited.add(musician);
 	}
-
 
 	public void inviteBackupMember(Musician musician) {
 		invitedBackUpMembers.add(musician);
@@ -139,11 +135,19 @@ public class Band {
 		if (bandEditProfileDto.getMaxDistance() != null) {
 			this.maxDistance = bandEditProfileDto.getMaxDistance();
 		}
-		bandEditProfileDto.getRemovePostIds().forEach(e -> posts.remove(e));    //todo fix
+		removePost(bandEditProfileDto.getRemovePostIds());
+	}
+
+	private void removePost(List<Long> ids) {
+		if (ids == null) return;
+		HashMap<Long, Post> remaining = new HashMap<>();
+		this.posts.forEach(e -> remaining.put(e.getId(), e));
+		ids.forEach(remaining::remove);
+		this.posts = new ArrayList<>(remaining.values());
 	}
 
 	public BandDto toDto() {
-		return new BandDto(id, name, pictureUrl, acceptableGigTypes);
+		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes, members.stream().map(Musician::getId).collect(toList()), backUpMembers.stream().map(Musician::getId).collect(toList()), leader.getId(),home);
 	}
 
 	public void removeBackUpMember(Long musicianId) {
@@ -166,5 +170,18 @@ public class Band {
 
 	public void cancelGig(Gig gig) {
 		invitationGigs.remove(gig);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Band)) return false;
+		Band band = (Band) o;
+		return Objects.equals(id, band.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }

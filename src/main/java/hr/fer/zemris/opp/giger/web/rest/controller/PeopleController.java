@@ -3,6 +3,7 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.service.PeopleService;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
+import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,10 @@ public class PeopleController {
 	@GetMapping("/reviews/{personId}")
 	public List<ReviewPreviewDto> listReviewsForPerson(@PathVariable Long personId) {
 		return peopleService.getReviews(personId);
+	}
+
+	@GetMapping("/{id}")
+	public PersonPreviewDto getPerson(@PathVariable Long personId) {
+		return peopleService.findPerson(personId);
 	}
 }

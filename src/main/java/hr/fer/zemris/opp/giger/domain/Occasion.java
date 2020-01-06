@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -36,5 +37,18 @@ public class Occasion {
 
 	public static Occasion createOccasion(Gig gig, Boolean personalOccasion) {
 		return new Occasion(null, gig.getDateTime(), gig.getDescription(), personalOccasion);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Occasion)) return false;
+		Occasion occasion = (Occasion) o;
+		return Objects.equals(id, occasion.getId());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 }
