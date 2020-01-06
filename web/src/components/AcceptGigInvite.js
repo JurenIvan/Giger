@@ -148,7 +148,7 @@ export default class AcceptGigInvite extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <div className = "InviteToGig">
+                <div className = "AcceptGigInvite">
                     <Form onSubmit={this.handleSubmit}>
                         <div className="col-2">
                             <Form.Label controlId="chooseBend"> Odaberi bend: </Form.Label>
