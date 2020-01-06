@@ -142,6 +142,7 @@ export default class Band extends React.Component {
                 </Modal.Footer>
             </Modal>
                 <div>
+<<<<<<< HEAD
                 <Card title={this.props.bandName} style={{ width: 300 }}>
                     <p>Gig Types: </p>
                     <p>   {this.props.gigTypes.map(
