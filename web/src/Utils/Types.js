@@ -7,6 +7,7 @@ export const endpoints = {
     GET_BAND_ID: "/bands/like/",
     GET_MY_GIGS: "/gigs/",
     INVITE_TO_GIG: "/gigs/invite",
-    BANDS_FILTER: "/bands/filter"
+    BANDS_FILTER: "/bands/filter",
+    PUBLIC_GIGS_VIEW : "/gigs/get-public"
     /*TO DO: ostali endpointi*/
 }

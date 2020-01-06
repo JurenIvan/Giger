@@ -24,13 +24,15 @@ export default function fetcingFactory (endpoint, params) {
             return getGigs(params, endpoint);
         case Types.endpoints.INVITE_TO_GIG:
             return inviteToGig(params, endpoint);
+        case Types.endpoints.PUBLIC_GIGS_VIEW:
+            return getPublicGigs(params,endpoint)
     }
 }
 
 function getBandslist(params, endpoint) {
     console.log(API + endpoint)
     return fetch(API + endpoint, {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
@@ -119,5 +121,11 @@ function createOrganizer(params, endpoint) {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
+    })
+}
+
+function getPublicGigs(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET"
     })
 }

@@ -24,8 +24,11 @@ export default class WelcomePage extends React.Component{
 
                     You can&nbsp;
                     <a href="/login">login</a>
-                    &nbsp; or  &nbsp;
+                    &nbsp;,&nbsp;
                     <a href="/register">register</a>
+                    &nbsp; or view&nbsp;
+                    <a href="/displayGigs">public gigs</a>
+
             </Typography.Title>
             </div>
         )
