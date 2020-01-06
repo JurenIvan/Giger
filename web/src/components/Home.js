@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Home.css";
+import "../CSS/Home.css";
 import Button from 'react-bootstrap/Button';
 import * as Helpers from "./../Utils/HelperMethods"
 

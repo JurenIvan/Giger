@@ -7,15 +7,19 @@ import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
+import createBandForm from './components/createBandForm'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import ProfileClass from './components/Profile/Profile'
+
+import ProfileClass from './components/Profile/Profile';
+import {DisplayBands} from "./components/Display/DisplayBands";
+import {DisplayGigs} from "./components/Display/DisplayGigs";
 import CreateGig from './components/CreateGig'
 import InviteToGig from './components/InviteToGig'
 import AcceptGigInvite from './components/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 
-
+import WelcomePage from "./components/BasicComponents/WelcomePage";
 
 function App() {
 
@@ -94,11 +98,20 @@ function App() {
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/create_band' exact component = {createBandForm} />
           <Route path='/profile' exact component = {ProfileClass} />
+          <Route path='/displaybands' exact component = {DisplayBands} />
+          <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
+          <Route path='/displayGigs' exact component = {DisplayGigs}/>
         </Switch>
       </div>
+      
+
+
+      <WelcomePage/>
     </BrowserRouter>
+   
   );
 }
 

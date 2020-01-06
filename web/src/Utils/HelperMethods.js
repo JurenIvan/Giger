@@ -129,6 +129,6 @@ export function getTime() {
         if(minute.toString().length === 1) {
              minute = '0'+minute;
         }
-        var dateTime = day+'.'+month+'.'+year+'.'+hour+':'+minute;   
+        var dateTime = day+'.'+month+'.'+year+'. '+hour+':'+minute;   
     return dateTime;
 }

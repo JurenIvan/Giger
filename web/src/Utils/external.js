@@ -32,7 +32,29 @@ export default function fetcingFactory (endpoint, params) {
             return declineGig(params,endpoint);
         case Types.endpoints.GET_BANDS_LEAD:
             return getBandsLeader(params,endpoint);
+        case Types.endpoints.PUBLIC_GIGS_VIEW:
+            return getPublicGigs(params,endpoint);
+        case Types.endpoints.BANDS_FILTER:
+            return getBandslist(params,endpoint);
     }
+}
+
+function getPublicGigs(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET"
+    })
+}
+
+function getBandslist(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
 }
 
 function getBandId(params, endpoint) {
