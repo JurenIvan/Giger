@@ -31,4 +31,8 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 //			"    AND DAY(o.local_date_time) != DAY(:localDate)"
 //			, nativeQuery = true)
 //	List<Band> findAllAvailableBands(LocalDate localDate);
+
+	List<Band> findAllByInvitedContaining(Musician musician);
+
+	List<Band> findAllByInvitedBackUpMembersContaining(Musician musician);
 }

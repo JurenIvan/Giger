@@ -105,4 +105,6 @@ public class GigService {
 
 		return gigRepository.save(gig).toDto();
 	}
+
+	public List<GigPreviewDto> listAllPublicGigs(){ return gigRepository.findAllByPrivateGigAndFinalDealAchieved(false, true).stream().map(Gig::toDto).collect(toList()); }
 }
