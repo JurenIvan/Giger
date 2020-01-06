@@ -16,6 +16,7 @@ import AcceptGigInvite from './components/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 import BandCreate from './components/Band/BandCreate';
 import BandView from './components/Band/BandView';
+import InviteToBand from './components/Band/InviteToBand'
 
 
 
@@ -100,6 +101,7 @@ function App() {
           <Route path='/profile/change_type' exact component = {ChangeProfileType}/>
           <Route path='/createBand' exact component = {BandCreate} />
           <Route path ='/viewBand' exact component = {BandView} />
+          <Route path ='/InviteToBand' exact component = {InviteToBand} />
         </Switch>
       </div>
     </BrowserRouter>

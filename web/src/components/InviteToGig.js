@@ -9,7 +9,7 @@ import Select from 'react-dropdown-select';
 //import Cookies from 'js-cookie';
 
 
-export default class CreateGig extends React.Component {
+export default class InviteToGig extends React.Component {
     constructor(props) {
         super(props);
 
