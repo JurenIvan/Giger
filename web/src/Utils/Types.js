@@ -11,6 +11,8 @@ export const endpoints = {
     GET_GIG: "/gigs/view/",
     ACCEPT_GIG: "/bands/invitations/accept",
     CANCEL_GIG: "/bands/invitations/cancel",
-    GET_BANDS_LEAD: "/bands/my/leader"
+    GET_BANDS_LEAD: "/bands/my/leader",
+    BANDS_FILTER: "/bands/filter",
+    PUBLIC_GIGS_VIEW : "/gigs/get-public"
     /*TO DO: ostali endpointi*/
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from 'react-bootstrap';
+import {PostClass} from "../BasicComponents/Post";
 import {PostClass as Post} from "../BasicComponents/Post";
 import {getTime} from "../../Utils/HelperMethods";
 
@@ -43,7 +44,7 @@ export default class ProfilePosts extends React.Component {
                 {
                     this.state.ProfilePostsList.map(element => (
                         <Card className="profilePosts">
-                            <Post 
+                            <PostClass 
                                 postOwnerName = {"TestMap"}
                                 content= {element.content}
                                 postedTime = {getTime()}
