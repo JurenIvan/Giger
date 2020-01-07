@@ -68,9 +68,10 @@ export default class RegisterClass extends React.Component{
            fetcingFactory(endpoints.REGISTER, params).then(
             response => {
                if (response.status === 200) {
-                   window.location.href = "/login";
+                    window.location.href = "/login";
                } else {
-                  this.setState({inValidRegister: true})
+                    console.log(response)
+                    this.setState({inValidRegister: true})
                }
             });
         }

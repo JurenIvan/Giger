@@ -10,7 +10,7 @@ export const endpoints = {
     EDIT_BAND: "/band-administration/edit",
     GET_MUSICIAN_BASIC: "musicians/show/basic/",
     GET_BAND_ID: "/bands/like/",
-    GET_MY_GIGS: "/gigs/view/",
+    GET_MY_GIGS: "/gigs/",
     INVITE_TO_GIG: "/gigs/invite",
     GET_BAND_GIGS: "/bands/invitations/",
     GET_GIG: "/gigs/view/",
@@ -22,6 +22,7 @@ export const endpoints = {
     INVITE_BACKUP_MEMB: "/band-administration/invite-as-backup",
     GET_BAND_INVITATIONS: "/musicians/invitations",
     BANDS_FILTER: "/bands/filter",
-    PUBLIC_GIGS_VIEW : "/gigs/get-public"
+    PUBLIC_GIGS_VIEW : "/gigs/get-public",
+    ACCEPT_BAND_INVITE: "/band-administration/join/"
     /*TO DO: ostali endpointi*/
 }

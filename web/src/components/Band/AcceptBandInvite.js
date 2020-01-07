@@ -12,7 +12,8 @@ export default class AcceptBandInvite extends React.Component {
         this.state = {
             isSearching: false,
             invites: [],
-            selectedInvite: ""
+            selectedInvite: "",
+            accept: true
         }
         //this.handleRadioChange = this.handleRadioChange.bind(this)
     }
@@ -31,12 +32,12 @@ export default class AcceptBandInvite extends React.Component {
                     for(let i=0; i<response.length;i++) {
                         if(response[i].asMember === true) {
                             this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)", main: true}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)"}]
                               }))
                         }
                         else {
                             this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)", main: false}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)"}]
                               }))
                         }
                     }
@@ -50,6 +51,36 @@ export default class AcceptBandInvite extends React.Component {
         this.setState({ selectedInvite }
             , () => console.log(this.state.selectedInvite)
         );
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log(this.state.selectedInvite)
+        if(this.state.accept === true) {
+            console.log("Prihvati")
+            fetcingFactory(endpoints.ACCEPT_BAND_INVITE, this.state.selectedInvite).then(
+            response => {
+                if (response.status === 200) {
+                    window.location.href = "/home";
+                } else {
+                    console.log(response)
+                    alert(response.json())
+                }
+            }); }
+        /*
+        else {
+            console.log("Odbij")
+            fetcingFactory(endpoints., this.state.selectedInvite).then(
+                response => {
+                    if (response.status === 200) {
+                        window.location.href = "/home";
+                    } else {
+                        console.log(response)
+                        alert(response.json())
+                    }
+                }); 
+        }
+        */
     }
 
     render() {
@@ -66,7 +97,7 @@ export default class AcceptBandInvite extends React.Component {
                             value={this.state.selectedInvite}
                             //onChange={this.updateEventType}
                             onChange={value => {
-                                this.setValues(value[0])
+                                this.setValues(value[0].value)
                                 console.log(value)}
                             }
                         />

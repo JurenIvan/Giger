@@ -1,5 +1,6 @@
 import * as Types from "./Types";
 import Cookies from "js-cookie";
+import AcceptBandInvite from "../components/Band/AcceptBandInvite";
 
 require('dotenv').config();
 console.log(process.env.API_URL)
@@ -55,6 +56,8 @@ export default function fetcingFactory (endpoint, params) {
             return getPublicGigs(params,endpoint);
         case Types.endpoints.BANDS_FILTER:
             return getBandslist(params,endpoint);
+        case Types.endpoints.ACCEPT_BAND_INVITE:
+            return accBandInvite(params, endpoint);
                 
     }
 }
@@ -286,6 +289,18 @@ function getPublicGigs(params, endpoint) {
 function getBandslist(params, endpoint) {
     console.log(API + endpoint)
     return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
+}
+
+function accBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
         method: "GET",
         headers: {
             "Content-Type" : "application/json",

@@ -230,8 +230,7 @@ export default class CreateGig extends React.Component {
                             onChange={this.handleGeoChange}
                         />
 
-                    <h1>{this.state.eventAddress}</h1> 
-                    <h1>{this.state.lat} {this.state.lng}</h1>                      
+                    <h1>{this.state.eventAddress}</h1>                    
 
                         <Form.Label controlId="gigType"> Tip giga: </Form.Label>
                         <Form.Group controlId="gigType">
@@ -269,7 +268,7 @@ export default class CreateGig extends React.Component {
                                 >
                             </input>Je li privatan gig?</label>
                         </div>
-                        
+
                         <Form.Group>
                             <Button type="submit" block> Stvori gig </Button>
                         </Form.Group>
