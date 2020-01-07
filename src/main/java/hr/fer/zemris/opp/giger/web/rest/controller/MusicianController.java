@@ -1,5 +1,7 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
+import hr.fer.zemris.opp.giger.domain.Instrument;
+import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.service.MusicianService;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
@@ -56,4 +58,7 @@ public class MusicianController {
 
 	@GetMapping("/invitations/cancel/{bandId}")
 	public void cancelInvitation(@PathVariable Long bandId) { musicianService.cancelInvitation(bandId); }
+
+	@GetMapping("/instruments")
+	public List<Instrument> listInstruments(){ return musicianService.getMyInstruments(); }
 }

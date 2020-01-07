@@ -119,4 +119,10 @@ public class MusicianService {
 
 		bandRepository.save(band);
 	}
+
+	public List<Instrument> getMyInstruments() {
+		Musician musician = userDetailsService.getLoggedMusician();
+
+		return musician.getInstruments();
+	}
 }
