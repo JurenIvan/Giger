@@ -1,5 +1,6 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
+import hr.fer.zemris.opp.giger.domain.Instrument;
 import hr.fer.zemris.opp.giger.domain.Person;
 import hr.fer.zemris.opp.giger.service.PeopleService;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
@@ -31,4 +32,7 @@ public class PeopleController {
 	public PersonPreviewDto getPerson(@PathVariable Long personId) {
 		return peopleService.findPerson(personId);
 	}
+
+	@GetMapping("/get-all-instruments")
+	public List<Instrument> getAllInstruments(){ return peopleService.getAllInstrument(); }
 }
