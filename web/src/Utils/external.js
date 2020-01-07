@@ -1,6 +1,5 @@
 import * as Types from "./Types";
 import Cookies from "js-cookie";
-import AcceptBandInvite from "../components/Band/AcceptBandInvite";
 
 require('dotenv').config();
 console.log(process.env.API_URL)
