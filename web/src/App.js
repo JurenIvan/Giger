@@ -10,7 +10,6 @@ import RegisterClass from './components/register';
 import createBandForm from './components/createBandForm'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
@@ -22,6 +21,7 @@ import BandCreate from './components/Band/BandCreate';
 import BandView from './components/Band/BandView';
 import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
+import EditGig from './components/EditGig'
 
 import WelcomePage from "./components/BasicComponents/WelcomePage";
 
@@ -112,6 +112,7 @@ function App() {
           <Route path ='/InviteToBand' exact component = {InviteToBand} />
           <Route path ='/AcceptBandInvite' exact component = {AcceptBandInvite} />
           <Route path='/displayGigs' exact component = {DisplayGigs}/>
+          <Route path='/EditGig' exact component = {EditGig}/>
         </Switch>
       </div>
       

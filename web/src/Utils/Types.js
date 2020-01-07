@@ -23,6 +23,8 @@ export const endpoints = {
     GET_BAND_INVITATIONS: "/musicians/invitations",
     BANDS_FILTER: "/bands/filter",
     PUBLIC_GIGS_VIEW : "/gigs/get-public",
-    ACCEPT_BAND_INVITE: "/band-administration/join/"
+    ACCEPT_BAND_INVITE: "/band-administration/join/",
+    EDIT_GIG: "/gigs/edit/",
+    DECLINE_BAND_INVITE: "/musicians/invitations/cancel/"
     /*TO DO: ostali endpointi*/
 }

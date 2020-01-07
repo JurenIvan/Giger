@@ -46,6 +46,11 @@ export default class Home extends React.Component {
             &nbsp;
 
             <div>
+                <Button href='/EditGig'>Uredi gig</Button>
+            </div>
+            &nbsp;
+
+            <div>
                  <Button href='/InviteToGig'>Pozovi bend u gig</Button>
             </div>
             &nbsp;

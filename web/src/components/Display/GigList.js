@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
+import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 const { Search } = Input;
