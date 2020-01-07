@@ -14,6 +14,8 @@ public interface GigRepository extends JpaRepository<Gig, Long> {
 
 	List<Gig> findAllByGigTypeAndPrivateGig(GigType gigType, Boolean isPrivate);
 
+	List<Gig> findAllByPrivateGigAndFinalDealAchieved(boolean isPrivate, boolean finalDealAchieved);
+
 	//  List<Gig> findAllByFinalBandAndPrivateGig(Band band, boolean isPrivate);
 
 	List<Gig> findAllByOrganizer(Organizer organizer);

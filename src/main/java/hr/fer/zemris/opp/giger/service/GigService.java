@@ -49,6 +49,9 @@ public class GigService {
 		if (!gig.isPrivateGig() && gig.isFinalDealAchieved())
 			return gig.toDto();
 
+		if (!userDetailsService.isLoggedUser())
+			throw new GigerException(NO_SUCH_GIG);
+
 		if (userDetailsService.isLoggedUserOrganizer() && gig.getOrganizer().getId().equals(userDetailsService.getLoggedOrganizer().getId()))
 			return gig.toDto();
 
@@ -102,4 +105,6 @@ public class GigService {
 
 		return gigRepository.save(gig).toDto();
 	}
+
+	public List<GigPreviewDto> listAllPublicGigs(){ return gigRepository.findAllByPrivateGigAndFinalDealAchieved(false, true).stream().map(Gig::toDto).collect(toList()); }
 }

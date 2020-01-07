@@ -141,7 +141,7 @@ public class BandService {
 	}
 
 	public List<BandDto> listBands(String name) {
-		return bandRepository.findAllByNameLike(name).stream().map(Band::toDto).collect(toList());
+		return bandRepository.findAllByNameContaining(name).stream().map(Band::toDto).collect(toList());
 	}
 
 	public List<GigPreviewDto> getInvitations(Long bandId) {

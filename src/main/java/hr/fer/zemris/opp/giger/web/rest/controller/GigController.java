@@ -26,7 +26,7 @@ public class GigController {
 		return gigService.createGig(gigCreationDto);
 	}
 
-	@GetMapping("/{gigId}")
+	@GetMapping("/view/{gigId}")
 	public GigPreviewDto viewGig(@PathVariable Long gigId) {
 		return gigService.viewGig(gigId);
 	}
@@ -45,4 +45,7 @@ public class GigController {
 	public GigPreviewDto editGig(@RequestBody GigCreationDto gigCreationDto, @PathVariable Long gigId) {
 		return gigService.editGig(gigCreationDto, gigId);
 	}
+
+	@GetMapping("get-public")
+	public List<GigPreviewDto> listAllPublicGigs() { return gigService.listAllPublicGigs(); }
 }

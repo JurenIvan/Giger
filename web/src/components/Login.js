@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 //import * as Helpers from '../Utils/HelperMethods'
 import Cookies from 'js-cookie';
 import Modal from 'react-bootstrap/Modal';
+import { Card } from "react-bootstrap";
 import fetcingFactory from "../Utils/external";
 import {endpoints} from "../Utils/Types";
 
@@ -64,7 +65,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div className="container">
+            <Card>
                 <Modal show={this.state.showModal} animation={false}>
                     <Modal.Body style={{color: "red"}}>
                     {this.state.email.length <= 0 ? ["You must enter e-mail!",  <br></br>] : ""}
@@ -76,8 +77,7 @@ export default class Login extends Component {
                         }}>Close</Button>
                     </Modal.Footer>
                 </Modal>
-                
-                <div className="Login">
+                <div className="container">
                     <Form onSubmit={this.handleSubmit}>
                         <div className="col-1">
                             <Form.Label controlId="email"> E-mail: </Form.Label>
@@ -89,18 +89,18 @@ export default class Login extends Component {
                             </Form.Group>
                         </div>
 
-                        <div className="col-2">
-                            <Form.Label controlId="password"> Password: </Form.Label>
-                        </div>
-                        <div className="col-6">
-                            <Form.Group controlId="password">
-                                <Form.Control value={this.state.password} onChange={this.handleChange} type="password"/>
-                            </Form.Group>
-                        </div>
+                        <Form.Label controlId="password"> Password: </Form.Label>
+                        <Form.Group controlId="password">
+                            <Form.Control 
+                            placeholder="Password"
+                            value={this.state.password} 
+                            onChange={this.handleChange} 
+                            type="password"/>
+                        </Form.Group>
                         <Button type="submit" block> Login </Button>
                     </Form>
                 </div>
-            </div>
+            </Card>
         );
     }
 }

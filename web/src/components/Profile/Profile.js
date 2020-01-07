@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ProfileInfo from '../BasicComponents/ProfileInfo';
+import ProfileInfo from '../Profile/ProfileInfo';
 import ProfileSideNav from './ProfileSideNav';
 import ProfilePosts from './ProfilePosts'
 import './Profile.css';

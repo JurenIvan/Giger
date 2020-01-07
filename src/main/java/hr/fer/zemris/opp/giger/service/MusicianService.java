@@ -11,6 +11,7 @@ import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
@@ -90,5 +91,18 @@ public class MusicianService {
 				.filter(e -> musicianRepository.findById(e.getId()).isPresent())
 				.map(e -> musicianRepository.findById(e.getId()).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN)).createMusicianPreviewPicture(e.getUsername(), e.getPictureUrl()))
 				.collect(toList());
+	}
+
+	public List<MusicianInvitationDto> getMyInvitations() {
+		Musician musician = userDetailsService.getLoggedMusician();
+		List<Band> bandsInvitedAsMember = bandRepository.findAllByInvitedContaining(musician);
+		List<Band> bandsInvitedAsBackup = bandRepository.findAllByInvitedBackUpMembersContaining(musician);
+
+		List<MusicianInvitationDto> invitations = new ArrayList<>();
+
+		bandsInvitedAsMember.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), true, e.getName())));
+		bandsInvitedAsBackup.forEach(e -> invitations.add(new MusicianInvitationDto(e.getId(), false, e.getName())));
+
+		return invitations;
 	}
 }

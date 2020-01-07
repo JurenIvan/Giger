@@ -1,7 +1,8 @@
 import React from 'react';
-import "./Header.css";
+import "../CSS/Header.css";
 import {Button} from "react-bootstrap";
 import Cookies from "js-cookie"
+
 
 export default function Header(props) {
     const handleLogout = function () {

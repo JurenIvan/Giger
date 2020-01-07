@@ -51,6 +51,11 @@ export default function fetcingFactory (endpoint, params) {
             return inviteBackupMemb(params, endpoint);
         case Types.endpoints.GET_BAND_INVITATIONS:
             return getBandInvitations(params, endpoint);
+        case Types.endpoints.PUBLIC_GIGS_VIEW:
+            return getPublicGigs(params,endpoint);
+        case Types.endpoints.BANDS_FILTER:
+            return getBandslist(params,endpoint);
+                
     }
 }
 
@@ -268,6 +273,24 @@ function getBandInvitations(params, endpoint) {
         headers: {
             "Content-Type": "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getPublicGigs(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET"
+    })
+}
+
+function getBandslist(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
         }
     })
 }

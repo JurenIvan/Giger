@@ -10,16 +10,18 @@ export const endpoints = {
     EDIT_BAND: "/band-administration/edit",
     GET_MUSICIAN_BASIC: "musicians/show/basic/",
     GET_BAND_ID: "/bands/like/",
-    GET_MY_GIGS: "/gigs/",
+    GET_MY_GIGS: "/gigs/view/",
     INVITE_TO_GIG: "/gigs/invite",
     GET_BAND_GIGS: "/bands/invitations/",
-    GET_GIG: "/gigs/",
+    GET_GIG: "/gigs/view/",
     ACCEPT_GIG: "/bands/invitations/accept",
     CANCEL_GIG: "/bands/invitations/cancel",
     GET_BANDS_LEAD: "/bands/my/leader",
     GET_MUSICIAN: "/musicians/find",
     INVITE_MAIN_MEMB: "/band-administration/invite",
     INVITE_BACKUP_MEMB: "/band-administration/invite-as-backup",
-    GET_BAND_INVITATIONS: "/musicians/invitations"
+    GET_BAND_INVITATIONS: "/musicians/invitations",
+    BANDS_FILTER: "/bands/filter",
+    PUBLIC_GIGS_VIEW : "/gigs/get-public"
     /*TO DO: ostali endpointi*/
 }

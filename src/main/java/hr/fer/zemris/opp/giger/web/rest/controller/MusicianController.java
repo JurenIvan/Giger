@@ -48,4 +48,9 @@ public class MusicianController {
 	public List<MusicianPreviewPictureDto> findMusician(@RequestBody MusicianFinderDto musicianFinderDto) {
 		return musicianService.findMusician(musicianFinderDto);
 	}
+
+	@GetMapping("/invitations")
+	public List<MusicianInvitationDto> getMyInvitations() {
+		return musicianService.getMyInvitations();
+	}
 }

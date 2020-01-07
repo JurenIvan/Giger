@@ -14,6 +14,8 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 
 	List<Band> findAllByNameLike(String name);
 
+	List<Band> findAllByNameContaining(String name);
+
 	Optional<Band> findByName(String name);
 
 	List<Band> findAll();
@@ -31,4 +33,8 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 //			"    AND DAY(o.local_date_time) != DAY(:localDate)"
 //			, nativeQuery = true)
 //	List<Band> findAllAvailableBands(LocalDate localDate);
+
+	List<Band> findAllByInvitedContaining(Musician musician);
+
+	List<Band> findAllByInvitedBackUpMembersContaining(Musician musician);
 }

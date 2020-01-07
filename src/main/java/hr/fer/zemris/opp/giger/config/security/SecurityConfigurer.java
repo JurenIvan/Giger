@@ -59,7 +59,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		        .antMatchers(POST, "/authenticate").permitAll()
 		        .antMatchers(POST, "/register").permitAll()
 		        .antMatchers(GET, "/register/*").permitAll()
-                .antMatchers(POST, "/register/resend-verification-email").permitAll()
+		        .antMatchers(POST, "/register/resend-verification-email").permitAll()
+		        .antMatchers(GET, "/gigs/view/*").permitAll()
+                .antMatchers(GET, "/gigs/get-public").permitAll()
                 .anyRequest().authenticated();
 
         httpSecurity

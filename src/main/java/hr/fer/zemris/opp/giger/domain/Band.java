@@ -20,6 +20,7 @@ import java.util.*;
 import static com.google.common.collect.Lists.newArrayList;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_MUSICIAN;
 import static java.time.LocalDateTime.now;
+import static java.util.stream.Collectors.toList;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -146,7 +147,7 @@ public class Band {
 	}
 
 	public BandDto toDto() {
-		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes);
+		return new BandDto(id, name, bio, pictureUrl, acceptableGigTypes, members.stream().map(Musician::getId).collect(toList()), backUpMembers.stream().map(Musician::getId).collect(toList()), leader.getId(),home);
 	}
 
 	public void removeBackUpMember(Long musicianId) {
