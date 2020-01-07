@@ -15,7 +15,7 @@ export default class AcceptBandInvite extends React.Component {
             selectedInvite: "",
             accept: true
         }
-        //this.handleRadioChange = this.handleRadioChange.bind(this)
+        this.handleRadioChange = this.handleRadioChange.bind(this)
     }
 
     componentDidMount() {
@@ -67,10 +67,9 @@ export default class AcceptBandInvite extends React.Component {
                     alert(response.json())
                 }
             }); }
-        /*
         else {
             console.log("Odbij")
-            fetcingFactory(endpoints., this.state.selectedInvite).then(
+            fetcingFactory(endpoints.DECLINE_BAND_INVITE, this.state.selectedInvite).then(
                 response => {
                     if (response.status === 200) {
                         window.location.href = "/home";
@@ -80,7 +79,12 @@ export default class AcceptBandInvite extends React.Component {
                     }
                 }); 
         }
-        */
+    }
+
+    handleRadioChange(event) {
+        const accept = event.currentTarget.value === 'true' ? true: false;
+        this.setState({ accept }, () => console.log(this.state.accept)
+            );
     }
 
     render() {
@@ -102,6 +106,21 @@ export default class AcceptBandInvite extends React.Component {
                             }
                         />
                         </Form.Group>
+
+                        <label><input 
+                                type="radio"
+                                name="accept"
+                                value="true"
+                                checked={this.state.accept === true}
+                                onChange={this.handleRadioChange}
+                                ></input>Prihvati</label>
+                                <label><input 
+                                type="radio"
+                                name="accept"
+                                value="false"
+                                checked={this.state.accept === false}
+                                onChange={this.handleRadioChange}
+                                ></input>Odbij</label>
 
                         <Form.Group>
                             <Button type="submit" block> Pozovi/odbij poziv u bend </Button>

@@ -59,6 +59,8 @@ export default function fetcingFactory (endpoint, params, id) {
             return accBandInvite(params, endpoint);
         case Types.endpoints.EDIT_GIG:
             return editGig(params, endpoint, id);
+        case Types.endpoints.DECLINE_BAND_INVITE:
+            return declineBandInvite(params, endpoint)
                 
     }
 }
@@ -318,5 +320,17 @@ function editGig(params, endpoint, id) {
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
+function declineBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
     })
 }
