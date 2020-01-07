@@ -53,4 +53,7 @@ public class MusicianController {
 	public List<MusicianInvitationDto> getMyInvitations() {
 		return musicianService.getMyInvitations();
 	}
+
+	@GetMapping("/invitations/cancel/{bandId}")
+	public void cancelInvitation(@PathVariable Long bandId) { musicianService.cancelInvitation(bandId); }
 }

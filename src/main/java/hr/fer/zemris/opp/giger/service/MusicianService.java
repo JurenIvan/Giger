@@ -105,4 +105,18 @@ public class MusicianService {
 
 		return invitations;
 	}
+
+	public void cancelInvitation(Long bandId) {
+		Musician musician = userDetailsService.getLoggedMusician();
+
+		Band band = bandRepository.findById(bandId).orElseThrow(() -> new GigerException(NO_SUCH_BAND));
+		List<Band> bandsInvitedAsMember = bandRepository.findAllByInvitedContaining(musician);
+		List<Band> bandsInvitedAsBackup = bandRepository.findAllByInvitedBackUpMembersContaining(musician);
+
+		if(!bandsInvitedAsMember.contains(band) && !bandsInvitedAsBackup.contains(band)) throw new GigerException(NOT_INVITED);
+		else if(bandsInvitedAsMember.contains(band)) band.getInvited().remove(musician);
+		else band.getInvitedBackUpMembers().remove(musician);
+
+		bandRepository.save(band);
+	}
 }
