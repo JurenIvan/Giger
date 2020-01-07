@@ -130,11 +130,7 @@ export default class InviteToBand extends React.Component {
             <React.Fragment>
                 <div className = "InviteToBand">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-2">
                             <Form.Label controlId="chooseBand"> Odaberi bend: </Form.Label>
-                        </div>
-
-                        <div className="col-6">
                             <Form.Group controlId="chooseBand">
                             <Select
                                 disabled={this.state.isSearching}
@@ -145,66 +141,48 @@ export default class InviteToBand extends React.Component {
                                 onChange={value => this.setBandValues(value[0].value)}
                             />
                             </Form.Group>
-                        </div>
 
-
-
-                        <div className="col-2">
                             <Form.Label controlId="musicianName"> Unesi ime glazbenika: </Form.Label>
-                        </div>
-
-                        <div className="col-6">
                             <Form.Group controlId="musicianName">
                                 <Form.Control autoFocus type="text" value={this.state.musicianName}
                                               onChange={this.handleChange}/>
                             </Form.Group>
-                        </div>
 
-                        <div className="col-6">
                             <Form.Group>
                                 <Button type="button" block disabled={this.state.isSearching} onClick={this.handleGetMusician}> Dohvati glazbenike </Button>
                             </Form.Group>
-                        </div>
 
-                        <div className="col-2">
                             <Form.Label controlId="chooseMusician"> Odaberi glazbenika: </Form.Label>
-                        </div>
-
-                        <div className="col-6">
                             <Form.Group controlId="chooseMusician">
-                            <Select
-                                disabled={this.state.isSearching}
-                                name="selectedMusician"
-                                options={this.state.musicians}
-                                value={this.state.selectedMusician}
-                                //onChange={this.updateEventType}
-                                onChange={value => this.setMusicianValues(value[0].value)}
-                            />
+                                <Select
+                                    disabled={this.state.isSearching}
+                                    name="selectedMusician"
+                                    options={this.state.musicians}
+                                    value={this.state.selectedMusician}
+                                    //onChange={this.updateEventType}
+                                    onChange={value => this.setMusicianValues(value[0].value)}
+                                />
                             </Form.Group>
-                        </div>
 
-                        <div className="col-6">
-                            <label><input 
-                                type="radio"
-                                name="main"
-                                value="true"
-                                checked={this.state.main === true}
-                                onChange={this.handleRadioChange}
-                                ></input>Glavni clan</label>
-                                <label><input 
-                                type="radio"
-                                name="main"
-                                value="false"
-                                checked={this.state.main === false}
-                                onChange={this.handleRadioChange}
+                            <label>
+                                <input 
+                                    type="radio"
+                                    name="main"
+                                    value="true"
+                                    checked={this.state.main === true}
+                                    onChange={this.handleRadioChange}
+                                    ></input>Glavni clan</label>
+                                    <label><input 
+                                    type="radio"
+                                    name="main"
+                                    value="false"
+                                    checked={this.state.main === false}
+                                    onChange={this.handleRadioChange}
                                 ></input>Pomocni clan</label>
-                        </div>
 
-                        <div nameClass="col-6">
                             <Form.Group>
                                 <Button type="submit" disabled={this.state.isSearching} block> Pozovi osobu u bend </Button>
                             </Form.Group>
-                        </div>
                     </Form>
                 </div>
             </React.Fragment>

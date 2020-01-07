@@ -57,31 +57,24 @@ export default class AcceptBandInvite extends React.Component {
             <React.Fragment>
                 <div className="AcceptBandInvite">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-2">
-                            <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
-                        </div>
+                        <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
+                        <Form.Group controlId="chooseInvite">
+                        <Select
+                            disabled={this.state.isSearching}
+                            name="selectedInvite"
+                            options={this.state.invites}
+                            value={this.state.selectedInvite}
+                            //onChange={this.updateEventType}
+                            onChange={value => {
+                                this.setValues(value[0])
+                                console.log(value)}
+                            }
+                        />
+                        </Form.Group>
 
-                        <div className="col-6">
-                            <Form.Group controlId="chooseInvite">
-                            <Select
-                                disabled={this.state.isSearching}
-                                name="selectedInvite"
-                                options={this.state.invites}
-                                value={this.state.selectedInvite}
-                                //onChange={this.updateEventType}
-                                onChange={value => {
-                                    this.setValues(value[0])
-                                    console.log(value)}
-                                }
-                            />
-                            </Form.Group>
-                        </div>
-
-                        <div nameClass="col-6">
-                            <Form.Group>
-                                <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
-                            </Form.Group>
-                        </div>
+                        <Form.Group>
+                            <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
+                        </Form.Group>
                     </Form>
                 </div>
             </React.Fragment>
