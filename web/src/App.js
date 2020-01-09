@@ -1,12 +1,12 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import './App.css';
 import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
-import RegisterClass from './components/register';
+import RegisterClass from './components/Register/register';
 import createBandForm from './components/createBandForm'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -113,12 +113,9 @@ function App() {
           <Route path ='/AcceptBandInvite' exact component = {AcceptBandInvite} />
           <Route path='/displayGigs' exact component = {DisplayGigs}/>
           <Route path='/EditGig' exact component = {EditGig}/>
+          <Route path='/WelcomePage' exact component = {WelcomePage}/>
         </Switch>
       </div>
-      
-
-
-      <WelcomePage/>
     </BrowserRouter>
    
   );
