@@ -150,11 +150,7 @@ export default class AcceptGigInvite extends React.Component {
             <React.Fragment>
                 <div className = "AcceptGigInvite">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-2">
                             <Form.Label controlId="chooseBend"> Odaberi bend: </Form.Label>
-                        </div>
-
-                        <div className="col-6">
                             <Form.Group controlId="chooseBand">
                             <Select
                                 disabled={this.state.isSearching}
@@ -165,12 +161,8 @@ export default class AcceptGigInvite extends React.Component {
                                 onChange={value => this.setValues(value[0].value)}
                             />
                             </Form.Group>
-                        </div>
 
-                        <div className="col-2">
                             <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
-                        </div>
-                        <div className="col-6">
                             <Form.Group controlId="gigName">
                             <Select
                                 disabled={this.state.isSearching}
@@ -181,9 +173,7 @@ export default class AcceptGigInvite extends React.Component {
                                 onChange={value => this.setGigValues(value[0].value)}
                             />
                             </Form.Group>
-                        </div>
 
-                        <div className="col-6">
                             <label><input 
                                 type="radio"
                                 name="accept"
@@ -198,13 +188,10 @@ export default class AcceptGigInvite extends React.Component {
                                 checked={this.state.accept === false}
                                 onChange={this.handleRadioChange}
                                 ></input>Odbij</label>
-                        </div>
 
-                        <div nameClass="col-6">
                             <Form.Group>
                                 <Button type="submit" block> Pozovi/odbij poziv za gig </Button>
                             </Form.Group>
-                        </div>
                     </Form>
                 </div>
             </React.Fragment>

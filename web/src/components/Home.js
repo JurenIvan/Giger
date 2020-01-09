@@ -38,6 +38,37 @@ export default class Home extends React.Component {
                     HelloWorld
                 </div> : null
             }
+            &nbsp;
+
+            <div>
+                <Button href='/CreateGig'>Stvori gig</Button>
+            </div>
+            &nbsp;
+
+            <div>
+                <Button href='/EditGig'>Uredi gig</Button>
+            </div>
+            &nbsp;
+
+            <div>
+                 <Button href='/InviteToGig'>Pozovi bend u gig</Button>
+            </div>
+            &nbsp;
+
+            <div>
+                <Button href='/AcceptGigInvite'>Prihvati ili odbij poziv za gig</Button>
+            </div>
+            &nbsp;
+
+            <div>
+                <Button href='/InviteToBand'>Pozovi u bend</Button>
+            </div>
+            &nbsp;
+
+            <div>
+                <Button href='/AcceptBandInvite'>Prihvati ili odbij poziv u bend</Button>
+            </div>
+            &nbsp;
             </React.Fragment>
         )
     }

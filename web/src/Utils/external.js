@@ -1,9 +1,12 @@
 import * as Types from "./Types";
 import Cookies from "js-cookie";
 
+require('dotenv').config();
+console.log(process.env.API_URL)
+
 const API = "https://giger-backend-dev.herokuapp.com/api";
 
-export default function fetcingFactory (endpoint, params) {
+export default function fetcingFactory (endpoint, params, id) {
     // eslint-disable-next-line
     switch (endpoint) {
         case Types.endpoints.LOGIN:
@@ -16,6 +19,14 @@ export default function fetcingFactory (endpoint, params) {
             return createMusician(params,endpoint);
         case Types.endpoints.CREATE_ORGANIZER:
             return createOrganizer(params,endpoint);
+        case Types.endpoints.CREATE_BAND:
+            return createBand(params, endpoint);
+        case Types.endpoints.GET_BAND:
+            return getBand(params, endpoint);
+        case Types.endpoints.EDIT_BAND:
+            return editBand(params,endpoint);
+        case Types.endpoints.GET_MUSICIAN_BASIC:
+            return getBasicMusician(params,endpoint);
         case Types.endpoints.GET_BAND_ID:
             return getBandId(params, endpoint);
         case Types.endpoints.GET_MY_GIGS:
@@ -32,29 +43,26 @@ export default function fetcingFactory (endpoint, params) {
             return declineGig(params,endpoint);
         case Types.endpoints.GET_BANDS_LEAD:
             return getBandsLeader(params,endpoint);
+        case Types.endpoints.GET_MUSICIAN:
+            return getMusician(params,endpoint);
+        case Types.endpoints.INVITE_MAIN_MEMB:
+            return inviteMainMemb(params, endpoint);
+        case Types.endpoints.INVITE_BACKUP_MEMB:
+            return inviteBackupMemb(params, endpoint);
+        case Types.endpoints.GET_BAND_INVITATIONS:
+            return getBandInvitations(params, endpoint);
         case Types.endpoints.PUBLIC_GIGS_VIEW:
             return getPublicGigs(params,endpoint);
         case Types.endpoints.BANDS_FILTER:
             return getBandslist(params,endpoint);
+        case Types.endpoints.ACCEPT_BAND_INVITE:
+            return accBandInvite(params, endpoint);
+        case Types.endpoints.EDIT_GIG:
+            return editGig(params, endpoint, id);
+        case Types.endpoints.DECLINE_BAND_INVITE:
+            return declineBandInvite(params, endpoint)
+                
     }
-}
-
-function getPublicGigs(params, endpoint) {
-    return fetch(API + endpoint, {
-        method: "GET"
-    })
-}
-
-function getBandslist(params, endpoint) {
-    console.log(API + endpoint)
-    return fetch(API + endpoint, {
-        method: "GET",
-        headers: {
-            "Content-Type" : "application/json",
-            "Authorization" : "Bearer " + Cookies.get("Bearer")
-
-        }
-    })
 }
 
 function getBandId(params, endpoint) {
@@ -168,6 +176,27 @@ function createOrganizer(params, endpoint) {
         }
     })
 }
+
+function createBand(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function getBand(params, endpoint) {
+    return fetch(API + endpoint + params,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+}
+
 function getInvites(params, endpoint) {
     console.log(API + endpoint + params)
     return fetch(API + endpoint + params, {
@@ -190,3 +219,118 @@ function getBandsLeader(params, endpoint) {
     })
 }
 
+function editBand(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function getBasicMusician(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+function getMusician(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "POST",
+        body: params,
+        headers: {            
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function inviteMainMemb(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function inviteBackupMemb(params,endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function getBandInvitations(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getPublicGigs(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET"
+    })
+}
+
+function getBandslist(params, endpoint) {
+    console.log(API + endpoint)
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
+}
+
+function accBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
+}
+
+function editGig(params, endpoint, id) {
+    return fetch(API + endpoint + id, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
+function declineBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
+}

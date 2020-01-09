@@ -1,31 +1,26 @@
 import React from 'react';
-import "./CreateGig.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-//import * as Helpers from '../Utils/HelperMethods'
-//import Geocode from 'react-geocode';
 import DatePicker, { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
 import GeocodingForm from './GeocodingForm';
-//import GeocodingResults from './GeocodingResults';
 import * as opencage from 'opencage-api-client';
 import InputGroup from 'react-bootstrap/InputGroup'
 import fetcingFactory from "../Utils/external";
 import {endpoints} from "../Utils/Types";
+import { Descriptions } from 'antd';
 registerLocale('hr', hr)
 
-
-
-export default class CreateGig extends React.Component {
+export default class EditGig extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             eventName : "",
             eventDesc : "",
-            eventDate : new Date(),
+            eventDate : "",
             eventAddress: "",
             lat: "",
             lng: "",
@@ -46,89 +41,40 @@ export default class CreateGig extends React.Component {
             isSubmitting: false,
             response: {},
             eventLocDesc: "",
-            inValidCreation: false
+            inValidCreation: false,
+            myGigs: [],
+            selectedGig: "",
+            gigId: ""
         }
         this.handleTypeChange = this.handleTypeChange.bind(this);
         //this.getCoord = this.getCoord.bind(this);
         this.updateEventType = this.updateEventType.bind(this);
         this.setValues = this.setValues.bind(this);
+        this.setGigValues = this.setGigValues.bind(this);
         this.handleGeoSubmit = this.handleGeoSubmit.bind(this);
         this.handleGeoChange = this.handleGeoChange.bind(this);
-        this.handleCreation = this.handleCreation.bind(this);
     }
-/*
-    getAddress() {
-            // Get address from latidude & longitude.
-            Geocode.setApiKey("AIzaSyCMFNBJGpzyBM0jKj0ekrF4iQUD7F21K04");
-            Geocode.fromLatLng("48.8583701", "2.2922926").then(
-                response => {
-                this.state.address = response.results[0].formatted_address;
-                console.log(this.state.address);
-                },
-                error => {
-                console.error(error);
+
+    componentDidMount() {
+        fetcingFactory(endpoints.GET_MY_GIGS, "my").then(
+            response => response.json()
+            ).then(response => {
+                if(response.code === 40001) {
+                    alert("You have to be an organizer")
                 }
-    );
-    }
-
-    getCoord() {
-            // Get latidude & longitude from address.
-            Geocode.setApiKey("AIzaSyDGe5vjL8wBmilLzoJ0jNIwe9SAuH2xS_0");
-            Geocode.fromAddress(this.state.address).then(
-                response => {
-                [this.state.lat, this.state.lng] = response.results[0].geometry.location;
-                console.log(this.state.lat, this.state.lng);
-                },
-                error => {
-                console.error(error);
+                else if (response.length === 0) {
+                    alert("No gigs")
                 }
-    );
-    }
-*/
-
-    handleCreation(status) {
-        if(status === 200) {
-            window.location.href = '/';
-        } else {
-            this.setState({inValidCreation: true});
-        }
-
-    }
-
-    handleSubmit = event => {
-        event.preventDefault();
-        let y = this.state.lat;
-        let x = this.state.lng;
-        let address = this.state.eventAddress;
-        let extraDescription = this.state.eventLocDesc;
-        let location = {
-            y,
-            x,
-            address,
-            extraDescription
-        };
-        let params = JSON.stringify({
-            "dateTime": this.state.eventDate,
-            "location": location,
-            "description": this.state.eventDesc,
-            "expectedDuration": this.state.eventDuration,
-            "proposedPrice": this.state.eventPrice,
-            "gigType": this.state.selectedEventType,
-            "privateGig": this.state.privateGig,
-            "gigName": this.state.eventName
-        });
-        console.log(params)
-        fetcingFactory(endpoints.CREATE_GIG, params).then(
-            response => {
-                if (response.status === 200) {
-                    window.location.href = "/home";
-                } else {
+                else {
                     console.log(response)
-                    alert(response.json())
-                }
+                    for(let i = 0; i < response.length; i++) {
+                        this.setState(prevState => ({
+                            myGigs: [...prevState.myGigs, {value: response[i], label: response[i].name}]
+                          }))
+                    }
+                }   
             });
     }
-
 
     handleChange = event => {
         this.setState({
@@ -165,6 +111,27 @@ export default class CreateGig extends React.Component {
 
     }
 
+    setGigValues = selectedGig => {
+        this.setState({ selectedGig }
+            , () => {
+            this.setState({
+                eventName: selectedGig.name,
+                eventDesc: selectedGig.description,
+                lat: selectedGig.location.x,
+                lng: selectedGig.location.y,
+                eventAddress: selectedGig.location.address,
+                eventLocDesc: selectedGig.location.extraDescription,
+                eventDuration: selectedGig.expectedDuration,
+                eventPrice: selectedGig.proposedPrice,
+                selectedEventType: selectedGig.gigType,
+                privateGig: selectedGig.privateGig,
+                gigId: selectedGig.id
+            }, () => console.log(this.state.eventName))
+
+        })
+        
+    }
+
     handleGeoChange(key, value) {
         this.setState({ [key]: value });
       }
@@ -191,11 +158,58 @@ export default class CreateGig extends React.Component {
             });
     }
 
+    handleSubmit = event => {
+        event.preventDefault();
+        let y = this.state.lat;
+        let x = this.state.lng;
+        let address = this.state.eventAddress;
+        let extraDescription = this.state.eventLocDesc;
+        let location = {
+            y,
+            x,
+            address,
+            extraDescription
+        };
+        let params = JSON.stringify({
+            "dateTime": this.state.eventDate,
+            "location": location,
+            "description": this.state.eventDesc,
+            "expectedDuration": this.state.eventDuration,
+            "proposedPrice": this.state.eventPrice,
+            "gigType": this.state.selectedEventType,
+            "privateGig": this.state.privateGig,
+            "gigName": this.state.eventName,
+            "id": this.state.gigId
+        });
+        console.log(params)
+        fetcingFactory(endpoints.EDIT_GIG, params, this.state.gigId).then(
+            response => {
+                if (response.status === 200) {
+                    window.location.href = "/home";
+                } else {
+                    console.log(response)
+                    alert(response.json())
+                }
+            });
+    }
+
     render() {
-        return (
+        return(
             <React.Fragment>
-                 <div className="CreateGig">
+                <div className="editGig">
                     <Form onSubmit={this.handleSubmit}>
+                        <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
+                        <Form.Group controlId="gigName">
+                        <Select
+                            disabled={this.state.isSearching}
+                            name="selectedGig"
+                            options={this.state.myGigs}
+                            value={this.state.selectedGig}
+                            //onChange={this.updateEventType}
+                            onChange={value => this.setGigValues(value[0].value)}
+                        />
+                        </Form.Group>
+
                         <Form.Label controlId="eventName"> Ime eventa: </Form.Label>
                         <Form.Group controlId="eventName">
                             <Form.Control autoFocus type="text" value={this.state.eventName}
@@ -230,7 +244,7 @@ export default class CreateGig extends React.Component {
                             onChange={this.handleGeoChange}
                         />
 
-                    <h1>{this.state.eventAddress}</h1>                    
+                        <h1>{this.state.eventAddress}</h1>                    
 
                         <Form.Label controlId="gigType"> Tip giga: </Form.Label>
                         <Form.Group controlId="gigType">
@@ -270,11 +284,11 @@ export default class CreateGig extends React.Component {
                         </div>
 
                         <Form.Group>
-                            <Button type="submit" block> Stvori gig </Button>
+                            <Button type="submit" block> Uredi gig </Button>
                         </Form.Group>
                     </Form>
                 </div>
             </React.Fragment>
-        );
+        )
     }
 }

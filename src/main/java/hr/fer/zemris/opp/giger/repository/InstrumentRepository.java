@@ -10,4 +10,5 @@ import java.util.List;
 public interface InstrumentRepository extends JpaRepository<Instrument, Long> {
 
 	List<Instrument> findAllByIdIn(List<Long> id);
+	List<Instrument> findAll();
 }

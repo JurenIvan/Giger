@@ -79,15 +79,12 @@ export default class Login extends Component {
                 </Modal>
                 <div className="container">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-1">
+
                             <Form.Label controlId="email"> E-mail: </Form.Label>
-                        </div>
-                        <div className="col-6">
                             <Form.Group controlId="email">
                                 <Form.Control autoFocus type="text" value={this.state.username}
                                               onChange={this.handleChange}/>
                             </Form.Group>
-                        </div>
 
                         <Form.Label controlId="password"> Password: </Form.Label>
                         <Form.Group controlId="password">

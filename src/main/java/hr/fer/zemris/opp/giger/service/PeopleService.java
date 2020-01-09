@@ -4,10 +4,7 @@ import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
 import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
-import hr.fer.zemris.opp.giger.repository.BandRepository;
-import hr.fer.zemris.opp.giger.repository.PersonRepository;
-import hr.fer.zemris.opp.giger.repository.ReviewRepository;
-import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
+import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
@@ -31,6 +28,7 @@ public class PeopleService {
 	private PersonRepository peopleRepository;
 	private ReviewRepository reviewRepository;
 	private BandRepository bandRepository;
+	private InstrumentRepository instrumentRepository;
 
 
 	public boolean isUserNameAvailable(String username) {
@@ -108,4 +106,8 @@ public class PeopleService {
 	public PersonPreviewDto findPerson(Long personId) {
 		return peopleRepository.findById(personId).orElseThrow(() -> new GigerException(NO_SUCH_USER)).toDto();
 	}
+
+    public List<Instrument> getAllInstrument() {
+		return instrumentRepository.findAll();
+    }
 }
