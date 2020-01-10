@@ -22,65 +22,64 @@ import java.util.List;
 public class ConversationController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ConversationController.class);
-
 	private ConversationService conversationService;
 
 	@PostMapping("/create")
 	public long createConversation(@Valid @RequestBody ConversationCreationDto conversationCreationDto, BindingResult bindingResult) {
-		LOGGER.info("GetBands: " + conversationCreationDto);
+		LOGGER.info("CreateConversation: " + conversationCreationDto);
 		handleValidation(bindingResult);
 		return conversationService.createConversation(conversationCreationDto);
 	}
 
 	@GetMapping("{conversationId}")
 	public ConversationPreviewDto loadConversation(@PathVariable @Min(1) Long conversationId, BindingResult bindingResult) {
-		LOGGER.info("GetBands: " + conversationId);
+		LOGGER.info("LoadConversation: " + conversationId);
 		handleValidation(bindingResult);
 		return conversationService.loadConversation(conversationId);
 	}
 
 	@PostMapping("/send/person")
 	public void postMessageAsPerson(@Valid @RequestBody NewMessageDto newMessageDto, BindingResult bindingResult) {
-		LOGGER.info("GetBands: " + newMessageDto);
+		LOGGER.info("PostMessageAsPerson: " + newMessageDto);
 		handleValidation(bindingResult);
 		conversationService.postMessageAsPerson(newMessageDto);
 	}
 
 	@PostMapping("/send/band")
 	public void postMessageAsBand(@Valid @RequestBody NewMessageDto newMessageDto, BindingResult bindingResult) {
-		LOGGER.info("GetBands: " + newMessageDto);
+		LOGGER.info("PostMessageAsBand: " + newMessageDto);
 		handleValidation(bindingResult);
 		conversationService.postMessageAsBand(newMessageDto);
 	}
 
 	@GetMapping("/get/personal")
 	public List<ConversationPreviewDto> loadAllConversations() {
-		LOGGER.info("GetBands: ");
+		LOGGER.info("LoadAllConversations: ");
 		return conversationService.loadAllPersonalConversations();
 	}
 
 	@GetMapping("/get/band/{bandId}")
 	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
-		LOGGER.info("GetBands: " + bandId);
+		LOGGER.info("LoadAllBandConversations: " + bandId);
 		handleValidation(bindingResult);
 		return conversationService.loadAllBandConversations(bandId);
 	}
 
 	@GetMapping("/get/bands")
 	public List<ConversationPreviewDto> loadAllBandsConversations() {
-		LOGGER.info("GetBands: ");
+		LOGGER.info("LoadAllBandsConversations");
 		return conversationService.loadAllBandsConversations();
 	}
 
 	@GetMapping("/leave/{conversationId}")
 	public void leaveConversation(@PathVariable @Min(1) Long conversationId) {
-		LOGGER.info("GetBands: ");
+		LOGGER.info("LeaveConversation: " + conversationId);
 		conversationService.leaveConversation(conversationId);
 	}
 
 	@PostMapping("/add/{conversationId}")
 	public ConversationPreviewDto addToConversation(@PathVariable @Min(1) Long conversationId, @Valid @RequestBody AddToConversationDto addToConversationDto) {
-		LOGGER.info("addToConversation: " + addToConversationDto + "   conversationId: " + conversationId);
+		LOGGER.info("AddToConversation: " + addToConversationDto + "   conversationId: " + conversationId);
 		return conversationService.addToConversation(conversationId, addToConversationDto);
 	}
 

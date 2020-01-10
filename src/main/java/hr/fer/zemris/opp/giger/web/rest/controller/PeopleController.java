@@ -26,22 +26,29 @@ public class PeopleController {
 	private PeopleService peopleService;
 
 	@PostMapping("/findUsers")
-	private List<Person> findUsers(@Valid @RequestBody FindUsersDto findUsersDto) {
+	private List<Person> findUsers(@Valid @RequestBody FindUsersDto findUsersDto, BindingResult bindingResult) {
+		LOGGER.info("FindUsers: " + findUsersDto);
+		handleValidation(bindingResult);
 		return peopleService.findPeople(findUsersDto);
 	}
 
 	@GetMapping("/reviews/{personId}")
-	public List<ReviewPreviewDto> listReviewsForPerson(@PathVariable @Min(1) Long personId) {
+	public List<ReviewPreviewDto> listReviewsForPerson(@PathVariable @Min(1) Long personId, BindingResult bindingResult) {
+		LOGGER.info("ListReviewsForPerson: " + personId);
+		handleValidation(bindingResult);
 		return peopleService.getReviews(personId);
 	}
 
 	@GetMapping("/{id}")
-	public PersonPreviewDto getPerson(@PathVariable @Min(1) Long personId) {
+	public PersonPreviewDto getPerson(@PathVariable @Min(1) Long personId, BindingResult bindingResult) {
+		LOGGER.info("GetPerson: " + personId);
+		handleValidation(bindingResult);
 		return peopleService.findPerson(personId);
 	}
 
 	@GetMapping("/get-all-instruments")
 	public List<Instrument> getAllInstruments() {
+		LOGGER.info("GetAllInstruments");
 		return peopleService.getAllInstrument();
 	}
 

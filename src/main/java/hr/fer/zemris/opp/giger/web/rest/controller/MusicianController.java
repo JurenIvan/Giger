@@ -23,52 +23,69 @@ public class MusicianController {
 	private MusicianService musicianService;
 
 	@PostMapping("/create")
-	public void create(@Valid @RequestBody MusicianDto musiciandto) {
+	public void create(@Valid @RequestBody MusicianDto musiciandto, BindingResult bindingResult) {
+		LOGGER.info("Create: " + musiciandto);
+		handleValidation(bindingResult);
 		musicianService.createMusician(musiciandto);
 	}
 
 	@PostMapping("/edit")
-	public void editProfile(@Valid @RequestBody MusicianProfileDto musicianProfileDto) {
+	public void editProfile(@Valid @RequestBody MusicianProfileDto musicianProfileDto, BindingResult bindingResult) {
+		LOGGER.info("EditProfile: " + musicianProfileDto);
+		handleValidation(bindingResult);
 		musicianService.editProfile(musicianProfileDto);
 	}
 
 	@GetMapping("/show/basic/{musicianId}")
-	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId) {
+	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+		LOGGER.info("ShowBasicProfile: " + musicianId);
+		handleValidation(bindingResult);
 		return musicianService.showProfile(musicianId);
 	}
 
 	@GetMapping("/show/occasions/{musicianId}")
-	public List<OccasionDto> listOccasionsForMusician(@PathVariable @Min(1) Long musicianId) {
+	public List<OccasionDto> listOccasionsForMusician(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+		LOGGER.info("ListOccasionsForMusician: " + musicianId);
+		handleValidation(bindingResult);
 		return musicianService.getOccasions(musicianId);
 	}
 
 	@GetMapping("/show/posts/{musicianId}")
-	public List<PostDto> listPostsForMusician(@PathVariable @Min(1) Long musicianId) {
+	public List<PostDto> listPostsForMusician(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+		LOGGER.info("ListPostsForMusician: " + musicianId);
+		handleValidation(bindingResult);
 		return musicianService.getPosts(musicianId);
 	}
 
 	@GetMapping("/all")
 	public List<MusicianPreviewPictureDto> listAllMusicians() {
+		LOGGER.info("ListAllMusicians");
 		return musicianService.getAllMusicians();
 	}
 
 	@PostMapping("/find")
-	public List<MusicianPreviewPictureDto> findMusician(@RequestBody MusicianFinderDto musicianFinderDto) {
+	public List<MusicianPreviewPictureDto> findMusician(@RequestBody MusicianFinderDto musicianFinderDto, BindingResult bindingResult) {
+		LOGGER.info("CreateGig: " + musicianFinderDto);
+		handleValidation(bindingResult);
 		return musicianService.findMusician(musicianFinderDto);
 	}
 
 	@GetMapping("/invitations")
 	public List<MusicianInvitationDto> getMyInvitations() {
+		LOGGER.info("GetMyInvitations");
 		return musicianService.getMyInvitations();
 	}
 
 	@GetMapping("/invitations/cancel/{bandId}")
-	public void cancelInvitation(@PathVariable @Min(1) Long bandId) {
+	public void cancelInvitation(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+		LOGGER.info("CancelInvitation: " + bandId);
+		handleValidation(bindingResult);
 		musicianService.cancelInvitation(bandId);
 	}
 
 	@GetMapping("/my/instruments")
 	public List<Instrument> listInstruments() {
+		LOGGER.info("ListInstruments");
 		return musicianService.getMyInstruments();
 	}
 
