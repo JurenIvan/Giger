@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -34,17 +35,17 @@ public class BandAdministrationController {
 	}
 
 	@GetMapping("/join/{bandId}")
-	public void joinBand(@PathVariable Long bandId) {
+	public void joinBand(@PathVariable @Min(1) Long bandId) {
 		bandService.joinBand(bandId);
 	}
 
 	@GetMapping("/leave/{bandId}")
-	public void leaveBand(@PathVariable Long bandId) {
+	public void leaveBand(@PathVariable @Min(1) Long bandId) {
 		bandService.leaveBand(bandId);
 	}
 
 	@PostMapping("/kick")
-	public void kickMusician(@Valid  @RequestBody KickDto kickDto) {
+	public void kickMusician(@Valid @RequestBody KickDto kickDto) {
 		bandService.kickMusician(kickDto);
 	}
 
@@ -59,12 +60,12 @@ public class BandAdministrationController {
 	}
 
 	@GetMapping("/invites/{bandId}")
-	public List<MusicianInvitationsDto> listInvitations(@PathVariable Long bandId) {
+	public List<MusicianInvitationsDto> listInvitations(@PathVariable @Min(1) Long bandId) {
 		return bandService.listInvitations(bandId, 0);
 	}
 
 	@GetMapping("/back-up-invites/{bandId}")
-	public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable Long bandId) {
+	public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable @Min(1) Long bandId) {
 		return bandService.listInvitations(bandId, 1);
 	}
 }

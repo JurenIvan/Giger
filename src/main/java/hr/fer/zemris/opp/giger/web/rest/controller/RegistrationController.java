@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/register")
@@ -14,14 +16,14 @@ public class RegistrationController {
 	private PeopleService peopleService;
 
 	@PostMapping
-	public ResponseEntity<?> registerUser(@RequestBody RegisterRequestDto registerRequestDto) throws Exception {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterRequestDto registerRequestDto) throws Exception {
 		peopleService.saveUser(registerRequestDto);
 		peopleService.sendEmail(registerRequestDto.getEmail(), registerRequestDto.getUsername());
 		return ResponseEntity.ok("Registration ok!");
 	}
 
 	@PostMapping("/resend-verification-email")
-	public ResponseEntity<?> resendVerificationEmail(@RequestBody RegisterRequestDto registerRequestDto) throws Exception {
+	public ResponseEntity<?> resendVerificationEmail(@Valid @RequestBody RegisterRequestDto registerRequestDto) throws Exception {
 		peopleService.sendEmail(registerRequestDto.getEmail(), registerRequestDto.getUsername());
 		return ResponseEntity.ok("Email has been resent!");
 	}
