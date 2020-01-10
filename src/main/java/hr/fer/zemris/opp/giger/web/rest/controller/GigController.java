@@ -28,32 +28,42 @@ public class GigController {
 
 	@PostMapping("/create-gig")
 	@PreAuthorize("hasPermission('ORGANIZER')")
-	public Gig createGig(@Valid @RequestBody GigCreationDto gigCreationDto) {
+	public Gig createGig(@Valid @RequestBody GigCreationDto gigCreationDto, BindingResult bindingResult) {
+		LOGGER.info("CreateGig: " + gigCreationDto);
+		handleValidation(bindingResult);
 		return gigService.createGig(gigCreationDto);
 	}
 
 	@GetMapping("/view/{gigId}")
-	public GigPreviewDto viewGig(@PathVariable @Min(1) Long gigId) {
+	public GigPreviewDto viewGig(@PathVariable @Min(1) Long gigId, BindingResult bindingResult) {
+		LOGGER.info("ViewGig: " + gigId);
+		handleValidation(bindingResult);
 		return gigService.viewGig(gigId);
 	}
 
 	@PostMapping("/invite")
-	public GigPreviewDto inviteBandToGig(@Valid @RequestBody BandInvitation bandInvitation) {
+	public GigPreviewDto inviteBandToGig(@Valid @RequestBody BandInvitation bandInvitation, BindingResult bindingResult) {
+		LOGGER.info("InviteBandToGig: " + bandInvitation);
+		handleValidation(bindingResult);
 		return gigService.inviteBand(bandInvitation);
 	}
 
 	@GetMapping("/my")
 	public List<GigPreviewDto> viewMyGigs() {
+		LOGGER.info("ViewMyGigs: ");
 		return gigService.listMyGigs();
 	}
 
 	@PostMapping("/edit/{gigId}")
-	public GigPreviewDto editGig(@Valid @RequestBody GigCreationDto gigCreationDto, @PathVariable Long gigId) {
+	public GigPreviewDto editGig(@Valid @RequestBody GigCreationDto gigCreationDto, @PathVariable @Min(1) Long gigId, BindingResult bindingResult) {
+		LOGGER.info("EditGig: " + gigCreationDto);
+		handleValidation(bindingResult);
 		return gigService.editGig(gigCreationDto, gigId);
 	}
 
 	@GetMapping("get-public")
 	public List<GigPreviewDto> listAllPublicGigs() {
+		LOGGER.info("Get-public");
 		return gigService.listAllPublicGigs();
 	}
 

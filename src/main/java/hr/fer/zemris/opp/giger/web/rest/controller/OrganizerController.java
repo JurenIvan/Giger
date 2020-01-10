@@ -22,12 +22,16 @@ public class OrganizerController {
 	private OrganizerService organizerService;
 
 	@GetMapping("/create/{managerName}")
-	public void create(@PathVariable @Min(1) String managerName) {
+	public void create(@PathVariable @Min(1) String managerName, BindingResult bindingResult) {
+		LOGGER.info("Create: " + managerName);
+		handleValidation(bindingResult);
 		organizerService.createOrganizer(managerName);
 	}
 
 	@GetMapping("/edit/{managerName}")
-	public void edit(@PathVariable @Min(1) String managerName) {
+	public void edit(@PathVariable @Min(1) String managerName, BindingResult bindingResult) {
+		LOGGER.info("Edit: " + managerName);
+		handleValidation(bindingResult);
 		organizerService.editOrganizer(managerName);
 	}
 
