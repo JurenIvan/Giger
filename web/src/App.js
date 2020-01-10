@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Login from "./components/Login/Login";
 import './App.css';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/Register/register';

@@ -81,6 +81,7 @@ export default class Login extends Component {
                                             onChange={this.handleChange}
                                             className="form-control" name="email" placeholder="E-mail" required="required">
                                             </input>
+                                            <br></br>
                                         </div>
                                     </div>
 
