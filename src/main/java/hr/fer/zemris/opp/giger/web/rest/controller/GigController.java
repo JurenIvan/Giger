@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 
@@ -27,12 +28,12 @@ public class GigController {
 	}
 
 	@GetMapping("/view/{gigId}")
-	public GigPreviewDto viewGig(@PathVariable Long gigId) {
+	public GigPreviewDto viewGig(@PathVariable @Min(1) Long gigId) {
 		return gigService.viewGig(gigId);
 	}
 
 	@PostMapping("/invite")
-	public GigPreviewDto inviteBandToGig(@RequestBody BandInvitation bandInvitation) {
+	public GigPreviewDto inviteBandToGig(@Valid @RequestBody BandInvitation bandInvitation) {
 		return gigService.inviteBand(bandInvitation);
 	}
 
@@ -42,7 +43,7 @@ public class GigController {
 	}
 
 	@PostMapping("/edit/{gigId}")
-	public GigPreviewDto editGig(@RequestBody GigCreationDto gigCreationDto, @PathVariable Long gigId) {
+	public GigPreviewDto editGig(@Valid @RequestBody GigCreationDto gigCreationDto, @PathVariable Long gigId) {
 		return gigService.editGig(gigCreationDto, gigId);
 	}
 

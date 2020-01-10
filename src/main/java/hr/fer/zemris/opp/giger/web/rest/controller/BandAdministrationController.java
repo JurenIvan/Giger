@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -44,14 +45,14 @@ public class BandAdministrationController {
     }
 
     @GetMapping("/join/{bandId}")
-    public void joinBand(@PathVariable Long bandId, BindingResult bindingResult) {
+    public void joinBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
         LOGGER.info("JoinBand: " + bandId);
         handleValidation(bindingResult);
         bandService.joinBand(bandId);
     }
 
     @GetMapping("/leave/{bandId}")
-    public void leaveBand(@PathVariable Long bandId, BindingResult bindingResult) {
+    public void leaveBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
         LOGGER.info("LeaveBand: " + bandId);
         handleValidation(bindingResult);
         bandService.leaveBand(bandId);
@@ -79,14 +80,14 @@ public class BandAdministrationController {
     }
 
     @GetMapping("/invites/{bandId}")
-    public List<MusicianInvitationsDto> listInvitations(@PathVariable Long bandId, BindingResult bindingResult) {
+    public List<MusicianInvitationsDto> listInvitations(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
         LOGGER.info("CreateBand: " + bandId);
         handleValidation(bindingResult);
         return bandService.listInvitations(bandId, 0);
     }
 
     @GetMapping("/back-up-invites/{bandId}")
-    public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable Long bandId, BindingResult bindingResult) {
+    public List<MusicianInvitationsDto> listBackUpInvitations(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
         LOGGER.info("CreateBand: " + bandId);
         handleValidation(bindingResult);
         return bandService.listInvitations(bandId, 1);

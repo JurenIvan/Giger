@@ -8,6 +8,8 @@ import hr.fer.zemris.opp.giger.web.rest.dto.GigPreviewDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @AllArgsConstructor
@@ -18,12 +20,12 @@ public class BandController {
 	private BandService bandService;
 
 	@GetMapping("/{bandId}")
-	public BandDto getBand(@PathVariable Long bandId) {
+	public BandDto getBand(@PathVariable @Min(1) Long bandId) {
 		return bandService.getBand(bandId);
 	}
 
 	@GetMapping("/like/{name}")
-	public List<BandDto> getBands(@PathVariable String name) {
+	public List<BandDto> getBands(@PathVariable @Min(1) String name) {
 		return bandService.listBands(name);
 	}
 
@@ -33,17 +35,17 @@ public class BandController {
 	}
 
 	@GetMapping("/invitations/{bandId}")
-	public List<GigPreviewDto> getInvitations(@PathVariable Long bandId) {
+	public List<GigPreviewDto> getInvitations(@PathVariable @Min(1) Long bandId) {
 		return bandService.getInvitations(bandId);
 	}
 
 	@PostMapping("/invitations/accept")
-	public GigPreviewDto acceptInvitation(@RequestBody BandInvitation bandInvitation) {
+	public GigPreviewDto acceptInvitation(@Valid  @RequestBody BandInvitation bandInvitation) {
 		return bandService.acceptInvitation(bandInvitation);
 	}
 
 	@PostMapping("/invitations/cancel")
-	public void cancelInvitation(@RequestBody BandInvitation bandInvitation) {
+	public void cancelInvitation(@Valid @RequestBody BandInvitation bandInvitation) {
 		bandService.cancelInvitation(bandInvitation);
 	}
 

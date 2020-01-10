@@ -7,6 +7,8 @@ import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -17,27 +19,27 @@ public class MusicianController {
 	private MusicianService musicianService;
 
 	@PostMapping("/create")
-	public void create(@RequestBody MusicianDto musiciandto) {
+	public void create(@Valid @RequestBody MusicianDto musiciandto) {
 		musicianService.createMusician(musiciandto);
 	}
 
 	@PostMapping("/edit")
-	public void editProfile(@RequestBody MusicianProfileDto musicianProfileDto) {
+	public void editProfile(@Valid @RequestBody MusicianProfileDto musicianProfileDto) {
 		musicianService.editProfile(musicianProfileDto);
 	}
 
 	@GetMapping("/show/basic/{musicianId}")
-	public MusicianProfileDto showBasicProfile(@PathVariable Long musicianId) {
+	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId) {
 		return musicianService.showProfile(musicianId);
 	}
 
 	@GetMapping("/show/occasions/{musicianId}")
-	public List<OccasionDto> listOccasionsForMusician(@PathVariable Long musicianId) {
+	public List<OccasionDto> listOccasionsForMusician(@PathVariable @Min(1) Long musicianId) {
 		return musicianService.getOccasions(musicianId);
 	}
 
 	@GetMapping("/show/posts/{musicianId}")
-	public List<PostDto> listPostsForMusician(@PathVariable Long musicianId) {
+	public List<PostDto> listPostsForMusician(@PathVariable @Min(1) Long musicianId) {
 		return musicianService.getPosts(musicianId);
 	}
 
@@ -57,7 +59,7 @@ public class MusicianController {
 	}
 
 	@GetMapping("/invitations/cancel/{bandId}")
-	public void cancelInvitation(@PathVariable Long bandId) { musicianService.cancelInvitation(bandId); }
+	public void cancelInvitation(@PathVariable @Min(1) Long bandId) { musicianService.cancelInvitation(bandId); }
 
 	@GetMapping("/my/instruments")
 	public List<Instrument> listInstruments(){ return musicianService.getMyInstruments(); }

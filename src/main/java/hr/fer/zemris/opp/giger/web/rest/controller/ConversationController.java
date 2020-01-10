@@ -8,6 +8,8 @@ import hr.fer.zemris.opp.giger.web.rest.dto.NewMessageDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController
@@ -18,22 +20,22 @@ public class ConversationController {
 	private ConversationService conversationService;
 
 	@PostMapping("/create")
-	public long createConversation(@RequestBody ConversationCreationDto conversationCreationDto) {
+	public long createConversation(@Valid @RequestBody ConversationCreationDto conversationCreationDto) {
 		return conversationService.createConversation(conversationCreationDto);
 	}
 
 	@GetMapping("{conversationId}")
-	public ConversationPreviewDto loadConversation(@PathVariable Long conversationId) {
+	public ConversationPreviewDto loadConversation(@PathVariable @Min(1) Long conversationId) {
 		return conversationService.loadConversation(conversationId);
 	}
 
 	@PostMapping("/send/person")
-	public void postMessageAsPerson(@RequestBody NewMessageDto newMessageDto) {
+	public void postMessageAsPerson(@Valid @RequestBody NewMessageDto newMessageDto) {
 		conversationService.postMessageAsPerson(newMessageDto);
 	}
 
 	@PostMapping("/send/band")
-	public void postMessageAsBand(@RequestBody NewMessageDto newMessageDto) {
+	public void postMessageAsBand(@Valid @RequestBody NewMessageDto newMessageDto) {
 		conversationService.postMessageAsBand(newMessageDto);
 	}
 
@@ -43,7 +45,7 @@ public class ConversationController {
 	}
 
 	@GetMapping("/get/band/{bandId}")
-	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable Long bandId) {
+	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable @Min(1) Long bandId) {
 		return conversationService.loadAllBandConversations(bandId);
 	}
 
@@ -53,12 +55,12 @@ public class ConversationController {
 	}
 
 	@GetMapping("/leave/{conversationId}")
-	public void leaveConversation(@PathVariable Long conversationId) {
+	public void leaveConversation(@PathVariable @Min(1) Long conversationId) {
 		conversationService.leaveConversation(conversationId);
 	}
 
 	@PostMapping("/add/{conversationId}")
-	public ConversationPreviewDto addToConversation(@PathVariable Long conversationId, @RequestBody AddToConversationDto addToConversationDto) {
+	public ConversationPreviewDto addToConversation(@PathVariable @Min(1) Long conversationId, @Valid @RequestBody AddToConversationDto addToConversationDto) {
 		return conversationService.addToConversation(conversationId, addToConversationDto);
 	}
 

@@ -11,8 +11,8 @@ import javax.validation.constraints.Min;
 @AllArgsConstructor
 public class MusicianBandDto {
 
-    @Min(0)
+    @Min(1)
     private Long bandId;
-    @Min(0)
+    @Min(1)
     private Long musicianId;
 }

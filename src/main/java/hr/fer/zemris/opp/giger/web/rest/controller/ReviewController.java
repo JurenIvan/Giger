@@ -6,6 +6,9 @@ import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+
 @RestController
 @RequestMapping("/reviews")
 @AllArgsConstructor
@@ -14,22 +17,22 @@ public class ReviewController {
 	private ReviewService reviewService;
 
 	@PostMapping("/create")
-	public void createReview(ReviewCreationDto reviewDto) {
+	public void createReview(@Valid @RequestBody ReviewCreationDto reviewDto) {
 		reviewService.createReview(reviewDto);
 	}
 
 	@GetMapping("/band/{bandId}")
-	public ReviewsDto getReviewsForBand(@PathVariable Long bandId) {
+	public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId) {
 		return reviewService.getReviewsForBand(bandId);
 	}
 
 	@GetMapping("/organizer/{organizerId}")
-	public ReviewsDto getReviewsForOrganizer(@PathVariable Long organizerId) {
+	public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId) {
 		return reviewService.getReviewsForOrganizer(organizerId);
 	}
 
 	@GetMapping("/gig/{gigId}")
-	public ReviewsDto getReviewsForGig(@PathVariable Long gigId) {
+	public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId) {
 		return reviewService.getReviewsForGig(gigId);
 	}
 }
