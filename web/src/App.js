@@ -23,7 +23,7 @@ import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import EditGig from './components/EditGig'
 
-import WelcomePage from "./components/BasicComponents/WelcomePage";
+import WelcomePage from "./components/WelcomePage/WelcomePage";
 
 function App() {
 

@@ -68,7 +68,7 @@ export default class Login extends Component {
                         <div className="modal-content">
 
                             <div className="modal-header">				
-                                <h4 className="modal-title">Login</h4>
+                                <h4 className="modal-title">Welcome back!</h4>
                             </div>
 
                             <div className="modal-body">

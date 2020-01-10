@@ -2,7 +2,7 @@ import React from 'react';
 import "../CSS/Header.css";
 import {Button} from "react-bootstrap";
 import Cookies from "js-cookie"
-import WelcomePage from "./BasicComponents/WelcomePage";
+import WelcomePage from "./WelcomePage/WelcomePage";
 
 
 export default function Header(props) {
@@ -26,14 +26,14 @@ export default function Header(props) {
                 Cookies.get('Bearer') ?
                     [
                     <div className="Header-btns">
-                    <Button onClick={handleLogout}>Log out</Button>,
+                    <Button onClick={handleLogout}>Log out</Button>
                     <Button href="/profile">Profile</Button>
                     </div>    
                     ]
                     :
                     [
                     <div className="Header-btns">
-                    <Button href='/login'>Log in</Button>,
+                    <Button href='/login'>Log in</Button>
                     <Button href='/register'>Register</Button>
                     </div>]
             }
