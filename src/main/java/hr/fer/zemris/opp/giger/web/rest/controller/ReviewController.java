@@ -30,8 +30,8 @@ public class ReviewController {
 
 	@GetMapping("/band/{bandId}")
     public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
-        LOGGER.info("getReviewsForBand: " + bandId);
-        handleValidation(bindingResult);
+		LOGGER.info("getReviewsForBand: " + bandId);
+		handleValidation(bindingResult);
 		return reviewService.getReviewsForBand(bandId);
 	}
 

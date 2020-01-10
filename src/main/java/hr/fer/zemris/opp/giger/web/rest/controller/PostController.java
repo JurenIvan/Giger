@@ -22,30 +22,30 @@ public class PostController {
 	private PostService postService;
 
 	@PostMapping("/create")
-    private void postPost(@Valid @RequestBody NewCommentDto commentDto, BindingResult bindingResult) {
-        LOGGER.info("PostPost: " + commentDto);
-        handleValidation(bindingResult);
+	private void postPost(@Valid @RequestBody NewCommentDto commentDto, BindingResult bindingResult) {
+		LOGGER.info("PostPost: " + commentDto);
+		handleValidation(bindingResult);
 		postService.postPost(commentDto);
 	}
 
 	@PostMapping("/create/{bandId}")
-    private void postPostAsBand(@Valid @RequestBody NewCommentDto commentDto, @PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
-        LOGGER.info("PostPostAsBand: " + commentDto + " bandId: " + bandId);
-        handleValidation(bindingResult);
+	private void postPostAsBand(@Valid @RequestBody NewCommentDto commentDto, @PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+		LOGGER.info("PostPostAsBand: " + commentDto + " bandId: " + bandId);
+		handleValidation(bindingResult);
 		postService.postPost(commentDto, bandId);
 	}
 
 	@PostMapping("/{postId}")
-    private void postComment(@Valid @RequestBody NewCommentDto commentPreviewDto, @PathVariable @Min(1) Long postId, BindingResult bindingResult) {
-        LOGGER.info("PostComment: " + commentPreviewDto + " bandId: " + postId);
-        handleValidation(bindingResult);
+	private void postComment(@Valid @RequestBody NewCommentDto commentPreviewDto, @PathVariable @Min(1) Long postId, BindingResult bindingResult) {
+		LOGGER.info("PostComment: " + commentPreviewDto + " bandId: " + postId);
+		handleValidation(bindingResult);
 		postService.postComment(commentPreviewDto, postId);
 	}
 
 	@GetMapping("/{postId}")
-    public PostDto viewPost(@PathVariable @Min(1) Long postId, BindingResult bindingResult) {
-        LOGGER.info("ViewPost: " + postId);
-        handleValidation(bindingResult);
+	public PostDto viewPost(@PathVariable @Min(1) Long postId, BindingResult bindingResult) {
+		LOGGER.info("ViewPost: " + postId);
+		handleValidation(bindingResult);
 		return postService.viewPost(postId);
 	}
 
