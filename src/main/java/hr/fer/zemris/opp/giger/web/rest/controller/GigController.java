@@ -1,12 +1,16 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.domain.Gig;
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
 import hr.fer.zemris.opp.giger.service.GigService;
 import hr.fer.zemris.opp.giger.web.rest.dto.BandInvitation;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigPreviewDto;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,6 +23,7 @@ import java.util.List;
 @RequestMapping("/gigs")
 public class GigController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(GigController.class);
 	private GigService gigService;
 
 	@PostMapping("/create-gig")
@@ -48,5 +53,14 @@ public class GigController {
 	}
 
 	@GetMapping("get-public")
-	public List<GigPreviewDto> listAllPublicGigs() { return gigService.listAllPublicGigs(); }
+	public List<GigPreviewDto> listAllPublicGigs() {
+		return gigService.listAllPublicGigs();
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
+	}
 }

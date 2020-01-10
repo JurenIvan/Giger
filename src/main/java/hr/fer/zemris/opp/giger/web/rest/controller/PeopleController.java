@@ -2,17 +2,19 @@ package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.domain.Instrument;
 import hr.fer.zemris.opp.giger.domain.Person;
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
 import hr.fer.zemris.opp.giger.service.PeopleService;
 import hr.fer.zemris.opp.giger.web.rest.dto.FindUsersDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PersonPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewPreviewDto;
 import lombok.AllArgsConstructor;
-import org.springframework.validation.annotation.Validated;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
@@ -20,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PeopleController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(PeopleController.class);
 	private PeopleService peopleService;
 
 	@PostMapping("/findUsers")
@@ -38,5 +41,14 @@ public class PeopleController {
 	}
 
 	@GetMapping("/get-all-instruments")
-	public List<Instrument> getAllInstruments(){ return peopleService.getAllInstrument(); }
+	public List<Instrument> getAllInstruments() {
+		return peopleService.getAllInstrument();
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
+	}
 }

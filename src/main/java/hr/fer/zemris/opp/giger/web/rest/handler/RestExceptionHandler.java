@@ -19,19 +19,19 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(GigerException.class)
-    protected ResponseEntity<Object> handleGigerException(GigerException ex) {
-        return new ResponseEntity<>(
-                new ApiError(EXCEPTION.getCode(), EXCEPTION.getMessage(), of(new ViolationError(ex.getErrorCode().getCode(), ex.getErrorCode().getMessage()))),
-                new HttpHeaders(),
-                ex.getErrorCode().getStatus());
-    }
+	@ExceptionHandler(GigerException.class)
+	protected ResponseEntity<Object> handleGigerException(GigerException ex) {
+		return new ResponseEntity<>(
+				new ApiError(EXCEPTION.getCode(), EXCEPTION.getMessage(), of(new ViolationError(ex.getErrorCode().getCode(), ex.getErrorCode().getMessage()))),
+				new HttpHeaders(),
+				ex.getErrorCode().getStatus());
+	}
 
-    @ExceptionHandler(GigerValidationException.class)
-    protected ResponseEntity<Object> handleGigerValidationException(GigerValidationException ex) {
-        return new ResponseEntity<>(
-                new ApiError(VALIDATION_EXCEPTION.getCode(), EXCEPTION.getMessage(), ex.getBindingResult().getAllErrors().stream().map(e -> new ViolationError((FieldError) e)).collect(toList())),
-                new HttpHeaders(),
-                BAD_REQUEST);
-    }
+	@ExceptionHandler(GigerValidationException.class)
+	protected ResponseEntity<Object> handleGigerValidationException(GigerValidationException ex) {
+		return new ResponseEntity<>(
+				new ApiError(VALIDATION_EXCEPTION.getCode(), EXCEPTION.getMessage(), ex.getBindingResult().getAllErrors().stream().map(e -> new ViolationError((FieldError) e)).collect(toList())),
+				new HttpHeaders(),
+				BAD_REQUEST);
+	}
 }

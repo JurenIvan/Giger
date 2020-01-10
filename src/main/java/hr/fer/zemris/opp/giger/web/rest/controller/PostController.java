@@ -1,20 +1,24 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
 import hr.fer.zemris.opp.giger.service.PostService;
 import hr.fer.zemris.opp.giger.web.rest.dto.NewCommentDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.PostDto;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/posts")
 public class PostController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(PostController.class);
 	private PostService postService;
 
 	@PostMapping("/create")
@@ -35,5 +39,12 @@ public class PostController {
 	@GetMapping("/{postId}")
 	public PostDto viewPost(@PathVariable @Min(1) Long postId) {
 		return postService.viewPost(postId);
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
 	}
 }

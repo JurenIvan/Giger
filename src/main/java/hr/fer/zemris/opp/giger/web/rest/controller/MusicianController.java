@@ -1,10 +1,13 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.domain.Instrument;
-import hr.fer.zemris.opp.giger.domain.Musician;
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
 import hr.fer.zemris.opp.giger.service.MusicianService;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MusicianController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(MusicianController.class);
 	private MusicianService musicianService;
 
 	@PostMapping("/create")
@@ -59,8 +63,19 @@ public class MusicianController {
 	}
 
 	@GetMapping("/invitations/cancel/{bandId}")
-	public void cancelInvitation(@PathVariable @Min(1) Long bandId) { musicianService.cancelInvitation(bandId); }
+	public void cancelInvitation(@PathVariable @Min(1) Long bandId) {
+		musicianService.cancelInvitation(bandId);
+	}
 
 	@GetMapping("/my/instruments")
-	public List<Instrument> listInstruments(){ return musicianService.getMyInstruments(); }
+	public List<Instrument> listInstruments() {
+		return musicianService.getMyInstruments();
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
+	}
 }

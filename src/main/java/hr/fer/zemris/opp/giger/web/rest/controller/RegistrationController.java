@@ -1,9 +1,13 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
 import hr.fer.zemris.opp.giger.config.security.model.RegisterRequestDto;
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
 import hr.fer.zemris.opp.giger.service.PeopleService;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -13,6 +17,7 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegistrationController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
 	private PeopleService peopleService;
 
 	@PostMapping
@@ -43,5 +48,12 @@ public class RegistrationController {
 	@GetMapping("/email-available")
 	public Boolean isEmailAvailable(String email) {
 		return peopleService.isEmailAvailable(email);
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
 	}
 }

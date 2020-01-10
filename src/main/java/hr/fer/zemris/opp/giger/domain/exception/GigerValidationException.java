@@ -8,5 +8,5 @@ import org.springframework.validation.BindingResult;
 @Getter
 public class GigerValidationException extends RuntimeException {
 
-    private BindingResult bindingResult;
+	private BindingResult bindingResult;
 }
