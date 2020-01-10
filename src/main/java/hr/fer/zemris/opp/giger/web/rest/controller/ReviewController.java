@@ -22,23 +22,31 @@ public class ReviewController {
 	private ReviewService reviewService;
 
 	@PostMapping("/create")
-	public void createReview(@Valid @RequestBody ReviewCreationDto reviewDto) {
+    public void createReview(@Valid @RequestBody ReviewCreationDto reviewDto, BindingResult bindingResult) {
+        LOGGER.info("CreateReview: " + reviewDto);
+        handleValidation(bindingResult);
 		reviewService.createReview(reviewDto);
 	}
 
 	@GetMapping("/band/{bandId}")
-	public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId) {
+    public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+        LOGGER.info("getReviewsForBand: " + bandId);
+        handleValidation(bindingResult);
 		return reviewService.getReviewsForBand(bandId);
 	}
 
 	@GetMapping("/organizer/{organizerId}")
-	public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId) {
-		return reviewService.getReviewsForOrganizer(organizerId);
+    public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId, BindingResult bindingResult) {
+        LOGGER.info("GetReviewsForOrganizer: " + organizerId);
+        handleValidation(bindingResult);
+        return reviewService.getReviewsForOrganizer(organizerId);
 	}
 
 	@GetMapping("/gig/{gigId}")
-	public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId) {
-		return reviewService.getReviewsForGig(gigId);
+    public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId, BindingResult bindingResult) {
+        LOGGER.info("GetReviewsForGig: " + gigId);
+        handleValidation(bindingResult);
+        return reviewService.getReviewsForGig(gigId);
 	}
 
 	private void handleValidation(BindingResult bindingResult) {
