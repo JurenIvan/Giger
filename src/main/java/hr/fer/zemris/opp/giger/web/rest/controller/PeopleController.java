@@ -38,7 +38,7 @@ public class PeopleController {
 		return peopleService.getReviews(personId);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/{personId}")
 	public PersonPreviewDto getPerson(@PathVariable @Min(1) Long personId) {
 		LOGGER.info("GetPerson: " + personId);
 		return peopleService.findPerson(personId);
