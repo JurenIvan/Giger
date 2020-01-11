@@ -33,16 +33,14 @@ public class PeopleController {
 	}
 
 	@GetMapping("/reviews/{personId}")
-	public List<ReviewPreviewDto> listReviewsForPerson(@PathVariable @Min(1) Long personId, BindingResult bindingResult) {
+	public List<ReviewPreviewDto> listReviewsForPerson(@PathVariable @Min(1) Long personId) {
 		LOGGER.info("ListReviewsForPerson: " + personId);
-		handleValidation(bindingResult);
 		return peopleService.getReviews(personId);
 	}
 
 	@GetMapping("/{id}")
-	public PersonPreviewDto getPerson(@PathVariable @Min(1) Long personId, BindingResult bindingResult) {
+	public PersonPreviewDto getPerson(@PathVariable @Min(1) Long personId) {
 		LOGGER.info("GetPerson: " + personId);
-		handleValidation(bindingResult);
 		return peopleService.findPerson(personId);
 	}
 

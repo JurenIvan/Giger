@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @AllArgsConstructor
 @RestController
@@ -22,16 +22,14 @@ public class OrganizerController {
 	private OrganizerService organizerService;
 
 	@GetMapping("/create/{managerName}")
-	public void create(@PathVariable @Min(1) String managerName, BindingResult bindingResult) {
+	public void create(@PathVariable @NotBlank String managerName) {
 		LOGGER.info("Create: " + managerName);
-		handleValidation(bindingResult);
 		organizerService.createOrganizer(managerName);
 	}
 
 	@GetMapping("/edit/{managerName}")
-	public void edit(@PathVariable @Min(1) String managerName, BindingResult bindingResult) {
+	public void edit(@PathVariable @NotBlank String managerName) {
 		LOGGER.info("Edit: " + managerName);
-		handleValidation(bindingResult);
 		organizerService.editOrganizer(managerName);
 	}
 

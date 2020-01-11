@@ -29,23 +29,20 @@ public class ReviewController {
 	}
 
 	@GetMapping("/band/{bandId}")
-    public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+	public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId) {
 		LOGGER.info("getReviewsForBand: " + bandId);
-		handleValidation(bindingResult);
 		return reviewService.getReviewsForBand(bandId);
 	}
 
 	@GetMapping("/organizer/{organizerId}")
-    public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId, BindingResult bindingResult) {
+	public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId) {
         LOGGER.info("GetReviewsForOrganizer: " + organizerId);
-        handleValidation(bindingResult);
         return reviewService.getReviewsForOrganizer(organizerId);
 	}
 
 	@GetMapping("/gig/{gigId}")
-    public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId, BindingResult bindingResult) {
+	public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId) {
         LOGGER.info("GetReviewsForGig: " + gigId);
-        handleValidation(bindingResult);
         return reviewService.getReviewsForGig(gigId);
 	}
 

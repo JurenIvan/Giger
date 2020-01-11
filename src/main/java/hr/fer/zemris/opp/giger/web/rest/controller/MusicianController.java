@@ -37,23 +37,20 @@ public class MusicianController {
 	}
 
 	@GetMapping("/show/basic/{musicianId}")
-	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId) {
 		LOGGER.info("ShowBasicProfile: " + musicianId);
-		handleValidation(bindingResult);
 		return musicianService.showProfile(musicianId);
 	}
 
 	@GetMapping("/show/occasions/{musicianId}")
-	public List<OccasionDto> listOccasionsForMusician(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+	public List<OccasionDto> listOccasionsForMusician(@PathVariable @Min(1) Long musicianId) {
 		LOGGER.info("ListOccasionsForMusician: " + musicianId);
-		handleValidation(bindingResult);
 		return musicianService.getOccasions(musicianId);
 	}
 
 	@GetMapping("/show/posts/{musicianId}")
-	public List<PostDto> listPostsForMusician(@PathVariable @Min(1) Long musicianId, BindingResult bindingResult) {
+	public List<PostDto> listPostsForMusician(@PathVariable @Min(1) Long musicianId) {
 		LOGGER.info("ListPostsForMusician: " + musicianId);
-		handleValidation(bindingResult);
 		return musicianService.getPosts(musicianId);
 	}
 
@@ -77,9 +74,8 @@ public class MusicianController {
 	}
 
 	@GetMapping("/invitations/cancel/{bandId}")
-	public void cancelInvitation(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+	public void cancelInvitation(@PathVariable @Min(1) Long bandId) {
 		LOGGER.info("CancelInvitation: " + bandId);
-		handleValidation(bindingResult);
 		musicianService.cancelInvitation(bandId);
 	}
 

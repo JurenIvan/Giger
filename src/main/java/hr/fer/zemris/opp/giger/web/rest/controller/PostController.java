@@ -43,9 +43,8 @@ public class PostController {
 	}
 
 	@GetMapping("/{postId}")
-	public PostDto viewPost(@PathVariable @Min(1) Long postId, BindingResult bindingResult) {
+	public PostDto viewPost(@PathVariable @Min(1) Long postId) {
 		LOGGER.info("ViewPost: " + postId);
-		handleValidation(bindingResult);
 		return postService.viewPost(postId);
 	}
 

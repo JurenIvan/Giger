@@ -16,11 +16,7 @@ public class BandCreationDto {
 
     @NotBlank
 	private String name;
-
-    @NotBlank
 	private String bio;
-
-    @NotBlank
     private String pictureUrl;
 	private List<GigType> acceptableGigTypes;
 	private Location homeLocation;

@@ -39,25 +39,22 @@ public class RegistrationController {
 	}
 
 	@GetMapping(value = "/verification", params = {"token", "username"})
-	public String verifyEmail(@RequestParam(name = "token") String token, @RequestParam(name = "username") String username, BindingResult bindingResult) {
+	public String verifyEmail(@RequestParam(name = "token") String token, @RequestParam(name = "username") String username) {
 		LOGGER.info("VerifyEmail: " + token + " username: " + username);
-		handleValidation(bindingResult);
 		if (peopleService.verifyEmail(username, token))
 			return "verified-email";
 		return "error";
 	}
 
 	@GetMapping("/nickname-available")
-	public Boolean isNicknameAvailable(@PathVariable @NotBlank String nickname, BindingResult bindingResult) {
+	public Boolean isNicknameAvailable(@RequestParam("nickname") String nickname) {
 		LOGGER.info("VerifyEmail: " + nickname);
-		handleValidation(bindingResult);
 		return peopleService.isUserNameAvailable(nickname);
 	}
 
 	@GetMapping("/email-available")
-	public Boolean isEmailAvailable(@PathVariable @NotBlank String email, BindingResult bindingResult) {
+	public Boolean isEmailAvailable(@RequestParam @NotBlank String email) {
 		LOGGER.info("IsEmailAvailable: " + email);
-		handleValidation(bindingResult);
 		return peopleService.isEmailAvailable(email);
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @AllArgsConstructor
@@ -25,16 +26,14 @@ public class BandController {
 	private BandService bandService;
 
 	@GetMapping("/{bandId}")
-	public BandDto getBand(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+	public BandDto getBand(@PathVariable @Min(1) Long bandId) {
 		LOGGER.info("GetBand: " + bandId);
-		handleValidation(bindingResult);
 		return bandService.getBand(bandId);
 	}
 
 	@GetMapping("/like/{name}")
-	public List<BandDto> getBands(@PathVariable @Min(1) String name, BindingResult bindingResult) {
+	public List<BandDto> getBands(@PathVariable @NotBlank String name) {
 		LOGGER.info("GetBands: " + name);
-		handleValidation(bindingResult);
 		return bandService.listBands(name);
 	}
 
@@ -46,9 +45,8 @@ public class BandController {
 	}
 
 	@GetMapping("/invitations/{bandId}")
-	public List<GigPreviewDto> getInvitations(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+	public List<GigPreviewDto> getInvitations(@PathVariable @Min(1) Long bandId) {
 		LOGGER.info("GetInvitations: " + bandId);
-		handleValidation(bindingResult);
 		return bandService.getInvitations(bandId);
 	}
 

@@ -32,9 +32,8 @@ public class ConversationController {
 	}
 
 	@GetMapping("{conversationId}")
-	public ConversationPreviewDto loadConversation(@PathVariable @Min(1) Long conversationId, BindingResult bindingResult) {
+	public ConversationPreviewDto loadConversation(@PathVariable @Min(1) Long conversationId) {
 		LOGGER.info("LoadConversation: " + conversationId);
-		handleValidation(bindingResult);
 		return conversationService.loadConversation(conversationId);
 	}
 
@@ -59,9 +58,8 @@ public class ConversationController {
 	}
 
 	@GetMapping("/get/band/{bandId}")
-	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable @Min(1) Long bandId, BindingResult bindingResult) {
+	public List<ConversationPreviewDto> loadAllBandConversations(@PathVariable @Min(1) Long bandId) {
 		LOGGER.info("LoadAllBandConversations: " + bandId);
-		handleValidation(bindingResult);
 		return conversationService.loadAllBandConversations(bandId);
 	}
 

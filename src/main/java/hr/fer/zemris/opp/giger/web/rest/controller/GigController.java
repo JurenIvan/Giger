@@ -35,9 +35,8 @@ public class GigController {
 	}
 
 	@GetMapping("/view/{gigId}")
-	public GigPreviewDto viewGig(@PathVariable @Min(1) Long gigId, BindingResult bindingResult) {
+	public GigPreviewDto viewGig(@PathVariable @Min(1) Long gigId) {
 		LOGGER.info("ViewGig: " + gigId);
-		handleValidation(bindingResult);
 		return gigService.viewGig(gigId);
 	}
 
