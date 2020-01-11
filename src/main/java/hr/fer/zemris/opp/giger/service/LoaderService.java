@@ -19,7 +19,7 @@ import static java.time.LocalDateTime.of;
 
 @Service
 @AllArgsConstructor
-public class LoaderService implements ApplicationRunner {
+public class  LoaderService implements ApplicationRunner {
 
 	private SystemPersonRepository systemPersonRepository;
 	private InstrumentRepository instrumentRepository;

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -12,8 +14,10 @@ import java.util.List;
 @AllArgsConstructor
 public class MusicianProfileDto {
 
+	@NotBlank
 	private String name;
 	private List<Long> instrumentList;
 	private String pictureUrl;
+	@NotBlank
 	private String contactNumber;
 }
