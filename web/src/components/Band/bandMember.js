@@ -3,15 +3,17 @@ import fetcingFactory from "../../Utils/external";
 import { endpoints } from "../../Utils/Types";
 import Button from "react-bootstrap/Button";
 import {Card} from "antd"
+import { Avatar } from 'antd';
 
-export default class bandMemberClass extends React.Component {
+export default class BandMemberClass extends React.Component {
     constructor(props) {
         super (props);
 
         this.state = {
             memberName: "",
             contactNumber: "",
-            backup: this.props.backup
+            backup: this.props.backup,
+            pictureUrl: ""
         }
 
         this.handleMakeBackup = this.handleMakeBackup.bind(this);
@@ -25,7 +27,7 @@ export default class bandMemberClass extends React.Component {
         ).then(
             json => {
                 console.log("!!!!!!!!!!!")
-                this.setState({memberName: json.name, contactNumber: json.contactNumber}, ()=> console.log(json))
+                this.setState({memberName: json.name, contactNumber: json.contactNumber, pictureUrl: json.pictureUrl}, ()=> console.log(json))
             }
         )
     }
@@ -41,6 +43,7 @@ export default class bandMemberClass extends React.Component {
     render() {
         return (
             <Card title = {this.state.memberName}>
+                <Avatar size = {64} src = {this.state.pictureUrl} />
             <p> Contact number: {this.state.contactNumber}</p>
             {this.state.backup?
                 <Button onClick = {this.handleMakeMain}> Make main member</Button>

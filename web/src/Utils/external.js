@@ -55,7 +55,10 @@ export default function fetcingFactory (endpoint, params) {
             return getPublicGigs(params,endpoint);
         case Types.endpoints.BANDS_FILTER:
             return getBandslist(params,endpoint);
-                
+        case Types.endpoints.GET_ROLES:
+            return getRoles(params, endpoint);
+        case Types.endpoints.GET_USER_INFO:
+            return getUserInfo(params, endpoint);
     }
 }
 
@@ -291,7 +294,26 @@ function getBandslist(params, endpoint) {
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
 
+function getRoles(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getUserInfo(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
     })
 }

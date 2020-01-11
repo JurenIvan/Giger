@@ -43,15 +43,13 @@ export default class ProfilePosts extends React.Component {
             <div>
                 {
                     this.state.ProfilePostsList.map(element => (
-                        <Card className="profilePosts">
                             <PostClass 
                                 postOwnerName = {"TestMap"}
                                 content= {element.content}
                                 postedTime = {getTime()}
-                                usersPostImgUrl = {this.state.profilePic}
+                                postOwnerImg = {this.state.profilePic}
                             />
-                       </Card>
-        ))
+                    ))
                 }
             </div>
            
