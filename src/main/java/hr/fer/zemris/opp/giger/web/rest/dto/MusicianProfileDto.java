@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 public class MusicianProfileDto {
 
+	private Long id;
 	private String name;
 	private List<Long> instrumentList;
 	private String pictureUrl;
 	private String contactNumber;
-	private List<Post> postList;
 }
