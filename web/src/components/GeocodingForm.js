@@ -64,18 +64,20 @@ class GeocodingForm extends Component {
         <React.Fragment>
             <div className="GeocodingForm">
                 <Form onSubmit={e => {e.preventDefault();}}>
-                    {/* <!-- Query --> */}
-                        <Form.Label controlId="city"> Ime grada: </Form.Label>
-                        <Form.Group controlId="city">
-                            <Form.Control autoFocus name="query" type="text" placeholder="Grad, Država" value={query}
-                                          onChange={this.handleInputChange}/>
-                        </Form.Group>
-                    {/* <!-- Button Geocode --> */}
-                        <Form.Group>
-                            <Button type="button" block disabled={isLocating || isSubmitting} onClick={this.handleSubmit}> Dohvati lokaciju </Button>
-                        </Form.Group>
-                    
-                    {/* <!-- ./Button Geocode --> */}
+                    <div className="form-group">
+                        <div className="input-group">
+                            <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                            <input type="text" 
+                            onChange={this.handleInputChange}
+                            value={query}
+                            className="form-control" name="query" placeholder="Grad, Država" required="required">
+                            </input>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <button type="submit" className="btn btn-primary btn-block btn-lg" 
+                        disabled={isLocating || isSubmitting} onClick={this.handleSubmit}>Get location</button>
+                    </div>
                 </Form>
             </div>
         </React.Fragment>
