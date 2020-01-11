@@ -39,10 +39,10 @@ export default class ProfileClass extends React.Component {
     }
     render() {
         return (
-            <div className="profile">
+            <React.Fragment>
                 <ProfileSideNav />
                 <BasicProfile name={this.state.name} pictureUrl = {this.state.pictureUrl}/>
-            </div>
+            </React.Fragment>
         )
     }
 

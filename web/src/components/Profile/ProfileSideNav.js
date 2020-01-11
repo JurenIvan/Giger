@@ -112,7 +112,7 @@ export default class ProfileSideNav extends React.Component {
 render() {
 
     return (
-        <MetisMenu content={this.content} className="sideNav" />
+        <MetisMenu content={this.state.content} className="sideNav" />
     )
 }
 

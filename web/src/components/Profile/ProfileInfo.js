@@ -97,14 +97,15 @@ export default class ProfileInfo extends React.Component {
                 this.state.edit? 
                     null :
                 <Row className="profileInfo">
-                    <Form onSubmit = {this.handlePostSubmit}> 
-                         <Form.Group>
-                            <Form.Control as="textarea" rows="3" placeholder="Write post..." onChange = {this.handleChange} value = {this.state.postContent}/>
-                         </Form.Group>
-                        <Button block type="submit">
+                    <textarea type="text"
+                        onChange={this.handleChange}
+                         id="postContent"
+                         className="form-control"
+                         as></textarea>
+                        <Button block type="submit" onClick = {this.handlePostSubmit}
+                        style = {{width:500 , margin: "5px"}}>
                             Post
                         </Button>
-                    </Form> 
                 </Row>
             }
            
