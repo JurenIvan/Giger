@@ -32,6 +32,13 @@ export default class Login extends Component {
         });
     }
 
+    handleUsernameChange = event => {
+        this.setState({
+            [event.target.id]: event.target.value.toLowerCase()
+        }
+        , () => console.log(this.state.email));
+    }
+
 
 
     handleSubmit = event => {
@@ -83,7 +90,7 @@ export default class Login extends Component {
                             <Form.Label controlId="email"> E-mail: </Form.Label>
                             <Form.Group controlId="email">
                                 <Form.Control autoFocus type="text" value={this.state.username}
-                                              onChange={this.handleChange}/>
+                                              onChange={this.handleUsernameChange}/>
                             </Form.Group>
 
                         <Form.Label controlId="password"> Password: </Form.Label>
