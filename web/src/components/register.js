@@ -26,9 +26,16 @@ export default class RegisterClass extends React.Component{
     }
 
     myChangeHandler = event => {
-        this.setState({
-          [event.target.id]: event.target.value
-        });
+        if (event.target.id === "eMail") {
+            this.setState({
+            [event.target.id]: event.target.value.toLowerCase()
+            });
+        }
+        else {
+            this.setState({
+                [event.target.id]: event.target.value
+                });
+        }
       }
 
     

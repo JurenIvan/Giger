@@ -27,16 +27,16 @@ export default class Login extends Component {
     }
 
     handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-
-    handleUsernameChange = event => {
-        this.setState({
+        if (event.target.id === "email") {
+            this.setState({
             [event.target.id]: event.target.value.toLowerCase()
+            });
         }
-        , () => console.log(this.state.email));
+        else {
+            this.setState({
+                [event.target.id]: event.target.value
+                });
+        }
     }
 
 
@@ -89,8 +89,8 @@ export default class Login extends Component {
 
                             <Form.Label controlId="email"> E-mail: </Form.Label>
                             <Form.Group controlId="email">
-                                <Form.Control autoFocus type="text" value={this.state.username}
-                                              onChange={this.handleUsernameChange}/>
+                                <Form.Control autoFocus type="text" value={this.state.email}
+                                              onChange={this.handleChange}/>
                             </Form.Group>
 
                         <Form.Label controlId="password"> Password: </Form.Label>
