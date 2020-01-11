@@ -13,15 +13,15 @@ import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
-import CreateGig from './components/CreateGig'
-import InviteToGig from './components/InviteToGig'
-import AcceptGigInvite from './components/AcceptGigInvite'
+import CreateGig from './components/Gigs/CreateGig'
+import InviteToGig from './components/Gigs/InviteToGig'
+import AcceptGigInvite from './components/Gigs/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 import BandCreate from './components/Band/BandCreate';
 import BandView from './components/Band/BandView';
 import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
-import EditGig from './components/EditGig'
+import EditGig from './components/Gigs/EditGig'
 
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 

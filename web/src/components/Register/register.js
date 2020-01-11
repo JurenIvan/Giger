@@ -26,7 +26,7 @@ export default class RegisterClass extends React.Component{
         this.handleRegister = this.handleRegister.bind(this);
     }
 
-    myChangeHandler = event => {
+    handleChange = event => {
         this.setState({
           [event.target.name]: event.target.value
         });
@@ -58,6 +58,7 @@ export default class RegisterClass extends React.Component{
         event.preventDefault();
         let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password < 7
         if (shouldShow) {
+            console.log(this.state)
             this.setState({showModal: true});
         } else {
            let params = JSON.stringify({
@@ -125,7 +126,7 @@ export default class RegisterClass extends React.Component{
                                             <span className="input-group-addon"><i className="fa fa-user"></i></span>
                                             <input type="text" 
                                             onChange={this.handleChange}
-                                            className="form-control" name="firstName" placeholder="First name" required="required">
+                                            className="form-control" name="firstName" value={this.state.firstName} placeholder="First name" required="required">
                                             </input>
                                         </div>
                                     </div>

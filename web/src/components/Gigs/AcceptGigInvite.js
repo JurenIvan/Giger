@@ -1,10 +1,10 @@
 import React from 'react';
-import "./AcceptGigInvite.css";
+import "./Gigs.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 //import * as Helpers from '../Utils/HelperMethods'
-import fetcingFactory from "../Utils/external";
-import {endpoints} from "../Utils/Types";
+import fetcingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 import Select from 'react-dropdown-select';
 
 export default class AcceptGigInvite extends React.Component {
