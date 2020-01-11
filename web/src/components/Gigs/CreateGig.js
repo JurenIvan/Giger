@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 //import * as Helpers from '../Utils/HelperMethods'
 //import Geocode from 'react-geocode';
-import DatePicker, { registerLocale} from "react-datepicker";
+import { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
@@ -14,6 +14,8 @@ import * as opencage from 'opencage-api-client';
 import InputGroup from 'react-bootstrap/InputGroup'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import { Checkbox , DatePicker} from 'antd';
+import 'antd/dist/antd.css';
 registerLocale('hr', hr)
 
 
@@ -121,7 +123,7 @@ export default class CreateGig extends React.Component {
     handleTypeChange = event => {
         this.setState(
             {[event.target.name] : event.target.checked}
-             //, () => console.log(this.state.privateGig)
+             , () => console.log(this.state.privateGig)
         );
     }
     setValues = selectedEventType => {
@@ -166,7 +168,7 @@ export default class CreateGig extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="modal-dialog" className="modal-login">
+                <div className="modal-login">
                         <div className="modal-content">
 
                             <div className="modal-header">				
@@ -230,33 +232,25 @@ export default class CreateGig extends React.Component {
                                         name="selectedEventType"
                                         options={this.state.eventType}
                                         value={this.state.selectedEventType}
+                                        placeholder="Select gig type"
                                         //onChange={this.updateEventType}
                                         onChange={value => this.setValues(value[0].value, () => console.log(this.state.selectedEventType))}
                                      />
-
+                                     <br></br>
                                     <DatePicker
                                         locale="hr"
                                         dateFormat="dd/MM/yyyy HH:mm"
-                                        showTimeSelect
+                                        showTime
                                         timeFormat="HH:mm"
                                         timeIntervals={15}
-                                        timeCaption="Vrijeme"
+                                        placeholder="Select date and time"
                                         selected={this.state.eventDate}
                                         onSelect={this.handleSelect}
                                         onChange={this.handleDateChange}
                                     />
-
-                                    <div class="checkbox">
-                                        <label><input 
-                                            type="checkbox"
-                                            class="check-space"
-                                            name="privateGig"
-                                            checked={this.state.privateGig}
-                                            onChange={this.handleTypeChange}
-                                            >
-                                        </input>Je li privatan gig?</label>
-                                    </div>
-
+                                    <br></br><br></br>
+                                    <Checkbox onChange={this.handleTypeChange} name="privateGig" checked={this.state.privateGig}>Private gig?</Checkbox>
+                                    <br></br><br></br>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-primary btn-block btn-lg">Create Gig</button>
                                     </div>

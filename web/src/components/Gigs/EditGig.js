@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import DatePicker, { registerLocale} from "react-datepicker";
+import { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
@@ -11,6 +11,8 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import "./Gigs.css";
+import { Checkbox , DatePicker} from 'antd';
+import 'antd/dist/antd.css';
 registerLocale('hr', hr)
 
 export default class EditGig extends React.Component {
@@ -78,12 +80,12 @@ export default class EditGig extends React.Component {
 
     handleChange = event => {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
     handlePriceChange = event => {
         this.setState({
-            [event.target.id]: event.target.value.replace(/\D/,'')
+            [event.target.name]: event.target.value.replace(/\D/,'')
         });
     }
     handleDateChange = date => {
@@ -196,98 +198,104 @@ export default class EditGig extends React.Component {
     render() {
         return(
             <React.Fragment>
-                <div className="editGig">
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
-                        <Form.Group controlId="gigName">
-                        <Select
-                            disabled={this.state.isSearching}
-                            name="selectedGig"
-                            options={this.state.myGigs}
-                            value={this.state.selectedGig}
-                            //onChange={this.updateEventType}
-                            onChange={value => this.setGigValues(value[0].value)}
-                        />
-                        </Form.Group>
-
-                        <Form.Label controlId="eventName"> Ime eventa: </Form.Label>
-                        <Form.Group controlId="eventName">
-                            <Form.Control autoFocus type="text" value={this.state.eventName}
-                                            onChange={this.handleChange}/>
-                        </Form.Group>
-
-                        <Form.Label controlId="eventDesc"> Opis eventa: </Form.Label>
-                        <Form.Group controlId="eventDesc">
-                            <Form.Control autoFocus as="textarea" value={this.state.eventDesc}
-                                            onChange={this.handleChange}/>
-                        </Form.Group>
-
-                        <Form.Label controlId="eventDuration"> Trajanje eventa: </Form.Label>
-                        <Form.Group controlId="eventDuration">
-                            <Form.Control autoFocus type="text" placeholder="Npr. 02:30h" value={this.state.eventDuration}
-                                            onChange={this.handleChange}/>
-                        </Form.Group>
-
-                        <Form.Label controlId="eventPrice"> Cijena giga: </Form.Label>
-                        <Form.Group controlId="eventPrice">
-                            <InputGroup>
-                                <Form.Control autoFocus type="text" aria-describedby="eventPriceAppend" value={this.state.eventPrice}
-                                            onChange={this.handlePriceChange}/>
-                            </InputGroup>
-                        </Form.Group>
-
-                        <GeocodingForm
-                            apikey={this.state.apikey}
-                            query={this.state.query}
-                            isSubmitting={this.state.isSubmitting}
-                            onSubmit={this.handleGeoSubmit}
-                            onChange={this.handleGeoChange}
-                        />
-
-                        <h1>{this.state.eventAddress}</h1>                    
-
-                        <Form.Label controlId="gigType"> Tip giga: </Form.Label>
-                        <Form.Group controlId="gigType">
-                            <Select
-                                name="selectedEventType"
-                                options={this.state.eventType}
-                                value={this.state.selectedEventType}
-                                //onChange={this.updateEventType}
-                                onChange={value => this.setValues(value[0].value, () => console.log(this.state.selectedEventType))}
-                        />
-                        </Form.Group>
-
-                        <Form.Label> Vrijeme eventa: </Form.Label>
-                        <Form.Group>
-                            <DatePicker
-                                locale="hr"
-                                dateFormat="dd/MM/yyyy HH:mm"
-                                showTimeSelect
-                                timeFormat="HH:mm"
-                                timeIntervals={15}
-                                timeCaption="Vrijeme"
-                                selected={this.state.eventDate}
-                                onSelect={this.handleSelect}
-                                onChange={this.handleDateChange}
-                            />
-                        </Form.Group>
-
-                        <div class="checkbox">
-                            <label><input 
-                                type="checkbox"
-                                class="check-space"
-                                name="privateGig"
-                                checked={this.state.privateGig}
-                                onChange={this.handleTypeChange}
-                                >
-                            </input>Je li privatan gig?</label>
+                <div className="modal-login">
+                    <div className="modal-content">
+                        <div className="modal-header">				
+                            <h4 className="modal-title">Edit gig</h4>
                         </div>
+                        <div className="modal-body">
+                            <form onSubmit={this.handleSubmit}>
+                                <Select
+                                        disabled={this.state.isSearching}
+                                        name="selectedGig"
+                                        options={this.state.myGigs}
+                                        value={this.state.selectedGig}
+                                        placeholder="Choose gig"
+                                        //onChange={this.updateEventType}
+                                        onChange={value => this.setGigValues(value[0].value)}
+                                />
+                                <br></br>
 
-                        <Form.Group>
-                            <Button type="submit" block> Uredi gig </Button>
-                        </Form.Group>
-                    </Form>
-                </div>
+                                <div className="form-group">
+                                    <div className="input-group">
+                                        <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                        <input type="text" 
+                                        onChange={this.handleChange}
+                                        className="form-control" name="eventName" placeholder="Event name" required="required">
+                                        </input>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">        
+                                <div className="input-group">
+                                        <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                        <input type="text" 
+                                        onChange={this.handleChange}
+                                        className="form-control" name="eventDesc" placeholder="Event description" required="required">
+                                        </input>
+                                    </div>
+                                </div>
+
+                                <div className="form-group">        
+                                <div className="input-group">
+                                        <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                        <input type="text" 
+                                        onChange={this.handleChange}
+                                        className="form-control" name="eventDuration" placeholder="Event duration(example: 1:30h)" required="required">
+                                        </input>
+                                    </div>
+                                </div>                                  
+
+
+                                <div className="form-group">
+
+                                    <div className="input-group">
+                                        <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                        <input type="text" 
+                                        onChange={this.handlePriceChange}
+                                        className="form-control" name="eventPrice" placeholder="Contract price"  value={this.state.eventPrice} required="required">
+                                        </input>
+                                    </div>
+                                </div>
+
+                                <GeocodingForm
+                                    apikey={this.state.apikey}
+                                    query={this.state.query}
+                                    isSubmitting={this.state.isSubmitting}
+                                    onSubmit={this.handleGeoSubmit}
+                                    onChange={this.handleGeoChange}
+                                />
+                                
+                                <Select
+                                    name="selectedEventType"
+                                    options={this.state.eventType}
+                                    value={this.state.selectedEventType}
+                                    placeholder="Select gig type"
+                                    //onChange={this.updateEventType}
+                                    onChange={value => this.setValues(value[0].value, () => console.log(this.state.selectedEventType))}
+                                />
+                                <br></br>
+                                <DatePicker
+                                    locale="hr"
+                                    dateFormat="dd/MM/yyyy HH:mm"
+                                    showTime
+                                    timeFormat="HH:mm"
+                                    timeIntervals={15}
+                                    placeholder="Select date and time"
+                                    selected={this.state.eventDate}
+                                    onSelect={this.handleSelect}
+                                    onChange={this.handleDateChange}
+                                />
+                                <br></br><br></br>
+                                <Checkbox onChange={this.handleTypeChange} name="privateGig" checked={this.state.privateGig}>Private gig?</Checkbox>
+                                <br></br><br></br>
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-primary btn-block btn-lg">Edit gig</button>
+                                </div>
+                                </form>
+                             </div>
+                        </div>
+                    </div>
             </React.Fragment>
         )
     }
