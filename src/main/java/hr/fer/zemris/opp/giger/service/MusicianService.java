@@ -59,7 +59,7 @@ public class MusicianService {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
 		Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 
-		return new MusicianProfileDto(person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
+		return new MusicianProfileDto(person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber(), musician.getPosts());
 	}
 
 	public List<PostDto> getPosts(Long musicianId) {
