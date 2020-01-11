@@ -31,11 +31,6 @@ public class MusicianController {
 		return musicianService.showProfile(musicianId);
 	}
 
-	@GetMapping("/show/basic/my")
-	public MusicianProfileDto showMyProfile() {
-		return musicianService.showMyProfile();
-	}
-
 	@GetMapping("/show/occasions/{musicianId}")
 	public List<OccasionDto> listOccasionsForMusician(@PathVariable Long musicianId) {
 		return musicianService.getOccasions(musicianId);

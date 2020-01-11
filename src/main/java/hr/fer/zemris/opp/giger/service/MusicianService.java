@@ -59,7 +59,7 @@ public class MusicianService {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
 		Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 
-		return new MusicianProfileDto(person.getId(), person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
+		return new MusicianProfileDto(person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
 	}
 
 	public List<PostDto> getPosts(Long musicianId) {
@@ -124,13 +124,5 @@ public class MusicianService {
 		Musician musician = userDetailsService.getLoggedMusician();
 
 		return musician.getInstruments();
-	}
-
-	public MusicianProfileDto showMyProfile() {
-		Long loggedInUserId = userDetailsService.getLoggedInUserId();
-		Musician musician = musicianRepository.findById(loggedInUserId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
-		Person person = personRepository.findById(loggedInUserId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
-
-		return new MusicianProfileDto(person.getId(), person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
 	}
 }
