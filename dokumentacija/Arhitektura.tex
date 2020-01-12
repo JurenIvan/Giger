@@ -630,6 +630,8 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\label{fig:sec}
 		\end{figure}
 	
+	Za dohvat podataka iz baze podataka koristimo Jakarta Persistence. Jakarta persistence je specifikacija programskog sučelja Java aplikacije koja opisuje upravljanje relacijskim podacima u aplikaciji. U ovoj aplikaciji za svaki entitet definiran je zasebni repozitorij koji nasljeđuje JpaRepositoryj. Jpa Repository sadrži osnovne metode za dohvat podataka, a Spring Boot omogućuje programeru da specificiranjem samo imena metode dobije implementaciju iste na korištenje. 
+	
 		\begin{figure}[H]
 			\begin{center}
 				\includegraphics[width=17cm]{slike/repository1.PNG}
@@ -638,6 +640,7 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			\label{fig:repository}
 		\end{figure}
 	
+	Ovim dijagramom prikazane su moguće pogreške kao i iznimke. Pogreške se u ovom slučaju nalaze u Enumu Errorcode i služe za zaustavljanje operacija čijim izvođenjem se krši pravo pristupa ili se pokušava izvesti nemoguća akcija. Sve ostale logičke iznimke omotavaju se u iznimu GigerException. Za reprezentacijsko stanje prijenosa uvedena je iznimka RestExceptionHandler.
 		
 		\begin{figure}[H]
 			\begin{center}
