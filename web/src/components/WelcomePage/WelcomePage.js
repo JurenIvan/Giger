@@ -16,7 +16,7 @@ export default class WelcomePage extends React.Component{
             <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-            <section id="banner" data-video="images/banner">
+            <section id="banner" data-video="images/banner" className="WelcomePage-Styling">
 					<div className="inner">
 						<header>
 							<h1>Welcome to Giger</h1>
