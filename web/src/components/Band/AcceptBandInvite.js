@@ -28,6 +28,9 @@ export default class AcceptBandInvite extends React.Component {
                     console.log(response)
                     alert("Error")
                 }
+                else if(response.length === 0) {
+                    alert("You don't have any invites")
+                }
                 else {
                     for(let i=0; i<response.length;i++) {
                         if(response[i].asMember === true) {
