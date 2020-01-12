@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import Select from 'react-dropdown-select';
+import 'antd/dist/antd.css';
 //import Cookies from 'js-cookie';
 
 
@@ -14,7 +15,8 @@ export default class InviteToGig extends React.Component {
         super(props);
 
         this.state = {
-            bandId: "",
+            selectedBand: "",
+            bands: [],
             selectedGig: "",
             bandName: "",
             myGigs: []
@@ -22,43 +24,7 @@ export default class InviteToGig extends React.Component {
         //this.handleGetMyGigs = this.handleGetMyGigs.bind(this)
     }
 
-    handleChange = event => {
-        this.setState({
-            [event.target.id]: event.target.value
-        });
-    }
-
-    handleBandIdGet = event => {
-        event.preventDefault();
-        if(this.state.bandName === "") {
-            alert("Band name can't be empty")
-        }
-        else {
-            fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
-                response => response.json()
-                ).then(response => {
-                    if (response.length === 0) {
-                        alert("No bands with that name")
-                    }
-                    else {
-                        console.log(response)
-                        this.setState({
-                            bandId: response[0].id
-                        })
-                        console.log(this.state.bandId)
-                    }   
-            });
-        } 
-    }
-
-    setValues = selectedGig => {
-        this.setState({ selectedGig }
-            , () => console.log(this.state.selectedGig)
-        );
-    }
-
-    handleGetMyGigs = event => {
-        event.preventDefault();
+    componentDidMount() {
         fetcingFactory(endpoints.GET_MY_GIGS, "my").then(
             response => response.json()
             ).then(response => {
@@ -79,10 +45,53 @@ export default class InviteToGig extends React.Component {
             });
     }
 
+    handleChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleBandIdGet = event => {
+        event.preventDefault();
+        if(this.state.bandName === "") {
+            alert("Band name can't be empty")
+        }
+        else {
+            fetcingFactory(endpoints.GET_BAND_ID, this.state.bandName).then(
+                response => response.json()
+                ).then(response => {
+                    if (response.length === 0) {
+                        alert("No bands with that name")
+                    }
+                    else {
+                        console.log(response)
+                        for(let i = 0; i < response.length; i++) {
+                            this.setState(prevState => ({
+                                bands: [...prevState.bands, {value: response[i].id, label: response[i].name}]
+                              }))
+                        }
+                        console.log(this.state.bands)
+                    }   
+            });
+        } 
+    }
+
+    setValues = selectedGig => {
+        this.setState({ selectedGig }
+            , () => console.log(this.state.selectedGig)
+        );
+    }
+
+    setBandValues = selectedBand => {
+        this.setState({ selectedBand }
+            , () => console.log(this.state.selectedBand)
+        );
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         let params = JSON.stringify({
-            "bandId": this.state.bandId,
+            "bandId": this.state.selectedBand,
             "gigId": this.state.selectedGig
         });
         console.log(params)
@@ -100,38 +109,56 @@ export default class InviteToGig extends React.Component {
     render () {
         return (
             <React.Fragment>
-                <div className = "InviteToGig">
-                    <Form onSubmit={this.handleSubmit}>
-                            <Form.Label controlId="bandName"> Ime benda: </Form.Label>
-                            <Form.Group controlId="bandName">
-                                <Form.Control autoFocus type="text" value={this.state.bandName}
-                                              onChange={this.handleChange}/>
-                            </Form.Group>
+                <div className="modal-login">
+                        <div className="modal-content">
 
-                            <Form.Group>
-                                <Button type="button" block onClick={this.handleBandIdGet}> Dohvati ID benda </Button>
-                            </Form.Group>
+                            <div className="modal-header">				
+                                <h4 className="modal-title">Invite to gig</h4>
+                            </div>
 
-                            <Form.Group>
-                                <Button type="button" block onClick={this.handleGetMyGigs}> Dohvati svoje gigove </Button>
-                            </Form.Group>
+                            <div className="modal-body">
+                                <form onSubmit={this.handleSubmit}>
+                                    
+                                    <div className="form-group">
+                                        <div className="input-group">
+                                            <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                            <input type="text" 
+                                            onChange={this.handleChange}
+                                            className="form-control" name="bandName" placeholder="Band name" required="required">
+                                            </input>
+                                        </div>
+                                    </div>
 
-                            <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
-                            <Form.Group controlId="gigName">
-                                <Select
-                                    name="selectedGigName"
-                                    options={this.state.myGigs}
-                                    value={this.state.selectedGigName}
-                                    //onChange={this.updateEventType}
-                                    onChange={value => this.setValues(value[0].value)}
-                                />
-                            </Form.Group>
+                                    <Button type="button" block onClick={this.handleBandIdGet}> Get band id </Button>
+                                    <br></br>
+                                    <Select
+                                        name="selectedBand"
+                                        options={this.state.bands}
+                                        value={this.state.selectedBand}
+                                        placeholder="Select band to invite"
+                                        //onChange={this.updateEventType}
+                                        onChange={value => this.setBandValues(value[0].value)}
+                                    />
+                                    <br></br>
+                                    <Select
+                                        name="selectedGigName"
+                                        options={this.state.myGigs}
+                                        value={this.state.selectedGigName}
+                                        placeholder="Select gig"
+                                        //onChange={this.updateEventType}
+                                        onChange={value => this.setValues(value[0].value)}
+                                    />
+                                    <br></br>
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-primary btn-block btn-lg">Invite to gig</button>
+                                    </div>
 
-                            <Form.Group>
-                                <Button type="submit" block> Pozovi bend u gig </Button>
-                            </Form.Group>
-                    </Form>
-                </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
             </React.Fragment>
         );
     }
