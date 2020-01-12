@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { Col, Row, Form, Button, Modal } from 'react-bootstrap';
 import {Card, Avatar} from "antd"
+import DisplayInstruments from "../BasicComponents/DisplayInstruments"
 
 export default class ProfileInfo extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            name : "",
+            name : this.props.name,
             description: "", 
-            profilePic: "",
+            profilePic: this.props.pictureUrl,
             newProfilePic: "",
             postContent: "",
             edit: this.props.edit
@@ -22,6 +23,15 @@ export default class ProfileInfo extends React.Component {
 
     componentWillMount() {
         /**get all data of profile info */
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps) {
+            this.setState({
+                name: nextProps.name,
+                profilePic: nextProps.pictureUrl
+            })
+        }
     }
 
     handleProfilePic (e) {
@@ -66,7 +76,7 @@ export default class ProfileInfo extends React.Component {
             </Modal>
 
             <Card 
-            title = {"Test"} 
+            title = {this.state.name} 
             style = {{width: 500, margin: "auto"}}>
                 
                     <Row>
@@ -85,8 +95,8 @@ export default class ProfileInfo extends React.Component {
                                 }
                             </Row>
                         </Col>
-                        <Col>
-                            Test description
+                        <Col md={7}>
+                            <DisplayInstruments instrumentIds = {this.props.instrumentList}></DisplayInstruments>
                         </Col>
                         </Row>
                 

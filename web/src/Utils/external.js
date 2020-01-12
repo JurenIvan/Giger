@@ -59,6 +59,8 @@ export default function fetcingFactory (endpoint, params) {
             return getRoles(params, endpoint);
         case Types.endpoints.GET_USER_INFO:
             return getUserInfo(params, endpoint);
+        case Types.endpoints.GET_MUSICIAN_POSTS:
+            return getMusicianPosts(params, endpoint);
     }
 }
 
@@ -309,6 +311,16 @@ function getRoles(params, endpoint) {
 }
 
 function getUserInfo(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function getMusicianPosts(params, endpoint) {
     return fetch(API + endpoint + params, {
         method: "GET",
         headers: {

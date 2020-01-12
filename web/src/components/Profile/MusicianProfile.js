@@ -47,8 +47,14 @@ export default class MusicianProfile extends React.Component {
         return (
             <div>
             <ProfileSideNav />
-            <ProfileInfo edit = {this.props.edit}/>
-            <ProfilePosts />
+            <ProfileInfo edit = {this.props.edit} 
+                name = {this.state.name} 
+                pictureUrl = {this.state.pictureUrl} 
+                instrumentList = {this.state.instrumentList}
+            />
+            <ProfilePosts id = {this.state.id}
+                name = {this.state.name} 
+                pictureUrl = {this.state.pictureUrl} />
             </div>
         )
     }
