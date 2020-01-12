@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import Select from 'react-dropdown-select';
+import { Radio } from 'antd';
+import 'antd/dist/antd.css';
 
 export default class AcceptBandInvite extends React.Component {
     constructor(props) {
@@ -81,52 +83,50 @@ export default class AcceptBandInvite extends React.Component {
         }
     }
 
-    handleRadioChange(event) {
-        const accept = event.currentTarget.value === 'true' ? true: false;
-        this.setState({ accept }, () => console.log(this.state.accept)
-            );
+    handleRadioChange = e => {
+        console.log('radio checked', e.target.value);
+        this.setState({
+          accept: e.target.value,
+        });
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className="AcceptBandInvite">
-                    <Form onSubmit={this.handleSubmit}>
-                        <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
-                        <Form.Group controlId="chooseInvite">
-                        <Select
-                            disabled={this.state.isSearching}
-                            name="selectedInvite"
-                            options={this.state.invites}
-                            value={this.state.selectedInvite}
-                            //onChange={this.updateEventType}
-                            onChange={value => {
-                                this.setValues(value[0].value)
-                                console.log(value)}
-                            }
-                        />
-                        </Form.Group>
+                <div className="modal-login">
+                        <div className="modal-content">
 
-                        <label><input 
-                                type="radio"
-                                name="accept"
-                                value="true"
-                                checked={this.state.accept === true}
-                                onChange={this.handleRadioChange}
-                                ></input>Prihvati</label>
-                                <label><input 
-                                type="radio"
-                                name="accept"
-                                value="false"
-                                checked={this.state.accept === false}
-                                onChange={this.handleRadioChange}
-                                ></input>Odbij</label>
+                            <div className="modal-header">				
+                                <h4 className="modal-title">Manage band invite</h4>
+                            </div>
 
-                        <Form.Group>
-                            <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
-                        </Form.Group>
-                    </Form>
-                </div>
+                            <div className="modal-body">
+                                <form onSubmit={this.handleSubmit}>
+                                    <Select
+                                        disabled={this.state.isSearching}
+                                        name="selectedInvite"
+                                        options={this.state.invites}
+                                        value={this.state.selectedInvite}
+                                        placeholder="Choose invite"
+                                        //onChange={this.updateEventType}
+                                        onChange={value => {
+                                            this.setValues(value[0].value)
+                                            console.log(value)}
+                                        }
+                                    />
+                                    <br></br>
+                                    <Radio.Group onChange={this.handleRadioChange} value={this.state.accept}>
+                                        <Radio value={true}>Accept</Radio>
+                                        <Radio value={false}>Decline</Radio>
+                                    </Radio.Group>
+                                    <br></br><br></br>
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-primary btn-block btn-lg">Accept/decline invite</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
             </React.Fragment>
         )
     }

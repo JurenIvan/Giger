@@ -155,7 +155,7 @@ export default class AcceptGigInvite extends React.Component {
                         <div className="modal-content">
 
                             <div className="modal-header">				
-                                <h4 className="modal-title">Accept or decline gig invite</h4>
+                                <h4 className="modal-title">Manage gig invite</h4>
                             </div>
 
                             <div className="modal-body">
