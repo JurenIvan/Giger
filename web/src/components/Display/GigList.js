@@ -4,6 +4,7 @@ import { Input } from 'antd';
 import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import { Button } from 'antd';
 const { Search } = Input;
 
 
@@ -20,6 +21,10 @@ export class GigList extends React.Component{
         this.handleChange = this.handleChange.bind(this);
 
     }
+
+    showInMapClicked = (lang,lat) => {
+      window.open("https://maps.google.com?q="+lang+","+lat);
+    };
 
     componentDidMount() {
       let helperArray = this.state.Gigs;
@@ -113,6 +118,8 @@ export class GigList extends React.Component{
                     <p>Date and time : {item.dateTime}</p>
                     <br></br>
                     <p>Price: {item.proposedPrice} kn </p>
+                    <br></br>   
+                    <Button type="primary" href={"https://maps.google.com?q="+item.location.x+","+item.location.y} target="_blank">View in Google Maps!</Button>
                 </Card>
                 </div>
                 }
