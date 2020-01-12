@@ -1,5 +1,5 @@
 import React from 'react'
-//import  "../WelcomePage/WelcomePage.css";
+import  "../WelcomePage/WelcomePage.css";
 import { Avatar } from 'antd';
 
 export default class WelcomePage extends React.Component{
