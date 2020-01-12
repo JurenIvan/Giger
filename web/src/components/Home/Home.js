@@ -44,6 +44,13 @@ export default class Home extends React.Component {
 						</header>
 
                         <div>
+						<a href="/displayGigs" className="button big alt scrolly"style={{width:"400px"}} >View public gigs</a>
+                        </div>
+
+                        <br></br>
+                        <br></br>     
+
+                        <div>
 						<a href="/CreateGig" className="button big alt scrolly" style={{width:"400px"}}>Create gig</a>
                         </div>
 
@@ -69,7 +76,14 @@ export default class Home extends React.Component {
                         </div>
 
                         <br></br>
-                        <br></br> 
+                        <br></br>
+
+                        <div>
+						<a href="/displayBands" className="button big alt scrolly" style={{width:"400px"}} >View bands</a>
+                        </div>
+
+                        <br></br>
+                        <br></br>
 
                         <div>
 						<a href="/InviteToBand" className="button big alt scrolly" style={{width:"400px"}} >Invite people to your band</a>
@@ -83,7 +97,8 @@ export default class Home extends React.Component {
                         </div>
 
                         <br></br>
-                        <br></br>                        
+                        <br></br>
+                   
 
 
 					</div>

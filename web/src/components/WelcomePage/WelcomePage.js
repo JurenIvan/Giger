@@ -40,43 +40,47 @@ export default class WelcomePage extends React.Component{
             <div class="w3-row"><br/>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user"
+            src="https://media-exp1.licdn.com/dms/image/C4E03AQGK1fho6igebg/profile-displayphoto-shrink_200_200/0?e=1584576000&v=beta&t=TpLmx7YSYhpSuZxDqOaZHc8HrVD4mzhL4Je3usZs7no"/>
             <h3>Ivan Juren</h3>
-            <p>Voditelj/Backend developer</p>
+            <p>The Boss/Backend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user"
+            src="https://files.slack.com/files-pri/TP038T9EJ-FSJM5MN84/mario-zec_web-864x600_c.jpg"/>
             <h3>Mario Zec</h3>
             <p>Backend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user"
+            src="https://scontent.fzag1-1.fna.fbcdn.net/v/t1.0-9/22450044_1884489498234130_5436258312850309420_n.jpg?_nc_cat=111&_nc_ohc=A1sxWAh-wMMAQkfTzW3JkpNg-9x8I894rbpx4RoUoJiDrsrwQEFQbsFEA&_nc_ht=scontent.fzag1-1.fna&oh=040ad6af47e253d61fe42cdc37055efd&oe=5E9A0B20" />
             <h3>Stela Gaši</h3>
             <p>Backend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user" />
             <h3>Tomislav Krmek</h3>
             <p>Frontend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user" />
             <h3>Paolo Lanča</h3>
             <p>Frontend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user"
+             src="https://i.ibb.co/b7zVjnB/Moj-Avatar.jpg"/>
             <h3>Marin Jurić</h3>
             <p>Frontend developer</p>
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={100} icon="user" />
+            <Avatar size={120} icon="user" />
             <h3>Mihael Nosil</h3>
             <p>Frontend developer</p>
             </div>
