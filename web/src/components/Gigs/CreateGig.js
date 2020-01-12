@@ -1,17 +1,11 @@
 import React from 'react';
 import "./Gigs.css";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-//import * as Helpers from '../Utils/HelperMethods'
-//import Geocode from 'react-geocode';
 import { registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
-//import GeocodingResults from './GeocodingResults';
 import * as opencage from 'opencage-api-client';
-import InputGroup from 'react-bootstrap/InputGroup'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import { Checkbox , DatePicker} from 'antd';

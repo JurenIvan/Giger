@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import './GeocodingForm.css'
 
@@ -70,7 +69,7 @@ class GeocodingForm extends Component {
                             <input type="text" 
                             onChange={this.handleInputChange}
                             value={query}
-                            className="form-control" name="query" placeholder="Grad, Država" required="required">
+                            className="form-control" name="query" placeholder="City, Country" required="required">
                             </input>
                         </div>
                     </div>

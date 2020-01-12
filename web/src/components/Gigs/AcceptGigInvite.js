@@ -1,8 +1,5 @@
 import React from 'react';
 import "./Gigs.css";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-//import * as Helpers from '../Utils/HelperMethods'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import Select from 'react-dropdown-select';
@@ -35,6 +32,9 @@ export default class AcceptGigInvite extends React.Component {
                     if(response.violationErrors[0].code === 40003) {
                         alert("You are not a leader of any bands")
                     }
+                }
+                else if(response.length===0) {
+                    alert("You are not a leader of any bands")
                 }
                 else {
                     for(let i=0; i<response.length;i++) {
