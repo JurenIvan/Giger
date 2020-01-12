@@ -1,16 +1,16 @@
 import React from 'react';
 import { registerLocale} from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
 import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import "./Gigs.css";
-import { Checkbox , DatePicker} from 'antd';
+import { Checkbox , DatePicker, Select} from 'antd';
 import 'antd/dist/antd.css';
 registerLocale('hr', hr)
+
+const {Option} = Select;
 
 export default class EditGig extends React.Component {
     constructor(props) {
@@ -46,10 +46,8 @@ export default class EditGig extends React.Component {
             gigId: ""
         }
         this.handleTypeChange = this.handleTypeChange.bind(this);
-        //this.getCoord = this.getCoord.bind(this);
-        this.updateEventType = this.updateEventType.bind(this);
-        this.setValues = this.setValues.bind(this);
-        this.setGigValues = this.setGigValues.bind(this);
+        this.handleGChange = this.handleGChange.bind(this);
+        this.handleEChange = this.handleEChange.bind(this);
         this.handleGeoSubmit = this.handleGeoSubmit.bind(this);
         this.handleGeoChange = this.handleGeoChange.bind(this);
     }
@@ -97,18 +95,27 @@ export default class EditGig extends React.Component {
              //, () => console.log(this.state.privateGig)
         );
     }
-    setValues = selectedEventType => {
-        this.setState({ selectedEventType }
-            //, () => console.log(this.state.selectedEventType)
-        );
+    handleGChange(value) {
+        this.setState({selectedGig: value}
+            , () => {
+            this.setState({
+                eventName: this.state.selectedGig.name,
+                eventDesc: this.state.selectedGig.description,
+                lat: this.state.selectedGig.location.x,
+                lng: this.state.selectedGig.location.y,
+                eventAddress: this.state.selectedGig.location.address,
+                eventLocDesc: this.state.selectedGig.location.extraDescription,
+                eventDuration: this.state.selectedGig.expectedDuration,
+                eventPrice: this.state.selectedGig.proposedPrice,
+                selectedEventType: this.state.selectedGig.gigType,
+                privateGig: this.state.selectedGig.privateGig,
+                gigId: this.state.selectedGig.id
+            }, () => console.log(this.state))
+        })
     }
-    updateEventType = event => {
-        this.setState(
-            {[event.target.name]: event.target.value}
-        //, () => console.log(this.state.selectedEventType)
-        );
-
-    }
+    handleEChange(value) {
+        this.setState({selectedEventType: value}, () => console.log(this.state.selectedEventType))
+      }
 
     setGigValues = selectedGig => {
         this.setState({ selectedGig }
@@ -202,16 +209,18 @@ export default class EditGig extends React.Component {
                         </div>
                         <div className="modal-body">
                             <form onSubmit={this.handleSubmit}>
-                                <Select
-                                        disabled={this.state.isSearching}
-                                        name="selectedGig"
-                                        options={this.state.myGigs}
-                                        value={this.state.selectedGig}
-                                        placeholder="Choose gig"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setGigValues(value[0].value)}
-                                />
-                                <br></br>
+                                <Select 
+                                disabled={this.state.isSearching}
+                                    onChange={this.handleGChange}
+                                    placeholder="Select gig to edit"
+                                    name="selectedGig"
+                                    value={this.state.selectedGig?this.state.selectedGig:undefined}
+                                >
+                                        {this.state.myGigs.map(item => (
+                                            <Option value={item.value}>{item.label}</Option>
+                                        ))}
+                                </Select>
+                                <br></br><br></br>
 
                                 <div className="form-group">
                                     <div className="input-group">
@@ -263,15 +272,17 @@ export default class EditGig extends React.Component {
                                     onChange={this.handleGeoChange}
                                 />
                                 
-                                <Select
-                                    name="selectedEventType"
-                                    options={this.state.eventType}
-                                    value={this.state.selectedEventType}
+                                <Select 
+                                    onChange={this.handleEChange}
                                     placeholder="Select gig type"
-                                    //onChange={this.updateEventType}
-                                    onChange={value => this.setValues(value[0].value, () => console.log(this.state.selectedEventType))}
-                                />
-                                <br></br>
+                                    name="selectedEventType"
+                                    value={this.state.selectedEventType?this.state.selectedEventType:undefined}
+                                >
+                                        {this.state.eventType.map(item => (
+                                            <Option key={item.value}>{item.label}</Option>
+                                        ))}
+                                </Select>
+                                <br></br><br></br>
                                 <DatePicker
                                     locale="hr"
                                     dateFormat="dd/MM/yyyy HH:mm"

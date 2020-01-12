@@ -1,18 +1,17 @@
 import React from 'react';
 import "./Gigs.css";
 import { registerLocale} from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Select from 'react-dropdown-select';
+//import Select from 'react-dropdown-select';
 import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
 import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import { Checkbox , DatePicker} from 'antd';
+import { Checkbox , DatePicker, Select} from 'antd';
 import 'antd/dist/antd.css';
 registerLocale('hr', hr)
 
-
+const {Option} = Select;
 
 export default class CreateGig extends React.Component {
     constructor(props) {
@@ -45,13 +44,13 @@ export default class CreateGig extends React.Component {
             inValidCreation: false
         }
         this.handleTypeChange = this.handleTypeChange.bind(this);
-        //this.getCoord = this.getCoord.bind(this);
-        this.updateEventType = this.updateEventType.bind(this);
-        this.setValues = this.setValues.bind(this);
+        this.handleEChange = this.handleEChange.bind(this);
         this.handleGeoSubmit = this.handleGeoSubmit.bind(this);
         this.handleGeoChange = this.handleGeoChange.bind(this);
         this.handleCreation = this.handleCreation.bind(this);
     }
+
+
 
 
     handleCreation(status) {
@@ -120,18 +119,9 @@ export default class CreateGig extends React.Component {
              , () => console.log(this.state.privateGig)
         );
     }
-    setValues = selectedEventType => {
-        this.setState({ selectedEventType }
-            //, () => console.log(this.state.selectedEventType)
-        );
-    }
-    updateEventType = event => {
-        this.setState(
-            {[event.target.name]: event.target.value}
-        //, () => console.log(this.state.selectedEventType)
-        );
-
-    }
+    handleEChange(value) {
+        this.setState({selectedEventType: value}, () => console.log(this.state.selectedEventType))
+      }
 
     handleGeoChange(key, value) {
         this.setState({ [key]: value });
@@ -158,6 +148,7 @@ export default class CreateGig extends React.Component {
             this.setState({ response: {}, isSubmitting: false });
             });
     }
+    
 
     render() {
         return (
@@ -221,16 +212,17 @@ export default class CreateGig extends React.Component {
                                         onSubmit={this.handleGeoSubmit}
                                         onChange={this.handleGeoChange}
                                     />
-                                    
-                                    <Select
-                                        name="selectedEventType"
-                                        options={this.state.eventType}
-                                        value={this.state.selectedEventType}
+                                    <Select 
+                                        onChange={this.handleEChange}
                                         placeholder="Select gig type"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setValues(value[0].value, () => console.log(this.state.selectedEventType))}
-                                     />
-                                     <br></br>
+                                        name="selectedEventType"
+                                        value={this.state.selectedEventType?this.state.selectedEventType:undefined}
+                                    >
+                                            {this.state.eventType.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
                                     <DatePicker
                                         locale="hr"
                                         dateFormat="dd/MM/yyyy HH:mm"
