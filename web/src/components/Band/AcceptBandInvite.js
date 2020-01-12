@@ -1,9 +1,11 @@
 import React from 'react';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import Select from 'react-dropdown-select';
-import { Radio } from 'antd';
+//import Select from 'react-dropdown-select';
+import { Radio, Select } from 'antd';
 import 'antd/dist/antd.css';
+
+const {Option} = Select;
 
 export default class AcceptBandInvite extends React.Component {
     constructor(props) {
@@ -16,6 +18,7 @@ export default class AcceptBandInvite extends React.Component {
             accept: true
         }
         this.handleRadioChange = this.handleRadioChange.bind(this)
+        this.handleIChange = this.handleIChange.bind(this)
     }
 
     componentDidMount() {
@@ -91,6 +94,10 @@ export default class AcceptBandInvite extends React.Component {
         });
     }
 
+    handleIChange(value) {
+        this.setState({selectedInvite: value}, () => console.log(this.state.selectedInvite))
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -103,19 +110,18 @@ export default class AcceptBandInvite extends React.Component {
 
                             <div className="modal-body">
                                 <form onSubmit={this.handleSubmit}>
-                                    <Select
+                                    <Select 
                                         disabled={this.state.isSearching}
-                                        name="selectedInvite"
-                                        options={this.state.invites}
-                                        value={this.state.selectedInvite}
+                                        onChange={this.handleIChange}
                                         placeholder="Choose invite"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => {
-                                            this.setValues(value[0].value)
-                                            console.log(value)}
-                                        }
-                                    />
-                                    <br></br>
+                                        name="selectedMInvite"
+                                        value={this.state.selectedInvite?this.state.selectedInvite:undefined}
+                                    >
+                                            {this.state.invites.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
                                     <Radio.Group onChange={this.handleRadioChange} value={this.state.accept}>
                                         <Radio value={true}>Accept</Radio>
                                         <Radio value={false}>Decline</Radio>

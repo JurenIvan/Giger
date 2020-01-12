@@ -2,9 +2,11 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import Select from 'react-dropdown-select';
-import { Radio } from 'antd';
+//import Select from 'react-dropdown-select';
+import { Radio, Select } from 'antd';
 import 'antd/dist/antd.css';
+
+const {Option} = Select;
 
 export default class InviteToBand extends React.Component {
     constructor(props) {
@@ -19,6 +21,8 @@ export default class InviteToBand extends React.Component {
             isSearching: false,
             main: true
         }
+        this.handleMChange = this.handleMChange.bind(this);
+        this.handleBChange = this.handleBChange.bind(this);
         this.handleRadioChange = this.handleRadioChange.bind(this)
     }
 
@@ -46,18 +50,6 @@ export default class InviteToBand extends React.Component {
                 }
             }).then( () => 
         this.setState({isSearching: false}))
-    }
-
-    setBandValues = selectedBand => {
-        this.setState({ selectedBand }
-        , () => console.log(this.state.selectedBand)
-        )
-    }
-
-    setMusicianValues = selectedMusician => {
-        this.setState({ selectedMusician}
-        , () => console.log(this.state.selectedMusician)
-        )
     }
 
     handleChange = event => {
@@ -129,6 +121,14 @@ export default class InviteToBand extends React.Component {
         });
     }
 
+    handleMChange(value) {
+        this.setState({selectedMusician: value}, () => console.log(this.state.selectedMusician))
+    }
+
+    handleBChange(value) {
+        this.setState({selectedBand: value}, () => console.log(this.state.selectedBand))
+    }
+
     render () {
         return (
             <React.Fragment>
@@ -141,16 +141,18 @@ export default class InviteToBand extends React.Component {
 
                             <div className="modal-body">
                                 <form onSubmit={this.handleSubmit}>
-                                    <Select
+                                    <Select 
                                         disabled={this.state.isSearching}
+                                        onChange={this.handleBChange}
+                                        placeholder="Select band to invite"
                                         name="selectedBand"
-                                        options={this.state.bands}
-                                        value={this.state.selectedBand}
-                                        placeholder="Select band"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setBandValues(value[0].value)}
-                                    />
-                                    <br></br>
+                                        value={this.state.selectedBand?this.state.selectedBand:undefined}
+                                    >
+                                            {this.state.bands.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
                                     <div className="form-group">
                                         <div className="input-group">
                                             <span className="input-group-addon"><i className="fa fa-user"></i></span>
@@ -162,16 +164,18 @@ export default class InviteToBand extends React.Component {
                                     </div>
                                     <Button type="button" block disabled={this.state.isSearching} onClick={this.handleGetMusician}> Get musicians </Button>
                                     <br></br>
-                                    <Select
+                                    <Select 
                                         disabled={this.state.isSearching}
-                                        name="selectedMusician"
-                                        options={this.state.musicians}
-                                        value={this.state.selectedMusician}
+                                        onChange={this.handleMChange}
                                         placeholder="Choose musician"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setMusicianValues(value[0].value)}
-                                    />
-                                    <br></br>
+                                        name="selectedMusician"
+                                        value={this.state.selectedMusician?this.state.selectedMusician:undefined}
+                                    >
+                                            {this.state.musicians.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
                                     <Radio.Group onChange={this.handleRadioChange} value={this.state.main}>
                                         <Radio value={true}>Main member</Radio>
                                         <Radio value={false}>Backup member</Radio>

@@ -3,9 +3,10 @@ import "./Gigs.css";
 import Button from 'react-bootstrap/Button';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import Select from 'react-dropdown-select';
 import 'antd/dist/antd.css';
+import { Select } from 'antd';
 
+const {Option} = Select;
 
 export default class InviteToGig extends React.Component {
     constructor(props) {
@@ -18,7 +19,8 @@ export default class InviteToGig extends React.Component {
             bandName: "",
             myGigs: []
         }
-        //this.handleGetMyGigs = this.handleGetMyGigs.bind(this)
+        this.handleGChange = this.handleGChange.bind(this);
+        this.handleBChange = this.handleBChange.bind(this);
     }
 
     componentDidMount() {
@@ -38,7 +40,8 @@ export default class InviteToGig extends React.Component {
                             myGigs: [...prevState.myGigs, {value: response[i].id, label: response[i].name}]
                           }))
                     }
-                }   
+                }
+                console.log(this.state.myGigs) 
             });
     }
 
@@ -73,18 +76,6 @@ export default class InviteToGig extends React.Component {
         } 
     }
 
-    setValues = selectedGig => {
-        this.setState({ selectedGig }
-            , () => console.log(this.state.selectedGig)
-        );
-    }
-
-    setBandValues = selectedBand => {
-        this.setState({ selectedBand }
-            , () => console.log(this.state.selectedBand)
-        );
-    }
-
     handleSubmit = event => {
         event.preventDefault();
         let params = JSON.stringify({
@@ -101,6 +92,14 @@ export default class InviteToGig extends React.Component {
                     alert(response.json())
                 }
             });
+    }
+
+    handleGChange(value) {
+        this.setState({selectedGig: value}, () => console.log(this.state.selectedGig))
+    }
+
+    handleBChange(value) {
+        this.setState({selectedBand: value}, () => console.log(this.state.selectedBand))
     }
 
     render () {
@@ -128,24 +127,28 @@ export default class InviteToGig extends React.Component {
 
                                     <Button type="button" block onClick={this.handleBandIdGet}> Get band id </Button>
                                     <br></br>
-                                    <Select
-                                        name="selectedBand"
-                                        options={this.state.bands}
-                                        value={this.state.selectedBand}
+                                    <Select 
+                                        onChange={this.handleBChange}
                                         placeholder="Select band to invite"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setBandValues(value[0].value)}
-                                    />
-                                    <br></br>
-                                    <Select
-                                        name="selectedGigName"
-                                        options={this.state.myGigs}
-                                        value={this.state.selectedGigName}
-                                        placeholder="Select gig"
-                                        //onChange={this.updateEventType}
-                                        onChange={value => this.setValues(value[0].value)}
-                                    />
-                                    <br></br>
+                                        name="selectedBand"
+                                        value={this.state.selectedBand?this.state.selectedBand:undefined}
+                                    >
+                                            {this.state.bands.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
+                                    <Select 
+                                        onChange={this.handleGChange}
+                                        placeholder="Select gig to invite"
+                                        name="selectedGig"
+                                        value={this.state.selectedGig?this.state.selectedGig:undefined}
+                                    >
+                                            {this.state.myGigs.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-primary btn-block btn-lg">Invite to gig</button>
                                     </div>

@@ -117,27 +117,6 @@ export default class EditGig extends React.Component {
         this.setState({selectedEventType: value}, () => console.log(this.state.selectedEventType))
       }
 
-    setGigValues = selectedGig => {
-        this.setState({ selectedGig }
-            , () => {
-            this.setState({
-                eventName: selectedGig.name,
-                eventDesc: selectedGig.description,
-                lat: selectedGig.location.x,
-                lng: selectedGig.location.y,
-                eventAddress: selectedGig.location.address,
-                eventLocDesc: selectedGig.location.extraDescription,
-                eventDuration: selectedGig.expectedDuration,
-                eventPrice: selectedGig.proposedPrice,
-                selectedEventType: selectedGig.gigType,
-                privateGig: selectedGig.privateGig,
-                gigId: selectedGig.id
-            }, () => console.log(this.state.eventName))
-
-        })
-        
-    }
-
     handleGeoChange(key, value) {
         this.setState({ [key]: value });
       }
@@ -217,7 +196,7 @@ export default class EditGig extends React.Component {
                                     value={this.state.selectedGig?this.state.selectedGig:undefined}
                                 >
                                         {this.state.myGigs.map(item => (
-                                            <Option value={item.value}>{item.label}</Option>
+                                            <Option value={item.value} key={item.value.id}>{item.label}</Option>
                                         ))}
                                 </Select>
                                 <br></br><br></br>
