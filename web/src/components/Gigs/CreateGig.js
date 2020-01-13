@@ -9,9 +9,21 @@ import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import { Checkbox , DatePicker, Select} from 'antd';
 import 'antd/dist/antd.css';
+import {notification, Icon } from 'antd';
 registerLocale('hr', hr)
 
 const {Option} = Select;
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully created a gig!',
+      description:
+        'You have created a gig, please make arrangements with a band to make it public.',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+    });
+  };
+  function sayHi() {
+  }
 
 export default class CreateGig extends React.Component {
     constructor(props) {
@@ -88,6 +100,8 @@ export default class CreateGig extends React.Component {
         fetcingFactory(endpoints.CREATE_GIG, params).then(
             response => {
                 if (response.status === 200) {
+                    openNotification();
+                    setTimeout(sayHi(),5000);
                     window.location.href = "/home";
                 } else {
                     console.log(response)
