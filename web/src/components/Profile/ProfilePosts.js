@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from 'antd';
 import {PostClass} from "../BasicComponents/Post";
-import {getTime} from "../../Utils/HelperMethods";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 
@@ -98,6 +97,7 @@ export default class ProfilePosts extends React.Component {
                                 content= {element.content}
                                 postedTime = {element.publishedOn}
                                 postOwnerImg = {this.state.pictureUrl}
+                                comments = {element.comments}
                             />
                     ))
                 }

@@ -1,20 +1,24 @@
 import React from "react";
 import {Button, Col, Row} from "react-bootstrap";
 import {CommentClass as Comment} from "./Comment";
-import {Card, Avatar} from "antd"
+import {Card, Avatar} from "antd";
 
 export class PostClass extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
-            currentUser: "",
-            curentUserImgUrl: "",
-            content: "",
-            isCommentButtonClicked: false
+            isCommentButtonClicked: false,
+            comments: []
         };
         this.handleClick = this.handleClick.bind(this);
     };
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.comments) {
+            this.setState({comments: nextProps.comments})
+        }
+    }
     
     handleClick () {
         if (this.state.isCommentButtonClicked) {
@@ -26,6 +30,7 @@ export class PostClass extends React.Component {
     }
     render() {
         return (
+            <div>
             <Card title= {this.props.postOwnerName}
              extra = {this.props.postedTime}
              style = {{width: 500}}
@@ -38,7 +43,22 @@ export class PostClass extends React.Component {
                         {this.props.content}
                     </Col>
                 </Row>
+                <br></br>
+               <Button variant="success"
+               style= {{position: "absolute",
+                right:    2,
+                bottom:   2}}
+               onClick = {this.handleClick}> Comment ({this.state.comments.length}) </Button>
+               
             </Card>
+            {this.state.isCommentButtonClicked? 
+                this.state.comments.map(element => {
+                    return (
+                        <Comment content = {element}/>
+                    )
+                }) : null }
+
+            </div>
         )
     }
 }

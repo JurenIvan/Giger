@@ -8,9 +8,7 @@ import Home from './components/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/register';
-import createBandForm from './components/createBandForm'
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import CreateBandForm from './components/createBandForm'
 
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
@@ -24,8 +22,8 @@ import BandView from './components/Band/BandView';
 import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import MusicianProfile from "./components/Profile/MusicianProfile"
+import ModalClass from "./components/BasicComponents/Modal"
 
-import WelcomePage from "./components/BasicComponents/WelcomePage";
 
 function App() {
 
@@ -40,93 +38,70 @@ function App() {
             render={() => (
               isLoggedIn?
               <Home/> : 
-              <Modal show={true} animation={false}>
-                <Modal.Footer>
-                  <p  style={{color:"red"}}> You are not logged in! </p>
-                    <Button
-                        variant="danger"
-                        href="/login"
-                    >
-                        Go to login...
-                    </Button>
-                </Modal.Footer>
-                </Modal>
+              <ModalClass/>
             )}/>
           <Route path='/AcceptGigInvite'
             render={() => (
               isLoggedIn?
-                <AcceptGigInvite/> : 
-                <Modal show={true} animation={false}>
-                <Modal.Footer>
-                  <p  style={{color:"red"}}> You are not logged in! </p>
-                    <Button
-                        variant="danger"
-                        href="/login"
-                    >
-                        Go to login...
-                    </Button>
-                </Modal.Footer>
-                </Modal>
+                <AcceptGigInvite/> : <ModalClass/>
           )}/>
           <Route path='/CreateGig'
           render={() => (
             isLoggedIn?
-              <CreateGig/> : 
-              <Modal show={true} animation={false}>
-              <Modal.Footer>
-                <p  style={{color:"red"}}> You are not logged in! </p>
-                  <Button
-                      variant="danger"
-                      href="/login"
-                  >
-                      Go to login...
-                  </Button>
-              </Modal.Footer>
-              </Modal>
+              <CreateGig/> : <ModalClass/>
           )}/>
           <Route path='/InviteToGig'
           render={() => (
             isLoggedIn?
-              <InviteToGig/> : 
-              <Modal show={true} animation={false}>
-              <Modal.Footer>
-                <p  style={{color:"red"}}> You are not logged in! </p>
-                  <Button
-                      variant="danger"
-                      href="/login"
-                  >
-                      Go to login...
-                  </Button>
-              </Modal.Footer>
-              </Modal>
+              <InviteToGig/> : <ModalClass/>
           )}/>
           <Route path='/Logout' exact component={Login}/>
           <Route path='/Login' exact component={Login}/>
           <Route path='/register' exact component={RegisterClass}/>
           <Route path='/error' exact component={ErrorComponent} />
-          <Route path='/create_band' exact component = {createBandForm} />
+          <Route path='/create_band'  render={() => (
+            isLoggedIn? <CreateBandForm/> : <ModalClass/>
+          )}/>
           <Route path='/profile' render = { ()=> (
             isLoggedIn? 
               <ProfileClass id = {Cookies.get("userId")}/> :
-              null
+              <ModalClass/>
           )} />
-          <Route path='/displaybands' exact component = {DisplayBands} />
+          <Route path='/displaybands' render = {() => (
+            isLoggedIn?
+            <DisplayBands/> : <ModalClass/>
+          )}/>
           <Route path='/CreateGig' exact component={CreateGig} />
-          <Route path='/profile_change_type' exact component = {ChangeProfileType}/>
-          <Route path='/createBand' exact component = {BandCreate} />
-          <Route path ='/viewBand' exact component = {BandView} />
-          <Route path ='/InviteToBand' exact component = {InviteToBand} />
-          <Route path ='/AcceptBandInvite' exact component = {AcceptBandInvite} />
+          <Route path='/profile_change_type' render = {() => (
+            isLoggedIn?
+            <ChangeProfileType/> : <ModalClass/>
+          )}/>
+          <Route path='/createBand' render = {() => (
+            isLoggedIn?
+            <BandCreate/> : <ModalClass/>
+          )}/>
+          <Route path ='/viewBand' render = {() => (
+            isLoggedIn?
+            <BandView/> : <ModalClass/>
+          )} />
+          <Route path ='/InviteToBand' render = {() => (
+            isLoggedIn?
+            <InviteToBand/> : <ModalClass/>
+          )}  />
+          <Route path ='/AcceptBandInvite' render = {() => (
+            isLoggedIn?
+            <AcceptBandInvite /> : <ModalClass/>
+          )} />
           <Route path='/displayGigs' exact component = {DisplayGigs}/>
           <Route path='/profile_musician_view' render = { () => (
-            Cookies.get("Bearer")?
+            isLoggedIn?
             <MusicianProfile edit = {false}/> :
-            null
+            <ModalClass />
           )} />
           <Route path='/profile_musician_edit' render = { () => (
-            Cookies.get("Bearer")?
+            isLoggedIn?
             <MusicianProfile edit = {true}/> :
-            null
+            <ModalClass/>
           )} />
         </Switch>
       </div>
