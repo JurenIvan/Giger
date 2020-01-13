@@ -32,7 +32,7 @@ export default class Home extends React.Component {
                             &nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;Giger&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;

@@ -10,6 +10,7 @@ import { Button } from 'antd';
 const { Search } = Input;
 
 
+
 export class GigList extends React.Component{
 
     constructor(props)
@@ -103,20 +104,27 @@ export class GigList extends React.Component{
             
             {this.state.Gigs.map(item => (
                 //extra ce bit link na stranicu benda
-
-
+                
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
                 <div style={{ background: '#ECECEC', padding: '30px' }}>
                 <Card title={item.name} style={{ width: 600 }}>
-                    <p>Description: {item.description}</p>
-                    <br></br>
-                    <p>Address: {item.location.address} </p>
-                    <br></br>
-                    <p>Date and time : {item.dateTime}</p>
-                    <br></br>
-                    <MyModal url={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"}>map!</MyModal>
-                    <br></br>
+                <table style={{width:"100%"}}>
+                  <tr>
+                    <th><p><Card.Grid 
+                    style={{width: '90%',
+                  textAlign: 'center',}}>
+                  <p>Description: {item.description}</p>
+                                    <br></br>
+                                    <p>Address: {item.location.address} </p>
+                                    <br></br>
+                                    <p>Date and time : {item.dateTime}</p>
+                                    <br></br></Card.Grid></p></th>
+                    <th><iframe 
+                  height="100%" 
+                    src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
+                  </tr>
+                </table>
                 </Card>
                 </div>
                 }
