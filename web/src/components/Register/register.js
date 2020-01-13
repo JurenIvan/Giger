@@ -27,9 +27,16 @@ export default class RegisterClass extends React.Component{
     }
 
     handleChange = event => {
-        this.setState({
-          [event.target.name]: event.target.value
-        });
+        if (event.target.name === "eMail") {
+            this.setState({
+            [event.target.name]: event.target.value.toLowerCase()
+            });
+        }
+        else {
+            this.setState({
+                [event.target.name]: event.target.value
+                });
+        }
       }
 
     
@@ -126,7 +133,7 @@ export default class RegisterClass extends React.Component{
                                             <span className="input-group-addon"><i className="fa fa-user"></i></span>
                                             <input type="text" 
                                             onChange={this.handleChange}
-                                            className="form-control" name="firstName" value={this.state.firstName} placeholder="First name" required="required">
+                                            className="form-control" name="firstName" placeholder="First name" required="required">
                                             </input>
                                         </div>
                                     </div>

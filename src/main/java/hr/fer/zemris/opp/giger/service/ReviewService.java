@@ -4,6 +4,7 @@ import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.Review;
+import hr.fer.zemris.opp.giger.domain.exception.ErrorCode;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.BandRepository;
 import hr.fer.zemris.opp.giger.repository.GigRepository;
