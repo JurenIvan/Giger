@@ -67,7 +67,8 @@ export default class WelcomePage extends React.Component{
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={120} icon="user" />
+            <Avatar size={120} icon="user"
+            src="https://scontent.fzag1-1.fna.fbcdn.net/v/t1.0-9/34985158_10156388982186081_110968945472700416_o.jpg?_nc_cat=105&_nc_ohc=-tH4Gg14XxsAQngQ67LWRgj3VMXTUoRSKgGpc0aW_mppO785BLCxjU3SQ&_nc_ht=scontent.fzag1-1.fna&oh=5b8b6c8287a437010d0f5fed880c6615&oe=5E9F31BF" />
             <h3>Paolo Lanča</h3>
             <p>Frontend developer</p>
             </div>
@@ -80,7 +81,8 @@ export default class WelcomePage extends React.Component{
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={120} icon="user" />
+            <Avatar size={120} icon="user" 
+            src="https://expresstabloid.ba/wp-content/uploads/2019/04/1-369.jpg"/>
             <h3>Mihael Nosil</h3>
             <p>Frontend developer</p>
             </div>

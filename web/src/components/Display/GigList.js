@@ -115,9 +115,7 @@ export class GigList extends React.Component{
                     <br></br>
                     <p>Date and time : {item.dateTime}</p>
                     <br></br>
-                    <p>Price: {item.proposedPrice} kn </p>
-                    <br></br>
-                    <MyModal url={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"}>Otvori me!</MyModal>
+                    <MyModal url={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"}>map!</MyModal>
                     <br></br>
                 </Card>
                 </div>
