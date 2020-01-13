@@ -64,8 +64,8 @@ export default class CreateGig extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        let y = this.state.lat;
-        let x = this.state.lng;
+        let x = this.state.lat;
+        let y = this.state.lng;
         let address = this.state.eventAddress;
         let extraDescription = this.state.eventLocDesc;
         let location = {

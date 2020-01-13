@@ -18,10 +18,7 @@ export default class AcceptGigInvite extends React.Component {
             bandId: "",
             selectedInvite: "",
             bandName: "",
-            invitesId: [{ value: 6, label: "Jazz concert" },
-                        { value: 7, label: "Jazz concert" },
-                        { value: 8, label: "2"}
-            ],
+            invitesId: [],
             isSearching: false,
             accept: true
         }
@@ -33,7 +30,7 @@ export default class AcceptGigInvite extends React.Component {
         fetcingFactory(endpoints.GET_BANDS_LEAD, "").then(
             response => response.json()
             ).then(response => {
-                console.log(response.code)
+                //console.log(response.code)
                 if(response.code === 40001){
                     if(response.violationErrors[0].code === 40003) {
                         alert("You are not a leader of any bands")
@@ -48,7 +45,7 @@ export default class AcceptGigInvite extends React.Component {
                             bands: [...prevState.bands, {value: response[i].id, label: response[i].name}]
                           }))
                     }
-                    console.log(this.state.bands)
+                    //console.log(this.state.bands)
                 }
             })
     }
@@ -60,20 +57,21 @@ export default class AcceptGigInvite extends React.Component {
     }
 
     setValues = selectedBand => {
+        this.setState({invitesId: []})
         this.setState({isSearching: true});
         this.setState({ selectedBand }
-            //, () => console.log(this.state.selectedBand)
             , () =>
         fetcingFactory(endpoints.GET_BAND_GIGS, this.state.selectedBand).then(
             response => response.json()
             ).then(response => {
+                //console.log(response)
                 if (response.code === 40001) {
                     alert("You are not in that bend")
                     this.setState({isSearching: false})
                 }
                 else if (response.length === 0) {
                     console.log(response)
-                    alert("No gigs with that id")
+                    alert("That band doesn't have any gig invites")
                     this.setState({isSearching: false})
                 }
                 else {
@@ -90,14 +88,17 @@ export default class AcceptGigInvite extends React.Component {
                         ).then(
                             json => {
                                 inviteLabel = json.name
-                                //console.log(json.name)
+                                //console.log(json)
                                 helperArray.push({value: inviteId, label: inviteLabel});
                             }
+                        ).then(
+                            async () =>
+                            await this.setState({invitesId: helperArray}
+                                //, () => console.log(this.state.invitesId)
+                                )
                         )
                         //helperArray.push({value: inviteId, label: inviteLabel});
-                        this.setState({invitesId: helperArray}
-                            , () => console.log(this.state.invitesId)
-                            )
+
                         this.setState({isSearching: false})
                         
                     }
@@ -108,14 +109,13 @@ export default class AcceptGigInvite extends React.Component {
 
     setGigValues = selectedInvite => {
         this.setState({ selectedInvite }
-            , () => console.log(this.state.selectedInvite)
+            //, () => console.log(this.state.selectedInvite)
         );
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        //console.log(this.state.selectedInvite)
-        //console.log(this.state.bandId)
+
 
         let params = JSON.stringify({
             "bandId": this.state.selectedBand,
@@ -155,10 +155,16 @@ export default class AcceptGigInvite extends React.Component {
     }
 
     handleBChange(value) {
-        this.setState({selectedBand: value}, () => console.log(this.state.selectedBand))
+        this.setState({selectedBand: value}
+            //, () => console.log(this.state.selectedBand)
+            )
     }
 
     render () {
+        let option = []
+        this.state.invitesId.forEach( invite => {
+            option.push(invite)
+        })
         return (
             <React.Fragment>
                 <div className="modal-login">
@@ -189,7 +195,7 @@ export default class AcceptGigInvite extends React.Component {
                                         name="selectedInvite"
                                         value={this.state.selectedInvite?this.state.selectedInvite:undefined}
                                     >
-                                            {this.state.invitesId.map(item => (
+                                            {option.map(item => (
                                                 <Option key={item.value}>{item.label}</Option>
                                             ))}
                                     </Select>

@@ -113,8 +113,9 @@ export default class EditGig extends React.Component {
                             eventPrice: this.state.myGigs[i].proposedPrice,
                             selectedEventType: this.state.myGigs[i].gigType,
                             privateGig: this.state.myGigs[i].privateGig,
-                            gigId: this.state.myGigs[i].id
-                        })
+                            gigId: this.state.myGigs[i].id,
+                            eventDate: this.state.myGigs[i].dateTime
+                        }, () => console.log(this.state.eventDate))
                     }
                 }
         })

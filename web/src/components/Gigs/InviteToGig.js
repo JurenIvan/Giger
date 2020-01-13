@@ -64,6 +64,7 @@ export default class InviteToGig extends React.Component {
                         alert("No bands with that name")
                     }
                     else {
+                        this.setState({bands: []})
                         console.log(response)
                         for(let i = 0; i < response.length; i++) {
                             this.setState(prevState => ({
