@@ -114,7 +114,8 @@ export default class EditGig extends React.Component {
                             selectedEventType: this.state.myGigs[i].gigType,
                             privateGig: this.state.myGigs[i].privateGig,
                             gigId: this.state.myGigs[i].id,
-                            eventDate: this.state.myGigs[i].dateTime
+                            eventDate: this.state.myGigs[i].dateTime,
+                            query: this.state.myGigs[i].location.address
                         }, () => console.log(this.state.eventDate))
                     }
                 }
@@ -152,8 +153,8 @@ export default class EditGig extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        let y = this.state.lat;
-        let x = this.state.lng;
+        let x = this.state.lat;
+        let y = this.state.lng;
         let address = this.state.eventAddress;
         let extraDescription = this.state.eventLocDesc;
         let location = {
@@ -213,7 +214,8 @@ export default class EditGig extends React.Component {
                                         <span className="input-group-addon"><i className="fa fa-user"></i></span>
                                         <input type="text" 
                                         onChange={this.handleChange}
-                                        className="form-control" name="eventName" placeholder="Event name" required="required">
+                                        className="form-control" name="eventName" 
+                                        value={this.state.eventName} placeholder="Event name" required="required">
                                         </input>
                                     </div>
                                 </div>
@@ -223,7 +225,8 @@ export default class EditGig extends React.Component {
                                         <span className="input-group-addon"><i className="fa fa-user"></i></span>
                                         <input type="text" 
                                         onChange={this.handleChange}
-                                        className="form-control" name="eventDesc" placeholder="Event description" required="required">
+                                        className="form-control" 
+                                        name="eventDesc" value={this.state.eventDesc} placeholder="Event description" required="required">
                                         </input>
                                     </div>
                                 </div>
@@ -233,7 +236,9 @@ export default class EditGig extends React.Component {
                                         <span className="input-group-addon"><i className="fa fa-user"></i></span>
                                         <input type="text" 
                                         onChange={this.handleChange}
-                                        className="form-control" name="eventDuration" placeholder="Event duration(example: 1:30h)" required="required">
+                                        className="form-control" 
+                                        name="eventDuration" placeholder="Event duration(example: 1:30h)" 
+                                        value={this.state.eventDuration} required="required">
                                         </input>
                                     </div>
                                 </div>                                  

@@ -65,7 +65,7 @@ export default class Home extends React.Component {
                         <br></br>                        
 
                         <div>
-						<a href="/InviteToGig" className="button big alt scrolly" style={{width:"400px"}}>Invite people to gig</a>
+						<a href="/InviteToGig" className="button big alt scrolly" style={{width:"400px"}}>Invite band to gig</a>
                         </div>
 
                         <br></br>
