@@ -61,7 +61,8 @@ export default class WelcomePage extends React.Component{
             </div>
 
             <div class="w3-quarter">
-            <Avatar size={120} icon="user" />
+            <Avatar size={120} icon="user" 
+            src="https://files.slack.com/files-pri/TP038T9EJ-FS9D1QY2V/img_20200113_113414.jpg"/>
             <h3>Tomislav Krmek</h3>
             <p>Frontend developer</p>
             </div>
