@@ -42,6 +42,7 @@ export default class EditGig extends React.Component {
             eventLocDesc: "",
             inValidCreation: false,
             myGigs: [],
+            idArray: [],
             selectedGig: "",
             gigId: ""
         }
@@ -64,9 +65,10 @@ export default class EditGig extends React.Component {
                 }
                 else {
                     console.log(response)
+                    this.setState({myGigs: response})
                     for(let i = 0; i < response.length; i++) {
                         this.setState(prevState => ({
-                            myGigs: [...prevState.myGigs, {value: response[i], label: response[i].name}]
+                            idArray: [...prevState.idArray, {value: response[i].id, label: response[i].name}]
                           }))
                     }
                 }   
@@ -98,19 +100,23 @@ export default class EditGig extends React.Component {
     handleGChange(value) {
         this.setState({selectedGig: value}
             , () => {
-            this.setState({
-                eventName: this.state.selectedGig.name,
-                eventDesc: this.state.selectedGig.description,
-                lat: this.state.selectedGig.location.x,
-                lng: this.state.selectedGig.location.y,
-                eventAddress: this.state.selectedGig.location.address,
-                eventLocDesc: this.state.selectedGig.location.extraDescription,
-                eventDuration: this.state.selectedGig.expectedDuration,
-                eventPrice: this.state.selectedGig.proposedPrice,
-                selectedEventType: this.state.selectedGig.gigType,
-                privateGig: this.state.selectedGig.privateGig,
-                gigId: this.state.selectedGig.id
-            }, () => console.log(this.state))
+                for(let i = 0; i<this.state.idArray.length; i++) {
+                    if(this.state.idArray[i].value.toString() === this.state.selectedGig) {
+                        this.setState({
+                            eventName: this.state.myGigs[i].name,
+                            eventDesc: this.state.myGigs[i].description,
+                            lat: this.state.myGigs[i].location.x,
+                            lng: this.state.myGigs[i].location.y,
+                            eventAddress: this.state.myGigs[i].location.address,
+                            eventLocDesc: this.state.myGigs[i].location.extraDescription,
+                            eventDuration: this.state.myGigs[i].expectedDuration,
+                            eventPrice: this.state.myGigs[i].proposedPrice,
+                            selectedEventType: this.state.myGigs[i].gigType,
+                            privateGig: this.state.myGigs[i].privateGig,
+                            gigId: this.state.myGigs[i].id
+                        })
+                    }
+                }
         })
     }
     handleEChange(value) {
@@ -195,8 +201,8 @@ export default class EditGig extends React.Component {
                                     name="selectedGig"
                                     value={this.state.selectedGig?this.state.selectedGig:undefined}
                                 >
-                                        {this.state.myGigs.map(item => (
-                                            <Option value={item.value} key={item.value.id}>{item.label}</Option>
+                                        {this.state.idArray.map(item => (
+                                            <Option key={item.value}>{item.label}</Option>
                                         ))}
                                 </Select>
                                 <br></br><br></br>
