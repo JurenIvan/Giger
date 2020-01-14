@@ -416,6 +416,7 @@ function getAllUsers(params, endpoint) {
       Authorization: "Bearer " + Cookies.get("Bearer")
     }
   });
+<<<<<<< HEAD
 }
 
 function createPost(params, endpoint) {
@@ -448,4 +449,6 @@ function getMusicianOcassion(params, endpoint) {
       Authorization: "Bearer " + Cookies.get("Bearer")
     }
   });
+=======
+>>>>>>> minor edits
 }

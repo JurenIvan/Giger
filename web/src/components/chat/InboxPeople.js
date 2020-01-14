@@ -22,19 +22,23 @@ function InboxPeople(props) {
   ]);
   useEffect(() => {
     let params = {
-      band: "",
-      name: ""
+      //paramsi u backu nemogu biti blanck
+      //TODO back izmjena ovoga
+      band: "a",
+      name: "a"
     };
 
     fetcingFactory(endpoints.GET_ALL_USERS, JSON.stringify(params)).then(
       response => {
         if (response.status === 200) {
-          console.log("users", response);
+          console.log("users", response.json().PromiseValue);
           // setUserList([
           //   { value: 1, label: "u1" },
           //   { value: 2, label: "u2" }
           // ]);
         } else {
+          console.log("response", response);
+          console.log(JSON.stringify(params));
           // this.setState({inValidRegister: true})
         }
       }

@@ -8,7 +8,9 @@ function Message(props) {
     <div className={msgType}>
       <div className={msgType2}>
         <p>{props.data.content}</p>
-        <span className="time_date"> {props.data.sentTime}</span>
+        <span className="sender_name_and_sent_time">
+          {props.data.sentTime} {props.data.sender.name}
+        </span>
       </div>
     </div>
   );

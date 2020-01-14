@@ -129,8 +129,6 @@ function ChatContainer(props) {
       });
 
       convers.sort(function(a, b) {
-        // var keyA = new Date(a.time),
-        //   keyB = new Date(b.time);
         var keyA = a.lastMsg,
           keyB = b.lastMsg;
         // Compare the 2 dates

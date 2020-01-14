@@ -20,7 +20,9 @@ function ChatList(props) {
               ? props.data.title
               : props.data.participantsId.map(x => x.name).join(", ")}{" "}
             <span className="chat_date">
-              {props.data.lastMsg ? props.data.lastMsg.sentTime : ""}
+              {props.data.lastMsg
+                ? Date(Date.parse(props.data.lastMsg.sentTime))
+                : ""}
             </span>
           </h5>
           <p>{props.data.lastMsg ? props.data.lastMsg.content : ""}</p>
