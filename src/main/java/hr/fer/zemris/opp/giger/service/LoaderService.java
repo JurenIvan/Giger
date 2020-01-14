@@ -68,7 +68,7 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createSystemPeople() {
-		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON)));
 		systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON, ORGANIZER)));
