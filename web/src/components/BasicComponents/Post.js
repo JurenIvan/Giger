@@ -30,7 +30,7 @@ export class PostClass extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div style = {{marginBottom: "2px"}}>
             <Card title= {this.props.postOwnerName}
              extra = {this.props.postedTime}
              style = {{width: 500}}

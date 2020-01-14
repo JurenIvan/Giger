@@ -17,7 +17,10 @@ export class CommentClass extends React.Component {
 
     render() {
         return (
-            <Card title = {this.props.content.personPreviewDto.name} extra = {this.props.content.postedOn}>
+            <Card 
+                title = {this.props.content.personPreviewDto.name} 
+                extra = {this.props.content.postedOn}
+                style = {{width: 480}}>
             <Row>
             <Col xs = {1}>
                 <Avatar size = {16} src={this.props.content.personPreviewDto.pictureUrl}/>
