@@ -20,7 +20,7 @@ export default class DisplayMusicianCalendar extends React.Component {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    alert("Something went wrong")
+                    return null;
                 }
             }
         ).then(
