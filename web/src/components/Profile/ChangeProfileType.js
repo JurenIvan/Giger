@@ -51,11 +51,13 @@ export default class ChangeProfileType extends React.Component {
             )
     }
 
-    handleChangeOrganiser(checked){
-        this.setState({isOrganiser: checked})
+    handleChangeOrganiser(){
+        let currentChecked = this.state.isOrganiser;
+        this.setState({isOrganiser: !currentChecked})
     }
-    handleChangeMusician(checked) {
-        this.setState({isMusician: checked})
+    handleChangeMusician() {
+        let currentChecked = this.state.isMusician;
+        this.setState({isMusician: !currentChecked})
     }
     handleMusicianCreate() {
         let params = {
@@ -87,15 +89,15 @@ export default class ChangeProfileType extends React.Component {
     render() {
         const checkboxOrg = () => {
             return (
-                <Switch onChange={(e) => {this.handleChangeOrganiser(e.currentTarget.checked)}}
-                        checked = {this.state.isInitOrganiser || this.state.isOrganiser} 
+                <Switch onClick={(e) => {this.handleChangeOrganiser()}}
+                        checked = {this.state.isOrganiser || this.state.isInitOrganiser} 
                         disabled = {this.state.isInitOrganiser}>
                 </Switch>
             )
-        }
+            }
         const checkboxMus = () => {
             return (
-                <Switch onChange={(e) => {this.handleChangeMusician(e.currentTarget.checked)}}
+                <Switch onClick={(e) => {this.handleChangeMusician()}}
                         checked = {this.state.isInitMusician || this.state.isMusician} 
                         disabled = {this.state.isInitMusician}>
                 </Switch>
@@ -107,7 +109,7 @@ export default class ChangeProfileType extends React.Component {
             <Card
             title = "I am organizer"
             style = {{width: 450}}
-             loading = {this.state.isInitOrganiser && !this.state.isOrganiser}
+             loading = {this.state.isInitOrganiser || !this.state.isOrganiser}
              extra = {checkboxOrg()}
              >
                 <input type="text" value = {this.state.organiserName} onChange = {(e => {this.setState({organiserName: e.currentTarget.value})})} placeholder="Organiser name"></input>
@@ -119,7 +121,7 @@ export default class ChangeProfileType extends React.Component {
             <Card
             title = "I am musician"
             style = {{width: 450}}
-             loading = {this.state.isInitMusician || this.state.isMusician}
+             loading = {this.state.isInitMusician || !this.state.isMusician}
              extra = {checkboxMus()}
              >
                  <div>
