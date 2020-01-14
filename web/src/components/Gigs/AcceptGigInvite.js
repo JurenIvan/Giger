@@ -1,37 +1,36 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import "./Gigs.css";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 //import Select from 'react-dropdown-select';
-import { Radio, Select } from 'antd';
+import { Radio , Select} from 'antd';
 import 'antd/dist/antd.css';
 
 const {Option} = Select;
 
-export default class InviteToBand extends React.Component {
+export default class AcceptGigInvite extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            musicians: [],
-            selectedBand: "",
-            musicianName: "",
             bands: [],
-            selectedMusician: "",
+            selectedBand: "",
+            bandId: "",
+            selectedInvite: "",
+            bandName: "",
+            invitesId: [],
             isSearching: false,
-            main: true
+            accept: true
         }
-        this.handleMChange = this.handleMChange.bind(this);
+        this.handleRadioChange = this.handleRadioChange.bind(this);
         this.handleBChange = this.handleBChange.bind(this);
-        this.handleRadioChange = this.handleRadioChange.bind(this)
     }
 
     componentDidMount() {
-        this.setState({isSearching: true})
         fetcingFactory(endpoints.GET_BANDS_LEAD, "").then(
             response => response.json()
             ).then(response => {
-                console.log(response.code)
+                //console.log(response.code)
                 if(response.code === 40001){
                     if(response.violationErrors[0].code === 40003) {
                         alert("You are not a leader of any bands")
@@ -46,52 +45,86 @@ export default class InviteToBand extends React.Component {
                             bands: [...prevState.bands, {value: response[i].id, label: response[i].name}]
                           }))
                     }
-                    console.log(this.state.bands)
+                    //console.log(this.state.bands)
                 }
-            }).then( () => 
-        this.setState({isSearching: false}))
+            })
     }
 
     handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
-        }
-        );
+        });
     }
 
-    handleGetMusician = event => {
-        event.preventDefault();
-        console.log(this.state.musicianName)
-        this.setState({isSearching: true})
-        fetcingFactory(endpoints.GET_MUSICIAN, JSON.stringify({"userName": this.state.musicianName})).then(
+    setValues = selectedBand => {
+        this.setState({invitesId: []})
+        this.setState({isSearching: true});
+        this.setState({ selectedBand }
+            , () =>
+        fetcingFactory(endpoints.GET_BAND_GIGS, this.state.selectedBand).then(
             response => response.json()
             ).then(response => {
-                if (response.length === 0) {
-                    alert("No musician with that name")
+                //console.log(response)
+                if (response.code === 40001) {
+                    alert("You are not in that bend")
+                    this.setState({isSearching: false})
+                }
+                else if (response.length === 0) {
+                    console.log(response)
+                    alert("That band doesn't have any gig invites")
+                    this.setState({isSearching: false})
                 }
                 else {
                     //console.log(response)
-                    this.setState({musicians: []})
                     for(let i = 0; i < response.length; i++) {
-                        this.setState(prevState => ({
-                            musicians: [...prevState.musicians, {value: response[i].id, label: response[i].username}]
-                          }))
+                        //console.log(response)
+                        let helperArray = this.state.invitesId;
+                        let inviteId = response[i].id;
+                        let inviteLabel = "";
+                        fetcingFactory(endpoints.GET_GIG, inviteId).then(
+                            response => {
+                               return response.json()
+                            }
+                        ).then(
+                            json => {
+                                inviteLabel = json.name
+                                //console.log(json)
+                                helperArray.push({value: inviteId, label: inviteLabel});
+                            }
+                        ).then(
+                            async () =>
+                            await this.setState({invitesId: helperArray}
+                                //, () => console.log(this.state.invitesId)
+                                )
+                        )
+                        //helperArray.push({value: inviteId, label: inviteLabel});
+
+                        this.setState({isSearching: false})
+                        
                     }
-                    console.log(this.state.musicians)
                 }   
-            }).then( () => 
-            this.setState({isSearching: false}))
+            })
+         );
+    }
+
+    setGigValues = selectedInvite => {
+        this.setState({ selectedInvite }
+            //, () => console.log(this.state.selectedInvite)
+        );
     }
 
     handleSubmit = event => {
         event.preventDefault();
+
+
         let params = JSON.stringify({
             "bandId": this.state.selectedBand,
-            "musicianId": this.state.selectedMusician
+            "gigId": this.state.selectedInvite
         });
         console.log(params)
-        if(this.state.main === true){
-        fetcingFactory(endpoints.INVITE_MAIN_MEMB, params).then(
+        if(this.state.accept === true) {
+            console.log("Prihvati")
+            fetcingFactory(endpoints.ACCEPT_GIG, params).then(
             response => {
                 if (response.status === 200) {
                     window.location.href = "/home";
@@ -99,10 +132,10 @@ export default class InviteToBand extends React.Component {
                     console.log(response)
                     alert(response.json())
                 }
-            });
-        }
+            }); }
         else {
-            fetcingFactory(endpoints.INVITE_BACKUP_MEMB, params).then(
+            console.log("Odbij")
+            fetcingFactory(endpoints.CANCEL_GIG, params).then(
                 response => {
                     if (response.status === 200) {
                         window.location.href = "/home";
@@ -110,41 +143,43 @@ export default class InviteToBand extends React.Component {
                         console.log(response)
                         alert(response.json())
                     }
-                });
+                }); 
         }
     }
 
     handleRadioChange = e => {
         console.log('radio checked', e.target.value);
         this.setState({
-          main: e.target.value,
+          accept: e.target.value,
         });
     }
 
-    handleMChange(value) {
-        this.setState({selectedMusician: value}, () => console.log(this.state.selectedMusician))
-    }
-
     handleBChange(value) {
-        this.setState({selectedBand: value}, () => console.log(this.state.selectedBand))
+        this.setState({selectedBand: value}
+            //, () => console.log(this.state.selectedBand)
+            )
     }
 
     render () {
+        let option = []
+        this.state.invitesId.forEach( invite => {
+            option.push(invite)
+        })
         return (
             <React.Fragment>
                 <div className="modal-login">
                         <div className="modal-content">
 
                             <div className="modal-header">				
-                                <h4 className="modal-title">Invite to band</h4>
+                                <h4 className="modal-title">Manage gig invite</h4>
                             </div>
 
                             <div className="modal-body">
                                 <form onSubmit={this.handleSubmit}>
                                     <Select 
                                         disabled={this.state.isSearching}
-                                        onChange={this.handleBChange}
-                                        placeholder="Select band to invite"
+                                        onChange={value => this.setValues(value)}
+                                        placeholder="Select band"
                                         name="selectedBand"
                                         value={this.state.selectedBand?this.state.selectedBand:undefined}
                                     >
@@ -153,36 +188,25 @@ export default class InviteToBand extends React.Component {
                                             ))}
                                     </Select>
                                     <br></br><br></br>
-                                    <div className="form-group">
-                                        <div className="input-group">
-                                            <span className="input-group-addon"><i className="fa fa-user"></i></span>
-                                            <input type="text" 
-                                            onChange={this.handleChange}
-                                            className="form-control" name="musicianName" placeholder="Musician name">
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <Button type="button" block disabled={this.state.isSearching} onClick={this.handleGetMusician}> Get musicians </Button>
-                                    <br></br>
                                     <Select 
                                         disabled={this.state.isSearching}
-                                        onChange={this.handleMChange}
-                                        placeholder="Choose musician"
-                                        name="selectedMusician"
-                                        value={this.state.selectedMusician?this.state.selectedMusician:undefined}
+                                        onChange={value => this.setGigValues(value)}
+                                        placeholder="Select gig invite"
+                                        name="selectedInvite"
+                                        value={this.state.selectedInvite?this.state.selectedInvite:undefined}
                                     >
-                                            {this.state.musicians.map(item => (
+                                            {option.map(item => (
                                                 <Option key={item.value}>{item.label}</Option>
                                             ))}
                                     </Select>
                                     <br></br><br></br>
-                                    <Radio.Group onChange={this.handleRadioChange} value={this.state.main}>
-                                        <Radio value={true}>Main member</Radio>
-                                        <Radio value={false}>Backup member</Radio>
+                                    <Radio.Group onChange={this.handleRadioChange} value={this.state.accept}>
+                                        <Radio value={true}>Accept</Radio>
+                                        <Radio value={false}>Decline</Radio>
                                     </Radio.Group>
                                     <br></br><br></br>
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-primary btn-block btn-lg">Invite to band</button>
+                                        <button type="submit" className="btn btn-primary btn-block btn-lg">Accept/decline invite</button>
                                     </div>
                                 </form>
                             </div>
@@ -191,5 +215,4 @@ export default class InviteToBand extends React.Component {
             </React.Fragment>
         );
     }
-
 }

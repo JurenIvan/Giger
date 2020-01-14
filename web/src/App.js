@@ -2,20 +2,21 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import './App.css';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
-import RegisterClass from './components/register';
+import RegisterClass from './components/Register/register';
 import CreateBandForm from './components/createBandForm'
-
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
-import CreateGig from './components/CreateGig'
-import InviteToGig from './components/InviteToGig'
-import AcceptGigInvite from './components/AcceptGigInvite'
+import CreateGig from './components/Gigs/CreateGig'
+import InviteToGig from './components/Gigs/InviteToGig'
+import AcceptGigInvite from './components/Gigs/AcceptGigInvite'
 import ChangeProfileType from './components/Profile/ChangeProfileType';
 import BandCreate from './components/Band/BandCreate';
 import BandView from './components/Band/BandView';
@@ -23,7 +24,8 @@ import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import MusicianProfile from "./components/Profile/MusicianProfile"
 import ModalClass from "./components/BasicComponents/Modal"
-import EditGig from './components/EditGig'
+import EditGig from './components/Gigs/EditGig'
+import WelcomePage from "./components/WelcomePage/WelcomePage";
 
 
 function App() {
@@ -105,11 +107,9 @@ function App() {
             <ModalClass/>
           )} />
           <Route path='/EditGig' exact component = {EditGig}/>
+          <Route path='/WelcomePage' exact component = {WelcomePage}/>
         </Switch>
       </div>
-      
-
-
     </BrowserRouter>
    
   );
