@@ -6,11 +6,29 @@ import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import "./Gigs.css";
-import { Checkbox , DatePicker, Select} from 'antd';
+import { Checkbox , DatePicker, Select, notification, Icon} from 'antd';
 import 'antd/dist/antd.css';
 registerLocale('hr', hr)
 
 const {Option} = Select;
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully edited a gig!',
+      description:
+        'You have edited a gig, please make arrangements with a band to make it public.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 export default class EditGig extends React.Component {
     constructor(props) {
@@ -178,7 +196,7 @@ export default class EditGig extends React.Component {
         fetcingFactory(endpoints.EDIT_GIG, params, this.state.gigId).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotification();
                 } else {
                     console.log(response)
                     alert(response.json())

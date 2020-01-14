@@ -18,12 +18,20 @@ const openNotification = () => {
     notification.open({
       message: 'You have successfully created a gig!',
       description:
-        'You have created a gig, please make arrangements with a band to make it public.',
-      icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+        'You have created a gig, please make arrangements with a band to make it public.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
     });
-  };
-  function sayHi() {
-  }
+}
+
 
 export default class CreateGig extends React.Component {
     constructor(props) {
@@ -101,11 +109,10 @@ export default class CreateGig extends React.Component {
             response => {
                 if (response.status === 200) {
                     openNotification();
-                    setTimeout(sayHi(),5000);
-                    window.location.href = "/home";
+                    
                 } else {
                     console.log(response)
-                    alert(response.json())
+                    alert("error")
                 }
             });
     }

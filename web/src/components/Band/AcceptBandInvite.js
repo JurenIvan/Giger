@@ -2,10 +2,56 @@ import React from 'react';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 //import Select from 'react-dropdown-select';
-import { Radio, Select } from 'antd';
+import { Radio, Select, notification, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
 const {Option} = Select;
+
+const openNotificationAccept = () => {
+    notification.open({
+      message: 'You have successfully accepted a band invite!',
+      description:
+        'You have accepted a band invite.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+const openNotificationDecline = () => {
+    notification.open({
+      message: 'You have successfully declined a band invite!',
+      description:
+        'You have declined a band invite.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+       if (a[i].value === obj.value) {
+           return true;
+       }
+    }
+    return false;
+}
 
 export default class AcceptBandInvite extends React.Component {
     constructor(props) {
@@ -35,15 +81,13 @@ export default class AcceptBandInvite extends React.Component {
                     alert("You don't have any invites")
                 }
                 else {
+                    console.log(response)
                     for(let i=0; i<response.length;i++) {
-                        if(response[i].asMember === true) {
+                        let responseItem = {value: response[i].bandId, label: response[i].bandName};
+                        console.log(responseItem);
+                        if(!contains(this.state.invites, responseItem)) {
                             this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)"}]
-                              }))
-                        }
-                        else {
-                            this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)"}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName}]
                               }))
                         }
                     }
@@ -67,7 +111,7 @@ export default class AcceptBandInvite extends React.Component {
             fetcingFactory(endpoints.ACCEPT_BAND_INVITE, this.state.selectedInvite).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotificationAccept();
                 } else {
                     console.log(response)
                     alert(response.json())
@@ -78,7 +122,7 @@ export default class AcceptBandInvite extends React.Component {
             fetcingFactory(endpoints.DECLINE_BAND_INVITE, this.state.selectedInvite).then(
                 response => {
                     if (response.status === 200) {
-                        window.location.href = "/home";
+                        openNotificationDecline();
                     } else {
                         console.log(response)
                         alert(response.json())
