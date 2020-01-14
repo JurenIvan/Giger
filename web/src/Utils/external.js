@@ -63,7 +63,7 @@ export default function fetcingFactory(endpoint, params, id) {
       return declineBandInvite(params, endpoint);
     case Types.endpoints.GET_USER_CONVERSATIONS:
       return getUserConversations(params, endpoint);
-    case Types.endpoints.GET_USER_CONVERSATIONS:
+    case Types.endpoints.CREATE_USER_CONVERSATIONS:
       return createUserConversation(params, endpoint);
     case Types.endpoints.GET_ALL_USERS:
       return getAllUsers(params, endpoint);
@@ -337,35 +337,36 @@ function declineBandInvite(params, endpoint) {
       Authorization: "Bearer " + Cookies.get("Bearer")
     }
   });
+}
 
-  function getUserConversations(params, endpoint) {
-    return fetch(API + endpoint, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + Cookies.get("Bearer")
-      }
-    });
-  }
-  
-  function createUserConversation(params, endpoint) {
-    return fetch(API + endpoint, {
-      method: "POST",
-      body: params,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + Cookies.get("Bearer")
-      }
-    });
-  }
-  
-  function getAllUsers(params, endpoint) {
-    return fetch(API + endpoint, {
-      method: "POST",
-      body: params,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + Cookies.get("Bearer")
-      }
-    });
+function getUserConversations(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function createUserConversation(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function getAllUsers(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
 }
