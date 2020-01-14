@@ -74,7 +74,6 @@ function App() {
             isLoggedIn?
             <DisplayBands/> : <ModalClass/>
           )}/>
-          <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile_change_type' render = {() => (
             isLoggedIn?
             <ChangeProfileType/> : <ModalClass/>
@@ -106,7 +105,10 @@ function App() {
             <MusicianProfile edit = {true}/> :
             <ModalClass/>
           )} />
-          <Route path='/EditGig' exact component = {EditGig}/>
+          <Route path ='/EditGig' render = {() => (
+            isLoggedIn?
+            <EditGig/> : <ModalClass/>
+          )} />
           <Route path='/WelcomePage' exact component = {WelcomePage}/>
         </Switch>
       </div>
