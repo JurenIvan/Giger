@@ -66,8 +66,13 @@ export default function fetcingFactory (endpoint, params, id) {
         case Types.endpoints.EDIT_GIG:
             return editGig(params, endpoint, id);
         case Types.endpoints.DECLINE_BAND_INVITE:
-            return declineBandInvite(params, endpoint)
-                
+            return declineBandInvite(params, endpoint);
+        case Types.endpoints.SUBMIT_USER_POST:
+            return createPost(params, endpoint);
+        case Types.endpoints.SUBMIT_COMMENT:
+            return submitComment(params,endpoint,id);
+        case Types.endpoints.GET_MUSICIAN_OCASSION:
+            return getMusicianOcassion(params, endpoint);
     }
 }
 
@@ -367,6 +372,38 @@ function declineBandInvite(params, endpoint) {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
 
+        }
+    })
+}
+
+function createPost(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function submitComment(params, endpoint, id) {
+    return fetch(API + endpoint + id, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function getMusicianOcassion(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
     })
 }

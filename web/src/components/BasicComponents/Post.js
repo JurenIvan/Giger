@@ -2,6 +2,8 @@ import React from "react";
 import {Button, Col, Row} from "react-bootstrap";
 import {CommentClass as Comment} from "./Comment";
 import {Card, Avatar} from "antd";
+import fetcingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 
 export class PostClass extends React.Component {
     constructor(props){
@@ -9,9 +11,12 @@ export class PostClass extends React.Component {
 
         this.state = {
             isCommentButtonClicked: false,
-            comments: []
+            comments: [],
+            commentContent: ""
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleSubmitComment = this.handleSubmitComment.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
     };
 
     componentWillReceiveProps(nextProps) {
@@ -28,12 +33,32 @@ export class PostClass extends React.Component {
         }
         
     }
+    handleCommentChange(value) {
+        this.setState({commentContent: value})
+    }
+
+    handleSubmitComment() {
+        let params = {
+            content: this.state.commentContent
+        }
+        this.setState({commentContent: ""})
+        fetcingFactory(endpoints.SUBMIT_COMMENT, JSON.stringify(params), this.props.id).then(
+            response => {
+                console.log(response);
+                if(response.ok) {
+                    this.props.updatePost();
+                } else {
+                    alert("Not ok!")
+                }
+            }
+        )
+    }
     render() {
         return (
-            <div>
+            <Card style = {{width:550, marginBottom: "2px", backgroundColor:"darkcyan"}}>
             <Card title= {this.props.postOwnerName}
              extra = {this.props.postedTime}
-             style = {{width: 500}}
+             style = {{width: 500, marginBottom: 4}}
              >
                 <Row>
                     <Col xs = {1}>
@@ -56,9 +81,21 @@ export class PostClass extends React.Component {
                     return (
                         <Comment content = {element}/>
                     )
-                }) : null }
+                }) : null
+            }
 
-            </div>
+            {
+                this.state.isCommentButtonClicked?
+                <Row>
+                <input className = "form-control" style={{width:420, marginRight:5}} onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
+                </input>
+                <Button onClick = {this.handleSubmitComment} style={{width: 100, color:"darkcyan", backgroundColor:"white", borderColor:"white"}}
+                > Submit </Button>
+                </Row> : null
+            }
+            
+                
+            </Card>
         )
     }
 }

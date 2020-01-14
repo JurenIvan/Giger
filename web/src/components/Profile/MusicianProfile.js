@@ -51,6 +51,7 @@ export default class MusicianProfile extends React.Component {
                 name = {this.state.name} 
                 pictureUrl = {this.state.pictureUrl} 
                 instrumentList = {this.state.instrumentList}
+                id = {this.state.id}
             />
             <ProfilePosts id = {this.state.id}
                 name = {this.state.name} 
