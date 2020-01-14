@@ -292,7 +292,7 @@ function getPublicGigs(params, endpoint) {
 function getBandslist(params, endpoint) {
     console.log(API + endpoint)
     return fetch(API + endpoint, {
-        method: "GET",
+        method: "POST",
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
