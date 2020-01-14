@@ -1,8 +1,5 @@
 import React from 'react';
 import "./Gigs.css";
-import { registerLocale} from "react-datepicker";
-//import Select from 'react-dropdown-select';
-import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
 import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
@@ -10,7 +7,6 @@ import {endpoints} from "../../Utils/Types";
 import { Checkbox , DatePicker, Select} from 'antd';
 import 'antd/dist/antd.css';
 import {notification, Icon } from 'antd';
-registerLocale('hr', hr)
 
 const {Option} = Select;
 
@@ -245,7 +241,6 @@ export default class CreateGig extends React.Component {
                                     </Select>
                                     <br></br><br></br>
                                     <DatePicker
-                                        locale="hr"
                                         dateFormat="dd/MM/yyyy HH:mm"
                                         showTime
                                         timeFormat="HH:mm"

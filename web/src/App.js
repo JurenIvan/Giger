@@ -9,8 +9,6 @@ import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/Register/register';
 import CreateBandForm from './components/createBandForm'
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";

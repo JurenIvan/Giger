@@ -46,10 +46,6 @@ class GeocodingForm extends Component {
     const { target } = event;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // console.log(name, value);
-    // this.setState({
-    //   [name]: value,
-    // });
     this.props.onChange(name, value);
   }
   handleSubmit(event) {

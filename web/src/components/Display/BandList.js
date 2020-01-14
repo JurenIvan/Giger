@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
 import { Avatar } from 'antd';

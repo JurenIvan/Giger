@@ -3,7 +3,7 @@ import MetisMenu from 'react-metismenu';
 
 import {endpoints} from "../../Utils/Types"
 import fetcingFactory from "../../Utils/external"
-import {Navbar} from "react-bootstrap"
+//import {Navbar} from "react-bootstrap"
 
 export default class ProfileSideNav extends React.Component {
     constructor (props) {

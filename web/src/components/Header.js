@@ -2,7 +2,7 @@ import React from 'react';
 import "../CSS/Header.css";
 import {Button} from "react-bootstrap";
 import Cookies from "js-cookie"
-import WelcomePage from "./WelcomePage/WelcomePage";
+//import WelcomePage from "./WelcomePage/WelcomePage";
 
 
 export default function Header(props) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import ProfileInfo from '../Profile/ProfileInfo';
+//import ProfileInfo from '../Profile/ProfileInfo';
 import ProfileSideNav from './ProfileSideNav';
-import ProfilePosts from './ProfilePosts';
+//import ProfilePosts from './ProfilePosts';
 import BasicProfile from "./BasicProfile";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";

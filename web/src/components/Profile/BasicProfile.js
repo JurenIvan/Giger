@@ -1,5 +1,6 @@
 import React from "react";
-import {Row, Col} from "react-bootstrap";
+//import {Row, Col} from "react-bootstrap";
+// eslint-disable-next-line
 import {Card, Avatar} from "antd"
 
  
@@ -24,6 +25,7 @@ export default class BasicProfile extends React.Component {
             <Card 
             style={{ width: 300 }}
             cover={
+                // eslint-disable-next-line
                 <img
                   alt="Profile picture"
                   src={this.state.pictureUrl}

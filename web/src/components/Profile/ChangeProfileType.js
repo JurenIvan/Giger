@@ -3,6 +3,7 @@ import { Button, Row } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
+// eslint-disable-next-line
 import {Checkbox, Card, Switch} from "antd"
 
 export default class ChangeProfileType extends React.Component {
@@ -38,9 +39,9 @@ export default class ChangeProfileType extends React.Component {
                 json => {
                     if(json) {
                         for (let i = 0; i < json.length; i++) {
-                            if (json[i] == "MUSICIAN") {
+                            if (json[i] === "MUSICIAN") {
                                 this.setState({isInitMusician: true})
-                            } else if (json[i] == "ORGANIZER") {
+                            } else if (json[i] === "ORGANIZER") {
                                 this.setState({isInitOrganiser: true})
                             }
                         }

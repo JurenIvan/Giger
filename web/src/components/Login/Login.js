@@ -1,10 +1,5 @@
 import React, {Component} from "react";
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-//import * as Helpers from '../Utils/HelperMethods'
 import Cookies from 'js-cookie';
-import Modal from 'react-bootstrap/Modal';
-import { Card } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import  "../Login/Login.css";
@@ -71,7 +66,7 @@ export default class Login extends Component {
 
     render() {
         return (
-                    <div className="modal-dialog" className="modal-login">
+                    <div className="modal-login">
                         <div className="modal-content">
 
                             <div className="modal-header">				

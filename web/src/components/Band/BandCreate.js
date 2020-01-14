@@ -1,7 +1,6 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Select from 'react-dropdown-select';
 import fetcingFactory from "../../Utils/external";
 import * as Types from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
