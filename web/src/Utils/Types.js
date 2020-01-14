@@ -30,7 +30,8 @@ export const endpoints = {
     EDIT_GIG: "/gigs/edit/",
     DECLINE_BAND_INVITE: "/musicians/invitations/cancel/",
     SUBMIT_USER_POST: "/posts/create",
-    SUBMIT_COMMENT: "/posts/"
+    SUBMIT_COMMENT: "/posts/",
+    GET_MUSICIAN_OCASSION: "/musicians/show/occasions/"
     /*TO DO: ostali endpointi*/
 }
 

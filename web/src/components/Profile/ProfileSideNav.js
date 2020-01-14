@@ -3,7 +3,6 @@ import MetisMenu from 'react-metismenu';
 
 import {endpoints} from "../../Utils/Types"
 import fetcingFactory from "../../Utils/external"
-import {Navbar} from "react-bootstrap"
 
 export default class ProfileSideNav extends React.Component {
     constructor (props) {
@@ -65,6 +64,11 @@ export default class ProfileSideNav extends React.Component {
                         icon: 'icon-class-name',
                         label: 'View',
                         to: 'profile_musician_view'
+                    },
+                    {
+                        icon: 'icon-class-name',
+                        label: 'View Calendar',
+                        to: 'displayMusicianCalendar'
                     },
                     {
                         icon: 'icon-class-name',

@@ -71,7 +71,8 @@ export default function fetcingFactory (endpoint, params, id) {
             return createPost(params, endpoint);
         case Types.endpoints.SUBMIT_COMMENT:
             return submitComment(params,endpoint,id);
-                
+        case Types.endpoints.GET_MUSICIAN_OCASSION:
+            return getMusicianOcassion(params, endpoint);
     }
 }
 
@@ -394,5 +395,15 @@ function submitComment(params, endpoint, id) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         },
         body: params
+    })
+}
+
+function getMusicianOcassion(params, endpoint) {
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
     })
 }

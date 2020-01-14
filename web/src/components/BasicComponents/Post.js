@@ -89,8 +89,8 @@ export class PostClass extends React.Component {
                 <Row>
                 <input className = "form-control" style={{width:420, marginRight:5}} onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
                 </input>
-                <Button onClick = {this.handleSubmitComment} style={{width: 100}}
-                > Submit comment </Button>
+                <Button onClick = {this.handleSubmitComment} style={{width: 100, color:"darkcyan", backgroundColor:"white", borderColor:"white"}}
+                > Submit </Button>
                 </Row> : null
             }
             

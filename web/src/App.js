@@ -24,6 +24,7 @@ import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import MusicianProfile from "./components/Profile/MusicianProfile"
 import ModalClass from "./components/BasicComponents/Modal"
 import EditGig from './components/EditGig'
+import DisplayMusicianCalendar from './components/Profile/DIsplayMusicianCalendar';
 
 
 function App() {
@@ -105,6 +106,11 @@ function App() {
             <ModalClass/>
           )} />
           <Route path='/EditGig' exact component = {EditGig}/>
+          <Route path= '/displayMusicianCalendar' render = { () => (
+            isLoggedIn?
+            <DisplayMusicianCalendar id = {Cookies.get("userId")} /> : 
+            <ModalClass />
+          )} />
         </Switch>
       </div>
       
