@@ -68,7 +68,9 @@ export default function fetcingFactory (endpoint, params, id) {
         case Types.endpoints.DECLINE_BAND_INVITE:
             return declineBandInvite(params, endpoint);
         case Types.endpoints.SUBMIT_USER_POST:
-            return createPost(params, endpoint)
+            return createPost(params, endpoint);
+        case Types.endpoints.SUBMIT_COMMENT:
+            return submitComment(params,endpoint);
                 
     }
 }
@@ -374,6 +376,17 @@ function declineBandInvite(params, endpoint) {
 }
 
 function createPost(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
+    })
+}
+
+function submitComment(params, endpoint) {
     return fetch(API + endpoint, {
         method: "POST",
         headers: {

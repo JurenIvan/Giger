@@ -135,6 +135,7 @@ export default class ProfilePosts extends React.Component {
                 {
                     this.state.ProfilePostsList.map(element => (
                             <PostClass 
+                                id = {element.id}
                                 postOwnerName = {this.state.name}
                                 content= {element.content}
                                 postedTime = {element.publishedOn}

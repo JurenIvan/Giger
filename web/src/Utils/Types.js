@@ -29,7 +29,8 @@ export const endpoints = {
     ACCEPT_BAND_INVITE: "/band-administration/join/",
     EDIT_GIG: "/gigs/edit/",
     DECLINE_BAND_INVITE: "/musicians/invitations/cancel/",
-    SUBMIT_USER_POST: "/posts/create"
+    SUBMIT_USER_POST: "/posts/create",
+    SUBMIT_COMMENT: "/posts/"
     /*TO DO: ostali endpointi*/
 }
 

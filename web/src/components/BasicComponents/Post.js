@@ -2,6 +2,8 @@ import React from "react";
 import {Button, Col, Row} from "react-bootstrap";
 import {CommentClass as Comment} from "./Comment";
 import {Card, Avatar} from "antd";
+import fetcingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 
 export class PostClass extends React.Component {
     constructor(props){
@@ -9,9 +11,12 @@ export class PostClass extends React.Component {
 
         this.state = {
             isCommentButtonClicked: false,
-            comments: []
+            comments: [],
+            commentContent: ""
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleSubmitComment = this.handleSubmitComment.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
     };
 
     componentWillReceiveProps(nextProps) {
@@ -27,6 +32,24 @@ export class PostClass extends React.Component {
             this.setState({isCommentButtonClicked: true});
         }
         
+    }
+    handleCommentChange(value) {
+        this.setState({commentContent: value})
+    }
+
+    handleSubmitComment() {
+        let params = {
+            content: this.state.commentContent
+        }
+        fetcingFactory(endpoints.SUBMIT_COMMENT + this.props.id, JSON.stringify(params)).then(
+            response => {
+                if(response.ok) {
+                    alert("OK")
+                } else {
+                    alert("Not ok!")
+                }
+            }
+        )
     }
     render() {
         return (
@@ -56,8 +79,20 @@ export class PostClass extends React.Component {
                     return (
                         <Comment content = {element}/>
                     )
-                }) : null }
+                }) : null
+            }
 
+            {
+                this.state.isCommentButtonClicked?
+                <Row>
+                <input className="form-control" onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
+                </input>
+                <Button onClick = {this.handleSubmitComment} 
+                style = {{position: "relative", bottom: 2, right: 2}}> Submit comment </Button>
+                </Row> : null
+            }
+            
+                
             </div>
         )
     }
