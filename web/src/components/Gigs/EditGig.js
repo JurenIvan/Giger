@@ -8,6 +8,7 @@ import {endpoints} from "../../Utils/Types";
 import "./Gigs.css";
 import { Checkbox , DatePicker, Select, notification, Icon} from 'antd';
 import 'antd/dist/antd.css';
+import moment from 'moment';
 registerLocale('hr', hr)
 
 const {Option} = Select;
@@ -133,7 +134,8 @@ export default class EditGig extends React.Component {
                             privateGig: this.state.myGigs[i].privateGig,
                             gigId: this.state.myGigs[i].id,
                             eventDate: this.state.myGigs[i].dateTime,
-                            query: this.state.myGigs[i].location.address
+                            query: this.state.myGigs[i].location.address,
+                            eventDate: this.state.myGigs[i].dateTime
                         }, () => console.log(this.state.eventDate))
                     }
                 }
@@ -302,6 +304,7 @@ export default class EditGig extends React.Component {
                                     selected={this.state.eventDate}
                                     onSelect={this.handleSelect}
                                     onChange={this.handleDateChange}
+                                    value={moment(this.state.eventDate)}
                                 />
                                 <br></br><br></br>
                                 <Checkbox onChange={this.handleTypeChange} name="privateGig" checked={this.state.privateGig}>Private gig?</Checkbox>
