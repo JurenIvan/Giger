@@ -3,10 +3,46 @@ import "./Gigs.css";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 //import Select from 'react-dropdown-select';
-import { Radio , Select} from 'antd';
+import { Radio , Select, notification, Icon} from 'antd';
 import 'antd/dist/antd.css';
 
 const {Option} = Select;
+
+const openNotificationAccept = () => {
+    notification.open({
+      message: 'You have successfully accepted a gig invite!',
+      description:
+        'You have accepted a gig invite.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+const openNotificationDecline = () => {
+    notification.open({
+      message: 'You have successfully declined a gig invite!',
+      description:
+        'You have declined a gig invite.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 export default class AcceptGigInvite extends React.Component {
     constructor(props) {
@@ -127,7 +163,7 @@ export default class AcceptGigInvite extends React.Component {
             fetcingFactory(endpoints.ACCEPT_GIG, params).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotificationAccept();
                 } else {
                     console.log(response)
                     alert(response.json())
@@ -138,7 +174,7 @@ export default class AcceptGigInvite extends React.Component {
             fetcingFactory(endpoints.CANCEL_GIG, params).then(
                 response => {
                     if (response.status === 200) {
-                        window.location.href = "/home";
+                        openNotificationDecline();
                     } else {
                         console.log(response)
                         alert(response.json())
