@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import {createBand} from "../Utils/createBand";
 
 
-export default class createBandForm extends React.Component{
+export default class CreateBandForm extends React.Component{
     
     constructor(props){
         super(props)

@@ -8,7 +8,7 @@ export const endpoints = {
     CREATE_BAND: "/band-administration/create",
     GET_BAND: "/bands/",
     EDIT_BAND: "/band-administration/edit",
-    GET_MUSICIAN_BASIC: "musicians/show/basic/",
+    GET_MUSICIAN_BASIC: "/musicians/show/basic/",
     GET_BAND_ID: "/bands/like/",
     GET_MY_GIGS: "/gigs/",
     INVITE_TO_GIG: "/gigs/invite",
@@ -23,8 +23,65 @@ export const endpoints = {
     GET_BAND_INVITATIONS: "/musicians/invitations",
     BANDS_FILTER: "/bands/filter",
     PUBLIC_GIGS_VIEW : "/gigs/get-public",
+    GET_ROLES: "/current-roles",
+    GET_USER_INFO: "/users/",
+    GET_MUSICIAN_POSTS: "/musicians/show/posts/",
     ACCEPT_BAND_INVITE: "/band-administration/join/",
     EDIT_GIG: "/gigs/edit/",
     DECLINE_BAND_INVITE: "/musicians/invitations/cancel/"
     /*TO DO: ostali endpointi*/
 }
+
+export const InstrumentsList = [
+    {
+        "id": 1,
+        "name": "Marimba",
+        "pictureUrl": ""
+    },
+    {
+        "id": 2,
+        "name": "Piano",
+        "pictureUrl": ""
+    },
+    {
+        "id": 3,
+        "name": "Vibraphone",
+        "pictureUrl": ""
+    },
+    {
+        "id": 4,
+        "name": "Trumpet",
+        "pictureUrl": ""
+    },
+    {
+        "id": 5,
+        "name": "Xylophone",
+        "pictureUrl": ""
+    },
+    {
+        "id": 6,
+        "name": "Guitar",
+        "pictureUrl": ""
+    },
+    {
+        "id": 7,
+        "name": "Clarinet",
+        "pictureUrl": ""
+    },
+    {
+        "id": 8,
+        "name": "Oboe",
+        "pictureUrl": ""
+    },
+    {
+        "id": 9,
+        "name": "Violine",
+        "pictureUrl": ""
+    },
+    {
+        "id": 10,
+        "name": "Flute",
+        "pictureUrl": ""
+    }
+]
+

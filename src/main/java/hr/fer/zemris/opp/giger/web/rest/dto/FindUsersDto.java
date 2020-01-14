@@ -12,8 +12,6 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class FindUsersDto {
 
-	@NotBlank
 	private String name;
-	@NotBlank
 	private String band;
 }

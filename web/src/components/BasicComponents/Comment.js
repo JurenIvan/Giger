@@ -1,5 +1,7 @@
 import * as React from "react";
 import * as Helpers from "../../Utils/HelperMethods";
+import {Card, Avatar} from "antd";
+import {Row, Col} from "react-bootstrap";
 
 export class CommentClass extends React.Component {
     constructor(props) {
@@ -15,20 +17,16 @@ export class CommentClass extends React.Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-1">
-                <img src = ""></img>
-                </div>
-                <div className="col-10">
-                    <div className="row">
-                    {this.state.time}
-                    {this.state.user}
-                    </div>
-                    <div className="row">
-                        content
-                    </div>
-                </div>
-            </div>
+            <Card title = {this.props.content.personPreviewDto.name} extra = {this.props.content.postedOn}>
+            <Row>
+            <Col xs = {1}>
+                <Avatar size = {16} src={this.props.content.personPreviewDto.pictureUrl}/>
+            </Col>
+            <Col>
+                {this.props.content.content}
+            </Col>
+        </Row>
+            </Card>
         )
     }
 }

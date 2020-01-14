@@ -1,7 +1,7 @@
 import React from "react";
 import fetcingFactory from "../../Utils/external";
 import { endpoints } from "../../Utils/Types";
-import bandMemberClass from "./bandMember";
+import BandMemberClass from "./bandMember";
 
 export default class DisplayBandMembers extends React.Component{
     constructor(props) {
@@ -37,7 +37,7 @@ export default class DisplayBandMembers extends React.Component{
          console.log("Inside render")
          let members = this.state.bandMembers.map(element => {
              return (
-                 <bandMemberClass memberId = {element} backup = {false} />
+                 <BandMemberClass memberId = {element} backup = {false} />
              )
          })
         return(
@@ -54,7 +54,7 @@ export default class DisplayBandMembers extends React.Component{
                 {
                     this.state.backupBandMembers.map(element => {
                         return (
-                            <bandMemberClass memberId = {element} backup = {true} />
+                            <BandMemberClass memberId = {element} backup = {true} />
                         )
                     })
                 }

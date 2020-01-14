@@ -1,5 +1,7 @@
 import Cookies from "js-cookie";
+import * as Types from "../Utils/Types"
 const API = "https://giger-backend-dev.herokuapp.com/api/"
+
 
 export function sendRegisterInfo (email, username, phone, password, f) {
     //let xhr = new XMLHttpRequest();
@@ -131,4 +133,14 @@ export function getTime() {
         }
         var dateTime = day+'.'+month+'.'+year+'. '+hour+':'+minute;   
     return dateTime;
+}
+
+export function getInstrumentList(list) {
+    let helperList = [];
+    console.log(list)
+    helperList = list.map(element => {
+        console.log(Types.InstrumentsList[element-1])
+        return Types.InstrumentsList[element-1]
+    })
+    return helperList;
 }
