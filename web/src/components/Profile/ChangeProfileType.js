@@ -16,7 +16,8 @@ export default class ChangeProfileType extends React.Component {
             isInitMusician: false,
             musicianPublicCalendar: false,
             musicianBio: "",
-            organiserName: ""
+            organiserName: "",
+            postContent: ""
         }
 
         this.handleChangeOrganiser = this.handleChangeOrganiser.bind(this);

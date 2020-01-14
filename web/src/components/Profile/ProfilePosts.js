@@ -3,6 +3,7 @@ import { Card } from 'antd';
 import {PostClass} from "../BasicComponents/Post";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import {Row, Button} from "react-bootstrap"
 
 
 export default class ProfilePosts extends React.Component {
@@ -36,8 +37,40 @@ export default class ProfilePosts extends React.Component {
             }
            ]
         }
+        this.handlePostSubmit = this.handlePostSubmit.bind(this);
+        this.getProfilePosts = this.getProfilePosts.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
+    getProfilePosts() {
+        fetcingFactory(endpoints.GET_MUSICIAN_POSTS, this.state.id).then(
+            response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    alert("Something went wrong!")
+                }
+            }
+        ).then(
+            json => {
+                if(json) {
+                    console.log(json);
+                    let jsonList = json;
+                    let sortedList = jsonList.reverse()
+                    this.setState({ProfilePostsList: sortedList}, () => console.log(this.state))
+                 } else {
+                     return(
+                         <Card>
+                             <p>
+                                 User does not have posts.
+                             </p>
+                         </Card>
+                     );
+                 }
+                }
+            
+        )
+    }
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
@@ -49,31 +82,7 @@ export default class ProfilePosts extends React.Component {
     }
 
     componentWillMount() {
-       fetcingFactory(endpoints.GET_MUSICIAN_POSTS, this.state.id).then(
-           response => {
-               if (response.ok) {
-                   return response.json()
-               } else {
-                   alert("Something went wrong!")
-               }
-           }
-       ).then(
-           json => {
-               if(json) {
-                   console.log(json);
-                   this.setState({ProfilePostsList: json}, () => console.log(this.state))
-                } else {
-                    return(
-                        <Card>
-                            <p>
-                                User does not have posts.
-                            </p>
-                        </Card>
-                    );
-                }
-               }
-           
-       )
+       this.getProfilePosts();
     }
 
     /**
@@ -87,9 +96,42 @@ export default class ProfilePosts extends React.Component {
                     }
                 }
      */
+    handlePostSubmit = event => {
+        let params = {
+            content: this.state.postContent
+        }
+        console.log(params)
+        fetcingFactory(endpoints.SUBMIT_USER_POST, JSON.stringify(params)).then(
+            response => {
+                console.log(response);
+                if (response.ok) {
+                    this.getProfilePosts();
+                } else {
+                    alert("Post creation failed")
+                }
+            }
+        )
+        
+    }
+
+    handleChange = event => {
+        event.preventDefault();
+        this.setState({ postContent: event.target.value});
+    }
     render() {
         return (
             <div>
+            <Row className="profileInfo">
+            <textarea type="text"
+                onChange={this.handleChange}
+                 id="postContent"
+                 className="form-control"
+                 value = {this.state.postContent}></textarea>
+                <Button block type="submit" onClick = {this.handlePostSubmit}
+                style = {{width:500 , margin: "5px"}}>
+                    Post
+                </Button>
+        </Row>
                 {
                     this.state.ProfilePostsList.map(element => (
                             <PostClass 
