@@ -39,8 +39,6 @@ CREATE SEQUENCE public.band_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.band_id_seq OWNED BY public.band.id;
-
 CREATE TABLE public.band_invitation_gigs (
                                              band_id bigint NOT NULL,
                                              invitation_gigs_id bigint NOT NULL
@@ -93,7 +91,7 @@ CREATE SEQUENCE public.comment_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.comment_id_seq OWNED BY public.comment.id;
+
 
 CREATE TABLE public.conversation (
                                      id bigint NOT NULL,
@@ -111,7 +109,7 @@ CREATE SEQUENCE public.conversation_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.conversation_id_seq OWNED BY public.conversation.id;
+
 
 CREATE TABLE public.conversation_messages (
                                               conversation_id bigint NOT NULL,
@@ -151,7 +149,7 @@ CREATE SEQUENCE public.gig_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.gig_id_seq OWNED BY public.gig.id;
+
 
 CREATE TABLE public.gig_reviews (
                                     gig_id bigint NOT NULL,
@@ -174,7 +172,7 @@ CREATE SEQUENCE public.instrument_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.instrument_id_seq OWNED BY public.instrument.id;
+
 
 CREATE TABLE public.message (
                                 id bigint NOT NULL,
@@ -193,7 +191,7 @@ CREATE SEQUENCE public.message_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.message_id_seq OWNED BY public.message.id;
+
 
 CREATE TABLE public.musician (
                                  id bigint NOT NULL,
@@ -242,7 +240,7 @@ CREATE SEQUENCE public.occasion_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.occasion_id_seq OWNED BY public.occasion.id;
+
 
 CREATE TABLE public.organizer (
                                   id bigint NOT NULL,
@@ -279,7 +277,7 @@ CREATE SEQUENCE public.post_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.post_id_seq OWNED BY public.post.id;
+
 
 CREATE TABLE public.review (
                                id bigint NOT NULL,
@@ -300,7 +298,7 @@ CREATE SEQUENCE public.review_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.review_id_seq OWNED BY public.review.id;
+
 
 CREATE TABLE public.system_person (
                                       id bigint NOT NULL,
@@ -319,7 +317,7 @@ CREATE SEQUENCE public.system_person_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.system_person_id_seq OWNED BY public.system_person.id;
+
 
 CREATE TABLE public.system_person_roles (
                                             system_person_id bigint NOT NULL,
