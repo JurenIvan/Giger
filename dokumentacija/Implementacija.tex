@@ -12,14 +12,50 @@
 		
 	
 		\section{Ispitivanje programskog rješenja}
-			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{U ovom poglavlju je potrebno opisati provedbu ispitivanja implementiranih funkcionalnosti na razini komponenti i na razini cijelog sustava s prikazom odabranih ispitnih slučajeva. Studenti trebaju ispitati temeljnu funkcionalnost i rubne uvjete.}
 	
 			
 			\subsection{Ispitivanje komponenti}
 			\textit{Potrebno je provesti ispitivanje jedinica (engl. unit testing) nad razredima koji implementiraju temeljne funkcionalnosti. Razraditi \textbf{minimalno 6 ispitnih slučajeva} u kojima će se ispitati redovni slučajevi, rubni uvjeti te izazivanje pogreške (engl. exception throwing). Poželjno je stvoriti i ispitni slučaj koji koristi funkcionalnosti koje nisu implementirane. Potrebno je priložiti izvorni kôd svih ispitnih slučajeva te prikaz rezultata izvođenja ispita u razvojnom okruženju (prolaz/pad ispita). }
+			
+			
+			
+			Da bismo testirali backend, napravili smo dvije vrste testova. JUnit testove za testiranje servisa te integracijske testove koje je najlakše opisati kao automatizirane Postman zahtjeve.
+			
+			Servisi su testirani na način da ih gledamo kao crne kutije koje za određeni ulaz trebaju odraditi određene akcije ili vratiti određene objekte. Nomenklatura testovi servisa (BandServiceTest) slijedi pravilo given\_when\_then. Naprimjer, ako testiramo metodu naziva createMusician, pretpostavljajuci da on još ne postoji i očekujući da se kreira glazbenik u bazi, naziv testa bio bi 
+			noSuchMusician\_
+			createMusician\_createAndPersistateMusician().
+			
+			Pomoću Mockito frameworka u testovima mockamo (oponašamo) ulaze te na taj način kontroliramo ulaze i okolinu metode koju testiramo. Drugim riječima, kada radimo test za neku komponentu ili servis, pretpostavljamo da su svi ulazi dobri i ne zanima nas utjecaj naše komponente na drugu komponentu, već samo direktni izlaz. Na taj način dobivamo testove koji su međusobno nepovezani i koji definiraju željeno ponašanje aplikacije. Ukoliko u daljnjem razvoju neki od razvojnih programera promijeni neko ponašanje koje ima utjecaj na druge komponente, pravilno napisani testovi trebali bi pasti i upozoriti ga da će se njegova promjena propagirati dublje u aplikaciju. Testovi koji su pisani ciljano na pojedine komponente sustava u kontroliranim uvjetima prilikom izvođenja precizno ukazuju na vjerojatan izvor pogreške. Na primjer, ako promijenimo implementaciju kreiranja glazbenika te on u trenutku kreiranja ne dobije id, samo testovi koji provjeravaju parametre nakon inicijalizacije bi trebali pasti, a ne svi testovi koji se u nekom trenutku pozivaju na tu funkcionalnost.
+			
+			Svaki napisan test odijeljen je u tri cjeline, a to su Arrange, Act, Assert. U prvom dijelu uređujemo i mockamo ulaze u testirajuću komponentu, na prije opisan način. U drugom dijelu testa poziva se akcija ili niz akcija čije djelovanje želimo provjeriti, a u trećem dijelu testa provjeravamo jesu li posljedice izvršavanja drugoga dijela testa u skladu s očekivanjima.
+			
+			Na slici 5.1 nalazi se primjer unit testa. Linije 380-399 su Arrange, linija 401 je Act, dok su linije 404-408 Assert dio testa.
+			
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=13cm]{slike/junit_test.PNG}
+				\end{center}
+				\caption{Primjer JUnit testa}
+				\label{fig:junit}
+			\end{figure}
+		
+			
+			Pošto je pisanje testova često i iscrpnije od pisanja implementacije (BandService ima 210 linija koda, dok BandServiceTest koji ni ne testira baš sve metode u njemu ima 558), za ovaj projekt nismo radili TDD (test driven development) već smo naknadno radili testove za postojeću implementaciju kako bismo potvrdili implementaciju i programski dokumentirali očekivano ponašanje.
+			
+			Uz dodatak BandService testovima postoji i nekoliko testova u EmailSenderTest koji pokazuju kako testirati komponentu čiju implementaciju ne znamo.
+			
+			
+			Uz tridesetak JUnit testova čija je glavna prednost brzo izvođenje, napisali smo desetak integracijskih testova. Kao što smo već spomenuli, integracijski testovi slični su ručnom pregledavanju u Postmanu. Svaki integracijski test pokreće aplikaciju ispočetka tako da su mu stanje baze i aplikacije (kontekst) jednaki kao kad se pokrene aplikacija. U ovim testovima koristimo MockMvc kako bismo simulirali http request kojemu moramo odrediti metodu (GET, POST) te dodati pripadajuća zaglavlja. U ovom testu verificiramo je li ono što je vratila metoda jednako onome što se očekivalo (najčešće usporedbe DTO-ova).
+			
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=17cm]{slike/integracijski_test.PNG}
+				\end{center}
+				\caption{Primjer integracijskog testa}
+				\label{fig:inttest}
+			\end{figure}
+			
+			Tehnike testiranja programske potpore nadahnute su knjigom Test-Driven Development Kenta Becka.
 			
 			
 			

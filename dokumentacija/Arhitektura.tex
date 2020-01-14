@@ -675,10 +675,17 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 	
 	\section{Dijagram aktivnosti}
 	
-	\textit{\textbf{dio 2. revizije}} \\
+	UML dijagram aktivnosti prikazuje detaljan tijek obrazaca uporabe, njegovu proceduralnu logiku te sudionike pojedinoga obrasca uporabe. 
 	
-	\textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.} \\
+	Na slici 4.11 prikazan je dijagram aktivnosti pisanja poruke. Korisnik se prijavi u sustav nakon čega odabire "Poruke". Nakon toga se iz baze dohvaćaju već postojeće poruke korisnika te mu ih aplikacija prikaže. Korisnik tada može ili započeti novi razgovor, ili odabrati postojeći. Ukoliko želi stvoriti novi razgovor, odabire opciju "Nova poruka" te mu aplikacija prikazuje praznu poruku. Nakon toga, odabire korisnika kojemu želi napisati poruku sve dok se on ne pronađe uspješno u bazi podataka. Ukoliko korisnik želi razgovarati s korisnikom s kojim je već vodio razgovor, odabire razgovor s tim korisnikom. Aplikacija iz baze dohvaća prošle poruke s odabranim korisnikom. U oba opisana slučaja, korisnik piše željenu poruku, odabire "Pošalji" nakon čega se poruka sprema u bazu te aplikacija prikaže potvrdu o slanju. 
 	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=17cm]{slike/dijagram_aktivnosti.PNG}
+		\end{center}
+		\caption{Dijagram aktivnosti}
+		\label{fig:dijakt}
+	\end{figure}
 	
 	\eject
 	
