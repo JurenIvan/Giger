@@ -18,7 +18,6 @@ export default function Header(props) {
     }
     return (
         <header className="Header">
-            {renderHome()}
             {/*<Button href='/events'>Events</Button>*/}
             {/*<Button href='/bands'>Bands</Button>*/}
             
@@ -26,6 +25,7 @@ export default function Header(props) {
                 Cookies.get('Bearer') ?
                     [
                     <div className="Header-btns">
+                    <Button href='/home'>Home</Button>
                     <Button onClick={handleLogout}>Log out</Button>
                     <Button href="/profile">Profile</Button>
                     </div>    
@@ -33,6 +33,7 @@ export default function Header(props) {
                     :
                     [
                     <div className="Header-btns">
+                    <Button href='/WelcomePage'>Home</Button>
                     <Button href='/login'>Log in</Button>
                     <Button href='/register'>Register</Button>
                     </div>]
@@ -40,15 +41,4 @@ export default function Header(props) {
 
         </header>
     )
-}
-
- export function renderHome(){
-     if(Cookies.get('Bearer'))
-     {
-        return(<div><Button href='/home'>Home</Button></div>)
-     }
-     else{
-        return(<div><Button href='/WelcomePage'>Home</Button></div>)
-     }
-
 }
