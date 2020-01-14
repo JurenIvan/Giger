@@ -577,11 +577,21 @@ Ovaj entitet sadrži podatke o kreiranom bendu.  Sadrži atribute: id, opis, dat
 			
 			\begin{figure}[H]
 				\begin{center}
-					\includegraphics[width=17cm]{slike/pravi_dto2.PNG}
+					\includegraphics[width=17cm]{slike/nepovezani_dto.PNG}
 				\end{center}
-				\caption{Dijagram razreda - dio Data transfer objects}
+				\caption{Dijagram razreda - dio Data transfer objects, prvi dio}
 				\label{fig:dto}
 			\end{figure}
+		
+		Na ovom dijagramu prikazani su razredi Dto među kojima postoje veze jer pojedini razredi sadrže reference na druge razrede. 
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=17cm]{slike/povezani_dto.PNG}
+			\end{center}
+			\caption{Dijagram razreda - dio Data transfer objects, drugi dio}
+			\label{fig:dto2}
+		\end{figure}
 		
 		Slika 4.5 prikazuje dijagram razreda servisnog sloja. Servisi komuniciraju s repozitorijima koji pristupaju bazi i Controller-ima od kojih dobivaju i kojima vraćaju podatke. Servisi iz baze dobivaju instance objekata koji mogu biti povezani s drugim podatcima, itd. i njihov je cilj poštivajući poslovnu logiku obraditi te podatke i kao rezultat svog izvođenja vraćaju DTO-ove. Servisi sadrže svu poslovnu logiku. Gotovo svaki Controller ima pripadajući servis, a svaki je servis logički objedinjen skup funkcija poslovne logike. Iznimke koje se bacaju u servisima omataju se GigerException-om koji nasljeđuje RuntimeException. Ako se pogreška propagira iz sustava, možemo provjeriti njezin tip te ako je zamotana u GigerException, znači da je to iznimka koju smo očekivali, u protivnom je došlo do neočekivane situacije u sustavu.
 		
