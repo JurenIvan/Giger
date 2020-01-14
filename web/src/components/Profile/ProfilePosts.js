@@ -1,9 +1,9 @@
 import React from "react";
-import { Card } from 'antd';
 import {PostClass} from "../BasicComponents/Post";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import {Row, Button} from "react-bootstrap"
+import { Button} from "react-bootstrap";
+import {Card} from "antd";
 
 
 export default class ProfilePosts extends React.Component {
@@ -59,13 +59,7 @@ export default class ProfilePosts extends React.Component {
                     let sortedList = jsonList.reverse()
                     this.setState({ProfilePostsList: sortedList}, () => console.log(this.state))
                  } else {
-                     return(
-                         <Card>
-                             <p>
-                                 User does not have posts.
-                             </p>
-                         </Card>
-                     );
+                     this.setState({ProfilePostsList: []})
                  }
                 }
             
@@ -121,30 +115,31 @@ export default class ProfilePosts extends React.Component {
     }
     render() {
         return (
-            <div>
-            <Row className="profileInfo">
+            <div style = {{margin: 5}}>
             <textarea type="text"
                 onChange={this.handleChange}
                  id="postContent"
                  className="form-control"
                  value = {this.state.postContent}></textarea>
-                <Button block type="submit" onClick = {this.handlePostSubmit}
-                style = {{width:500 , margin: "5px"}}>
+                <Button onClick = {this.handlePostSubmit}
+                style = {{width: 500, margin: 5}}>
                     Post
                 </Button>
-        </Row>
                 {
+                    this.state.ProfilePostsList.length > 0? 
                     this.state.ProfilePostsList.map(element => (
-                            <PostClass 
-                                id = {element.id}
-                                postOwnerName = {this.state.name}
-                                content= {element.content}
-                                postedTime = {element.publishedOn}
-                                postOwnerImg = {this.state.pictureUrl}
-                                comments = {element.comments}
-                                updatePost = {this.getProfilePosts}
-                            />
-                    ))
+                        <PostClass 
+                            id = {element.id}
+                            postOwnerName = {this.state.name}
+                            content= {element.content}
+                            postedTime = {element.publishedOn}
+                            postOwnerImg = {this.state.pictureUrl}
+                            comments = {element.comments}
+                            updatePost = {this.getProfilePosts}
+                        />
+                )) : <Card style = {{textAlign: "center", borderBlockColor: "darkcyan"}}>
+                        No posts.
+                    </Card>
                 }
             </div>
            

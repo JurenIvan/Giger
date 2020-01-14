@@ -58,7 +58,7 @@ export class PostClass extends React.Component {
             <Card style = {{width:550, marginBottom: "2px", backgroundColor:"darkcyan"}}>
             <Card title= {this.props.postOwnerName}
              extra = {this.props.postedTime}
-             style = {{width: 500}}
+             style = {{width: 500, marginBottom: 4}}
              >
                 <Row>
                     <Col xs = {1}>
