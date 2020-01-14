@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -13,9 +14,10 @@ import java.util.List;
 @AllArgsConstructor
 public class BandCreationDto {
 
+    @NotBlank
 	private String name;
 	private String bio;
-	private String pictureUrl;
+    private String pictureUrl;
 	private List<GigType> acceptableGigTypes;
 	private Location homeLocation;
 }

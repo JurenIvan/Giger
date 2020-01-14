@@ -6,7 +6,7 @@ console.log(process.env.API_URL)
 
 const API = "https://giger-backend-dev.herokuapp.com/api";
 
-export default function fetcingFactory (endpoint, params) {
+export default function fetcingFactory (endpoint, params, id) {
     // eslint-disable-next-line
     switch (endpoint) {
         case Types.endpoints.LOGIN:
@@ -61,6 +61,13 @@ export default function fetcingFactory (endpoint, params) {
             return getUserInfo(params, endpoint);
         case Types.endpoints.GET_MUSICIAN_POSTS:
             return getMusicianPosts(params, endpoint);
+        case Types.endpoints.ACCEPT_BAND_INVITE:
+            return accBandInvite(params, endpoint);
+        case Types.endpoints.EDIT_GIG:
+            return editGig(params, endpoint, id);
+        case Types.endpoints.DECLINE_BAND_INVITE:
+            return declineBandInvite(params, endpoint)
+                
     }
 }
 
@@ -326,6 +333,40 @@ function getMusicianPosts(params, endpoint) {
         headers: {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
+        }
+    })
+}
+
+function accBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
+        }
+    })
+}
+
+function editGig(params, endpoint, id) {
+    return fetch(API + endpoint + id, {
+        method: "POST",
+        body: params,
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")}
+    })
+}
+
+function declineBandInvite(params, endpoint) {
+    console.log(API + endpoint + params)
+    return fetch(API + endpoint + params, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+
         }
     })
 }

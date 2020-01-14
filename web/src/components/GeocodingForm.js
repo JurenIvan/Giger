@@ -65,21 +65,15 @@ class GeocodingForm extends Component {
             <div className="GeocodingForm">
                 <Form onSubmit={e => {e.preventDefault();}}>
                     {/* <!-- Query --> */}
-                    <div className="col-2">
                         <Form.Label controlId="city"> Ime grada: </Form.Label>
-                    </div>
-                    <div className="col-6">
-                            <Form.Group controlId="eventDuration">
-                                <Form.Control autoFocus name="query" type="text" placeholder="Grad, Država" value={query}
-                                              onChange={this.handleInputChange}/>
-                            </Form.Group>
-                        </div>
+                        <Form.Group controlId="city">
+                            <Form.Control autoFocus name="query" type="text" placeholder="Grad, Država" value={query}
+                                          onChange={this.handleInputChange}/>
+                        </Form.Group>
                     {/* <!-- Button Geocode --> */}
-                    <div className="col-6">
                         <Form.Group>
                             <Button type="button" block disabled={isLocating || isSubmitting} onClick={this.handleSubmit}> Dohvati lokaciju </Button>
                         </Form.Group>
-                    </div>
                     
                     {/* <!-- ./Button Geocode --> */}
                 </Form>

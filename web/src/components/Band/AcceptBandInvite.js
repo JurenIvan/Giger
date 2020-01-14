@@ -12,9 +12,10 @@ export default class AcceptBandInvite extends React.Component {
         this.state = {
             isSearching: false,
             invites: [],
-            selectedInvite: ""
+            selectedInvite: "",
+            accept: true
         }
-        //this.handleRadioChange = this.handleRadioChange.bind(this)
+        this.handleRadioChange = this.handleRadioChange.bind(this)
     }
 
     componentDidMount() {
@@ -31,12 +32,12 @@ export default class AcceptBandInvite extends React.Component {
                     for(let i=0; i<response.length;i++) {
                         if(response[i].asMember === true) {
                             this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)", main: true}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Main member)"}]
                               }))
                         }
                         else {
                             this.setState(prevState => ({
-                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)", main: false}]
+                                invites: [...prevState.invites, {value: response[i].bandId, label: response[i].bandName+"(Backup member)"}]
                               }))
                         }
                     }
@@ -52,36 +53,78 @@ export default class AcceptBandInvite extends React.Component {
         );
     }
 
+    handleSubmit = event => {
+        event.preventDefault();
+        console.log(this.state.selectedInvite)
+        if(this.state.accept === true) {
+            console.log("Prihvati")
+            fetcingFactory(endpoints.ACCEPT_BAND_INVITE, this.state.selectedInvite).then(
+            response => {
+                if (response.status === 200) {
+                    window.location.href = "/home";
+                } else {
+                    console.log(response)
+                    alert(response.json())
+                }
+            }); }
+        else {
+            console.log("Odbij")
+            fetcingFactory(endpoints.DECLINE_BAND_INVITE, this.state.selectedInvite).then(
+                response => {
+                    if (response.status === 200) {
+                        window.location.href = "/home";
+                    } else {
+                        console.log(response)
+                        alert(response.json())
+                    }
+                }); 
+        }
+    }
+
+    handleRadioChange(event) {
+        const accept = event.currentTarget.value === 'true' ? true: false;
+        this.setState({ accept }, () => console.log(this.state.accept)
+            );
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div className="AcceptBandInvite">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-2">
-                            <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
-                        </div>
+                        <Form.Label controlId="chooseInvite"> Odaberi poziv: </Form.Label>
+                        <Form.Group controlId="chooseInvite">
+                        <Select
+                            disabled={this.state.isSearching}
+                            name="selectedInvite"
+                            options={this.state.invites}
+                            value={this.state.selectedInvite}
+                            //onChange={this.updateEventType}
+                            onChange={value => {
+                                this.setValues(value[0].value)
+                                console.log(value)}
+                            }
+                        />
+                        </Form.Group>
 
-                        <div className="col-6">
-                            <Form.Group controlId="chooseInvite">
-                            <Select
-                                disabled={this.state.isSearching}
-                                name="selectedInvite"
-                                options={this.state.invites}
-                                value={this.state.selectedInvite}
-                                //onChange={this.updateEventType}
-                                onChange={value => {
-                                    this.setValues(value[0])
-                                    console.log(value)}
-                                }
-                            />
-                            </Form.Group>
-                        </div>
+                        <label><input 
+                                type="radio"
+                                name="accept"
+                                value="true"
+                                checked={this.state.accept === true}
+                                onChange={this.handleRadioChange}
+                                ></input>Prihvati</label>
+                                <label><input 
+                                type="radio"
+                                name="accept"
+                                value="false"
+                                checked={this.state.accept === false}
+                                onChange={this.handleRadioChange}
+                                ></input>Odbij</label>
 
-                        <div nameClass="col-6">
-                            <Form.Group>
-                                <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
-                            </Form.Group>
-                        </div>
+                        <Form.Group>
+                            <Button type="submit" block> Pozovi/odbij poziv u bend </Button>
+                        </Form.Group>
                     </Form>
                 </div>
             </React.Fragment>

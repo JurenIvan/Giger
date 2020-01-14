@@ -102,48 +102,34 @@ export default class InviteToGig extends React.Component {
             <React.Fragment>
                 <div className = "InviteToGig">
                     <Form onSubmit={this.handleSubmit}>
-                        <div className="col-2">
                             <Form.Label controlId="bandName"> Ime benda: </Form.Label>
-                        </div>
-                        <div className="col-6">
                             <Form.Group controlId="bandName">
                                 <Form.Control autoFocus type="text" value={this.state.bandName}
                                               onChange={this.handleChange}/>
                             </Form.Group>
-                        </div>
 
-                        <div className="col-6">
                             <Form.Group>
                                 <Button type="button" block onClick={this.handleBandIdGet}> Dohvati ID benda </Button>
                             </Form.Group>
-                        </div>
 
-                        <div className="col-6">
                             <Form.Group>
                                 <Button type="button" block onClick={this.handleGetMyGigs}> Dohvati svoje gigove </Button>
                             </Form.Group>
-                        </div>
 
-                        <div className="col-2">
                             <Form.Label controlId="gigName"> Odaberi gig: </Form.Label>
-                        </div>
-                        <div className="col-6">
                             <Form.Group controlId="gigName">
-                            <Select
-                                name="selectedGigName"
-                                options={this.state.myGigs}
-                                value={this.state.selectedGigName}
-                                //onChange={this.updateEventType}
-                                onChange={value => this.setValues(value[0].value)}
-                            />
+                                <Select
+                                    name="selectedGigName"
+                                    options={this.state.myGigs}
+                                    value={this.state.selectedGigName}
+                                    //onChange={this.updateEventType}
+                                    onChange={value => this.setValues(value[0].value)}
+                                />
                             </Form.Group>
-                        </div>
 
-                        <div nameClass="col-6">
                             <Form.Group>
                                 <Button type="submit" block> Pozovi bend u gig </Button>
                             </Form.Group>
-                        </div>
                     </Form>
                 </div>
             </React.Fragment>

@@ -23,6 +23,7 @@ import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import MusicianProfile from "./components/Profile/MusicianProfile"
 import ModalClass from "./components/BasicComponents/Modal"
+import EditGig from './components/EditGig'
 
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
             <MusicianProfile edit = {true}/> :
             <ModalClass/>
           )} />
+          <Route path='/EditGig' exact component = {EditGig}/>
         </Switch>
       </div>
       

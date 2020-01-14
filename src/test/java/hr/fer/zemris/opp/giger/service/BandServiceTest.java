@@ -442,7 +442,7 @@ public class BandServiceTest {
 		BandDto bandDtoSixtyTwo = mock(BandDto.class);
 
 
-		when(bandRepository.findAllByNameLike("Sixty")).thenReturn(newArrayList(bandSixtyOne, bandSixtyTwo));
+		when(bandRepository.findAllByNameContaining("Sixty")).thenReturn(newArrayList(bandSixtyOne, bandSixtyTwo));
 		when(bandSixtyOne.toDto()).thenReturn(bandDtoSixtyOn);
 		when(bandSixtyTwo.toDto()).thenReturn(bandDtoSixtyTwo);
 

@@ -26,9 +26,16 @@ export default class RegisterClass extends React.Component{
     }
 
     myChangeHandler = event => {
-        this.setState({
-          [event.target.id]: event.target.value
-        });
+        if (event.target.id === "eMail") {
+            this.setState({
+            [event.target.id]: event.target.value.toLowerCase()
+            });
+        }
+        else {
+            this.setState({
+                [event.target.id]: event.target.value
+                });
+        }
       }
 
     
@@ -68,9 +75,10 @@ export default class RegisterClass extends React.Component{
            fetcingFactory(endpoints.REGISTER, params).then(
             response => {
                if (response.status === 200) {
-                   window.location.href = "/login";
+                    window.location.href = "/login";
                } else {
-                  this.setState({inValidRegister: true})
+                    console.log(response)
+                    this.setState({inValidRegister: true})
                }
             });
         }
