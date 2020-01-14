@@ -41,10 +41,12 @@ export class PostClass extends React.Component {
         let params = {
             content: this.state.commentContent
         }
-        fetcingFactory(endpoints.SUBMIT_COMMENT + this.props.id, JSON.stringify(params)).then(
+        this.setState({commentContent: ""})
+        fetcingFactory(endpoints.SUBMIT_COMMENT, JSON.stringify(params), this.props.id).then(
             response => {
+                console.log(response);
                 if(response.ok) {
-                    alert("OK")
+                    this.props.updatePost();
                 } else {
                     alert("Not ok!")
                 }
@@ -53,7 +55,7 @@ export class PostClass extends React.Component {
     }
     render() {
         return (
-            <div style = {{marginBottom: "2px"}}>
+            <Card style = {{width:550, marginBottom: "2px", backgroundColor:"darkcyan"}}>
             <Card title= {this.props.postOwnerName}
              extra = {this.props.postedTime}
              style = {{width: 500}}
@@ -85,15 +87,15 @@ export class PostClass extends React.Component {
             {
                 this.state.isCommentButtonClicked?
                 <Row>
-                <input className="form-control" onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
+                <input className = "form-control" style={{width:420, marginRight:5}} onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
                 </input>
-                <Button onClick = {this.handleSubmitComment} 
-                style = {{position: "relative", bottom: 2, right: 2}}> Submit comment </Button>
+                <Button onClick = {this.handleSubmitComment} style={{width: 100}}
+                > Submit comment </Button>
                 </Row> : null
             }
             
                 
-            </div>
+            </Card>
         )
     }
 }

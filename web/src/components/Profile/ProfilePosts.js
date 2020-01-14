@@ -100,6 +100,7 @@ export default class ProfilePosts extends React.Component {
         let params = {
             content: this.state.postContent
         }
+        this.setState({postContent : ""})
         console.log(params)
         fetcingFactory(endpoints.SUBMIT_USER_POST, JSON.stringify(params)).then(
             response => {
@@ -141,6 +142,7 @@ export default class ProfilePosts extends React.Component {
                                 postedTime = {element.publishedOn}
                                 postOwnerImg = {this.state.pictureUrl}
                                 comments = {element.comments}
+                                updatePost = {this.getProfilePosts}
                             />
                     ))
                 }

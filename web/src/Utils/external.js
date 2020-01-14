@@ -70,7 +70,7 @@ export default function fetcingFactory (endpoint, params, id) {
         case Types.endpoints.SUBMIT_USER_POST:
             return createPost(params, endpoint);
         case Types.endpoints.SUBMIT_COMMENT:
-            return submitComment(params,endpoint);
+            return submitComment(params,endpoint,id);
                 
     }
 }
@@ -386,8 +386,8 @@ function createPost(params, endpoint) {
     })
 }
 
-function submitComment(params, endpoint) {
-    return fetch(API + endpoint, {
+function submitComment(params, endpoint, id) {
+    return fetch(API + endpoint + id, {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
