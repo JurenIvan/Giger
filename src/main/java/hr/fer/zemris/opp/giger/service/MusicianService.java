@@ -75,7 +75,10 @@ public class MusicianService {
 	}
 
 	public void editProfile(MusicianProfileDto musicianProfileDto) {
-		Musician musician = userDetailsService.getLoggedMusician().update(musicianProfileDto, intrumentService.getListOfIntruments(musicianProfileDto.getInstrumentList()));
+		List<Instrument> instruments = null;
+		if (musicianProfileDto.getInstrumentList() != null)
+			instruments = intrumentService.getListOfIntruments(musicianProfileDto.getInstrumentList());
+		Musician musician = userDetailsService.getLoggedMusician().update(instruments);
 		Person person = userDetailsService.getLoggedPerson().updatePerson(musicianProfileDto);
 
 		musicianRepository.save(musician);
