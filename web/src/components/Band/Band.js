@@ -9,6 +9,22 @@ import { Card, Input } from 'antd';
 import 'antd/dist/antd.css';
 import DisplayBandMembers from "./DisplayBandMembers"
 import './BandsBands.css'
+import {notification, Icon } from 'antd';
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully edited your band!',
+      description:
+        'You have edited your band.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/displayGigs";
+      },
+
+    });
+}
 
 const { TextArea } = Input;
 
@@ -98,7 +114,7 @@ export default class Band extends React.Component {
         fetcingFactory(endpoints.EDIT_BAND, JSON.stringify(params)).then(
             response => {
                 if (response.ok) {
-                    alert("Edited succesfully");
+                    openNotification();
                 } else {
                     alert("Failed edit");
                 }

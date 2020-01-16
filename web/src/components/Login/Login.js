@@ -3,6 +3,25 @@ import Cookies from 'js-cookie';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import  "../Login/Login.css";
+import {notification, Icon } from 'antd';
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully logged in!',
+      description:
+        'You have logged in.\n Click Notification to redirect to Display Gigs',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/displayGigs";
+      },
+      onClose: () => {
+        window.location.href = "/displayGigs";
+      }
+
+    });
+}
 
 export default class Login extends Component {
     constructor(props) {
@@ -55,8 +74,8 @@ export default class Login extends Component {
                     Cookies.set("Bearer", json.token);
                     console.log(json);
                     console.log(json.token);
-                    console.log(json.userId)
-                    window.location.href = "/displayGigs"
+                    console.log(json.userId);
+                    openNotification();
                 } else {
                     alert(json.violationErrors[0].message)
                 }

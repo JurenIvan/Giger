@@ -5,6 +5,25 @@ import fetcingFactory from "../../Utils/external";
 import * as Types from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
 import GeocodingForm from '../GeocodingForm';
+import {notification, Icon } from 'antd';
+
+const openNotification = () => {
+    notification.open({
+        message: 'You have successfully created a band!',
+        description:
+          'You have created a band.\n Click Notification to redirect to Login',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/login";
+      },
+      onClose: () => {
+        window.location.href = "/login";
+      }
+
+    });
+}
 
 export default class BandCreate extends React.Component {
   
@@ -111,7 +130,7 @@ export default class BandCreate extends React.Component {
         fetcingFactory(Types.endpoints.CREATE_BAND, JSON.stringify(params)).then(
             response => {
                if (response.ok) {
-                   window.location.href = "/home";
+                   openNotification();
                } else {
                    alert("Band creation failed")
                }
