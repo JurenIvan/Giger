@@ -19,11 +19,11 @@ export default class BandView extends React.Component {
             response => response.json()).then(
                 json => {
                     for (let i= 0; i < json.length; i++){
-                        let helperBand = {bandName: json[i].name, bandId: json[i].id, gigTypes: []};
+                        let helperBand2 = {bandName: json[i].name, bandId: json[i].id, gigTypes: []};
                         for (let j = 0; j < json[i].gigTypes.length; j++) {
-                            helperBand.gigTypes.push(json[i].gigTypes[j])
+                            helperBand2.gigTypes.push(json[i].gigTypes[j])
                         }
-                        leaderHelper.push(helperBand)
+                        leaderHelper.push(helperBand2)
                         console.log(leaderHelper)
                     }
                     this.setState({leaderBands: leaderHelper}, () =>  console.log(this.state.leaderBands))                   
@@ -40,7 +40,7 @@ export default class BandView extends React.Component {
                             memberHelper.push(helperBand)
                             console.log(memberHelper)
                         }
-                        this.setState({leaderBands: memberHelper}, () =>  console.log(this.state.leaderBands))                   
+                        this.setState({memberBands: memberHelper}, () =>  console.log(this.state.memberBands))                   
                     }
                 )
         
