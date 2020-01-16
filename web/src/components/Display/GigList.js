@@ -1,6 +1,7 @@
 import React from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
+import { Avatar } from 'antd';
 import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
@@ -104,7 +105,7 @@ export class GigList extends React.Component{
                 
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
-                <div style={{ background: '#ECECEC', padding: '30px' }}>
+                <div style={{ background: '#ECECEC', padding: '20px' }}>
                 <Card title={item.name} style={{ width: 600 }}>
                 <table style={{width:"100%"}}>
                   <tr>
@@ -117,9 +118,21 @@ export class GigList extends React.Component{
                                     <br></br>
                                     <p>Date and time : {item.dateTime}</p>
                                     <br></br></Card.Grid></p></th>
-                    <th><iframe title="Maps"
-                  height="100%" 
+                    <th><iframe 
+                  height="150%" 
                     src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
+                  </tr>
+                </table>
+                <table style={{width:"100%"}}>
+                  <tr>
+                  <th>
+                  <Card title={"Band playing - " + item.bandDto.name} bordered={false}  style={{width: '90%'}}>
+                  <p>{item.bandDto.bio}</p>
+                  </Card>
+                  </th>
+                  <th>
+                  <Avatar shape="square" size={128} icon="user" src={item.bandDto.pictureURl} />
+                  </th>
                   </tr>
                 </table>
                 </Card>
