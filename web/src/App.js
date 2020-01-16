@@ -8,7 +8,7 @@ import Home from './components/Home/Home';
 import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/Register/register';
-import CreateBandForm from './components/createBandForm'
+import CreateBandForm from './components/Band/createBandForm'
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
