@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 import * as Types from "../Utils/Types"
-const API = "https://giger-backend-dev.herokuapp.com/api/"
+const API = process.env.NODE_ENV === 'production'?"https://giger-backend.herokuapp.com/api/":"https://giger-backend-dev.herokuapp.com/api/";
 
 
 export function sendRegisterInfo (email, username, phone, password, f) {
@@ -38,7 +38,7 @@ export function sendRegisterInfo (email, username, phone, password, f) {
 
 export function sendLoginInfo (email, password, f) {
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/authenticate';
+    let url = API + 'authenticate';
     xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-type', 'application/json');
     
@@ -63,7 +63,7 @@ export function sendLoginInfo (email, password, f) {
 export function isUsernameAvailible(username, f) {
     // 1. Create a new XMLHttpRequest object
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/register/nickname-available?nickname=' + username;
+    let url = API + 'register/nickname-available?nickname=' + username;
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     
@@ -88,7 +88,7 @@ export function isUsernameAvailible(username, f) {
 export function pingHelloWorld(f) {
     // 1. Create a new XMLHttpRequest object
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/hello';
+    let url = API + 'hello';
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Authorization',

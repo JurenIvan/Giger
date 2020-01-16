@@ -1,16 +1,32 @@
 import React from 'react';
-import { registerLocale} from "react-datepicker";
-import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
 import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import "./Gigs.css";
-import { Checkbox , DatePicker, Select} from 'antd';
+import { Checkbox , DatePicker, Select, notification, Icon} from 'antd';
 import 'antd/dist/antd.css';
-registerLocale('hr', hr)
+import moment from 'moment';
 
 const {Option} = Select;
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully edited a gig!',
+      description:
+        'You have edited a gig, please make arrangements with a band to make it public.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 export default class EditGig extends React.Component {
     constructor(props) {
@@ -178,7 +194,7 @@ export default class EditGig extends React.Component {
         fetcingFactory(endpoints.EDIT_GIG, params, this.state.gigId).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotification();
                 } else {
                     console.log(response)
                     alert(response.json())
@@ -275,7 +291,6 @@ export default class EditGig extends React.Component {
                                 </Select>
                                 <br></br><br></br>
                                 <DatePicker
-                                    locale="hr"
                                     dateFormat="dd/MM/yyyy HH:mm"
                                     showTime
                                     timeFormat="HH:mm"
@@ -284,6 +299,7 @@ export default class EditGig extends React.Component {
                                     selected={this.state.eventDate}
                                     onSelect={this.handleSelect}
                                     onChange={this.handleDateChange}
+                                    value={moment(this.state.eventDate)}
                                 />
                                 <br></br><br></br>
                                 <Checkbox onChange={this.handleTypeChange} name="privateGig" checked={this.state.privateGig}>Private gig?</Checkbox>

@@ -3,20 +3,22 @@ import { Button, Row } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
-import {Checkbox, Card, Switch} from "antd"
+// eslint-disable-next-line
+import { Card, Switch} from "antd"
 
 export default class ChangeProfileType extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isOragniser: false,
+            isOrganiser: false,
             isMusician: false,
             isInitOrganiser: false,
             isInitMusician: false,
             musicianPublicCalendar: false,
             musicianBio: "",
-            organiserName: ""
+            organiserName: "",
+            postContent: ""
         }
 
         this.handleChangeOrganiser = this.handleChangeOrganiser.bind(this);
@@ -37,10 +39,11 @@ export default class ChangeProfileType extends React.Component {
             ).then(
                 json => {
                     if(json) {
+                        console.log(json)
                         for (let i = 0; i < json.length; i++) {
-                            if (json[i] == "MUSICIAN") {
+                            if (json[i] === "MUSICIAN") {
                                 this.setState({isInitMusician: true})
-                            } else if (json[i] == "ORGANIZER") {
+                            } else if (json[i] === "ORGANIZER") {
                                 this.setState({isInitOrganiser: true})
                             }
                         }
@@ -49,11 +52,13 @@ export default class ChangeProfileType extends React.Component {
             )
     }
 
-    handleChangeOrganiser(checked){
-        this.setState({isOragniser: checked})
+    handleChangeOrganiser(){
+        let currentChecked = this.state.isOrganiser;
+        this.setState({isOrganiser: !currentChecked})
     }
-    handleChangeMusician(checked) {
-        this.setState({isMusician: checked})
+    handleChangeMusician() {
+        let currentChecked = this.state.isMusician;
+        this.setState({isMusician: !currentChecked})
     }
     handleMusicianCreate() {
         let params = {
@@ -85,15 +90,15 @@ export default class ChangeProfileType extends React.Component {
     render() {
         const checkboxOrg = () => {
             return (
-                <Switch onChange={this.handleChangeOrganiser}
-                        checked = {this.state.isInitOrganiser || this.state.isOrganiser} 
+                <Switch onClick={(e) => {this.handleChangeOrganiser()}}
+                        checked = {this.state.isOrganiser || this.state.isInitOrganiser} 
                         disabled = {this.state.isInitOrganiser}>
                 </Switch>
             )
-        }
+            }
         const checkboxMus = () => {
             return (
-                <Switch onChange={this.handleChangeMusician}
+                <Switch onClick={(e) => {this.handleChangeMusician()}}
                         checked = {this.state.isInitMusician || this.state.isMusician} 
                         disabled = {this.state.isInitMusician}>
                 </Switch>
@@ -105,7 +110,7 @@ export default class ChangeProfileType extends React.Component {
             <Card
             title = "I am organizer"
             style = {{width: 450}}
-             loading = {this.state.isInitOrganiser || this.state.isOrganiser}
+             loading = {this.state.isInitOrganiser || !this.state.isOrganiser}
              extra = {checkboxOrg()}
              >
                 <input type="text" value = {this.state.organiserName} onChange = {(e => {this.setState({organiserName: e.currentTarget.value})})} placeholder="Organiser name"></input>
@@ -117,7 +122,7 @@ export default class ChangeProfileType extends React.Component {
             <Card
             title = "I am musician"
             style = {{width: 450}}
-             loading = {this.state.isInitMusician || this.state.isMusician}
+             loading = {this.state.isInitMusician || !this.state.isMusician}
              extra = {checkboxMus()}
              >
                  <div>

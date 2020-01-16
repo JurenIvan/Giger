@@ -2,11 +2,46 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-//import Select from 'react-dropdown-select';
-import { Radio, Select } from 'antd';
+import { Radio, Select, notification, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
 const {Option} = Select;
+
+const openNotificationMain = () => {
+    notification.open({
+      message: 'You have successfully invited a musician into your band!',
+      description:
+        'You have invited a musician into your band as a main member.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+const openNotificationBackup = () => {
+    notification.open({
+      message: 'You have successfully invited a musician into your band!',
+      description:
+        'You have invited a musician into your band as a backup member.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 export default class InviteToBand extends React.Component {
     constructor(props) {
@@ -94,7 +129,7 @@ export default class InviteToBand extends React.Component {
         fetcingFactory(endpoints.INVITE_MAIN_MEMB, params).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotificationMain();
                 } else {
                     console.log(response)
                     alert(response.json())
@@ -105,7 +140,7 @@ export default class InviteToBand extends React.Component {
             fetcingFactory(endpoints.INVITE_BACKUP_MEMB, params).then(
                 response => {
                     if (response.status === 200) {
-                        window.location.href = "/home";
+                        openNotificationBackup();
                     } else {
                         console.log(response)
                         alert(response.json())

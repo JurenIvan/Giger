@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
+import hr.fer.zemris.opp.giger.web.rest.dto.BandDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.GigPreviewDto;
 import lombok.AllArgsConstructor;
@@ -49,7 +50,11 @@ public class Gig {
 	private List<Review> reviews;
 
 	public GigPreviewDto toDto() {
-		return new GigPreviewDto(id, organizer.getId(), dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig);
+		return new GigPreviewDto(id, organizer.getId(), dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig, null);
+	}
+
+	public GigPreviewDto toDto(BandDto bandDto) {
+		return new GigPreviewDto(id, organizer.getId(), dateTime, location, name, description, expectedDuration, proposedPrice, gigType, finalDealAchieved, privateGig, bandDto);
 	}
 
 	@Override

@@ -9,8 +9,6 @@ import Cookies from 'js-cookie'
 import ErrorComponent from './components/ErrorComponent';
 import RegisterClass from './components/Register/register';
 import CreateBandForm from './components/createBandForm'
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import ProfileClass from './components/Profile/Profile';
 import {DisplayBands} from "./components/Display/DisplayBands";
 import {DisplayGigs} from "./components/Display/DisplayGigs";
@@ -24,6 +22,7 @@ import InviteToBand from './components/Band/InviteToBand'
 import AcceptBandInvite from './components/Band/AcceptBandInvite'
 import MusicianProfile from "./components/Profile/MusicianProfile"
 import ModalClass from "./components/BasicComponents/Modal"
+import DisplayMusicianCalendar from './components/Profile/DIsplayMusicianCalendar';
 import EditGig from './components/Gigs/EditGig'
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 
@@ -74,7 +73,6 @@ function App() {
             isLoggedIn?
             <DisplayBands/> : <ModalClass/>
           )}/>
-          <Route path='/CreateGig' exact component={CreateGig} />
           <Route path='/profile_change_type' render = {() => (
             isLoggedIn?
             <ChangeProfileType/> : <ModalClass/>
@@ -106,7 +104,15 @@ function App() {
             <MusicianProfile edit = {true}/> :
             <ModalClass/>
           )} />
-          <Route path='/EditGig' exact component = {EditGig}/>
+          <Route path= '/displayMusicianCalendar' render = { () => (
+            isLoggedIn?
+            <DisplayMusicianCalendar id = {Cookies.get("userId")} /> : 
+            <ModalClass />
+          )} />
+          <Route path ='/EditGig' render = {() => (
+            isLoggedIn?
+            <EditGig/> : <ModalClass/>
+          )} />
           <Route path='/WelcomePage' exact component = {WelcomePage}/>
         </Switch>
       </div>

@@ -23,6 +23,7 @@ public class Instrument {
 	private Long id;
 	private String name;
 	private InstrumentType type;
+	private String pictureUrl;
 
 	@Override
 	public boolean equals(Object o) {

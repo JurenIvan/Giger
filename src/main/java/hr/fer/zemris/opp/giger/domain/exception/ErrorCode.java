@@ -12,7 +12,7 @@ public enum ErrorCode {
 	EXCEPTION(40001, "Exception occurred", BAD_REQUEST),
 	NO_SUCH_USER(40002, "No such user exists", BAD_REQUEST),
 	NO_ROLE_DATA_PRESENT(40003, "User does not have the permission.", BAD_REQUEST),
-	ORGANIZER_ALREADY_EXISTS(40004, "Manager name is already taken.", BAD_REQUEST),
+	ORGANIZER_ALREADY_EXISTS(40004, "User is already manager.", BAD_REQUEST),
 	BAND_NAME_NOT_UNIQUE(40005, "Band name is already taken.", BAD_REQUEST),
 	MUSICIAN_ALREADY_EXISTS(40006, "Musician already exists.", BAD_REQUEST),
 	NO_SUCH_BAND(40007, "There is no such band.", BAD_REQUEST),
@@ -42,7 +42,8 @@ public enum ErrorCode {
 	BAND_ALREADY_ACCEPTED(40031, "Band already accepted invitation to this event", BAD_REQUEST),
 	BAND_ALREADY_INVITED(40032, "Band already invited to event", BAD_REQUEST),
 	DEAL_ACHIEVED(40033, "Deal is already achieved", BAD_REQUEST),
-	VALIDATION_EXCEPTION(40034, "Validation of dto failed", BAD_REQUEST);
+	VALIDATION_EXCEPTION(40034, "Validation of dto failed", BAD_REQUEST),
+	NO_SUCH_INSTRUMENT(40035, "No such instrument exists", BAD_REQUEST);
 
 	private final int code;
 	private final String message;

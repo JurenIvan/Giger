@@ -4,7 +4,25 @@ import Button from 'react-bootstrap/Button';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import 'antd/dist/antd.css';
-import { Select } from 'antd';
+import { Select , Icon, notification} from 'antd';
+
+const openNotification = () => {
+    notification.open({
+      message: 'You have successfully invited a band to your gig!',
+      description:
+        'You have invited a band to your gig.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 const {Option} = Select;
 
@@ -87,7 +105,7 @@ export default class InviteToGig extends React.Component {
         fetcingFactory(endpoints.INVITE_TO_GIG, params).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotification();
                 } else {
                     console.log(response)
                     alert(response.json())
