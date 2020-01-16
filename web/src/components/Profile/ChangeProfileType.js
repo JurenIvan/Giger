@@ -3,6 +3,7 @@ import { Button, Row } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
+// eslint-disable-next-line
 import { Card, Switch} from "antd"
 
 export default class ChangeProfileType extends React.Component {

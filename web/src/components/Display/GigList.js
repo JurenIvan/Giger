@@ -1,12 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
 import "../../CSS/GigList.css"
-import MyModal from "../Modal/AntdModal";
-
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import { Button } from 'antd';
 const { Search } = Input;
 
 
@@ -120,7 +117,7 @@ export class GigList extends React.Component{
                                     <br></br>
                                     <p>Date and time : {item.dateTime}</p>
                                     <br></br></Card.Grid></p></th>
-                    <th><iframe 
+                    <th><iframe title="Maps"
                   height="100%" 
                     src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
                   </tr>

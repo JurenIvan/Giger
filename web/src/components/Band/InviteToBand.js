@@ -2,7 +2,6 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-//import Select from 'react-dropdown-select';
 import { Radio, Select, notification, Icon } from 'antd';
 import 'antd/dist/antd.css';
 

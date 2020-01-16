@@ -2,9 +2,11 @@ import * as Types from "./Types";
 import Cookies from "js-cookie";
 
 require('dotenv').config();
-console.log(process.env.API_URL)
+console.log(process.env.NODE_ENV === 'production'?"Prod":"Dev")
 
-const API = "https://giger-backend-dev.herokuapp.com/api";
+const API = process.env.NODE_ENV === 'production'?"https://giger-backend.herokuapp.com/api":"https://giger-backend-dev.herokuapp.com/api";
+//console.log(API)
+
 
 export default function fetcingFactory (endpoint, params, id) {
     // eslint-disable-next-line

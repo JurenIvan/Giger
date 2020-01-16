@@ -1,8 +1,6 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { Card } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import  "../Register/register.css";
@@ -90,7 +88,7 @@ export default class RegisterClass extends React.Component{
     render() {
         return (
             
-            <div className="modal-dialog" className="modal-login">
+            <div className="modal-login">
             <div className="container">
                 <Modal show={this.state.inValidRegister} animation={false}>
                 <Modal.Body style={{color:"red"}}> Something went wrong with your registration. Please, try again! </Modal.Body>
@@ -118,7 +116,7 @@ export default class RegisterClass extends React.Component{
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <div className="modal-dialog" className="modal-login">
+            <div className="modal-login">
                         <div className="modal-content">
 
                             <div className="modal-header">				
