@@ -1,11 +1,13 @@
-import React from "react"
-import { Card } from 'antd';
+import React, { Component } from "react"
 import { Input } from 'antd';
-import { Avatar } from 'antd';
+import { Card, Modal, Button,Row, Col, Slider } from 'antd';
 import fetcingFactory from "../../Utils/external";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import {endpoints} from "../../Utils/Types";
+
 const { Search } = Input;
+const { Meta } = Card;
+
 
 
 export class BandList extends React.Component{
@@ -16,7 +18,8 @@ export class BandList extends React.Component{
         this.state= {
             BandNames: [],
             filtered: [],
-            Bands:[]
+            Bands:[],
+            visible:false
         }
         this.handleChange = this.handleChange.bind(this);
 
@@ -43,6 +46,25 @@ export class BandList extends React.Component{
       )
 
     }
+    showModal = () => {
+      this.setState({
+        visible: true,
+      });
+    };
+  
+    handleOk = e => {
+      console.log(e);
+      this.setState({
+        visible: false,
+      });
+    };
+  
+    handleCancel = e => {
+      console.log(e);
+      this.setState({
+        visible: false,
+      });
+    };
 
 
 
@@ -102,27 +124,48 @@ export class BandList extends React.Component{
             <ul>
 
             <div className ="band-item">
-            
+
             {this.state.Bands.map(item => (
                 //extra ce bit link na stranicu benda
-
-
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
-                <div style={{ background: '#ECECEC', padding: '30px' }}>
-                <Card title={item.name} extra={<a href="#">More</a>} style={{ width: 600 }}>
-                    <Avatar size={128} src={item.pictureURl} />
-                    <br></br>
-                    <br></br>
-                    <p>Gig type: {item.gigTypes[0]}</p>
+                <div style={{ background: '#ECECEC', padding: '15px' }}>
+
+                <Card style={{ width: 350 }} 
+                cover={
+                  <img
+                    alt="bandimage"
+                    src={item.pictureURl}
+                    height="200" 
+                    width="50"
+                  />
+                }
+                actions={[
+                  <Button type="primary" onClick={this.showModal}>
+                  View gig types
+                </Button>
+                ]}                
+                >
+                    <Meta
+                    title={item.name}
+                    description={item.bio}
+                   />
+                  <Modal
+                    title={"Gig types of "+ item.name}
+                    visible={this.state.visible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                  >
+                    {item.gigTypes.map(types =>
+                    <p>
+                      {types}
+                    </p>
+                    )}
+                  </Modal>
+
                 </Card>
                 </div>
                 }
-                <div>
-                <br></br>
-                <br></br>
-                <br></br>
-                </div>
                 </div>
             ))}
             </div>
