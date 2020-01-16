@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -25,6 +26,12 @@ public class InstrumentController {
 	public Instrument getInstrument(@PathVariable Long instrumentId) {
 		LOGGER.info("getInstrument: " + instrumentId);
 		return intrumentService.getInstrument(instrumentId);
+	}
+
+	@GetMapping("/all")
+	public List<Instrument> getInstruments() {
+		LOGGER.info("getInstruments");
+		return intrumentService.getInstruments();
 	}
 
 	@PostMapping("/create")
