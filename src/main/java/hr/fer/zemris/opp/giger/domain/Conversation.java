@@ -55,7 +55,7 @@ public class Conversation {
 
 	public ConversationPreviewDto toDto() {
 		BandDto bandDto = band != null ? band.toDto() : null;
-		return new ConversationPreviewDto(participants.stream().map(Person::toDto).collect(toList()), bandDto, pictureUrl, messages.stream().map(Message::toDto).collect(toList()));
+		return new ConversationPreviewDto(id,participants.stream().map(Person::toDto).collect(toList()), bandDto, pictureUrl, messages.stream().map(Message::toDto).collect(toList()));
 	}
 
 

@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ConversationPreviewDto {
 
+	private Long conversationId;
 	private List<PersonPreviewDto> participantsId;
 	private BandDto bandId;
 	private String pictureUrl;
