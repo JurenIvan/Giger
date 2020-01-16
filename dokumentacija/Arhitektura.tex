@@ -617,9 +617,7 @@
 		\section{Dijagram razreda}
 
 
-			\textit{\textbf{dio 2. revizije}} \\
 			
-			\textit{Prilikom druge predaje projekta dijagram razreda i opisi moraju odgovarati stvarnom stanju implementacije} \\
 			
 			
 			Na slici 4.3 prikazan je Controllers dio backend aplikacije. Controlleri su jedina izložena točka u aplikaciji te nad njima frontend izvršava upite. Svi Controller-i su zaštićeni Spring Security-jem te se prije svakog propuštanja zahtjeva na Controller autorizira token koji se nalazi u zaglavlju zahtjeva. Jedina iznimka su Controller-i koji služe za registraciju i prijavu. Nakon što se zahtjev autorizira Controller-i pozivaju servisni sloj aplikacije te od njih zahtjevaju da izvrše dio poslovne logike za koju su napisani. Povratni tip Controller-a su DTO-ovi (Data Transfer Objects) prikazani na slici 4.4. Njima se na frontend vraća samo dio informacije prikupljene od servisa.  
@@ -700,7 +698,7 @@
 			\label{fig:sec}
 		\end{figure}
 	
-	Za dohvat podataka iz baze podataka koristimo Jakarta Persistence. Jakarta persistence je specifikacija programskog sučelja Java aplikacije koja opisuje upravljanje relacijskim podacima u aplikaciji. U ovoj aplikaciji za svaki entitet definiran je zasebni repozitorij koji nasljeđuje JpaRepositoryj. Jpa Repository sadrži osnovne metode za dohvat podataka, a Spring Boot omogućuje programeru da specificiranjem samo imena metode dobije implementaciju iste na korištenje. 
+	Za dohvat podataka iz baze podataka koristimo Jakarta Persistence. Jakarta Persistence je specifikacija programskog sučelja Java aplikacije koja opisuje upravljanje relacijskim podacima u aplikaciji. U ovoj aplikaciji za svaki entitet definiran je zasebni repozitorij koji nasljeđuje JpaRepositoryj. Jpa Repository sadrži osnovne metode za dohvat podataka, a Spring Boot omogućuje programeru da specificiranjem samo imena metode dobije implementaciju iste na korištenje. 
 	
 		\begin{figure}[H]
 			\begin{center}
@@ -763,8 +761,7 @@
 	
 	\section{Dijagram komponenti}
 	
-	Dijagram komponenti prikazuje zavisnost programskih komponenata i fizičku strukturu koda u terminima kodnih komponenti. Graf komponenti povezan je vezama ovisnosti kako bi se omogućila lakša analiza reakcije ostalih komponenti na promjene u jednoj komponenti. 
-	Dohvat podataka iz SQL Postgres baze podataka vrši se sučeljima koja nasljeđuju JPA Repository pomoću SQL upita. Podaci koji pristižu iz baze podataka stavljaju se u DTO objekte koji se koriste u ostatku aplikacije. REST API šalje podatke iz backend aplikacije u obliku JSON-a frontend aplikaciji. Frontend aplikacija se sastoji od Javascript datoteka koje su grupirane u ovisnosti koji aktor im pristupa. Router je komponenta koja određuje koje datoteke se prikazuju klijentu. Sustavu se pristupa preko sučelja preko kojega mu se šalju HTML i JS datoteke iz frontend aplikacije.
+	Dijagram komponenti prikazuje zavisnost programskih komponenata i fizičku strukturu koda u terminima kodnih komponenti. Graf komponenti povezan je vezama ovisnosti kako bi se omogućila lakša analiza reakcije ostalih komponenti na promjene u jednoj komponenti. Dohvat podataka iz SQL Postgres baze podataka vrši se sučeljima koja nasljeđuju JPA Repository pomoću SQL upita. Podaci koji pristižu iz baze podataka stavljaju se u DTO objekte koji se koriste u ostatku aplikacije. REST API šalje podatke iz backend aplikacije u obliku JSON-a frontend aplikaciji. Frontend aplikacija se sastoji od Javascript datoteka koje su grupirane u ovisnosti koji aktor im pristupa. Router je komponenta koja određuje koje datoteke se prikazuju klijentu. Sustavu se pristupa preko sučelja preko kojega mu se šalju HTML i JS datoteke iz frontend aplikacije.
 	
 	\begin{figure}[H]
 		\begin{center}
