@@ -26,7 +26,8 @@ export default class Band extends React.Component {
             },
             query: '',
             apikey: 'd77313f368154e0d8313ae506740f103',
-            isSubmitting: false
+            isSubmitting: false,
+            pictureUrl: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
@@ -70,15 +71,16 @@ export default class Band extends React.Component {
             }
         ).then(
             json =>{
-                this.setState({bandBio: json.bio, location: json.location})
+                this.setState({bandBio: json.bio, location: json.location, pictureUrl: json.pictureURl}, () => console.log(this.state.pictureUrl))
             }
         )
         this.setState({showModal: true})
     }
 
     handleChange = event => {
+        console.log(event.target)
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
@@ -89,7 +91,7 @@ export default class Band extends React.Component {
             bio: this.state.bandBio,
             location: this.state.location,
             maxDistance: 0,
-            pictureUrl: "",
+            pictureUrl: this.state.pictureUrl,
             removePostIds: []
         }
         console.log(params);
@@ -117,7 +119,7 @@ export default class Band extends React.Component {
                             <div className="modal-body">
                             <form onSubmit={this.handleSubmit}>
                         <div>
-                                <TextArea placeholder="Biography" autoFocus type="textarea" value={this.state.bandBio}
+                                <TextArea name="bandBio" placeholder="Biography" autoFocus type="textarea" value={this.state.bandBio}
                                                 onChange={this.handleChange}/>
                         </div>
 
