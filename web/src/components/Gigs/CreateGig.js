@@ -45,11 +45,11 @@ export default class CreateGig extends React.Component {
             eventDuration: "",
             eventPrice: "",
             eventType: [
-                {value: "WEDDING", label: "Svadba"},
-                {value: "BIRTHDAY", label: "Rođendan"},
-                {value: "BACHELORS_PARTY",label: "Momačka/djevojačka"},
-                {value: "CONCERT", label: "Koncert"},
-                {value: "OTHER", label: "Ostalo"}
+                {value: "WEDDING", label: "Wedding"},
+                {value: "BIRTHDAY", label: "Birthday"},
+                {value: "BACHELORS_PARTY",label: "Bachelors party"},
+                {value: "CONCERT", label: "Concert"},
+                {value: "OTHER", label: "Other"}
             ],
             selectedEventType: "",
             query: '',
