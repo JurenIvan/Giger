@@ -37,7 +37,7 @@ public class MusicianController {
 	}
 
 	@GetMapping("/show/basic/{musicianId}")
-	public MusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId) {
+	public ShowMusicianProfileDto showBasicProfile(@PathVariable @Min(1) Long musicianId) {
 		LOGGER.info("ShowBasicProfile: " + musicianId);
 		return musicianService.showProfile(musicianId);
 	}

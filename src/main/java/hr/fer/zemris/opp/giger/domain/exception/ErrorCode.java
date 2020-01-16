@@ -42,7 +42,8 @@ public enum ErrorCode {
 	BAND_ALREADY_ACCEPTED(40031, "Band already accepted invitation to this event", BAD_REQUEST),
 	BAND_ALREADY_INVITED(40032, "Band already invited to event", BAD_REQUEST),
 	DEAL_ACHIEVED(40033, "Deal is already achieved", BAD_REQUEST),
-	VALIDATION_EXCEPTION(40034, "Validation of dto failed", BAD_REQUEST);
+	VALIDATION_EXCEPTION(40034, "Validation of dto failed", BAD_REQUEST),
+	NO_SUCH_INSTRUMENT(40035, "No such instrument exists", BAD_REQUEST);
 
 	private final int code;
 	private final String message;
