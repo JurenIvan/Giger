@@ -5,6 +5,43 @@ import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
 // eslint-disable-next-line
 import { Card, Input, Button, Select} from "antd"
+import {notification, Icon } from 'antd';
+
+const openGNotification = () => {
+    notification.open({
+      message: 'You have successfully became an organizer!',
+      description:
+        'You are now an organizer.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onclose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+const openMNotification = () => {
+    notification.open({
+      message: 'You have successfully became a musician!',
+      description:
+        'You are now a musician.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onclose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 const {Option} = Select;
 
@@ -72,7 +109,7 @@ export default class ChangeProfileType extends React.Component {
        
         fetcingFactory(endpoints.CREATE_MUSICIAN, JSON.stringify(params)).then(response => {
             if (response.ok) {
-                alert("Musician created!")
+                openMNotification()
             } else {
                 alert("Musician creation failed!")
             }
@@ -82,7 +119,7 @@ export default class ChangeProfileType extends React.Component {
         fetcingFactory(endpoints.CREATE_ORGANIZER, this.state.organiserName).then(
             response => {
                 if(response.ok) {
-                    alert("Organizer created!");
+                    openGNotification()
                 } else {
                     alert("Organizer creation failed!")
                 }
