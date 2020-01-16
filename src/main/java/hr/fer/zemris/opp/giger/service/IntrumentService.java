@@ -27,4 +27,8 @@ public class IntrumentService {
 	public Instrument saveInstrument(InstrumentDto instrumentDto) {
 		return instrumentRepository.save(new Instrument(null, instrumentDto.getName(), instrumentDto.getType(), instrumentDto.getPictureUrl()));
 	}
+
+	public List<Instrument> getInstruments() {
+		return instrumentRepository.findAll();
+	}
 }

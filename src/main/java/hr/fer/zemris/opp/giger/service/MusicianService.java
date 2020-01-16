@@ -33,7 +33,8 @@ public class MusicianService {
 			throw new GigerException(MUSICIAN_ALREADY_EXISTS);
 		}
 
-		var loggedInUserId = userDetailsService.getLoggedInUserId();
+		var loggedInUser = userDetailsService.getLoggedPerson();
+		var loggedInUserId = loggedInUser.getId();
 		var systemPerson = systemPersonRepository.findById(loggedInUserId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 		systemPerson.addRole(MUSICIAN);
 
@@ -43,6 +44,9 @@ public class MusicianService {
 		musician.setInstruments(intrumentService.getListOfIntruments(musicianDto.getInstrumentIdList()));
 		musician.setPublicCalendar(musicianDto.getPublicCalendar());
 
+		loggedInUser.setPictureUrl("https://files.slack.com/files-pri/TP038T9EJ-FSRGY0QLQ/first.png");
+
+		personRepository.save(loggedInUser);
 		systemPersonRepository.save(systemPerson);
 		musicianRepository.save(musician);
 	}
