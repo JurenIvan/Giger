@@ -105,7 +105,7 @@ export class GigList extends React.Component{
                 
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
-                <div style={{ background: '#ECECEC', padding: '20px' }}>
+                <div style={{ background: '#179b81', padding: '15px' }}>
                 <Card title={item.name} style={{ width: 600 }}>
                 <table style={{width:"100%"}}>
                   <tr>
