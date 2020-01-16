@@ -112,6 +112,9 @@ export default class ProfileInfo extends React.Component {
                             </Row>
                         </Col>
                         <Col md={7}>
+                          <center>
+                          <h2>Instruments I play:</h2>
+                          </center>
                             <DisplayInstruments instrumentIds = {this.props.instrumentList}></DisplayInstruments>
                         </Col>
                         </Row>
