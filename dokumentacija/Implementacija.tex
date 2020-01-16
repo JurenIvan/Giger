@@ -122,55 +122,117 @@ Moćan i vrlo prilagodljiv okvir za provjeru autentičnosti i kontrolu pristupa 
 		 	
 		 	\subsubsection{Test 1: Registracija korisnika}
 		 		
-		 		\textbf{Očekivano:} Klikom na gumb "Register" otvara se forma sa potrebnim poljima za registraciju: Forma se sastoji od unosa imena, prezimena, korisničkog imena, e-mail adrese, kontakt telefona, te korisničke lozinke. Ukoliko su sva polja ispravna korisnik će se pokušati registrirati u bazu ukoliko nema iznimki, u protivnom, sustav će dojaviti grešku.
+		 		\textbf{Očekivano:} Klikom na gumb \textit{Register} otvara se forma s potrebnim poljima za registraciju: imena, prezimena, korisničkog imena, e-mail adrese, kontakt telefona te korisničke lozinke. Ukoliko su sva polja ispravna korisnik će se pokušati registrirati u bazu, u protivnom će sustav dojaviti grešku.
 		 		
 		 		
-		 		\noindent\textbf{Rezultat:} Korisnik je uspješno registriran u bazu podataka ili je sustav dojavio grešku.
+		 		\noindent\textbf{Rezultat:} Korisnik je uspješno registriran u bazu podataka ili je sustav dojavio grešku.\\
+		 		
+		 		
+		 		Na slici 5.3 prikazana je poruka koja se prikaže prilikom neispravne registracije. Slika 5.4 prikazuje kako uspješna registracija izgleda u Seleniumu. U polju \textit{Value} se vide uneseni podatci za koje se testira. U \textit{Log} dijelu se vide dijelovi testa te poruka jesu li prošli ili nisu. Dok se na kraju ispiše poruka o uspješnosti testa.  
 		 		
 				\begin{figure}[H]
 		 			\begin{center}
 		 				\includegraphics[width=15cm]{slike/neispravna_forma_registracija.PNG}
 		 			\end{center}
-		 			\caption{Test za neispravno unešena poolja (lozinka kraća od 8 znakova). U slučaju ispravno unesenih polja, aplikacija preusmjerava na prijavu.}
+		 			\caption{Prikaz poruke za neispravnu registraciju}
 		 			\label{fig:inttest}
 		 		\end{figure}
+	 		
+	 			\begin{figure}[H]
+	 				\begin{center}
+	 					\includegraphics[width=15cm]{slike/selenium_register.PNG}
+	 				\end{center}
+	 				\caption{Selenium test koji prikazuje ispravnu registraciju}
+	 				\label{fig:selreg}
+	 			\end{figure}
+ 			
 			\subsubsection{Test 2: Prijava korisnika u aplikaciju}
-			\textbf{Očekivano:} Klikom na gumb "Login", otvara se forma sa poljima: E-mail korisnika te lozinka. U slučaju ispravno unešenih polja i podataka, korisnik se prijavljuje u aplikaciju. U protivnom, aplikacija dojavljuje grešku.
+			\textbf{Očekivano:} Klikom na gumb \textit{Login} otvara se forma s poljima: e-mail korisnika i lozinka. U slučaju ispravno unešenih polja i podataka, korisnik se prijavljuje u aplikaciju. U protivnom, aplikacija dojavljuje grešku.
 			
-			\noindent\textbf{Rezultat:} Korisnik je prijavljen u aplikaciju ili je dojavljena greška.
+			\noindent\textbf{Rezultat:} Korisnik je prijavljen u aplikaciju ili je dojavljena greška.\\
+			
+			Na slici 5.5 prikazana je prijava u aplikaciju dok je na slici 5.6 prikaz javnih nastupa koji se prikaže nakon uspješne prijave. Slika 5.7 prikazuje kako to izgleda i u Seleniumu. 
 			
 			\begin{figure}[H]
 				\begin{center}
-					\includegraphics[width=15cm]{slike/login_screen.PNG}
+					\includegraphics[width=10cm]{slike/login_screen.PNG}
 				\end{center}
 				\caption{Prikaz prijave u aplikaciju}
-				\label{fig:inttest}
+				\label{fig:login}
 			\end{figure}
 		
 			\begin{figure}[H]
 				\begin{center}
-					\includegraphics[width=15cm]{slike/login_redirect.PNG}
+					\includegraphics[width=12cm]{slike/login_redirect.PNG}
 				\end{center}
-				\caption{Nakon uspješne prijave, aplikacija preusmjerava na prikaz javnih \textit{Gig-ova}}
-				\label{fig:inttest}
+				\caption{Nakon uspješne prijave, aplikacija preusmjerava na prikaz javnih nastupa}
+				\label{fig:loginre}
 			\end{figure}
 		
-		\subsubsection{Test 3: Stvaranje profila \textit{Glazbenik}}
-		\textbf{Očekivano:} Nakon prijave u aplikaciju, klikovima na gumbove: Profile, Settings, Change profile type, otvara se sljedeća forma:
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=15cm]{slike/selenium_login.PNG}
+				\end{center}
+				\caption{Prikaz uspješnog logina u Seleniumu}
+				\label{fig:sellogin}
+			\end{figure}
+		
+		\subsubsection{Test 3: Stvaranje profila \textit{Glazbenika}}
+		\textbf{Očekivano:} Nakon prijave u aplikaciju, klikovima na gumbove: \textit{Profile, Settings, Change profile type}, nude se opcije za postati glazbenik ili organizator. Kod stvaranja organizatora je potrebno unijeti ime kao menadžera, dok kod stvaranja glazbenika je moguće unijeti biografiju, odabrati instrumente koje glazbenik svira te je li kalendar glazbenika javan ili ne. 
+		\noindent Korisnik ispunjavanjem forme i klikom na gumb \textit{Confirm} stvara profil glazbenika.
+
+		\noindent\textbf{Rezultat:} U slučaju da je korisnik već glazbenik, aplikacija će ga u pokušaju stvaranja o tome obavijestiti. U suprotnom, aplikacija dojavljuje da je korisniku uspješno dodijeljena uloga glazbenika.\\
+		
+		
+		Na slici 5.7 prikazano je uspješno stvaranje glazbenika, dok je na slici 5.8 prikazano što se prikaže na istom mjestu u aplikaciji kada već jesmo glazbenik. Na slici 5.9 je prikazano i kako izgleda Selenium test za slučaj kada korisnik već je glazbenik. U tom slučaju, kao što vidimo, Selenium test pada.
 		
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[width=13cm]{slike/create_musician.PNG}
+				\includegraphics[width=10cm]{slike/create_musician.PNG}
 			\end{center}
 			\caption{Forma za stvaranje profila glazbenik}
-			\label{fig:inttest}
+			\label{fig:crmus}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=7cm]{slike/crmus.PNG}
+			\end{center}
+			\caption{Forma za stvaranje profila glazbenik}
+			\label{fig:crm}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=15cm]{slike/selenium_createmus.PNG}
+			\end{center}
+			\caption{Prikaz Selenium testa za stvaranje profila glazbenika koji je već glazbenik}
+			\label{fig:crmus2}
 		\end{figure}
 		
-		\noindent Korisnik ispunjanjem forme i klikom na gumb "Confirm" stvara profil glazbenik.
-		
-		\noindent\textbf{Rezultat:} U slučaju da je korisnik već glazbenik, aplikacija će ga u pokušaju stvarnja o tome obavijestiti. U suprotnom, aplikacija dojavljuje da je korisniku uspješno pridjeljena uloga "Glazbenik".
 		
 		\subsubsection{Test 4: Objavljivanje \textit{Post-ova}}
+			\textbf{Očekivano:} Nakon što se prijavimo u aplikaciju i jesmo Glazbenik, odemo na \textit{Profile, Musician\_profile te View} gdje se prikazuju sve objave prijavljenog glazbenika. Ondje imamo i polje u koje upišemo željeni tekst objave te pritisnemo \textit{Post} kako bi se on objavio.
+			
+			\noindent\textbf{Rezultat:} Post se objavi i prikazuje se među ostalim objavama glazbenika.\\
+			
+			Na slici 5.11 je prikazano dodavanje teksta nove objave, a na 5.12 je prikazan Selenium test za dodavanje nove objave koji uspješno prođe. 
+			
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=7cm]{slike/post.PNG}
+				\end{center}
+				\caption{Prikaz dodavanja teksta za novu objavu}
+				\label{fig:post}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=15cm]{slike/selpost.PNG}
+				\end{center}
+				\caption{Prikaz Selenium testa za dodavanje objave}
+				\label{fig:selpost}
+			\end{figure}
 			
 			\eject 
 		
