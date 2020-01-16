@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Button, Row } from "react-bootstrap";
+import {  Row } from "react-bootstrap";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
 // eslint-disable-next-line
-import { Card, Switch} from "antd"
+import { Card, Switch, Input, Button} from "antd"
 
 export default class ChangeProfileType extends React.Component {
     constructor(props) {
@@ -21,8 +21,7 @@ export default class ChangeProfileType extends React.Component {
             postContent: ""
         }
 
-        this.handleChangeOrganiser = this.handleChangeOrganiser.bind(this);
-        this.handleChangeMusician = this.handleChangeMusician.bind(this);
+        
         this.handleMusicianCreate = this.handleMusicianCreate.bind(this);
         this.handleOrganiserCreate = this.handleOrganiserCreate.bind(this);
     }
@@ -52,14 +51,6 @@ export default class ChangeProfileType extends React.Component {
             )
     }
 
-    handleChangeOrganiser(){
-        let currentChecked = this.state.isOrganiser;
-        this.setState({isOrganiser: !currentChecked})
-    }
-    handleChangeMusician() {
-        let currentChecked = this.state.isMusician;
-        this.setState({isMusician: !currentChecked})
-    }
     handleMusicianCreate() {
         let params = {
             "bio": this.state.musicianBio,
@@ -88,43 +79,49 @@ export default class ChangeProfileType extends React.Component {
     }
 
     render() {
-        const checkboxOrg = () => {
-            return (
-                <Switch onClick={(e) => {this.handleChangeOrganiser()}}
-                        checked = {this.state.isOrganiser || this.state.isInitOrganiser} 
-                        disabled = {this.state.isInitOrganiser}>
-                </Switch>
-            )
-            }
-        const checkboxMus = () => {
-            return (
-                <Switch onClick={(e) => {this.handleChangeMusician()}}
-                        checked = {this.state.isInitMusician || this.state.isMusician} 
-                        disabled = {this.state.isInitMusician}>
-                </Switch>
-                )
-            }
         return (
             <React.Fragment>
             <ProfileSideNav />
             <Card
-            title = "I am organizer"
+            title = "I want to make an organizer profile"
             style = {{width: 450}}
-             loading = {this.state.isInitOrganiser || !this.state.isOrganiser}
-             extra = {checkboxOrg()}
-             >
-                <input type="text" value = {this.state.organiserName} onChange = {(e => {this.setState({organiserName: e.currentTarget.value})})} placeholder="Organiser name"></input>
-                <div>
-                    <Button block onClick={this.handleOrganiserCreate}>Confirm</Button>
-                </div>
+             >  
+            {this.state.isInitOrganiser?[
+                 <div>
+                     <p>You are already an organizer</p>
+                 </div>
+             ]:[
+                 <div>
+                    <Input type="text" value = {this.state.organiserName} onChange = {(e => {this.setState({organiserName: e.currentTarget.value})})} placeholder="Organizer name"></Input>
+                    <br></br><br></br>
+                    <div>
+                        <Button block 
+                        onClick={this.handleOrganiserCreate}
+                        style ={{
+                            fontFamily: 'sans-serif',
+                            fontSize: "14px", 
+                            fontWeight: "bold",
+                            background: "#19aa8d",
+                            borderRadius: "3px",
+                            border: "none",
+                            minWidth: "140px",
+                            maxWidth: "100%",
+                            outline: "none"
+                        }}
+                        >Confirm</Button>
+                    </div>
+                 </div>
+             ]}
             </Card>
-
             <Card
-            title = "I am musician"
-            style = {{width: 450}}
-             loading = {this.state.isInitMusician || !this.state.isMusician}
-             extra = {checkboxMus()}
-             >
+            title = "I am a musician"
+            style = {{width: 450, marginTop: 10}}
+            >
+            {this.state.isInitMusician?[
+                <div>
+                    <p>You are already a musician</p>
+                </div>
+            ]: [
                  <div>
                     <Row>
                         <textarea type="text" placeholder="Biography" value = {this.state.musicianBio} onChange = {(e) => {this.setState({musicianBio: e.currentTarget.value})}}/>
@@ -132,9 +129,23 @@ export default class ChangeProfileType extends React.Component {
                     <Row>
                         <label>My calendar will be public: </label>
                         <input type="checkbox"></input>
-                        <Button block onClick = {this.handleMusicianCreate}>Confirm</Button>
+                        <Button
+                        block 
+                        onClick = {this.handleMusicianCreate}
+                        style ={{
+                            fontFamily: 'sans-serif',
+                            fontSize: "14px", 
+                            fontWeight: "bold",
+                            background: "#19aa8d",
+                            borderRadius: "3px",
+                            border: "none",
+                            minWidth: "140px",
+                            maxWidth: "100%",
+                            outline: "none"
+                        }}>Confirm</Button>
                     </Row>   
                 </div>
+            ]}
             </Card>
            
             </React.Fragment>

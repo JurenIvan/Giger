@@ -135,8 +135,6 @@ export default class ProfilePosts extends React.Component {
                         minWidth: "140px",
                         maxWidth: "100%",
                         outline: "none"
-
-
                     }}
                     className="btn btn-primary btn-block btn-lg">
                     Post
