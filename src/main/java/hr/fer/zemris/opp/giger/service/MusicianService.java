@@ -2,7 +2,6 @@ package hr.fer.zemris.opp.giger.service;
 
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.*;
-import hr.fer.zemris.opp.giger.domain.enums.Role;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
 import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
@@ -12,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static hr.fer.zemris.opp.giger.domain.enums.Role.*;
+import static hr.fer.zemris.opp.giger.domain.enums.Role.MUSICIAN;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
@@ -62,21 +61,24 @@ public class MusicianService {
 		return musician.getPublicOccasios().stream().map(Occasion::toDto).collect(toList());
 	}
 
-	public MusicianProfileDto showProfile(Long musicianId) {
+	public ShowMusicianProfileDto showProfile(Long musicianId) {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
 		Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 
-		return new MusicianProfileDto(person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
+		return new ShowMusicianProfileDto(person.getUsername(), musician.getInstruments(), person.getPictureUrl(), person.getPhoneNumber());
 	}
 
 	public List<PostDto> getPosts(Long musicianId) {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
-		MusicianProfileDto musicianProfileDto = showProfile(musician.getId());
+		MusicianProfileDto musicianProfileDto = showProfile(musician.getId()).toMusicianProfileDto();
 		return musician.getPosts().stream().map(e -> e.toDto(musicianProfileDto, null)).collect(toList());
 	}
 
 	public void editProfile(MusicianProfileDto musicianProfileDto) {
-		Musician musician = userDetailsService.getLoggedMusician().update(musicianProfileDto, intrumentService.getListOfIntruments(musicianProfileDto.getInstrumentList()));
+		List<Instrument> instruments = null;
+		if (musicianProfileDto.getInstrumentList() != null)
+			instruments = intrumentService.getListOfIntruments(musicianProfileDto.getInstrumentList());
+		Musician musician = userDetailsService.getLoggedMusician().update(instruments);
 		Person person = userDetailsService.getLoggedPerson().updatePerson(musicianProfileDto);
 
 		musicianRepository.save(musician);

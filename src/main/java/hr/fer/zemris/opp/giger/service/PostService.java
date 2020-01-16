@@ -65,7 +65,8 @@ public class PostService {
 		Optional<Musician> author = musicianRepository.findByPostsContaining(post);
 		var band = bandRepository.findByPostsContaining(post);
 
-		if (author.isPresent()) return post.toDto(musicianService.showProfile(author.get().getId()), null);
+		if (author.isPresent())
+			return post.toDto(musicianService.showProfile(author.get().getId()).toMusicianProfileDto(), null);
 		if (band.isPresent()) return post.toDto(null, band.get().toDto());
 
 		throw new GigerException(NO_SUCH_POST);

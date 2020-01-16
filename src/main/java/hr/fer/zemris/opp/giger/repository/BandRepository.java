@@ -1,6 +1,7 @@
 package hr.fer.zemris.opp.giger.repository;
 
 import hr.fer.zemris.opp.giger.domain.Band;
+import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Musician;
 import hr.fer.zemris.opp.giger.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,6 +24,8 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 	List<Band> findAllByMembersContaining(Musician musician);
 
 	Optional<Band> findByPostsContaining(Post post);
+
+	Optional<Band> findByGigsContaining(Gig gig);
 // todo
 //	@Query(value = "SELECT " +
 //			"FROM band " +
