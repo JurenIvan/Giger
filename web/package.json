@@ -18,12 +18,8 @@
     "react-dom": "^16.12.0",
     "react-metismenu": "^1.4.0",
     "react-router-dom": "^5.1.2",
-<<<<<<< HEAD
-    "react-scripts": "^3.2.0"
-=======
     "react-scripts": "^3.3.0",
     "react-select": "^3.0.8"
->>>>>>> minor edits
   },
   "scripts": {
     "start": "react-scripts start",
