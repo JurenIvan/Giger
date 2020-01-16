@@ -4,7 +4,9 @@ import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import ProfileSideNav from "./ProfileSideNav";
 // eslint-disable-next-line
-import { Card, Switch, Input, Button} from "antd"
+import { Card, Input, Button, Select} from "antd"
+
+const {Option} = Select;
 
 export default class ChangeProfileType extends React.Component {
     constructor(props) {
@@ -18,10 +20,12 @@ export default class ChangeProfileType extends React.Component {
             musicianPublicCalendar: false,
             musicianBio: "",
             organiserName: "",
-            postContent: ""
+            postContent: "",
+            instrumentIdList: [],
+            instruments: []
         }
 
-        
+        this.handleInstrumentChange = this.handleInstrumentChange.bind(this);
         this.handleMusicianCreate = this.handleMusicianCreate.bind(this);
         this.handleOrganiserCreate = this.handleOrganiserCreate.bind(this);
     }
@@ -49,13 +53,21 @@ export default class ChangeProfileType extends React.Component {
                     }
                 }
             )
+        fetcingFactory(endpoints.GET_INSTRUMENTS).then(
+            response => response.json()
+            ).then( response => 
+                {
+                this.setState({instruments: response}, () => console.log(this.state.instruments))
+            }
+
+        )
     }
 
     handleMusicianCreate() {
         let params = {
             "bio": this.state.musicianBio,
             "publicCalendar": this.state.musicianPublicCalendar,
-            "instrumentids" : []
+            "instrumentIdList" : this.state.instrumentIdList
         }
        
         fetcingFactory(endpoints.CREATE_MUSICIAN, JSON.stringify(params)).then(response => {
@@ -76,6 +88,10 @@ export default class ChangeProfileType extends React.Component {
                 }
             }
         )
+    }
+
+    handleInstrumentChange(value) {
+        this.setState({instrumentIdList: value}, () => console.log(this.state.instrumentIdList))
     }
 
     render() {
@@ -124,8 +140,24 @@ export default class ChangeProfileType extends React.Component {
             ]: [
                  <div>
                     <Row>
-                        <textarea type="text" placeholder="Biography" value = {this.state.musicianBio} onChange = {(e) => {this.setState({musicianBio: e.currentTarget.value})}}/>
-                    </Row>  
+                        <textarea style={{width: "100%"}} type="text" placeholder="Biography" value = {this.state.musicianBio} onChange = {(e) => {this.setState({musicianBio: e.currentTarget.value})}}/>
+                    </Row>
+                    <br></br>
+                    <Row>
+                    <Select
+                        style={{width: "100%"}}
+                        mode="multiple"
+                        onChange={this.handleInstrumentChange}
+                        placeholder="Select instruments you play"
+                        name="instrumentIdList"
+                        value={this.state.instrumentIdList?this.state.instrumentIdList:undefined}
+                    >
+                            {this.state.instruments.map(item => (
+                                <Option key={item.id}>{item.name}</Option>
+                            ))}
+                    </Select>
+                    </Row>
+                    <br></br>
                     <Row>
                         <label>My calendar will be public: </label>
                         <input type="checkbox"></input>

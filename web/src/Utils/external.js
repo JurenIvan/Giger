@@ -77,6 +77,8 @@ export default function fetcingFactory (endpoint, params, id) {
             return getMusicianOcassion(params, endpoint);
         case Types.endpoints.EDIT_MUSICIAN:
             return editMusician(params, endpoint);
+        case Types.endpoints.GET_INSTRUMENTS:
+            return getInstrumentList(params, endpoint);
     }
 }
 
@@ -420,5 +422,15 @@ function editMusician(params, endpoint) {
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         },
         body: params
+    })
+}
+
+function getInstrumentList(params, endpoint) {
+    return fetch(API + endpoint, {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
     })
 }
