@@ -8,7 +8,7 @@ import hr.fer.zemris.opp.giger.repository.SystemPersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import static hr.fer.zemris.opp.giger.domain.enums.Role.MUSICIAN;
+import static hr.fer.zemris.opp.giger.domain.enums.Role.ORGANIZER;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.NO_SUCH_USER;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.ORGANIZER_ALREADY_EXISTS;
 
@@ -26,7 +26,7 @@ public class OrganizerService {
 
 		var loggedInUserId = userDetailsService.getLoggedInUserId();
 		var systemPerson = systemPersonRepository.findById(loggedInUserId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
-		systemPerson.addRole(MUSICIAN);
+		systemPerson.addRole(ORGANIZER);
 
 		systemPersonRepository.save(systemPerson);
 		organizerRepository.save(new Organizer(userDetailsService.getLoggedInUserId(), managerName));

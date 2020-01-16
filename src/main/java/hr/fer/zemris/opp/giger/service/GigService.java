@@ -106,5 +106,14 @@ public class GigService {
 		return gigRepository.save(gig).toDto();
 	}
 
-	public List<GigPreviewDto> listAllPublicGigs(){ return gigRepository.findAllByPrivateGigAndFinalDealAchieved(false, true).stream().map(Gig::toDto).collect(toList()); }
+	public List<GigPreviewDto> listAllPublicGigs() {
+		return gigRepository
+				.findAllByPrivateGigAndFinalDealAchieved(false, true)
+				.stream()
+				.map(e -> e.toDto(bandRepository
+						.findByGigsContaining(e)
+						.orElseThrow(() -> new GigerException(NO_SUCH_BAND))
+						.toDto()))
+				.collect(toList());
+	}
 }

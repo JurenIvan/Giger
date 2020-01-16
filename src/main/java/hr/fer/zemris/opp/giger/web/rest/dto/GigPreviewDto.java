@@ -24,4 +24,5 @@ public class GigPreviewDto {
 	private GigType gigType;
 	private boolean finalDealAchieved;
 	private boolean privateGig;
+	private BandDto bandDto;
 }
