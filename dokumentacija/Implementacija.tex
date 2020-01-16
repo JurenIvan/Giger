@@ -144,13 +144,12 @@ Moćan i vrlo prilagodljiv okvir za provjeru autentičnosti i kontrolu pristupa 
 			\eject 
 		
 		\section{Upute za puštanje u pogon}
-		
-			\textbf{\textit{dio 2. revizije}}\\
-		
-			 \textit{U ovom poglavlju potrebno je dati upute za puštanje u pogon (engl. deployment) ostvarene aplikacije. Na primjer, za web aplikacije, opisati postupak kojim se od izvornog kôda dolazi do potpuno postavljene baze podataka i poslužitelja koji odgovara na upite korisnika. Za mobilnu aplikaciju, postupak kojim se aplikacija izgradi, te postavi na neku od trgovina. Za stolnu (engl. desktop) aplikaciju, postupak kojim se aplikacija instalira na računalo. Ukoliko mobilne i stolne aplikacije komuniciraju s poslužiteljem i/ili bazom podataka, opisati i postupak njihovog postavljanja. Pri izradi uputa preporučuje se \textbf{naglasiti korake instalacije uporabom natuknica} te koristiti što je više moguće \textbf{slike ekrana} (engl. screenshots) kako bi upute bile jasne i jednostavne za slijediti.}
 			
 			
-			 \textit{Dovršenu aplikaciju potrebno je pokrenuti na javno dostupnom poslužitelju. Studentima se preporuča korištenje neke od sljedećih besplatnih usluga: \href{https://aws.amazon.com/}{Amazon AWS}, \href{https://azure.microsoft.com/en-us/}{Microsoft Azure} ili \href{https://www.heroku.com/}{Heroku}. Mobilne aplikacije trebaju biti objavljene na F-Droid, Google Play ili Amazon App trgovini.}
-			
+			Ponajprije je potrebno preuzeti Postgres SQL bazu podataka na operacijski sustav, poželjno Windows. Nakon toga je potrebno provesti standardnu instalaciju. U servisu LoaderService nalaze se testni podaci za inicijalno punjenje baze. Za postavljanje lozinke baze potrebno je je u password polje u system-local.properties postaviti prethodno definiranu lozinku za bazu podataka. Alternativno moguće je u root direktoriju standardnog terminala  pokrenuti naredbu docker-compose up koja će u virtualnom kontejneru pokrenuti servise koji su predefinirani u dockeru docker-compose.yml datoteci. Za konfiguraciju aplikacije na Heroku poslužitelju koristi se system.properties iz kojeg se čita pokretanje Spring Boot aplikacije defaultnim profilom.
+			U izradi aplikacije korišten je radni okvir Spring Boot. Za pokretanje Javine aplikacije
+			potrebno je imati instaliran Java Runtime Environment v11. Za pokretanje frontend aplikacije
+			potrebno je imati instaliranu platformu Node.js. Za pokretanje također je potrebno otpakirati 
+			arhivu server.var. Kako bi se pokrenuo build koristi se automatizirani sustav Gradle. 
 			
 			\eject 
