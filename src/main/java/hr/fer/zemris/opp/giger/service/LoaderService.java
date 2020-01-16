@@ -19,7 +19,7 @@ import static java.time.LocalDateTime.of;
 
 @Service
 @AllArgsConstructor
-public class  LoaderService implements ApplicationRunner {
+public class LoaderService implements ApplicationRunner {
 
 	private SystemPersonRepository systemPersonRepository;
 	private InstrumentRepository instrumentRepository;
@@ -49,8 +49,24 @@ public class  LoaderService implements ApplicationRunner {
 	private List<Message> messages;
 	private List<Conversation> conversations;
 
+	private static final String[] bandBios = {"The Beatles were an English rock band formed in Liverpool in 1960."
+			, "Pink Floyd were an English rock band formed in London in 1965. Gaining a following as a psychedelic rock group, they were distinguished for their extended compositions"
+			, "AC/DC are an Australian rock band formed in Sydney in 1973 by Scottish-born brothers Malcolm and Angus Young."};
+
+	private static final String[] musicianBios= {
+			"Music to me is like breathing. I don't get tired of breathing, I don't get tired of music."
+			,"Music produces a kind of pleasure which human nature cannot do without."
+			,"Music gives a soul to the universe."
+			,"Talking about music is like dancing about architecture."
+			,"Nothing is more beautiful than a guitar, except, possibly two."
+			,"Music is the medicine of the breaking heart."
+			,"Music is forever; music should grow and mature with you, following you right on up until you die."
+			,"Without music, life is a journey through a desert."
+			,"You are the music while the music lasts."
+	};
+
 	@Override
-	public void run(ApplicationArguments args) throws Exception {
+	public void run(ApplicationArguments args) {
 		createSystemPeople();
 		createInstruments();
 		createOrganizers();
@@ -68,7 +84,7 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createSystemPeople() {
-		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON,ORGANIZER)));
+		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON, ORGANIZER)));
 		systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON, ORGANIZER)));
@@ -93,16 +109,17 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createInstruments() {
-		instruments.add(new Instrument(null, "Marimba", PERCUSSION));
-		instruments.add(new Instrument(null, "Piano", KEYBOARD));
-		instruments.add(new Instrument(null, "Vibraphone", PERCUSSION));
-		instruments.add(new Instrument(null, "Trumpet", BRASS_INSTRUMENT));
-		instruments.add(new Instrument(null, "Xylophone", PERCUSSION));
-		instruments.add(new Instrument(null, "Guitar", STRING_INSTRUMENT));
-		instruments.add(new Instrument(null, "Clarinet", WOODWIND_INSTRUMENT));
-		instruments.add(new Instrument(null, "Oboe", WOODWIND_INSTRUMENT));
-		instruments.add(new Instrument(null, "Violine", STRING_INSTRUMENT));
-		instruments.add(new Instrument(null, "Flute", WOODWIND_INSTRUMENT));
+		instruments.add(new Instrument(null, "Marimba", PERCUSSION, "https://cosmomusic.ca/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/D/I/DIMVYAMYM40_1_2.jpg"));
+		instruments.add(new Instrument(null, "Piano", KEYBOARD, "https://www.thomann.de/pics/bdb/371901/10421191_800.jpg"));
+		instruments.add(new Instrument(null, "Vibraphone", PERCUSSION, "https://www.thomann.de/pics/bdb/239041/10157319_800.jpg"));
+		instruments.add(new Instrument(null, "Trumpet", BRASS_INSTRUMENT, "https://www.matthewsmuziek.nl/media/catalog/product/cache/2/image/700x700/0dc2d03fe217f8c83829496872af24a0/y/a/yamaha-ytr-6335rc-trumpet.jpg"));
+		instruments.add(new Instrument(null, "Xylophone", PERCUSSION, "https://images-na.ssl-images-amazon.com/images/I/71m2JLI2cML._AC_SL1500_.jpg"));
+		instruments.add(new Instrument(null, "Guitar", STRING_INSTRUMENT, "http://www.long-mcquade.com/files/7100/lg_e73803defd0ce20635fb6ef2f6e7a3df.JPG"));
+		instruments.add(new Instrument(null, "Clarinet", WOODWIND_INSTRUMENT, "https://www.thomann.de/pics/bdb/100448/14523119_800.jpg"));
+		instruments.add(new Instrument(null, "Oboe", WOODWIND_INSTRUMENT, "https://az58332.vo.msecnd.net/e88dd2e9fff747f090c792316c22131c/Images/Products60341-1200x1200-664228.jpg"));
+		instruments.add(new Instrument(null, "Violine", STRING_INSTRUMENT, "https://www.thomann.de/pics/bdb/408251/11846190_800.jpg"));
+		instruments.add(new Instrument(null, "Flute", WOODWIND_INSTRUMENT, "https://sc01.alicdn.com/kf/HTB1AKuimkfb_uJjSsrbq6z6bVXai/Wooden-music-instrument-flute-recorder-for-sale.jpg_350x350.jpg"));
+		instruments.add(new Instrument(null, "Drums", PERCUSSION, "https://images-na.ssl-images-amazon.com/images/I/81YIjachh7L._AC_SX355_.jpg"));
 
 		this.instruments = instrumentRepository.saveAll(instruments);
 	}
@@ -120,14 +137,14 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createLocations() {
-		locations.add(new Location(45.0, 45.0, "Odravska 8", "Drugi kat"));
-		locations.add(new Location(35.0, 45.0, "Bašćanske ploče 33", "Prvi kat"));
-		locations.add(new Location(45.0, 35.0, "Kneza Višeslava 10", "Zadnja vrata"));
-		locations.add(new Location(25.0, 25.0, "Kneza Branimira 68", "Prvi ulaz"));
-		locations.add(new Location(45.0, 35.0, "Kralja Tomislava 78", "Zabranjene životinje"));
-		locations.add(new Location(35.0, 45.0, "Šegrta Hlapića 63", "Dopušteno pušenje"));
-		locations.add(new Location(45.0, 35.0, "Ivice Kičmanovića 50", "Zabranjeno pušenje"));
-		locations.add(new Location(25.0, 25.0, "Šenoine Branke 55", "Prvi ulaz"));
+		locations.add(new Location(45.792197, 15.961559, "Odravska 8", "Drugi kat"));
+		locations.add(new Location(45.756415, 15.935284, "Bašćanske ploče 33", "Prvi kat"));
+		locations.add(new Location(45.808612, 15.989193, "Kneza Višeslava 10", "Zadnja vrata"));
+		locations.add(new Location(45.805958, 15.990988, "Kneza Branimira 68", "Prvi ulaz"));
+		locations.add(new Location(45.805042, 15.979264, "Kralja Tomislava 78", "Zabranjene životinje"));
+		locations.add(new Location(45.755518, 15.935897, "Šegrta Hlapića 63", "Dopušteno pušenje"));
+		locations.add(new Location(45.755219, 15.935701, "Ivice Kičmanovića 50", "Zabranjeno pušenje"));
+		locations.add(new Location(45.754656, 15.934632, "Šenoine Branke 55", "Prvi ulaz"));
 	}
 
 	private void createPeople() {
@@ -175,9 +192,9 @@ public class  LoaderService implements ApplicationRunner {
 		gigs.add(new Gig(null, organizers.get(1), of(2020, 5, 4, 10, 0, 0), locations.get(1), "Bachelors party", "4h", 500, "Bachelors", BACHELORS_PARTY, true, false, List.of(reviews.get(2), reviews.get(3))));
 		gigs.add(new Gig(null, organizers.get(2), of(2020, 6, 6, 13, 0, 0), locations.get(2), "Birthday", "4h", 200, "Birthday", GigType.BIRTHDAY, true, false, List.of(reviews.get(4), reviews.get(5))));
 		gigs.add(new Gig(null, organizers.get(3), of(2020, 8, 12, 15, 0, 0), locations.get(3), "Wedding", "6h", 500, "Wedding", WEDDING, true, false, List.of(reviews.get(6), reviews.get(7))));
-		gigs.add(new Gig(null, organizers.get(4), of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1", 1200, "Jazz concert", CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
-		gigs.add(new Gig(null, organizers.get(4), of(2020, 4, 15, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1", 1200, "Jazz concert", CONCERT, false, false, List.of()));
-		gigs.add(new Gig(null, organizers.get(3), of(2020, 4, 16, 22, 0, 0), locations.get(4), "Jazz concert", "Nastup 1", 1200, "Jazz concert", CONCERT, false, false, List.of()));
+		gigs.add(new Gig(null, organizers.get(4), of(2020, 4, 10, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, "Jazz concert", CONCERT, true, false, List.of(reviews.get(8), reviews.get(9))));
+		gigs.add(new Gig(null, organizers.get(4), of(2020, 4, 15, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, "Jazz concert", CONCERT, false, false, List.of()));
+		gigs.add(new Gig(null, organizers.get(3), of(2020, 4, 16, 22, 0, 0), locations.get(4), "Jazz concert", "2h", 1200, "Jazz concert", CONCERT, false, false, List.of()));
 
 
 		this.gigs = gigRepository.saveAll(gigs);
@@ -245,24 +262,24 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createMusicians() {
-		musicians.add(new Musician(systemPeople.get(3).getId(), "bio1", true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0))));
-		musicians.add(new Musician(systemPeople.get(4).getId(), "bio2", true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(10), posts.get(11)), List.of(occasions.get(2), occasions.get(3))));
-		musicians.add(new Musician(systemPeople.get(5).getId(), "bio3", true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), List.of(gigs.get(0), gigs.get(4)), List.of(posts.get(3)), List.of(occasions.get(4), occasions.get(5))));
-		musicians.add(new Musician(systemPeople.get(13).getId(), "bio4", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
-		musicians.add(new Musician(systemPeople.get(14).getId(), "bio5", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
-		musicians.add(new Musician(systemPeople.get(15).getId(), "bio6", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(1))));
-		musicians.add(new Musician(systemPeople.get(16).getId(), "bio7", true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(), List.of(), List.of()));
-		musicians.add(new Musician(systemPeople.get(17).getId(), "bio8", false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(), List.of(), List.of()));
-		musicians.add(new Musician(systemPeople.get(18).getId(), "bio9", false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(), List.of(), List.of()));
+		musicians.add(new Musician(systemPeople.get(3).getId(), musicianBios[0], true, List.of(instruments.get(0), instruments.get(1), instruments.get(2)), List.of(gigs.get(0), gigs.get(1)), List.of(posts.get(0), posts.get(1), posts.get(2)), List.of(occasions.get(0))));
+		musicians.add(new Musician(systemPeople.get(4).getId(), musicianBios[1], true, List.of(instruments.get(3), instruments.get(4), instruments.get(5)), List.of(gigs.get(2), gigs.get(3)), List.of(posts.get(10), posts.get(11)), List.of(occasions.get(2), occasions.get(3))));
+		musicians.add(new Musician(systemPeople.get(5).getId(), musicianBios[2], true, List.of(instruments.get(0), instruments.get(2), instruments.get(5)), List.of(gigs.get(0), gigs.get(4)), List.of(posts.get(3)), List.of(occasions.get(4), occasions.get(5))));
+		musicians.add(new Musician(systemPeople.get(13).getId(), musicianBios[3], true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(gigs.get(0), gigs.get(2)), List.of(posts.get(4), posts.get(7)), List.of(occasions.get(6), occasions.get(7))));
+		musicians.add(new Musician(systemPeople.get(14).getId(), musicianBios[4], false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(gigs.get(1), gigs.get(4)), List.of(posts.get(5), posts.get(8)), List.of(occasions.get(8), occasions.get(9))));
+		musicians.add(new Musician(systemPeople.get(15).getId(), musicianBios[5], false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(gigs.get(2), gigs.get(4)), List.of(posts.get(6), posts.get(9)), List.of(occasions.get(1))));
+		musicians.add(new Musician(systemPeople.get(16).getId(), musicianBios[6], true, List.of(instruments.get(6), instruments.get(7), instruments.get(8)), List.of(), List.of(), List.of()));
+		musicians.add(new Musician(systemPeople.get(17).getId(), musicianBios[7], false, List.of(instruments.get(1), instruments.get(8), instruments.get(9)), List.of(), List.of(), List.of()));
+		musicians.add(new Musician(systemPeople.get(18).getId(), musicianBios[8], false, List.of(instruments.get(0), instruments.get(3), instruments.get(7)), List.of(), List.of(), List.of()));
 
 
 		this.musicians = musicianRepository.saveAll(musicians);
 	}
 
 	private void createBands() {
-		bands.add(new Band(null, "The Beatles", "bio1", LocalDateTime.of(1957, 6, 5, 0, 0, 0), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(12), posts.get(13)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1)), List.of(gigs.get(5), gigs.get(6))));
-		bands.add(new Band(null, "Pink Floyd", "bio2", LocalDateTime.of(1965, 6, 5, 0, 0, 0), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(14), posts.get(15)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3)), List.of()));
-		bands.add(new Band(null, "AC/DC", "bio3", LocalDateTime.of(1973, 6, 5, 0, 0, 0), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(16), posts.get(17)), List.of(BACHELORS_PARTY), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4)), List.of()));
+		bands.add(new Band(null, "The Beatles", bandBios[0], LocalDateTime.of(1957, 6, 5, 0, 0, 0), "https://upload.wikimedia.org/wikipedia/commons/d/df/The_Fabs.JPG", locations.get(0), 100.0, musicians.get(0), List.of(musicians.get(0), musicians.get(1)), List.of(musicians.get(2)), List.of(musicians.get(3)), List.of(musicians.get(4)), List.of(posts.get(12), posts.get(13)), List.of(CONCERT), List.of(occasions.get(0), occasions.get(1)), List.of(gigs.get(0), gigs.get(1)), List.of(gigs.get(5), gigs.get(6))));
+		bands.add(new Band(null, "Pink Floyd", bandBios[1], LocalDateTime.of(1965, 6, 5, 0, 0, 0), "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg", locations.get(1), 150.0, musicians.get(2), List.of(musicians.get(2), musicians.get(3)), List.of(musicians.get(4)), List.of(musicians.get(5)), List.of(musicians.get(5)), List.of(posts.get(14), posts.get(15)), List.of(WEDDING), List.of(occasions.get(2), occasions.get(3)), List.of(gigs.get(2), gigs.get(3)), List.of()));
+		bands.add(new Band(null, "AC/DC", bandBios[2], LocalDateTime.of(1973, 6, 5, 0, 0, 0), "http://radiolabin.hr/portal/vijesti/1563455875ac-dc.jpg", locations.get(2), 200.0, musicians.get(4), List.of(musicians.get(4), musicians.get(5)), List.of(musicians.get(0)), List.of(musicians.get(1)), List.of(musicians.get(5)), List.of(posts.get(16), posts.get(17)), List.of(BACHELORS_PARTY,CONCERT), List.of(occasions.get(4), occasions.get(5)), List.of(gigs.get(4)), List.of()));
 
 		this.bands = bandRepository.saveAll(bands);
 	}

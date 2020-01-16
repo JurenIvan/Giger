@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import ChangeProfileType from "./components/Profile/ChangeProfileType";
 import ChatContainer from "./components/chat/Container";
 import Cookies from "js-cookie";
-import CreateBandForm from "./components/createBandForm";
+import CreateBandForm from "./components/Band/createBandForm";
 import CreateGig from "./components/Gigs/CreateGig";
 import { DisplayBands } from "./components/Display/DisplayBands";
 import { DisplayGigs } from "./components/Display/DisplayGigs";
@@ -36,92 +36,85 @@ function App() {
       <Header isLoggedIn={isLoggedIn} />
       <div className="App">
         <Switch>
-          <Route
-            path="/home"
-            render={() => (isLoggedIn ? <Home /> : <ModalClass />)}
-          />
-          <Route
-            path="/AcceptGigInvite"
-            render={() => (isLoggedIn ? <AcceptGigInvite /> : <ModalClass />)}
-          />
-          <Route
-            path="/CreateGig"
-            render={() => (isLoggedIn ? <CreateGig /> : <ModalClass />)}
-          />
-          <Route
-            path="/InviteToGig"
-            render={() => (isLoggedIn ? <InviteToGig /> : <ModalClass />)}
-          />
-          <Route path="/Logout" exact component={Login} />
-          <Route path="/Login" exact component={Login} />
-          <Route path="/register" exact component={RegisterClass} />
-          <Route path="/error" exact component={ErrorComponent} />
-          <Route
-            path="/create_band"
-            render={() => (isLoggedIn ? <CreateBandForm /> : <ModalClass />)}
-          />
-          <Route
-            path="/profile"
-            render={() =>
-              isLoggedIn ? (
-                <ProfileClass id={Cookies.get("userId")} />
-              ) : (
-                <ModalClass />
-              )
-            }
-          />
-          <Route
-            path="/displaybands"
-            render={() => (isLoggedIn ? <DisplayBands /> : <ModalClass />)}
-          />
-          <Route
-            path="/profile_change_type"
-            render={() => (isLoggedIn ? <ChangeProfileType /> : <ModalClass />)}
-          />
-          <Route
-            path="/createBand"
-            render={() => (isLoggedIn ? <BandCreate /> : <ModalClass />)}
-          />
-          <Route
-            path="/viewBand"
-            render={() => (isLoggedIn ? <BandView /> : <ModalClass />)}
-          />
-          <Route
-            path="/InviteToBand"
-            render={() => (isLoggedIn ? <InviteToBand /> : <ModalClass />)}
-          />
-          <Route
-            path="/AcceptBandInvite"
-            render={() => (isLoggedIn ? <AcceptBandInvite /> : <ModalClass />)}
-          />
-          <Route path="/displayGigs" exact component={DisplayGigs} />
-          <Route
-            path="/profile_musician_view"
-            render={() =>
-              isLoggedIn ? <MusicianProfile edit={false} /> : <ModalClass />
-            }
-          />
-          <Route
-            path="/profile_musician_edit"
-            render={() =>
-              isLoggedIn ? <MusicianProfile edit={true} /> : <ModalClass />
-            }
-          />
-          <Route
-            path="/displayMusicianCalendar"
-            render={() =>
-              isLoggedIn ? (
-                <DisplayMusicianCalendar id={Cookies.get("userId")} />
-              ) : (
-                <ModalClass />
-              )
-            }
-          />
-          <Route
-            path="/EditGig"
-            render={() => (isLoggedIn ? <EditGig /> : <ModalClass />)}
-          />
-          <Route path="/WelcomePage" exact component={WelcomePage} />
+          <Route path='/home'
+            render={() => (
+              isLoggedIn?
+              <Home/> : 
+              <ModalClass/>
+            )}/>
+          <Route path='/AcceptGigInvite'
+            render={() => (
+              isLoggedIn?
+                <AcceptGigInvite/> : <ModalClass/>
+          )}/>
+          <Route path='/CreateGig'
+          render={() => (
+            isLoggedIn?
+              <CreateGig/> : <ModalClass/>
+          )}/>
+          <Route path='/InviteToGig'
+          render={() => (
+            isLoggedIn?
+              <InviteToGig/> : <ModalClass/>
+          )}/>
+          <Route path='/Logout' exact component={Login}/>
+          <Route path='/Login' exact component={Login}/>
+          <Route path='/register' exact component={RegisterClass}/>
+          <Route path='/error' exact component={ErrorComponent} />
+          <Route path='/create_band'  render={() => (
+            isLoggedIn? <CreateBandForm/> : <ModalClass/>
+          )}/>
+          <Route path='/profile' render = { ()=> (
+            isLoggedIn? 
+              <ProfileClass id = {Cookies.get("userId")}/> :
+              <ModalClass/>
+          )} />
+          <Route path='/displaybands' render = {() => (
+            isLoggedIn?
+            <DisplayBands/> : <ModalClass/>
+          )}/>
+          <Route path='/profile_change_type' render = {() => (
+            isLoggedIn?
+            <ChangeProfileType/> : <ModalClass/>
+          )}/>
+          <Route path='/createBand' render = {() => (
+            isLoggedIn?
+            <BandCreate/> : <ModalClass/>
+          )}/>
+          <Route path ='/viewBand' render = {() => (
+            isLoggedIn?
+            <BandView/> : <ModalClass/>
+          )} />
+          <Route path ='/InviteToBand' render = {() => (
+            isLoggedIn?
+            <InviteToBand/> : <ModalClass/>
+          )}  />
+          <Route path ='/AcceptBandInvite' render = {() => (
+            isLoggedIn?
+            <AcceptBandInvite /> : <ModalClass/>
+          )} />
+          <Route path='/displayGigs' exact component = {DisplayGigs}/>
+          <Route path='/profile_musician_view' render = { () => (
+            isLoggedIn?
+            <MusicianProfile edit = {false}/> :
+            <ModalClass />
+          )} />
+          <Route path='/profile_musician_edit' render = { () => (
+            isLoggedIn?
+            <MusicianProfile edit = {true}/> :
+            <ModalClass/>
+          )} />
+          <Route path= '/displayMusicianCalendar' render = { () => (
+            isLoggedIn?
+            <DisplayMusicianCalendar id = {Cookies.get("userId")} /> : 
+            <ModalClass />
+          )} />
+          <Route path ='/EditGig' render = {() => (
+            isLoggedIn?
+            <EditGig/> : <ModalClass/>
+          )} />
+          <Route path='/WelcomePage' exact component = {WelcomePage}/>
+          <Route path='/' exact component = {WelcomePage}/>
           <Route
             path="/chat"
             render={() => (isLoggedIn ? <ChatContainer /> : <ModalClass />)}

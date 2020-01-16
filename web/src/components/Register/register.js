@@ -4,6 +4,25 @@ import Modal from 'react-bootstrap/Modal';
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 import  "../Register/register.css";
+import {notification, Icon } from 'antd';
+
+const openNotification = () => {
+    notification.open({
+        message: 'You have successfully registered!',
+        description:
+          'You have registered.\n Click Notification to redirect to Login',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/login";
+      },
+      onClose: () => {
+        window.location.href = "/login";
+      }
+
+    });
+}
 
 export default class RegisterClass extends React.Component{
 
@@ -54,14 +73,9 @@ export default class RegisterClass extends React.Component{
 
     }
 
-    validateRegister () {
-
-    }
-
-    //if validateRegister  returns true send form to db
     handleSubmit = event => {
         event.preventDefault();
-        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password < 7
+        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password.length < 7
         if (shouldShow) {
             console.log(this.state)
             this.setState({showModal: true});
@@ -75,7 +89,7 @@ export default class RegisterClass extends React.Component{
            fetcingFactory(endpoints.REGISTER, params).then(
             response => {
                if (response.status === 200) {
-                    window.location.href = "/login";
+                    openNotification();
                } else {
                     console.log(response)
                     this.setState({inValidRegister: true})

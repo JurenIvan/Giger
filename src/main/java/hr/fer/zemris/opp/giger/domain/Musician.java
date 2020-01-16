@@ -2,7 +2,6 @@ package hr.fer.zemris.opp.giger.domain;
 
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.MusicianPreviewPictureDto;
-import hr.fer.zemris.opp.giger.web.rest.dto.MusicianProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -65,8 +64,8 @@ public class Musician {
 		return occasions.stream().filter(occasion -> !occasion.getPersonalOccasion()).collect(toList());
 	}
 
-	public Musician update(MusicianProfileDto musicianProfileDto, List<Instrument> instruments) {
-		if (musicianProfileDto.getInstrumentList() != null) {
+	public Musician update(List<Instrument> instruments) {
+		if (instruments != null) {
 			this.instruments = instruments;
 		}
 		return this;

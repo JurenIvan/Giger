@@ -87,9 +87,22 @@ export class PostClass extends React.Component {
             {
                 this.state.isCommentButtonClicked?
                 <Row>
-                <input className = "form-control" style={{width:420, marginRight:5}} onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
+                <input className = "form-control"
+                       style={{width:420, marginRight:5, marginLeft:22}}
+                       placeholder="Write comment"
+                       onChange = {(e) => {this.handleCommentChange(e.currentTarget.value)}} value = {this.state.commentContent}>
                 </input>
-                <Button onClick = {this.handleSubmitComment} style={{width: 100, color:"darkcyan", backgroundColor:"white", borderColor:"white"}}
+                <Button onClick = {this.handleSubmitComment}style ={{
+                  fontFamily: 'sans-serif',
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  background: "#19aa8d",
+                  borderRadius: "3px",
+                  border: "none",
+                  minWidth: "70px",
+                  maxWidth: "50%",
+                  outline: "none"
+                }}
                 > Submit </Button>
                 </Row> : null
             }

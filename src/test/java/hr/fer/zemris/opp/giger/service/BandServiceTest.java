@@ -67,8 +67,8 @@ public class BandServiceTest {
 		when(bandRepository.findById(1L)).thenReturn(empty());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(1);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(1L);
+		musicianBandDto.setBandId(1L);
 
 		bandService.inviteMusician(musicianBandDto);
 	}
@@ -85,8 +85,8 @@ public class BandServiceTest {
 		when(musicianRepository.findById(2L)).thenReturn(empty());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(2);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(2L);
+		musicianBandDto.setBandId(1L);
 
 		bandService.inviteMusician(musicianBandDto);
 	}
@@ -101,8 +101,8 @@ public class BandServiceTest {
 		band.setInvited(new ArrayList<>());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(2);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(2L);
+		musicianBandDto.setBandId(1L);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);
@@ -120,8 +120,8 @@ public class BandServiceTest {
 		when(bandRepository.findById(1L)).thenReturn(empty());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(1);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(1L);
+		musicianBandDto.setBandId(1L);
 
 		bandService.inviteMusician(musicianBandDto);
 	}
@@ -138,8 +138,8 @@ public class BandServiceTest {
 		when(musicianRepository.findById(2L)).thenReturn(empty());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(2);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(2L);
+		musicianBandDto.setBandId(1L);
 
 		bandService.inviteMusician(musicianBandDto);
 	}
@@ -154,8 +154,8 @@ public class BandServiceTest {
 		band.setInvitedBackUpMembers(new ArrayList<>());
 
 		MusicianBandDto musicianBandDto = new MusicianBandDto();
-		musicianBandDto.setMusicianId(2);
-		musicianBandDto.setBandId(1);
+		musicianBandDto.setMusicianId(2L);
+		musicianBandDto.setBandId(1L);
 
 		when(bandRepository.findById(1L)).thenReturn(of(band));
 		when(userDetailsService.getLoggedMusician()).thenReturn(musician_loggedIn);

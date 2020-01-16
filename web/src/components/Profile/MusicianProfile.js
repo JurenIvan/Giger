@@ -6,6 +6,7 @@ import ProfileInfo from "./ProfileInfo";
 import ProfilePosts from "./ProfilePosts";
 import {endpoints} from "../../Utils/Types";
 import fetcingFactory from "../../Utils/external";
+import {Carousel} from "antd";
 
 export default class MusicianProfile extends React.Component {
     constructor(props) {
@@ -34,7 +35,7 @@ export default class MusicianProfile extends React.Component {
                 if(json) {
                     this.setState({
                         name: json.name,
-                        instrumentList: json.instrumentList,
+                        instrumentList: json.instruments,
                         pictureUrl: json.pictureUrl,
                         contactNumber: json.contactNumber
                     }, ()=> console.log(this.state));
@@ -47,6 +48,7 @@ export default class MusicianProfile extends React.Component {
         return (
             <div>
             <ProfileSideNav />
+
             <ProfileInfo edit = {this.props.edit} 
                 name = {this.state.name} 
                 pictureUrl = {this.state.pictureUrl} 

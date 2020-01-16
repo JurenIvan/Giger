@@ -14,10 +14,8 @@ import java.util.List;
 @AllArgsConstructor
 public class MusicianProfileDto {
 
-	@NotBlank
 	private String name;
 	private List<Long> instrumentList;
 	private String pictureUrl;
-	@NotBlank
 	private String contactNumber;
 }

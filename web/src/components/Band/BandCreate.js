@@ -5,6 +5,25 @@ import fetcingFactory from "../../Utils/external";
 import * as Types from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
 import GeocodingForm from '../GeocodingForm';
+import {notification, Icon } from 'antd';
+
+const openNotification = () => {
+    notification.open({
+        message: 'You have successfully created a band!',
+        description:
+          'You have created a band.\n Click Notification to redirect to Login',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/login";
+      },
+      onClose: () => {
+        window.location.href = "/login";
+      }
+
+    });
+}
 
 export default class BandCreate extends React.Component {
   
@@ -22,11 +41,11 @@ export default class BandCreate extends React.Component {
             apikey: 'd77313f368154e0d8313ae506740f103',
             isSubmitting: false,
             eventType: [
-                {value: "WEDDING", label: "Svadba"},
-                {value: "BIRTHDAY", label: "Rođendan"},
-                {value: "BACHELORS_PARTY",label: "Momačka/djevojačka"},
-                {value: "CONCERT", label: "Koncert"},
-                {value: "OTHER", label: "Ostalo"}
+                {value: "WEDDING", label: "Wedding"},
+                {value: "BIRTHDAY", label: "Birthday"},
+                {value: "BACHELORS_PARTY",label: "Bachelors party"},
+                {value: "CONCERT", label: "Concert"},
+                {value: "OTHER", label: "Other"}
             ]
         }
 
@@ -111,7 +130,7 @@ export default class BandCreate extends React.Component {
         fetcingFactory(Types.endpoints.CREATE_BAND, JSON.stringify(params)).then(
             response => {
                if (response.ok) {
-                   window.location.href = "/home";
+                   openNotification();
                } else {
                    alert("Band creation failed")
                }

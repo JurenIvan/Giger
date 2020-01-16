@@ -5,6 +5,7 @@ import { Avatar } from 'antd';
 import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import {Carousel} from "antd";
 const { Search } = Input;
 
 
@@ -81,10 +82,21 @@ export class GigList extends React.Component{
     {
         return(
         <div>
-          
+
             <div style ={{position:"relative",left:"23px", top:"2px"}}>
+
+
+              <Carousel>
+                <div>
+                  <h2>Where words fail, MUSIC speaks!</h2>
+                  <h5>Search for gigs below.</h5>
+                </div>
+              </Carousel>
+
+              <br></br><br></br><br></br>
+
             <Search
-            placeholder="input search text"
+            placeholder="Search for gigs by name"
             enterButton="Search"
             size="large"
             onChange={this.handleChange}
@@ -105,7 +117,7 @@ export class GigList extends React.Component{
                 
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
-                <div style={{ background: '#ECECEC', padding: '20px' }}>
+                <div style={{ background: '#179b81', padding: '15px' }}>
                 <Card title={item.name} style={{ width: 600 }}>
                 <table style={{width:"100%"}}>
                   <tr>
@@ -119,6 +131,7 @@ export class GigList extends React.Component{
                                     <p>Date and time : {item.dateTime}</p>
                                     <br></br></Card.Grid></p></th>
                     <th><iframe 
+                    title= "Title"
                   height="150%" 
                     src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
                   </tr>
