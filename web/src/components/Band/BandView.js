@@ -57,7 +57,7 @@ export default class BandView extends React.Component {
                 console.log(element);
                 return (
                     <div>
-                        <Band title="Leader bands" bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {true}/>
+                        <Band title="Leader in bands:" bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {true}/>
                      </div>
                 )
             })}
@@ -66,7 +66,7 @@ export default class BandView extends React.Component {
             {this.state.memberBands.map(element => {
                 return (
                     <div>
-                        <Band title="Member bands" bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {false}/>
+                        <Band title="Member in bands:" bandId = {element.bandId} bandName = {element.bandName} gigTypes = {element.gigTypes} leader = {false}/>
                     </div>
                 )
             })}

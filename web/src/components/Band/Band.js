@@ -1,13 +1,16 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import fetcingFactory from "../../Utils/external";
 import { endpoints } from "../../Utils/Types";
 import * as opencage from 'opencage-api-client';
 import GeocodingForm from '../GeocodingForm';
-import { Card } from 'antd';
+import { Card, Input } from 'antd';
+import 'antd/dist/antd.css';
 import DisplayBandMembers from "./DisplayBandMembers"
+import './BandsBands.css'
+
+const { TextArea } = Input;
 
 export default class Band extends React.Component {
     constructor(props) {
@@ -105,21 +108,22 @@ export default class Band extends React.Component {
             <React.Fragment>
             <Modal show={this.state.showModal} animation={false}>
                 <Modal.Body>
-                    <Form onSubmit = {this.handleSubmit}>
-                        <div className="col-3">
-                            <Form.Label controlId="bandBio"> Biography: </Form.Label>
-                        </div>
-                        <div className="col-6">
-                            <Form.Group controlId="bandBio">
-                                <Form.Control autoFocus type="text" value={this.state.bandBio}
-                                                onChange={this.handleChange}/>
-                            </Form.Group>
-                        </div>
+                <div className="modal-login">
+
+                            <div className="modal-header">				
+                                <h4 className="modal-title">Edit band</h4>
+                            </div>
+
+                            <div className="modal-body">
+                            <form onSubmit={this.handleSubmit}>
                         <div>
+                                <TextArea placeholder="Biography" autoFocus type="textarea" value={this.state.bandBio}
+                                                onChange={this.handleChange}/>
+                        </div>
+
                             Current location: 
                             {this.state.location.address}
-                        </div>
-                        <div className="col-12">
+
                             <GeocodingForm
                                 apikey={this.state.apikey}
                                 query={this.state.query}
@@ -127,9 +131,12 @@ export default class Band extends React.Component {
                                 onSubmit={this.handleGeoSubmit}
                                 onChange={this.handleGeoChange}
                             />
-                        </div>
+
                         <Button type="submit" block> Confirm changes </Button>
-                    </Form>
+                    
+                        </form>
+                            </div>
+                    </div>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button
@@ -168,9 +175,34 @@ export default class Band extends React.Component {
                     )}</p>
                     {this.props.leader? 
                         <React.Fragment>
-                            <Button onClick = {this.handleEdit}> Edit</Button> 
-                            <Button onClick={(e) => {
+                            <Button 
+                            onClick = {this.handleEdit}
+                            style ={{
+                                fontFamily: 'sans-serif',
+                                fontSize: "14px", 
+                                fontWeight: "bold",
+                                background: "#19aa8d",
+                                borderRadius: "3px",
+                                border: "none",
+                                minWidth: "70px",
+                                maxWidth: "100%",
+                                outline: "none"
+                            }}> Edit</Button> 
+                            <br></br><br></br>
+                            <Button 
+                            onClick={(e) => {
                                 this.setState({showAdministrateModal: true})
+                            }}
+                            style ={{
+                                fontFamily: 'sans-serif',
+                                fontSize: "14px", 
+                                fontWeight: "bold",
+                                background: "#19aa8d",
+                                borderRadius: "3px",
+                                border: "none",
+                                minWidth: "70px",
+                                maxWidth: "100%",
+                                outline: "none"
                             }}> Administrate</Button>
                         </React.Fragment>
                         :
