@@ -86,7 +86,7 @@ export default function fetcingFactory(endpoint, params, id) {
     case Types.endpoints.GET_ALL_USERS:
       return getAllUsers(params, endpoint);
     case Types.endpoints.SEND_MESSAGE_TO_USER:
-      return send_message_to_user(params, endpoint);
+      return sendMessageToUser(params, endpoint);
   }
 }
 
@@ -401,6 +401,17 @@ function getUserConversations(params, endpoint) {
 }
 
 function createUserConversation(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function sendMessageToUser(params, endpoint) {
   return fetch(API + endpoint, {
     method: "POST",
     body: params,

@@ -35,7 +35,8 @@ export const endpoints = {
   CREATE_USER_CONVERSATION: "/conversations/create",
   ADD_USER_TO_CONVERSATION: "/conversations/add/", //ide para1metar conversation id nakon add/
   POST_MESSAGE: "/conversations/send/person",
-  GET_ALL_USERS: "/users/findUsers"
+  GET_ALL_USERS: "/users/findUsers",
+  SEND_MESSAGE_TO_USER: "/conversations/send/person"
   /*TO DO: ostali endpointi*/
 };
 
