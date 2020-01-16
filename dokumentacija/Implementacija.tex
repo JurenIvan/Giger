@@ -117,14 +117,60 @@ Moćan i vrlo prilagodljiv okvir za provjeru autentičnosti i kontrolu pristupa 
 			
 			\subsection{Ispitivanje sustava}
 			
-			 \textit{Potrebno je provesti i opisati ispitivanje sustava koristeći radni okvir Selenium\footnote{\url{https://www.seleniumhq.org/}}. Razraditi \textbf{minimalno 4 ispitna slučaja} u kojima će se ispitati redovni slučajevi, rubni uvjeti te poziv funkcionalnosti koja nije implementirana/izaziva pogrešku kako bi se vidjelo na koji način sustav reagira kada nešto nije u potpunosti ostvareno. Ispitni slučaj se treba sastojati od ulaza (npr. korisničko ime i lozinka), očekivanog izlaza ili rezultata, koraka ispitivanja i dobivenog izlaza ili rezultata.\\ }
 			 
-			 \textit{Izradu ispitnih slučajeva pomoću radnog okvira Selenium moguće je provesti pomoću jednog od sljedeća dva alata:}
-			 \begin{itemize}
-			 	\item \textit{dodatak za preglednik \textbf{Selenium IDE} - snimanje korisnikovih akcija radi automatskog ponavljanja ispita	}
-			 	\item \textit{\textbf{Selenium WebDriver} - podrška za pisanje ispita u jezicima Java, C\#, PHP koristeći posebno programsko sučelje.}
-			 \end{itemize}
-		 	\textit{Detalji o korištenju alata Selenium bit će prikazani na posebnom predavanju tijekom semestra.}
+		 	Za potrebe ispitivanja sustava, koristili smo Selenium IDE.
+		 	
+		 	\subsubsection{Test 1: Registracija korisnika}
+		 		
+		 		\textbf{Očekivano:} Klikom na gumb "Register" otvara se forma sa potrebnim poljima za registraciju: Forma se sastoji od unosa imena, prezimena, korisničkog imena, e-mail adrese, kontakt telefona, te korisničke lozinke. Ukoliko su sva polja ispravna korisnik će se pokušati registrirati u bazu ukoliko nema iznimki, u protivnom, sustav će dojaviti grešku.
+		 		
+		 		
+		 		\noindent\textbf{Rezultat:} Korisnik je uspješno registriran u bazu podataka ili je sustav dojavio grešku.
+		 		
+				\begin{figure}[H]
+		 			\begin{center}
+		 				\includegraphics[width=15cm]{slike/neispravna_forma_registracija.PNG}
+		 			\end{center}
+		 			\caption{Test za neispravno unešena poolja (lozinka kraća od 8 znakova). U slučaju ispravno unesenih polja, aplikacija preusmjerava na prijavu.}
+		 			\label{fig:inttest}
+		 		\end{figure}
+			\subsubsection{Test 2: Prijava korisnika u aplikaciju}
+			\textbf{Očekivano:} Klikom na gumb "Login", otvara se forma sa poljima: E-mail korisnika te lozinka. U slučaju ispravno unešenih polja i podataka, korisnik se prijavljuje u aplikaciju. U protivnom, aplikacija dojavljuje grešku.
+			
+			\noindent\textbf{Rezultat:} Korisnik je prijavljen u aplikaciju ili je dojavljena greška.
+			
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=15cm]{slike/login_screen.PNG}
+				\end{center}
+				\caption{Prikaz prijave u aplikaciju}
+				\label{fig:inttest}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width=15cm]{slike/login_redirect.PNG}
+				\end{center}
+				\caption{Nakon uspješne prijave, aplikacija preusmjerava na prikaz javnih \textit{Gig-ova}}
+				\label{fig:inttest}
+			\end{figure}
+		
+		\subsubsection{Test 3: Stvaranje profila \textit{Glazbenik}}
+		\textbf{Očekivano:} Nakon prijave u aplikaciju, klikovima na gumbove: Profile, Settings, Change profile type, otvara se sljedeća forma:
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=13cm]{slike/create_musician.PNG}
+			\end{center}
+			\caption{Forma za stvaranje profila glazbenik}
+			\label{fig:inttest}
+		\end{figure}
+		
+		\noindent Korisnik ispunjanjem forme i klikom na gumb "Confirm" stvara profil glazbenik.
+		
+		\noindent\textbf{Rezultat:} U slučaju da je korisnik već glazbenik, aplikacija će ga u pokušaju stvarnja o tome obavijestiti. U suprotnom, aplikacija dojavljuje da je korisniku uspješno pridjeljena uloga "Glazbenik".
+		
+		\subsubsection{Test 4: Objavljivanje \textit{Post-ova}}
 			
 			\eject 
 		
