@@ -5,6 +5,7 @@ import { Avatar } from 'antd';
 import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import {Carousel} from "antd";
 const { Search } = Input;
 
 
@@ -81,10 +82,21 @@ export class GigList extends React.Component{
     {
         return(
         <div>
-          
+
             <div style ={{position:"relative",left:"23px", top:"2px"}}>
+
+
+              <Carousel>
+                <div>
+                  <h2>Where words fail, MUSIC speaks!</h2>
+                  <h5>Search for gigs below.</h5>
+                </div>
+              </Carousel>
+
+              <br></br><br></br><br></br>
+
             <Search
-            placeholder="input search text"
+            placeholder="Search for gigs by name"
             enterButton="Search"
             size="large"
             onChange={this.handleChange}
