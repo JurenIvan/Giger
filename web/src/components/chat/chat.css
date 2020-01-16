@@ -22,7 +22,7 @@ img{ max-width:100%;}
   width: 60% padding;
 }
 
-.heading_search{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
+.heading_search{ padding:10px 29px 10px 20px; border-bottom:1px solid #c4c4c4;}
 
 .recent_heading h4 {
   color: #05728f;
@@ -81,7 +81,7 @@ img{ max-width:100%;}
   padding: 5px 10px 5px 12px;
   width: 100%;
 }
-.sender_name_and_sent_time {
+.time_date {
   color: #747474;
   display: block;
   font-size: 12px;

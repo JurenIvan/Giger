@@ -81,6 +81,8 @@ export default function fetcingFactory(endpoint, params, id) {
       return getUserConversations(params, endpoint);
     case Types.endpoints.CREATE_USER_CONVERSATIONS:
       return createUserConversation(params, endpoint);
+    case Types.endpoints.ADD_USER_TO_CONVERSATION:
+      return addUserToConversation(params, endpoint);
     case Types.endpoints.GET_ALL_USERS:
       return getAllUsers(params, endpoint);
   }
@@ -397,6 +399,17 @@ function getUserConversations(params, endpoint) {
 }
 
 function createUserConversation(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function addUserToConversation(params, endpoint) {
   return fetch(API + endpoint, {
     method: "POST",
     body: params,
