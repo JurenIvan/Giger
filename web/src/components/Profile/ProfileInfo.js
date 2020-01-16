@@ -3,6 +3,8 @@ import * as React from 'react';
 import { Col, Row, Button, Modal } from 'react-bootstrap';
 import {Card, Avatar} from "antd"
 import DisplayInstruments from "../BasicComponents/DisplayInstruments"
+import fetcingFactory from "../../Utils/external";
+import {endpoints} from "../../Utils/Types";
 
 export default class ProfileInfo extends React.Component {
     constructor(props) {
@@ -42,13 +44,27 @@ export default class ProfileInfo extends React.Component {
         this.setState({profilePic: newProfilePic, 
             uploadModal: false,
             newProfilePic: ""
+        }, () => {
+            let params = JSON.stringify({
+                pictureUrl: this.state.profilePic
+            })
+            fetcingFactory(endpoints.EDIT_MUSICIAN, params).then(
+                response => {
+                    if(response.status===200){                   
+                    }else{
+                        response.json().then(
+                            alert("Error")
+                        )
+                    }         
+                })       
         });
+
     }
 
     render() {
         return (
         <React.Fragment>
-             <Modal show={this.state.uploadModal} animation={false}>
+             <Modal show={this.state.uploadModal} animation={false} onHide={ (e) => this.setState({showModal: false})}>
                 <Modal.Body>
                     <input onChange = {this.handleProfilePic}
                      type = "url"  
@@ -74,13 +90,23 @@ export default class ProfileInfo extends React.Component {
                             <Row>
                                 <Avatar shape="square" size = {250} src = {this.state.profilePic}/>
                             </Row>
-                                
+                            <br></br>
                             <Row>
                                 {
                                     this.state.edit?
-                                    <Button style = {{width:250}} 
+                                    <Button style ={{
+                                fontFamily: 'sans-serif',
+                                fontSize: "14px", 
+                                fontWeight: "bold",
+                                background: "#19aa8d",
+                                borderRadius: "3px",
+                                border: "none",
+                                minWidth: "70px",
+                                maxWidth: "100%",
+                                outline: "none"
+                            }} 
                                     onClick = {()=> this.setState({uploadModal: true})}>
-                                        Upload profile picture
+                                        Change profile picture
                                     </Button> : null
                                 }
                             </Row>

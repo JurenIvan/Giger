@@ -75,6 +75,8 @@ export default function fetcingFactory (endpoint, params, id) {
             return submitComment(params,endpoint,id);
         case Types.endpoints.GET_MUSICIAN_OCASSION:
             return getMusicianOcassion(params, endpoint);
+        case Types.endpoints.EDIT_MUSICIAN:
+            return editMusician(params, endpoint);
     }
 }
 
@@ -407,5 +409,16 @@ function getMusicianOcassion(params, endpoint) {
             "Content-Type" : "application/json",
             "Authorization" : "Bearer " + Cookies.get("Bearer")
         }
+    })
+}
+
+function editMusician(params, endpoint) {
+    return fetch(API+ endpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+            "Authorization" : "Bearer " + Cookies.get("Bearer")
+        },
+        body: params
     })
 }

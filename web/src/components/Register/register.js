@@ -54,14 +54,9 @@ export default class RegisterClass extends React.Component{
 
     }
 
-    validateRegister () {
-
-    }
-
-    //if validateRegister  returns true send form to db
     handleSubmit = event => {
         event.preventDefault();
-        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password < 7
+        let shouldShow = this.state.eMail.length < 0 || this.state.userName.length < 0 || this.state.phone.length < 0 || this.state.password.length < 7
         if (shouldShow) {
             console.log(this.state)
             this.setState({showModal: true});

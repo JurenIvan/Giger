@@ -34,7 +34,7 @@ export default class MusicianProfile extends React.Component {
                 if(json) {
                     this.setState({
                         name: json.name,
-                        instrumentList: json.instrumentList,
+                        instrumentList: json.instruments,
                         pictureUrl: json.pictureUrl,
                         contactNumber: json.contactNumber
                     }, ()=> console.log(this.state));

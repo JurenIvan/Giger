@@ -58,7 +58,7 @@ export default class Home extends React.Component {
 
     
     render() {
-        let person = this.state.person?[
+        let person = this.state.person?
             <div>
                 <div>
                     <a href="/displayGigs" className="button big alt scrolly"style={{width:"400px"}} >View public gigs</a>
@@ -68,11 +68,10 @@ export default class Home extends React.Component {
                     <a href="/displayBands" className="button big alt scrolly" style={{width:"400px"}} >View bands</a>
                 </div>
                 <br></br><br></br>
-            </div>
-            ]
+            </div> 
             :
             []
-        let musician = this.state.musician?[
+        let musician = this.state.musician?
             <div>
                 <div>
                     <a href="/AcceptBandInvite" className="button big alt scrolly"style={{width:"400px"}} >Manage band invites</a>
@@ -87,10 +86,9 @@ export default class Home extends React.Component {
                 </div>
                 <br></br><br></br>
             </div>
-            ]
             :
             []
-        let organizer = this.state.organizer?[
+        let organizer = this.state.organizer?
             <div>
                 <div>
                 <a href="/CreateGig" className="button big alt scrolly" style={{width:"400px"}}>Create gig</a>
@@ -110,7 +108,7 @@ export default class Home extends React.Component {
                 <a href="/InviteToGig" className="button big alt scrolly" style={{width:"400px"}}>Invite band to gig</a>
                 </div>
             </div>
-        ]: []
+            : []
         return (
         <div>
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
