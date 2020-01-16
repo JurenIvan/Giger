@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MusicianPreviewDto {
 
-    private Long id;
-    private String bio;
-    private boolean publicCalendar;
-    private List<Instrument> instruments;
+	private Long id;
+	private String bio;
+	private boolean publicCalendar;
+	private List<Instrument> instruments;
 }

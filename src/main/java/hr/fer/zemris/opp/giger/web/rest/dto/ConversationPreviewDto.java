@@ -6,14 +6,14 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class ConversationPreviewDto {
 
-    private List<PersonPreviewDto> participantsId;
-    private BandPreviewDto bandId;
-    private String pictureUrl;
-    private List<MessagePreview> messages;
-
+	private Long conversationId;
+	private List<PersonPreviewDto> participantsId;
+	private BandDto bandId;
+	private String pictureUrl;
+	private List<MessagePreview> messages;
 }

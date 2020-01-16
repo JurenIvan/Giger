@@ -1,33 +1,55 @@
 package hr.fer.zemris.opp.giger.web.rest.controller;
 
-import hr.fer.zemris.opp.giger.domain.Band;
-import hr.fer.zemris.opp.giger.domain.Gig;
-import hr.fer.zemris.opp.giger.domain.Organizer;
-import hr.fer.zemris.opp.giger.domain.Review;
+import hr.fer.zemris.opp.giger.domain.exception.GigerValidationException;
+import hr.fer.zemris.opp.giger.service.ReviewService;
+import hr.fer.zemris.opp.giger.web.rest.dto.ReviewCreationDto;
 import hr.fer.zemris.opp.giger.web.rest.dto.ReviewsDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 
 @RestController
 @RequestMapping("/reviews")
+@AllArgsConstructor
 public class ReviewController {
 
-    @PostMapping("/create")
-    public void createReview(Review review) {
-    }
+	private static final Logger LOGGER = LoggerFactory.getLogger(ReviewController.class);
+	private ReviewService reviewService;
 
-    @GetMapping("/band/{bandId}")
-    public ReviewsDto getReviewsForBand(Band band) {
-        return null;
-    }
+	@PostMapping("/create")
+    public void createReview(@Valid @RequestBody ReviewCreationDto reviewDto, BindingResult bindingResult) {
+        LOGGER.info("CreateReview: " + reviewDto);
+        handleValidation(bindingResult);
+		reviewService.createReview(reviewDto);
+	}
 
-    @GetMapping("/organizer/{organizerId}")
-    public void getReviewsForOrganizer(Organizer organizer) {
-    }
+	@GetMapping("/band/{bandId}")
+	public ReviewsDto getReviewsForBand(@PathVariable @Min(1) Long bandId) {
+		LOGGER.info("getReviewsForBand: " + bandId);
+		return reviewService.getReviewsForBand(bandId);
+	}
 
-    @GetMapping("/gig/{gigId}")
-    public void getReviewsForGig(Gig gig) {
-    }
+	@GetMapping("/organizer/{organizerId}")
+	public ReviewsDto getReviewsForOrganizer(@PathVariable @Min(1) Long organizerId) {
+        LOGGER.info("GetReviewsForOrganizer: " + organizerId);
+        return reviewService.getReviewsForOrganizer(organizerId);
+	}
+
+	@GetMapping("/gig/{gigId}")
+	public ReviewsDto getReviewsForGig(@PathVariable @Min(1) Long gigId) {
+        LOGGER.info("GetReviewsForGig: " + gigId);
+        return reviewService.getReviewsForGig(gigId);
+	}
+
+	private void handleValidation(BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			LOGGER.warn("Validation Exception: " + bindingResult.getAllErrors());
+			throw new GigerValidationException(bindingResult);
+		}
+	}
 }

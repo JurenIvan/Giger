@@ -1,6 +1,5 @@
 package hr.fer.zemris.opp.giger.repository;
 
-import hr.fer.zemris.opp.giger.domain.Band;
 import hr.fer.zemris.opp.giger.domain.Gig;
 import hr.fer.zemris.opp.giger.domain.Organizer;
 import hr.fer.zemris.opp.giger.domain.enums.GigType;
@@ -13,9 +12,11 @@ import java.util.List;
 public interface GigRepository extends JpaRepository<Gig, Long> {
 
 
-    List<Gig> findAllByGigTypeAndPrivateGig(GigType gigType, Boolean isPrivate);
+	List<Gig> findAllByGigTypeAndPrivateGig(GigType gigType, Boolean isPrivate);
 
-  //  List<Gig> findAllByFinalBandAndPrivateGig(Band band, boolean isPrivate);
+	List<Gig> findAllByPrivateGigAndFinalDealAchieved(boolean isPrivate, boolean finalDealAchieved);
 
-    List<Gig> findAllByOrganizer(Organizer organizer);
+	//  List<Gig> findAllByFinalBandAndPrivateGig(Band band, boolean isPrivate);
+
+	List<Gig> findAllByOrganizer(Organizer organizer);
 }

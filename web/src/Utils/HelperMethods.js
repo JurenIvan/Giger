@@ -1,10 +1,13 @@
 import Cookies from "js-cookie";
+import * as Types from "../Utils/Types"
+const API = process.env.NODE_ENV === 'production'?"https://giger-backend.herokuapp.com/api/":"https://giger-backend-dev.herokuapp.com/api/";
+
 
 export function sendRegisterInfo (email, username, phone, password, f) {
-    let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/register';
-    xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
-    xhr.setRequestHeader('Content-type', 'application/json');
+    //let xhr = new XMLHttpRequest();
+    //let url = 'https://giger-backend-dev.herokuapp.com/api/register';
+    //xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
+    //xhr.setRequestHeader('Content-type', 'application/json');
     
     let params = JSON.stringify({
                     "email": email,
@@ -12,7 +15,7 @@ export function sendRegisterInfo (email, username, phone, password, f) {
                     "phoneNumber": phone,
                     "password": password
                     });
-    console.log(params)
+    /*console.log(params)
     xhr.send(params);
     xhr.onload = function() {
         if (xhr.status !== 200) { // analyze HTTP status of the response
@@ -22,13 +25,20 @@ export function sendRegisterInfo (email, username, phone, password, f) {
         } else { // show the result
             f(xhr.status);
         }
-    }
+    }*/
+    fetch(API + "register", {
+        method: "POST",
+        headers: {"Content-Type" : "application/json"},
+        body: params
+    }).then(response => {
+        alert(response)
+    });
 
 }
 
 export function sendLoginInfo (email, password, f) {
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/authenticate';
+    let url = API + 'authenticate';
     xhr.open('POST', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-type', 'application/json');
     
@@ -53,7 +63,7 @@ export function sendLoginInfo (email, password, f) {
 export function isUsernameAvailible(username, f) {
     // 1. Create a new XMLHttpRequest object
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/register/nickname-available?nickname=' + username;
+    let url = API + 'register/nickname-available?nickname=' + username;
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     
@@ -78,7 +88,7 @@ export function isUsernameAvailible(username, f) {
 export function pingHelloWorld(f) {
     // 1. Create a new XMLHttpRequest object
     let xhr = new XMLHttpRequest();
-    let url = 'https://giger-backend-dev.herokuapp.com/api/hello';
+    let url = API + 'hello';
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/'+url);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.setRequestHeader('Authorization',
@@ -100,4 +110,37 @@ export function pingHelloWorld(f) {
     xhr.onerror = function() {
         console.log("Request failed");
     };
+}
+
+export function getTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        if(month.toString().length === 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length === 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length === 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length === 1) {
+             minute = '0'+minute;
+        }
+        var dateTime = day+'.'+month+'.'+year+'. '+hour+':'+minute;   
+    return dateTime;
+}
+
+export function getInstrumentList(list) {
+    let helperList = [];
+    console.log(list)
+    helperList = list.map(element => {
+        console.log(Types.InstrumentsList[element-1])
+        return Types.InstrumentsList[element-1]
+    })
+    return helperList;
 }

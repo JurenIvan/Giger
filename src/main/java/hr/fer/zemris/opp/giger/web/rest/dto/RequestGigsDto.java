@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RequestGigsDto {
 
-    private GigType gigType;
-    private Band band;
-
+	private GigType gigType;
+	private Band band;
 }

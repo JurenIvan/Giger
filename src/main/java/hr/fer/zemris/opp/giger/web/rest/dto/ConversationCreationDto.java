@@ -4,13 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConversationCreationDto {
 
-    private String title;
-    private String userName;
-    private String pictureUrl;
-
+	@NotBlank
+	private String title;
+	private String pictureUrl;
 }
