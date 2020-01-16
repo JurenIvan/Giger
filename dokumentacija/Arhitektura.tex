@@ -65,31 +65,39 @@
 		Baza podataka sastoji se od sljedećih tablica:
 		
 		\begin{packed_item}
-		\item Comment
 		\item Message
+		\item Conversation\_messages
 		\item Conversation
-		\item Conversation\_user
+		\item Conversation\_participants
 		\item System\_person
 		\item Person
 		\item System\_person\_roles
 		\item Organizer
-		\item Band
+		\item Band 
 		\item Gig\_type
 		\item Band\_occasions
 		\item Occasion
 		\item Musician\_occasions
 		\item Band\_invited\_back\_up\_members
-		\item Band\_invited
+		\item Band\_invited 
 		\item Band\_back\_up\_members
-		\item Musician\_bands
+		\item Band\_members
+		\item Band\_acceptable\_gig\_types
+		\item Band\_invitation\_gigs
+		\item Band\_posts	
+		\item Band\_gigs
+		\item Gig
+		\item Gig\_reviews
+		\item Review
 		\item Post
+		\item Post\_comments
+		\item Comment
 		\item Musician
 		\item Instruments
+		\item Musician\_instruments
 		\item Instrument
-		\item Musician\_gig\_history
-		\item Gig
-		\item Review\_gig
-		\item Review
+		\item Musician\_past\_gigs
+		
 		
 	\end{packed_item}
 	
@@ -111,7 +119,6 @@
 		content & VARCHAR & sadržaj komentara \\ \hline
 		posted\_on & TIMESTAMP & datum i vrijeme objave komentara \\ \hline	
 		\textit{author\_id} & BIGINT & jedinstveni identifikator autora komentara \\ \hline
-		\textit{fk\_post} & BIGINT & jedinstveni identifikator komentara \\ \hline
 		
 	\end{longtabu}
 	
@@ -128,9 +135,9 @@
 		\textbf{id} & BIGINT	&  	jedinstveni identifikator poruke 	\\ \hline
 		content	& VARCHAR & sadržaj poruke	\\ \hline
 		sent\_time & TIMESTAMP & vrijeme kada je poruka poslana \\ \hline
-		\textit{fk\_sender} & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
-		\textit{fk\_sender\_band} & BIGINT & jedinstveni identifikator benda pošiljatelja \\ \hline
-		\textit{fk\_converation} & BIGINT & jedinstveni identifikator razgovora \\ \hline
+		\textit{sender\_id} & BIGINT & jedinstveni identifikator pošiljatelja \\ \hline
+		\textit{sender\_band\_id} & BIGINT & jedinstveni identifikator benda pošiljatelja \\ \hline
+
 		
 	\end{longtabu}
 	
