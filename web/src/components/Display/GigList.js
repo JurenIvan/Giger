@@ -1,13 +1,10 @@
-import React, { Component } from "react"
+import React from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
 import { Avatar } from 'antd';
 import "../../CSS/GigList.css"
-import MyModal from "../Modal/AntdModal";
-
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import { Button } from 'antd';
 const { Search } = Input;
 
 

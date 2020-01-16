@@ -68,7 +68,7 @@ public class  LoaderService implements ApplicationRunner {
 	}
 
 	private void createSystemPeople() {
-		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON,ORGANIZER)));
 		systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON, ORGANIZER)));
@@ -198,7 +198,7 @@ public class  LoaderService implements ApplicationRunner {
 		comments.add(new Comment(null, "Congrats!", of(2019, 12, 2, 20, 0), people.get(3)));
 		comments.add(new Comment(null, "When?", of(2019, 12, 3, 20, 0), people.get(4)));
 		comments.add(new Comment(null, "Can I buy it online?", of(2019, 12, 4, 20, 0), people.get(5)));
-		comments.add(new Comment(null, "Yes, ofcourse!", of(2019, 12, 5, 20, 0), people.get(6)));
+		comments.add(new Comment(null, "Yes, of course!", of(2019, 12, 5, 20, 0), people.get(6)));
 		comments.add(new Comment(null, "Where was it?", of(2019, 12, 6, 20, 0), people.get(7)));
 		comments.add(new Comment(null, "Good for you.", of(2019, 12, 7, 20, 0), people.get(8)));
 		comments.add(new Comment(null, "Woohoo", of(2019, 12, 8, 20, 0), people.get(9)));

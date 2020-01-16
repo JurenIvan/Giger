@@ -12,7 +12,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -95,7 +97,10 @@ public class PeopleService {
 							.map(Musician::getId)
 							.collect(toList()));
 		}
-		return Stream.concat(usernameMatches.stream(), bandNameMatches.stream()).collect(toList());
+		Set<Person> setOfPeople = new HashSet<>();
+		Stream.concat(usernameMatches.stream(), bandNameMatches.stream()).forEach(setOfPeople::add);
+
+		return setOfPeople.stream().map(e -> new Person(e.getId(), e.getUsername(), "", e.getPictureUrl())).collect(toList());
 	}
 
 	public List<ReviewPreviewDto> getReviews(Long personId) {
@@ -107,7 +112,7 @@ public class PeopleService {
 		return peopleRepository.findById(personId).orElseThrow(() -> new GigerException(NO_SUCH_USER)).toDto();
 	}
 
-    public List<Instrument> getAllInstrument() {
+	public List<Instrument> getAllInstrument() {
 		return instrumentRepository.findAll();
-    }
+	}
 }

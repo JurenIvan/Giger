@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Col, Row, Form, Button, Modal } from 'react-bootstrap';
+// eslint-disable-next-line
+import { Col, Row, Button, Modal } from 'react-bootstrap';
 import {Card, Avatar} from "antd"
 import DisplayInstruments from "../BasicComponents/DisplayInstruments"
 
@@ -16,8 +17,6 @@ export default class ProfileInfo extends React.Component {
             edit: this.props.edit
         }
         this.handleProfilePic = this.handleProfilePic.bind(this);
-        this.handlePostSubmit = this.handlePostSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
     }
 
@@ -36,15 +35,6 @@ export default class ProfileInfo extends React.Component {
 
     handleProfilePic (e) {
        this.setState({newProfilePic: e.currentTarget.value})
-    }
-
-    handlePostSubmit = event => {
-        event.preventDefault();
-        
-    }
-
-    handleChange = event => {
-        this.setState({ postContent: event.target.value});
     }
 
     handleSave() {
@@ -103,21 +93,7 @@ export default class ProfileInfo extends React.Component {
             </Card>
                    
                     
-            {
-                this.state.edit? 
-                    null :
-                <Row className="profileInfo">
-                    <textarea type="text"
-                        onChange={this.handleChange}
-                         id="postContent"
-                         className="form-control"
-                         as></textarea>
-                        <Button block type="submit" onClick = {this.handlePostSubmit}
-                        style = {{width:500 , margin: "5px"}}>
-                            Post
-                        </Button>
-                </Row>
-            }
+            
            
         </React.Fragment>
         )

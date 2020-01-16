@@ -1,8 +1,5 @@
 import React from 'react';
 import "./Gigs.css";
-import { registerLocale} from "react-datepicker";
-//import Select from 'react-dropdown-select';
-import {hr} from 'date-fns/locale';
 import GeocodingForm from '../GeocodingForm';
 import * as opencage from 'opencage-api-client';
 import fetcingFactory from "../../Utils/external";
@@ -10,7 +7,6 @@ import {endpoints} from "../../Utils/Types";
 import { Checkbox , DatePicker, Select} from 'antd';
 import 'antd/dist/antd.css';
 import {notification, Icon } from 'antd';
-registerLocale('hr', hr)
 
 const {Option} = Select;
 
@@ -18,12 +14,20 @@ const openNotification = () => {
     notification.open({
       message: 'You have successfully created a gig!',
       description:
-        'You have created a gig, please make arrangements with a band to make it public.',
-      icon: <Icon type="smile" style={{ color: '#108ee9' }} />,
+        'You have created a gig, please make arrangements with a band to make it public.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
     });
-  };
-  function sayHi() {
-  }
+}
+
 
 export default class CreateGig extends React.Component {
     constructor(props) {
@@ -101,11 +105,10 @@ export default class CreateGig extends React.Component {
             response => {
                 if (response.status === 200) {
                     openNotification();
-                    setTimeout(sayHi(),5000);
-                    window.location.href = "/home";
+                    
                 } else {
                     console.log(response)
-                    alert(response.json())
+                    alert("error")
                 }
             });
     }
@@ -238,7 +241,6 @@ export default class CreateGig extends React.Component {
                                     </Select>
                                     <br></br><br></br>
                                     <DatePicker
-                                        locale="hr"
                                         dateFormat="dd/MM/yyyy HH:mm"
                                         showTime
                                         timeFormat="HH:mm"

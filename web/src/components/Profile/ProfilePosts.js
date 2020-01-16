@@ -1,8 +1,9 @@
 import React from "react";
-import { Card } from 'antd';
 import {PostClass} from "../BasicComponents/Post";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
+import { Button} from "react-bootstrap";
+import {Card} from "antd";
 
 
 export default class ProfilePosts extends React.Component {
@@ -36,8 +37,34 @@ export default class ProfilePosts extends React.Component {
             }
            ]
         }
+        this.handlePostSubmit = this.handlePostSubmit.bind(this);
+        this.getProfilePosts = this.getProfilePosts.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
+    getProfilePosts() {
+        fetcingFactory(endpoints.GET_MUSICIAN_POSTS, this.state.id).then(
+            response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    alert("Something went wrong!")
+                }
+            }
+        ).then(
+            json => {
+                if(json) {
+                    console.log(json);
+                    let jsonList = json;
+                    let sortedList = jsonList.reverse()
+                    this.setState({ProfilePostsList: sortedList}, () => console.log(this.state))
+                 } else {
+                     this.setState({ProfilePostsList: []})
+                 }
+                }
+            
+        )
+    }
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
@@ -49,31 +76,7 @@ export default class ProfilePosts extends React.Component {
     }
 
     componentWillMount() {
-       fetcingFactory(endpoints.GET_MUSICIAN_POSTS, this.state.id).then(
-           response => {
-               if (response.ok) {
-                   return response.json()
-               } else {
-                   alert("Something went wrong!")
-               }
-           }
-       ).then(
-           json => {
-               if(json) {
-                   console.log(json);
-                   this.setState({ProfilePostsList: json}, () => console.log(this.state))
-                } else {
-                    return(
-                        <Card>
-                            <p>
-                                User does not have posts.
-                            </p>
-                        </Card>
-                    );
-                }
-               }
-           
-       )
+       this.getProfilePosts();
     }
 
     /**
@@ -87,19 +90,56 @@ export default class ProfilePosts extends React.Component {
                     }
                 }
      */
+    handlePostSubmit = event => {
+        let params = {
+            content: this.state.postContent
+        }
+        this.setState({postContent : ""})
+        console.log(params)
+        fetcingFactory(endpoints.SUBMIT_USER_POST, JSON.stringify(params)).then(
+            response => {
+                console.log(response);
+                if (response.ok) {
+                    this.getProfilePosts();
+                } else {
+                    alert("Post creation failed")
+                }
+            }
+        )
+        
+    }
+
+    handleChange = event => {
+        event.preventDefault();
+        this.setState({ postContent: event.target.value});
+    }
     render() {
         return (
-            <div>
+            <div style = {{margin: 5}}>
+            <textarea type="text"
+                onChange={this.handleChange}
+                 id="postContent"
+                 className="form-control"
+                 value = {this.state.postContent}></textarea>
+                <Button onClick = {this.handlePostSubmit}
+                style = {{width: 500, margin: 5}}>
+                    Post
+                </Button>
                 {
+                    this.state.ProfilePostsList.length > 0? 
                     this.state.ProfilePostsList.map(element => (
-                            <PostClass 
-                                postOwnerName = {this.state.name}
-                                content= {element.content}
-                                postedTime = {element.publishedOn}
-                                postOwnerImg = {this.state.pictureUrl}
-                                comments = {element.comments}
-                            />
-                    ))
+                        <PostClass 
+                            id = {element.id}
+                            postOwnerName = {this.state.name}
+                            content= {element.content}
+                            postedTime = {element.publishedOn}
+                            postOwnerImg = {this.state.pictureUrl}
+                            comments = {element.comments}
+                            updatePost = {this.getProfilePosts}
+                        />
+                )) : <Card style = {{textAlign: "center", borderBlockColor: "darkcyan"}}>
+                        No posts.
+                    </Card>
                 }
             </div>
            

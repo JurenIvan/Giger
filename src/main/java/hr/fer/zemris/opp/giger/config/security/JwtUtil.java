@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    public static final int JWT_TIMEOUT = 1000 * 60 * 60;
+	public static final int JWT_TIMEOUT = 1000 * 60 * 60 * 24;
 
     @Value("${spring.security.security.BCrypt.secret}")
     private String SECRET_KEY;
