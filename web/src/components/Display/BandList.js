@@ -141,27 +141,13 @@ export class BandList extends React.Component{
                   />
                 }
                 actions={[
-                  <Button type="primary" onClick={this.showModal}>
-                  View gig types
-                </Button>
+                  <p>Gig type: {item.gigTypes[0]}</p>
                 ]}                
                 >
                     <Meta
                     title={item.name}
                     description={item.bio}
                    />
-                  <Modal
-                    title={"Gig types of "+ item.name}
-                    visible={this.state.visible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                  >
-                    {item.gigTypes.map(types =>
-                    <p>
-                      {types}
-                    </p>
-                    )}
-                  </Modal>
 
                 </Card>
                 </div>
