@@ -167,7 +167,7 @@ export default class ChangeProfileType extends React.Component {
              ]}
             </Card>
             <Card
-            title = "I am a musician"
+            title = "I want to make a musician profile"
             style = {{width: 450, marginTop: 10}}
             >
             {this.state.isInitMusician?[
