@@ -41,11 +41,11 @@ export default class BandCreate extends React.Component {
             apikey: 'd77313f368154e0d8313ae506740f103',
             isSubmitting: false,
             eventType: [
-                {value: "WEDDING", label: "Svadba"},
-                {value: "BIRTHDAY", label: "Rođendan"},
-                {value: "BACHELORS_PARTY",label: "Momačka/djevojačka"},
-                {value: "CONCERT", label: "Koncert"},
-                {value: "OTHER", label: "Ostalo"}
+                {value: "WEDDING", label: "Wedding"},
+                {value: "BIRTHDAY", label: "Birthday"},
+                {value: "BACHELORS_PARTY",label: "Bachelors party"},
+                {value: "CONCERT", label: "Concert"},
+                {value: "OTHER", label: "Other"}
             ]
         }
 

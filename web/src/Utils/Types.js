@@ -1,4 +1,3 @@
-
 export const endpoints = {
     LOGIN : "/authenticate",
     REGISTER : "/register",
@@ -33,8 +32,13 @@ export const endpoints = {
     SUBMIT_COMMENT: "/posts/",
     GET_MUSICIAN_OCASSION: "/musicians/show/occasions/",
     EDIT_MUSICIAN: "/musicians/edit/",
-    GET_INSTRUMENTS: "/instruments/all/"
-    /*TO DO: ostali endpointi*/
+    GET_INSTRUMENTS: "/instruments/all/",
+  GET_USER_CONVERSATIONS: "/conversations/get/personal",
+  CREATE_USER_CONVERSATION: "/conversations/create",
+  ADD_USER_TO_CONVERSATION: "/conversations/add/", //ide para1metar conversation id nakon add/
+  POST_MESSAGE: "/conversations/send/person",
+  GET_ALL_USERS: "/users/findUsers",
+  SEND_MESSAGE_TO_USER: "/conversations/send/person"
 }
 
 export const InstrumentsList = [

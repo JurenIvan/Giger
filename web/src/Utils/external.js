@@ -79,6 +79,16 @@ export default function fetcingFactory (endpoint, params, id) {
             return editMusician(params, endpoint);
         case Types.endpoints.GET_INSTRUMENTS:
             return getInstrumentList(params, endpoint);
+        case Types.endpoints.GET_USER_CONVERSATIONS:
+          return getUserConversations(params, endpoint);
+        case Types.endpoints.CREATE_USER_CONVERSATION:
+          return createUserConversation(params, endpoint);
+        case Types.endpoints.ADD_USER_TO_CONVERSATION:
+          return addUserToConversation(params, endpoint, id);
+        case Types.endpoints.GET_ALL_USERS:
+          return getAllUsers(params, endpoint);
+        case Types.endpoints.SEND_MESSAGE_TO_USER:
+          return sendMessageToUser(params, endpoint);
     }
 }
 
@@ -371,37 +381,91 @@ function editGig(params, endpoint, id) {
 }
 
 function declineBandInvite(params, endpoint) {
-    console.log(API + endpoint + params)
-    return fetch(API + endpoint + params, {
-        method: "GET",
-        headers: {
-            "Content-Type" : "application/json",
-            "Authorization" : "Bearer " + Cookies.get("Bearer")
+  console.log(API + endpoint + params);
+  return fetch(API + endpoint + params, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
 
-        }
-    })
+function getUserConversations(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function createUserConversation(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function sendMessageToUser(params, endpoint) {
+  console.log(params, endpoint);
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function addUserToConversation(params, endpoint, id) {
+  return fetch(API + endpoint + id, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
+}
+
+function getAllUsers(params, endpoint) {
+  return fetch(API + endpoint, {
+    method: "POST",
+    body: params,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    }
+  });
 }
 
 function createPost(params, endpoint) {
-    return fetch(API + endpoint, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-            "Authorization" : "Bearer " + Cookies.get("Bearer")
-        },
-        body: params
-    })
+  return fetch(API + endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    },
+    body: params
+  });
 }
 
 function submitComment(params, endpoint, id) {
-    return fetch(API + endpoint + id, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-            "Authorization" : "Bearer " + Cookies.get("Bearer")
-        },
-        body: params
-    })
+  return fetch(API + endpoint + id, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + Cookies.get("Bearer")
+    },
+    body: params
+  });
 }
 
 function getMusicianOcassion(params, endpoint) {
