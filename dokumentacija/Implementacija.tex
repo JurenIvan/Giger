@@ -146,7 +146,7 @@ Moćan i vrlo prilagodljiv okvir za provjeru autentičnosti i kontrolu pristupa 
 		\section{Upute za puštanje u pogon}
 			
 			
-			Ponajprije je potrebno preuzeti Postgres SQL bazu podataka na operacijski sustav, poželjno Windows. Nakon toga je potrebno provesti standardnu instalaciju. U servisu LoaderService nalaze se testni podaci za inicijalno punjenje baze. Za postavljanje lozinke baze potrebno je je u password polje u system-local.properties postaviti prethodno definiranu lozinku za bazu podataka. Alternativno moguće je u root direktoriju standardnog terminala  pokrenuti naredbu docker -compose. Za konfiguraciju aplikacije na Heroku poslužitelju koristi se system.properties.
+			Ponajprije je potrebno preuzeti Postgres SQL bazu podataka na operacijski sustav, poželjno Windows. Nakon toga je potrebno provesti standardnu instalaciju. U servisu LoaderService nalaze se testni podaci za inicijalno punjenje baze. Za postavljanje lozinke baze potrebno je je u password polje u system-local.properties postaviti prethodno definiranu lozinku za bazu podataka. Alternativno moguće je u root direktoriju standardnog terminala  pokrenuti naredbu docker-compose up koja će u virtualnom kontejneru pokrenuti servise koji su predefinirani u dockeru docker-compose.yml datoteci. Za konfiguraciju aplikacije na Heroku poslužitelju koristi se system.properties iz kojeg se čita pokretanje Spring Boot aplikacije defaultnim profilom.
 			U izradi aplikacije korišten je radni okvir Spring Boot. Za pokretanje Javine aplikacije
 			potrebno je imati instaliran Java Runtime Environment v11. Za pokretanje frontend aplikacije
 			potrebno je imati instaliranu platformu Node.js. Za pokretanje također je potrebno otpakirati 
