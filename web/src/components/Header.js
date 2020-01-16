@@ -17,22 +17,27 @@ export default function Header(props) {
     }
     return (
         <header className="Header">
-            <Button href='/home'>Home</Button>
             {/*<Button href='/events'>Events</Button>*/}
             {/*<Button href='/bands'>Bands</Button>*/}
             
             {
                 Cookies.get('Bearer') ?
                     [
-                    <Button onClick={handleLogout}>Log out</Button>,
+                    <div className="Header-btns">
+                    <Button href='/home'>Home</Button>
+                    <Button href='/login' onClick={handleLogout}>Log out</Button>
                     <Button href="/profile">Profile</Button>
+                    </div>    
                     ]
                     :
-                    [<Button href='/login'>Log in</Button>,
-                    <Button href='/register'>Register</Button>]
+                    [
+                    <div className="Header-btns">
+                    <Button href='/WelcomePage'>Home</Button>
+                    <Button href='/login'>Log in</Button>
+                    <Button href='/register'>Register</Button>
+                    </div>]
             }
 
         </header>
     )
 }
-

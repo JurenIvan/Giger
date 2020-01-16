@@ -1,10 +1,12 @@
-import React, { Component } from "react"
+import React from "react"
 import { Card } from 'antd';
 import { Input } from 'antd';
+import { Avatar } from 'antd';
 import "../../CSS/GigList.css"
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
 const { Search } = Input;
+
 
 
 export class GigList extends React.Component{
@@ -100,19 +102,39 @@ export class GigList extends React.Component{
             
             {this.state.Gigs.map(item => (
                 //extra ce bit link na stranicu benda
-
-
+                
                 <div>
                 {this.state.filtered.indexOf(item.name)>-1 &&
-                <div style={{ background: '#ECECEC', padding: '30px' }}>
+                <div style={{ background: '#ECECEC', padding: '20px' }}>
                 <Card title={item.name} style={{ width: 600 }}>
-                    <p>Description: {item.description}</p>
-                    <br></br>
-                    <p>Address: {item.location.address} </p>
-                    <br></br>
-                    <p>Date and time : {item.dateTime}</p>
-                    <br></br>
-                    <p>Price: {item.proposedPrice} kn </p>
+                <table style={{width:"100%"}}>
+                  <tr>
+                    <th><p><Card.Grid 
+                    style={{width: '90%',
+                  textAlign: 'center',}}>
+                  <p>Description: {item.description}</p>
+                                    <br></br>
+                                    <p>Address: {item.location.address} </p>
+                                    <br></br>
+                                    <p>Date and time : {item.dateTime}</p>
+                                    <br></br></Card.Grid></p></th>
+                    <th><iframe 
+                  height="150%" 
+                    src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
+                  </tr>
+                </table>
+                <table style={{width:"100%"}}>
+                  <tr>
+                  <th>
+                  <Card title={"Band playing - " + item.bandDto.name} bordered={false}  style={{width: '90%'}}>
+                  <p>{item.bandDto.bio}</p>
+                  </Card>
+                  </th>
+                  <th>
+                  <Avatar shape="square" size={128} icon="user" src={item.bandDto.pictureURl} />
+                  </th>
+                  </tr>
+                </table>
                 </Card>
                 </div>
                 }

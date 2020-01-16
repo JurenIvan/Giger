@@ -3,10 +3,7 @@ package hr.fer.zemris.opp.giger.service;
 import hr.fer.zemris.opp.giger.config.security.UserDetailsServiceImpl;
 import hr.fer.zemris.opp.giger.domain.*;
 import hr.fer.zemris.opp.giger.domain.exception.GigerException;
-import hr.fer.zemris.opp.giger.repository.BandRepository;
-import hr.fer.zemris.opp.giger.repository.InstrumentRepository;
-import hr.fer.zemris.opp.giger.repository.MusicianRepository;
-import hr.fer.zemris.opp.giger.repository.PersonRepository;
+import hr.fer.zemris.opp.giger.repository.*;
 import hr.fer.zemris.opp.giger.web.rest.dto.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static hr.fer.zemris.opp.giger.domain.enums.Role.MUSICIAN;
 import static hr.fer.zemris.opp.giger.domain.exception.ErrorCode.*;
 import static java.util.stream.Collectors.toList;
 
@@ -22,6 +20,7 @@ import static java.util.stream.Collectors.toList;
 public class MusicianService {
 
 	private PersonRepository personRepository;
+	private SystemPersonRepository systemPersonRepository;
 	private MusicianRepository musicianRepository;
 	private InstrumentRepository instrumentRepository;
 	private UserDetailsServiceImpl userDetailsService;
@@ -29,15 +28,22 @@ public class MusicianService {
 	private IntrumentService intrumentService;
 
 	public void createMusician(MusicianDto musicianDto) {
+
 		if (userDetailsService.isLoggedUserMusician()) {
 			throw new GigerException(MUSICIAN_ALREADY_EXISTS);
 		}
 
+		var loggedInUserId = userDetailsService.getLoggedInUserId();
+		var systemPerson = systemPersonRepository.findById(loggedInUserId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
+		systemPerson.addRole(MUSICIAN);
+
 		Musician musician = new Musician();
-		musician.setId(userDetailsService.getLoggedInUserId());
+		musician.setId(loggedInUserId);
 		musician.setBio(musicianDto.getBio());
 		musician.setInstruments(intrumentService.getListOfIntruments(musicianDto.getInstrumentIdList()));
 		musician.setPublicCalendar(musicianDto.getPublicCalendar());
+
+		systemPersonRepository.save(systemPerson);
 		musicianRepository.save(musician);
 	}
 
@@ -55,16 +61,16 @@ public class MusicianService {
 		return musician.getPublicOccasios().stream().map(Occasion::toDto).collect(toList());
 	}
 
-	public MusicianProfileDto showProfile(Long musicianId) {
+	public ShowMusicianProfileDto showProfile(Long musicianId) {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
 		Person person = personRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_USER));
 
-		return new MusicianProfileDto(person.getUsername(), musician.getInstruments().stream().map(Instrument::getId).collect(toList()), person.getPictureUrl(), person.getPhoneNumber());
+		return new ShowMusicianProfileDto(person.getUsername(), musician.getInstruments(), person.getPictureUrl(), person.getPhoneNumber());
 	}
 
 	public List<PostDto> getPosts(Long musicianId) {
 		Musician musician = musicianRepository.findById(musicianId).orElseThrow(() -> new GigerException(NO_SUCH_MUSICIAN));
-		MusicianProfileDto musicianProfileDto = showProfile(musician.getId());
+		MusicianProfileDto musicianProfileDto = showProfile(musician.getId()).toMusicianProfileDto();
 		return musician.getPosts().stream().map(e -> e.toDto(musicianProfileDto, null)).collect(toList());
 	}
 
@@ -113,8 +119,9 @@ public class MusicianService {
 		List<Band> bandsInvitedAsMember = bandRepository.findAllByInvitedContaining(musician);
 		List<Band> bandsInvitedAsBackup = bandRepository.findAllByInvitedBackUpMembersContaining(musician);
 
-		if(!bandsInvitedAsMember.contains(band) && !bandsInvitedAsBackup.contains(band)) throw new GigerException(NOT_INVITED);
-		else if(bandsInvitedAsMember.contains(band)) band.getInvited().remove(musician);
+		if (!bandsInvitedAsMember.contains(band) && !bandsInvitedAsBackup.contains(band))
+			throw new GigerException(NOT_INVITED);
+		else if (bandsInvitedAsMember.contains(band)) band.getInvited().remove(musician);
 		else band.getInvitedBackUpMembers().remove(musician);
 
 		bandRepository.save(band);

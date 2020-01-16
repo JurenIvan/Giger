@@ -1,89 +1,101 @@
 import * as React from 'react';
-import { Col, Row, Form, Button } from 'react-bootstrap';
+// eslint-disable-next-line
+import { Col, Row, Button, Modal } from 'react-bootstrap';
+import {Card, Avatar} from "antd"
+import DisplayInstruments from "../BasicComponents/DisplayInstruments"
 
 export default class ProfileInfo extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-           userDetails: {
-               firstName: "John",
-               lastName: "Doe",
-               description: "", 
-           },
-           postContent: "",
-           profileType: "", //Enum.Musician/Organizer
-           profilePic: "https://www.resumeviking.com/wp-content/uploads/2017/11/Software-Developer-Profile-Picture-Round.jpg"
+            name : this.props.name,
+            description: "", 
+            profilePic: this.props.pictureUrl,
+            newProfilePic: "",
+            postContent: "",
+            edit: this.props.edit
         }
-        this.handleUpload = this.handleUpload.bind(this);
-        this.handlePostSubmit = this.handlePostSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleProfilePic = this.handleProfilePic.bind(this);
+        this.handleSave = this.handleSave.bind(this);
     }
 
     componentWillMount() {
         /**get all data of profile info */
     }
 
-    handleUpload (e) {
-        const file = Array.from(e.target.files)
-        //const formData = new FormData()
-        alert(file[0].name);
-    }
-    handlePostSubmit = event => {
-        event.preventDefault();
-        alert(this.state.postContent);
+    componentWillReceiveProps(nextProps) {
+        if (nextProps) {
+            this.setState({
+                name: nextProps.name,
+                profilePic: nextProps.pictureUrl
+            })
+        }
     }
 
-    handleChange = event => {
-        this.setState({ postContent: event.target.value});
+    handleProfilePic (e) {
+       this.setState({newProfilePic: e.currentTarget.value})
+    }
+
+    handleSave() {
+        let newProfilePic = this.state.newProfilePic;
+        this.setState({profilePic: newProfilePic, 
+            uploadModal: false,
+            newProfilePic: ""
+        });
     }
 
     render() {
         return (
-        <div>
-            <Row className="profileInfo">
-                   <div>
+        <React.Fragment>
+             <Modal show={this.state.uploadModal} animation={false}>
+                <Modal.Body>
+                    <input onChange = {this.handleProfilePic}
+                     type = "url"  
+                     className="form-control" 
+                     value = {this.state.newProfilePic} 
+                     placeholder = "Profile picture url"
+                     />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick = {this.handleSave}> Save </Button>
+                    <Button variant="secondary" onClick={(e) => {
+                        this.setState({uploadModal: false, newProfilePic: ""})
+                    }}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Card 
+            title = {this.state.name} 
+            style = {{width: 500, margin: "auto"}}>
+                
                     <Row>
-                        <img src={this.state.profilePic} 
-                                alt={this.state.userDetails.firstName + " " + this.state.userDetails.lastName}>
-                        </img>
-                    </Row>
-                    <Row className="uploader">
-                        <label for="file-upload" class="file-uploader">
-                            Upload profile picture...
-                        </label>
-                        <input type="file" id="file-upload"></input>
-                    </Row>
-                   </div>
+                        <Col md = {5}>
+                            <Row>
+                                <Avatar shape="square" size = {250} src = {this.state.profilePic}/>
+                            </Row>
+                                
+                            <Row>
+                                {
+                                    this.state.edit?
+                                    <Button style = {{width:250}} 
+                                    onClick = {()=> this.setState({uploadModal: true})}>
+                                        Upload profile picture
+                                    </Button> : null
+                                }
+                            </Row>
+                        </Col>
+                        <Col md={7}>
+                            <DisplayInstruments instrumentIds = {this.props.instrumentList}></DisplayInstruments>
+                        </Col>
+                        </Row>
+                
+            </Card>
+                   
                     
-                    
-                    <Col style={{marginLeft: "1vw"}}>
-                    <Row style={{fontSize: "38px"}}>
-                            {this.state.userDetails.firstName} {this.state.userDetails.lastName}
-                        </Row>
-                        <Row>
-                            This here is my description!
-                        </Row>
-                        <Row>
-                            And I play this instrument(s) in band(s): -----
-                            <br></br>
-                            /
-                            <br></br>
-                            I am Organizer
-                        </Row>
-                    </Col>
-            </Row>
-            <Row className="profileInfo">
-                <Form onSubmit = {this.handlePostSubmit}> 
-                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Control as="textarea" rows="3" placeholder="Write post..." onChange = {this.handleChange} value = {this.state.postContent}/>
-                     </Form.Group>
-                    <Button block type="submit">
-                        Post
-                    </Button>
-                </Form> 
-            </Row>
-        </div>
+            
+           
+        </React.Fragment>
         )
     }
 }

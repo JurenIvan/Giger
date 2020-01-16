@@ -19,7 +19,7 @@ import static java.time.LocalDateTime.of;
 
 @Service
 @AllArgsConstructor
-public class LoaderService implements ApplicationRunner {
+public class  LoaderService implements ApplicationRunner {
 
 	private SystemPersonRepository systemPersonRepository;
 	private InstrumentRepository instrumentRepository;
@@ -68,7 +68,7 @@ public class LoaderService implements ApplicationRunner {
 	}
 
 	private void createSystemPeople() {
-		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
+		systemPeople.add(new SystemPerson(null, "john.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(PERSON,ORGANIZER)));
 		systemPeople.add(new SystemPerson(null, "james.doe@giger.com", true, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "robert.doe@giger.com", false, false, BCrypt.hashpw("12345678", BCrypt.gensalt(10)), List.of(ORGANIZER, PERSON)));
 		systemPeople.add(new SystemPerson(null, "admin@giger.com", true, false, BCrypt.hashpw("adminadmin", BCrypt.gensalt(10)), List.of(MUSICIAN, PERSON, ORGANIZER)));
@@ -93,16 +93,17 @@ public class LoaderService implements ApplicationRunner {
 	}
 
 	private void createInstruments() {
-		instruments.add(new Instrument(null, "Marimba", PERCUSSION));
-		instruments.add(new Instrument(null, "Piano", KEYBOARD));
-		instruments.add(new Instrument(null, "Vibraphone", PERCUSSION));
-		instruments.add(new Instrument(null, "Trumpet", BRASS_INSTRUMENT));
-		instruments.add(new Instrument(null, "Xylophone", PERCUSSION));
-		instruments.add(new Instrument(null, "Guitar", STRING_INSTRUMENT));
-		instruments.add(new Instrument(null, "Clarinet", WOODWIND_INSTRUMENT));
-		instruments.add(new Instrument(null, "Oboe", WOODWIND_INSTRUMENT));
-		instruments.add(new Instrument(null, "Violine", STRING_INSTRUMENT));
-		instruments.add(new Instrument(null, "Flute", WOODWIND_INSTRUMENT));
+		instruments.add(new Instrument(null, "Marimba", PERCUSSION, "https://cosmomusic.ca/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/D/I/DIMVYAMYM40_1_2.jpg"));
+		instruments.add(new Instrument(null, "Piano", KEYBOARD, "https://www.thomann.de/pics/bdb/371901/10421191_800.jpg"));
+		instruments.add(new Instrument(null, "Vibraphone", PERCUSSION, "https://www.thomann.de/pics/bdb/239041/10157319_800.jpg"));
+		instruments.add(new Instrument(null, "Trumpet", BRASS_INSTRUMENT, "https://www.matthewsmuziek.nl/media/catalog/product/cache/2/image/700x700/0dc2d03fe217f8c83829496872af24a0/y/a/yamaha-ytr-6335rc-trumpet.jpg"));
+		instruments.add(new Instrument(null, "Xylophone", PERCUSSION, "https://images-na.ssl-images-amazon.com/images/I/71m2JLI2cML._AC_SL1500_.jpg"));
+		instruments.add(new Instrument(null, "Guitar", STRING_INSTRUMENT, "http://www.long-mcquade.com/files/7100/lg_e73803defd0ce20635fb6ef2f6e7a3df.JPG"));
+		instruments.add(new Instrument(null, "Clarinet", WOODWIND_INSTRUMENT, "https://www.thomann.de/pics/bdb/100448/14523119_800.jpg"));
+		instruments.add(new Instrument(null, "Oboe", WOODWIND_INSTRUMENT, "https://az58332.vo.msecnd.net/e88dd2e9fff747f090c792316c22131c/Images/Products60341-1200x1200-664228.jpg"));
+		instruments.add(new Instrument(null, "Violine", STRING_INSTRUMENT, "https://www.thomann.de/pics/bdb/408251/11846190_800.jpg"));
+		instruments.add(new Instrument(null, "Flute", WOODWIND_INSTRUMENT, "https://sc01.alicdn.com/kf/HTB1AKuimkfb_uJjSsrbq6z6bVXai/Wooden-music-instrument-flute-recorder-for-sale.jpg_350x350.jpg"));
+		instruments.add(new Instrument(null, "Drums", PERCUSSION, "https://images-na.ssl-images-amazon.com/images/I/81YIjachh7L._AC_SX355_.jpg"));
 
 		this.instruments = instrumentRepository.saveAll(instruments);
 	}
@@ -198,7 +199,7 @@ public class LoaderService implements ApplicationRunner {
 		comments.add(new Comment(null, "Congrats!", of(2019, 12, 2, 20, 0), people.get(3)));
 		comments.add(new Comment(null, "When?", of(2019, 12, 3, 20, 0), people.get(4)));
 		comments.add(new Comment(null, "Can I buy it online?", of(2019, 12, 4, 20, 0), people.get(5)));
-		comments.add(new Comment(null, "Yes, ofcourse!", of(2019, 12, 5, 20, 0), people.get(6)));
+		comments.add(new Comment(null, "Yes, of course!", of(2019, 12, 5, 20, 0), people.get(6)));
 		comments.add(new Comment(null, "Where was it?", of(2019, 12, 6, 20, 0), people.get(7)));
 		comments.add(new Comment(null, "Good for you.", of(2019, 12, 7, 20, 0), people.get(8)));
 		comments.add(new Comment(null, "Woohoo", of(2019, 12, 8, 20, 0), people.get(9)));

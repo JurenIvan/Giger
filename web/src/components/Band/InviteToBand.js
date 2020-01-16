@@ -1,10 +1,47 @@
- 
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import Select from 'react-dropdown-select';
+import { Radio, Select, notification, Icon } from 'antd';
+import 'antd/dist/antd.css';
+
+const {Option} = Select;
+
+const openNotificationMain = () => {
+    notification.open({
+      message: 'You have successfully invited a musician into your band!',
+      description:
+        'You have invited a musician into your band as a main member.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
+
+const openNotificationBackup = () => {
+    notification.open({
+      message: 'You have successfully invited a musician into your band!',
+      description:
+        'You have invited a musician into your band as a backup member.\n Click Notification to redirect to Home',
+      icon: <Icon type="smile" style={{ color: '#108ee9' }} 
+      />,
+      duration: 7,
+      onClick: () => {
+        window.location.href = "/home";
+      },
+      onClose: () => {
+        window.location.href = "/home";
+      }
+
+    });
+}
 
 export default class InviteToBand extends React.Component {
     constructor(props) {
@@ -19,6 +56,8 @@ export default class InviteToBand extends React.Component {
             isSearching: false,
             main: true
         }
+        this.handleMChange = this.handleMChange.bind(this);
+        this.handleBChange = this.handleBChange.bind(this);
         this.handleRadioChange = this.handleRadioChange.bind(this)
     }
 
@@ -33,6 +72,9 @@ export default class InviteToBand extends React.Component {
                         alert("You are not a leader of any bands")
                     }
                 }
+                else if(response.length===0) {
+                    alert("You are not a leader of any bands")
+                }
                 else {
                     for(let i=0; i<response.length;i++) {
                         this.setState(prevState => ({
@@ -43,18 +85,6 @@ export default class InviteToBand extends React.Component {
                 }
             }).then( () => 
         this.setState({isSearching: false}))
-    }
-
-    setBandValues = selectedBand => {
-        this.setState({ selectedBand }
-        , () => console.log(this.state.selectedBand)
-        )
-    }
-
-    setMusicianValues = selectedMusician => {
-        this.setState({ selectedMusician}
-        , () => console.log(this.state.selectedMusician)
-        )
     }
 
     handleChange = event => {
@@ -99,7 +129,7 @@ export default class InviteToBand extends React.Component {
         fetcingFactory(endpoints.INVITE_MAIN_MEMB, params).then(
             response => {
                 if (response.status === 200) {
-                    window.location.href = "/home";
+                    openNotificationMain();
                 } else {
                     console.log(response)
                     alert(response.json())
@@ -110,7 +140,7 @@ export default class InviteToBand extends React.Component {
             fetcingFactory(endpoints.INVITE_BACKUP_MEMB, params).then(
                 response => {
                     if (response.status === 200) {
-                        window.location.href = "/home";
+                        openNotificationBackup();
                     } else {
                         console.log(response)
                         alert(response.json())
@@ -119,72 +149,80 @@ export default class InviteToBand extends React.Component {
         }
     }
 
-    handleRadioChange(event) {
-        const main = event.currentTarget.value === 'true' ? true: false;
-        this.setState({ main }, () => console.log(this.state.main)
-            );
+    handleRadioChange = e => {
+        console.log('radio checked', e.target.value);
+        this.setState({
+          main: e.target.value,
+        });
+    }
+
+    handleMChange(value) {
+        this.setState({selectedMusician: value}, () => console.log(this.state.selectedMusician))
+    }
+
+    handleBChange(value) {
+        this.setState({selectedBand: value}, () => console.log(this.state.selectedBand))
     }
 
     render () {
         return (
             <React.Fragment>
-                <div className = "InviteToBand">
-                    <Form onSubmit={this.handleSubmit}>
-                            <Form.Label controlId="chooseBand"> Odaberi bend: </Form.Label>
-                            <Form.Group controlId="chooseBand">
-                            <Select
-                                disabled={this.state.isSearching}
-                                name="selectedBand"
-                                options={this.state.bands}
-                                value={this.state.selectedBand}
-                                //onChange={this.updateEventType}
-                                onChange={value => this.setBandValues(value[0].value)}
-                            />
-                            </Form.Group>
+                <div className="modal-login">
+                        <div className="modal-content">
 
-                            <Form.Label controlId="musicianName"> Unesi ime glazbenika: </Form.Label>
-                            <Form.Group controlId="musicianName">
-                                <Form.Control autoFocus type="text" value={this.state.musicianName}
-                                              onChange={this.handleChange}/>
-                            </Form.Group>
+                            <div className="modal-header">				
+                                <h4 className="modal-title">Invite to band</h4>
+                            </div>
 
-                            <Form.Group>
-                                <Button type="button" block disabled={this.state.isSearching} onClick={this.handleGetMusician}> Dohvati glazbenike </Button>
-                            </Form.Group>
-
-                            <Form.Label controlId="chooseMusician"> Odaberi glazbenika: </Form.Label>
-                            <Form.Group controlId="chooseMusician">
-                                <Select
-                                    disabled={this.state.isSearching}
-                                    name="selectedMusician"
-                                    options={this.state.musicians}
-                                    value={this.state.selectedMusician}
-                                    //onChange={this.updateEventType}
-                                    onChange={value => this.setMusicianValues(value[0].value)}
-                                />
-                            </Form.Group>
-
-                            <label>
-                                <input 
-                                    type="radio"
-                                    name="main"
-                                    value="true"
-                                    checked={this.state.main === true}
-                                    onChange={this.handleRadioChange}
-                                    ></input>Glavni clan</label>
-                                    <label><input 
-                                    type="radio"
-                                    name="main"
-                                    value="false"
-                                    checked={this.state.main === false}
-                                    onChange={this.handleRadioChange}
-                                ></input>Pomocni clan</label>
-
-                            <Form.Group>
-                                <Button type="submit" disabled={this.state.isSearching} block> Pozovi osobu u bend </Button>
-                            </Form.Group>
-                    </Form>
-                </div>
+                            <div className="modal-body">
+                                <form onSubmit={this.handleSubmit}>
+                                    <Select 
+                                        disabled={this.state.isSearching}
+                                        onChange={this.handleBChange}
+                                        placeholder="Select band to invite"
+                                        name="selectedBand"
+                                        value={this.state.selectedBand?this.state.selectedBand:undefined}
+                                    >
+                                            {this.state.bands.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
+                                    <div className="form-group">
+                                        <div className="input-group">
+                                            <span className="input-group-addon"><i className="fa fa-user"></i></span>
+                                            <input type="text" 
+                                            onChange={this.handleChange}
+                                            className="form-control" name="musicianName" placeholder="Musician name">
+                                            </input>
+                                        </div>
+                                    </div>
+                                    <Button type="button" block disabled={this.state.isSearching} onClick={this.handleGetMusician}> Get musicians </Button>
+                                    <br></br>
+                                    <Select 
+                                        disabled={this.state.isSearching}
+                                        onChange={this.handleMChange}
+                                        placeholder="Choose musician"
+                                        name="selectedMusician"
+                                        value={this.state.selectedMusician?this.state.selectedMusician:undefined}
+                                    >
+                                            {this.state.musicians.map(item => (
+                                                <Option key={item.value}>{item.label}</Option>
+                                            ))}
+                                    </Select>
+                                    <br></br><br></br>
+                                    <Radio.Group onChange={this.handleRadioChange} value={this.state.main}>
+                                        <Radio value={true}>Main member</Radio>
+                                        <Radio value={false}>Backup member</Radio>
+                                    </Radio.Group>
+                                    <br></br><br></br>
+                                    <div className="form-group">
+                                        <button type="submit" className="btn btn-primary btn-block btn-lg">Invite to band</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
             </React.Fragment>
         );
     }

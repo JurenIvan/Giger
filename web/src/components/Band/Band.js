@@ -67,7 +67,7 @@ export default class Band extends React.Component {
             }
         ).then(
             json =>{
-                this.setState({bandBio: json.bio, bandLocation: json.location})
+                this.setState({bandBio: json.bio, location: json.location})
             }
         )
         this.setState({showModal: true})
