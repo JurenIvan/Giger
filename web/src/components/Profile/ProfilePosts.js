@@ -121,7 +121,9 @@ export default class ProfilePosts extends React.Component {
                     onChange={this.handleChange}
                     id="postContent"
                     className="form-control"
-                    value = {this.state.postContent} />
+                    value = {this.state.postContent}
+                    placeholder="Write your post"
+                />
                 <br></br>
                 <button 
                     onClick = {this.handlePostSubmit}
