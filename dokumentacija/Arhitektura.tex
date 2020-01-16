@@ -791,8 +791,15 @@ Ovaj entitet sadrži informacije o nastupima. Sadrži atribute: id nastupa, datu
 	
 	\section{Dijagram komponenti}
 	
-	\textit{\textbf{dio 2. revizije}} \\
+	Dijagram komponenti prikazuje zavisnost programskih komponenata i fizičku strukturu koda u terminima kodnih komponenti. Graf komponenti povezan je vezama ovisnosti kako bi se omogućila lakša analiza reakcije ostalih komponenti na promjene u jednoj komponenti. 
+	Dohvat podataka iz SQL Postgres baze podataka vrši se sučeljima koja nasljeđuju JPA Repository pomoću SQL upita. Podaci koji pristižu iz baze podataka stavljaju se u DTO objekte koji se koriste u ostatku aplikacije. REST API šalje podatke iz backend aplikacije u obliku JSON-a frontend aplikaciji. Frontend aplikacija se sastoji od Javascript datoteka koje su grupirane u ovisnosti koji aktor im pristupa. Router je komponenta koja određuje koje datoteke se prikazuju klijentu. Sustavu se pristupa preko sučelja preko kojega mu se šalju HTML i JS datoteke iz frontend aplikacije.
 	
-	\textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.} \\
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[width=17cm]{slike/compdig.PNG}
+		\end{center}
+		\caption{Dijagram komponenti}
+		\label{fig:dijakt}
+	\end{figure}
 	
 	\eject	
