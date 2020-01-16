@@ -30,6 +30,7 @@ out/
 
 ### VS Code ###
 .vscode/
+/web/
 
 
 # Created by https://www.gitignore.io/api/latex
