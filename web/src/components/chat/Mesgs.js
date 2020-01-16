@@ -1,26 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Message from "./Message.js";
 import Cookies from "js-cookie";
+import fetcingFactory from "../../Utils/external";
+import { endpoints } from "../../Utils/Types";
 
 function Mesgs(props) {
-  const { messages } = props;
+  const { conversation } = props;
+  const messages = conversation.messages;
   const userId = Cookies.get("userId");
   messages.forEach(message => {
     if (userId !== message.sender.id) {
       message.is_sent = true;
     }
   });
-
   const [newMsg, setNewMsg] = useState("");
+
   const handleClick = e => {
-    // alert(newMsg);
-    // fetcingFactory(endpoints.GET_USER_CONVERSATIONS, null).then(response => {
-    //   if (response.status === 200) {
-    //     console.log(response);
-    //   } else {
-    //     // this.setState({inValidRegister: true})
-    //   }
-    // });
+    let newMessageParams = {
+      band: "",
+      content: newMsg,
+      conversationId: conversation.conversationId
+    };
+    console.log(newMessageParams);
+    //console.log("message", newMsg);
+    fetcingFactory(
+      endpoints.SEND_MESSAGE_TO_USER,
+      JSON.stringify(newMessageParams)
+    ).then(response => {
+      console.log(response);
+      // this.setState({inValidRegister: true})
+    });
   };
 
   return (

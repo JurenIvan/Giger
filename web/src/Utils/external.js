@@ -412,6 +412,7 @@ function createUserConversation(params, endpoint) {
 }
 
 function sendMessageToUser(params, endpoint) {
+  console.log(params, endpoint);
   return fetch(API + endpoint, {
     method: "POST",
     body: params,

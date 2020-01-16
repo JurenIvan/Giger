@@ -30,7 +30,7 @@ function InboxPeople(props) {
     fetcingFactory(endpoints.GET_ALL_USERS, JSON.stringify(getAllUsersParams))
       .then(response => response.json())
       .then(response => {
-        console.log("response", response);
+        //console.log("response", response);
         //console.log("getAllUsersParams", JSON.stringify(getAllUsersParams));
         //console.log("prvi", response[1].id, response[1].username);
         var users = [];
@@ -64,47 +64,35 @@ function InboxPeople(props) {
         "morate izabrati barem jednu osobu da biste mogli stvoriti razgovor"
       );
       return;
-    } else {
-      //stvoriti novi razgovor
-      let newConversationParams = {
-        pictureUrl: "",
-        title: conversationTitle,
-        userName: ""
-      };
-      console.log("newconvparams", newConversationParams);
-      fetcingFactory(
-        endpoints.CREATE_USER_CONVERSATION,
-        JSON.stringify(newConversationParams)
-      )
-        .then(response => response.json())
-        .then(response => {
-          setConversationId(response);
-          console.log("convid", response);
-          console.log("conv id", conversationId);
-          // this.setState({inValidRegister: true})
-        });
-
-      //dodati osobu u razgovor
-      let addUserToConversationParams = {
-        bandId: 0,
-        userIds: [selectedUserIds]
-      };
-      console.log("addUsetToConversation", addUserToConversationParams);
-      fetcingFactory(
-        endpoints.ADD_USER_TO_CONVERSATION,
-        JSON.stringify(addUserToConversationParams),
-        conversationId
-      )
-        .then(response => response.json())
-        .then(response => {
-          // this.setState({inValidRegister: true})
-        });
     }
+
+    var ID = 0;
+    //stvoriti novi razgovor
+    let newConversationParams = {
+      pictureUrl: "",
+      title: conversationTitle,
+      userName: ""
+    };
+    //console.log("newconvparams", newConversationParams);
+    fetcingFactory(
+      endpoints.CREATE_USER_CONVERSATION,
+      JSON.stringify(newConversationParams)
+    )
+      .then(response => response.json())
+      .then(response => {
+        ID = response;
+        setConversationId(response);
+        setConversationCount(conversationCount + 1);
+
+        console.log("convid", response);
+        console.log("conv id", conversationId);
+
+        //dodati osobu u razgovor
+        addPeopleToConversation(ID);
+      });
 
     //console.log("submit");
     //console.log("convertitle", conversationTitle);
-
-    setConversationCount(conversationCount + 1);
   };
 
   return (
@@ -137,6 +125,22 @@ function InboxPeople(props) {
       </div>
     </div>
   );
+
+  function addPeopleToConversation(ID) {
+    let addUserToConversationParams = {
+      bandId: 0,
+      userIds: selectedUserIds
+    };
+    console.log("addUsetToConversation", addUserToConversationParams);
+    console.log("ID", ID);
+    fetcingFactory(
+      endpoints.ADD_USER_TO_CONVERSATION,
+      JSON.stringify(addUserToConversationParams),
+      ID
+    )
+      .then(response => response.json())
+      .then(response => {});
+  }
 }
 
 export default InboxPeople;
