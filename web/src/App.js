@@ -114,6 +114,7 @@ function App() {
             <EditGig/> : <ModalClass/>
           )} />
           <Route path='/WelcomePage' exact component = {WelcomePage}/>
+          <Route path='/' exact component = {WelcomePage}/>
         </Switch>
       </div>
     </BrowserRouter>

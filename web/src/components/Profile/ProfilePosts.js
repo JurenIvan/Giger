@@ -2,10 +2,10 @@ import React from "react";
 import {PostClass} from "../BasicComponents/Post";
 import fetcingFactory from "../../Utils/external";
 import {endpoints} from "../../Utils/Types";
-import { Button} from "react-bootstrap";
-import {Card} from "antd";
+import 'antd/dist/antd.css';
+import {Card, Input} from "antd";
 
-
+const { TextArea } = Input;
 export default class ProfilePosts extends React.Component {
     
   
@@ -116,15 +116,30 @@ export default class ProfilePosts extends React.Component {
     render() {
         return (
             <div style = {{margin: 5}}>
-            <textarea type="text"
-                onChange={this.handleChange}
-                 id="postContent"
-                 className="form-control"
-                 value = {this.state.postContent}></textarea>
-                <Button onClick = {this.handlePostSubmit}
-                style = {{width: 500, margin: 5}}>
+                <br></br>
+                <TextArea type="text"
+                    onChange={this.handleChange}
+                    id="postContent"
+                    className="form-control"
+                    value = {this.state.postContent} />
+                <br></br>
+                <button 
+                    onClick = {this.handlePostSubmit}
+                    style ={{
+                        fontFamily: 'sans-serif',
+                        fontSize: "16px", 
+                        fontWeight: "bold",
+                        background: "#19aa8d",
+                        borderRadius: "3px",
+                        border: "none",
+                        minWidth: "140px",
+                        maxWidth: "100%",
+                        outline: "none"
+                    }}
+                    className="btn btn-primary btn-block btn-lg">
                     Post
-                </Button>
+                </button>
+                <br></br>
                 {
                     this.state.ProfilePostsList.length > 0? 
                     this.state.ProfilePostsList.map(element => (

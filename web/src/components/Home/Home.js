@@ -1,4 +1,6 @@
 import React from 'react';
+import {endpoints} from "../../Utils/Types"
+import fetcingFactory from "../../Utils/external"
 //import  "../Home/Home.css";
 
 
@@ -6,7 +8,11 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            shouldRenderHello: false
+            shouldRenderHello: false,
+            roles: [],
+            person: false,
+            musician: false,
+            organizer: false
         }
         this.procesHello = this.procesHello.bind(this);
     }
@@ -16,9 +22,93 @@ export default class Home extends React.Component {
         this.setState({shouldRender: value});
     }
 
+    componentDidMount() {
+        fetcingFactory(endpoints.GET_ROLES).then(
+            response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    alert("Something went wrong!");
+                }
+            }
+            ).then(
+                json => {
+                    if(json) {
+                        let helperRoles = this.state.roles;
+                        for (let i = 0; i < json.length; i++) {
+                            helperRoles.push(json[i]);
+                        }
+                        this.setState({roles: helperRoles}, () => {
+                            if(this.state.roles.includes("PERSON")){
+                                this.setState({person: true})
+                            }
+                            if(this.state.roles.includes("ORGANIZER")){
+                                this.setState({organizer: true})
+                            }
+                            if(this.state.roles.includes("MUSICIAN")){
+                                this.setState({musician: true})
+                            }
+                        })
+                    }
+                }
+                
+            )
+            console.log(this.state)
+    }
 
     
     render() {
+        let person = this.state.person?
+            <div>
+                <div>
+                    <a href="/displayGigs" className="button big alt scrolly"style={{width:"400px"}} >View public gigs</a>
+                </div>
+                <br></br><br></br>
+                <div>
+                    <a href="/displayBands" className="button big alt scrolly" style={{width:"400px"}} >View bands</a>
+                </div>
+                <br></br><br></br>
+            </div> 
+            :
+            []
+        let musician = this.state.musician?
+            <div>
+                <div>
+                    <a href="/AcceptBandInvite" className="button big alt scrolly"style={{width:"400px"}} >Manage band invites</a>
+                </div>
+                <br></br><br></br>
+                <div>
+                    <a href="/InviteToBand" className="button big alt scrolly" style={{width:"400px"}} >Invite people to your band</a>
+                </div>
+                <br></br><br></br>
+                <div>
+                    <a href="/AcceptGigInvite" className="button big alt scrolly" style={{width:"400px"}} >Manage gig invites</a>
+                </div>
+                <br></br><br></br>
+            </div>
+            :
+            []
+        let organizer = this.state.organizer?
+            <div>
+                <div>
+                <a href="/CreateGig" className="button big alt scrolly" style={{width:"400px"}}>Create gig</a>
+                </div>
+
+                <br></br>
+                <br></br>
+
+                <div>
+                <a href="/EditGig" className="button big alt scrolly" style={{width:"400px"}} >Edit gig</a>
+                </div>
+
+                <br></br>
+                <br></br>                        
+
+                <div>
+                <a href="/InviteToGig" className="button big alt scrolly" style={{width:"400px"}}>Invite band to gig</a>
+                </div>
+            </div>
+            : []
         return (
         <div>
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
@@ -40,73 +130,12 @@ export default class Home extends React.Component {
                             </h1>
 							<p>
                             </p>
-                            <br></br>
 						</header>
-
-                        <div>
-						<a href="/displayGigs" className="button big alt scrolly"style={{width:"400px"}} >View public gigs</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>     
-
-                        <div>
-						<a href="/CreateGig" className="button big alt scrolly" style={{width:"400px"}}>Create gig</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-
-                        <div>
-						<a href="/EditGig" className="button big alt scrolly" style={{width:"400px"}} >Edit gig</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>                        
-
-                        <div>
-						<a href="/InviteToGig" className="button big alt scrolly" style={{width:"400px"}}>Invite band to gig</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-
-                        <div>
-						<a href="/AcceptGigInvite" className="button big alt scrolly" style={{width:"400px"}} >Manage gig invites</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-
-                        <div>
-						<a href="/displayBands" className="button big alt scrolly" style={{width:"400px"}} >View bands</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-
-                        <div>
-						<a href="/InviteToBand" className="button big alt scrolly" style={{width:"400px"}} >Invite people to your band</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-
-                        <div>
-						<a href="/AcceptBandInvite" className="button big alt scrolly"style={{width:"400px"}} >Manage band invites</a>
-                        </div>
-
-                        <br></br>
-                        <br></br>
-                   
-
-
+                        {person}
+                        {musician} 
+                        {organizer}
 					</div>
-
 			</section>
-  
-
-
             </div>
           
 

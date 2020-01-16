@@ -31,7 +31,8 @@ export const endpoints = {
     DECLINE_BAND_INVITE: "/musicians/invitations/cancel/",
     SUBMIT_USER_POST: "/posts/create",
     SUBMIT_COMMENT: "/posts/",
-    GET_MUSICIAN_OCASSION: "/musicians/show/occasions/"
+    GET_MUSICIAN_OCASSION: "/musicians/show/occasions/",
+    EDIT_MUSICIAN: "/musicians/edit/"
     /*TO DO: ostali endpointi*/
 }
 

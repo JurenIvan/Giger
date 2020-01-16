@@ -46,9 +46,33 @@ export default class BandMemberClass extends React.Component {
                 <Avatar size = {64} src = {this.state.pictureUrl} />
             <p> Contact number: {this.state.contactNumber}</p>
             {this.state.backup?
-                <Button onClick = {this.handleMakeMain}> Make main member</Button>
+                <Button 
+                onClick = {this.handleMakeMain}
+                style ={{
+                    fontFamily: 'sans-serif',
+                    fontSize: "14px", 
+                    fontWeight: "bold",
+                    background: "#19aa8d",
+                    borderRadius: "3px",
+                    border: "none",
+                    minWidth: "140px",
+                    maxWidth: "100%",
+                    outline: "none"
+                }}> Make main member</Button>
                 :
-                <Button onClick = {this.handleMakeBackup}> Make backup member</Button>
+                <Button 
+                onClick = {this.handleMakeBackup}
+                style ={{
+                    fontFamily: 'sans-serif',
+                    fontSize: "14px", 
+                    fontWeight: "bold",
+                    background: "#19aa8d",
+                    borderRadius: "3px",
+                    border: "none",
+                    minWidth: "140px",
+                    maxWidth: "100%",
+                    outline: "none"
+                }}> Make backup member</Button>
             }
             </Card>
         )

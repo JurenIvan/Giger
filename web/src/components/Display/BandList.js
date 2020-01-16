@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React from "react"
 import { Input } from 'antd';
-import { Card, Modal, Button,Row, Col, Slider } from 'antd';
+import { Card, Modal, Button } from 'antd';
 import fetcingFactory from "../../Utils/external";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import {endpoints} from "../../Utils/Types";

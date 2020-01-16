@@ -119,6 +119,7 @@ export class GigList extends React.Component{
                                     <p>Date and time : {item.dateTime}</p>
                                     <br></br></Card.Grid></p></th>
                     <th><iframe 
+                    title= "Title"
                   height="150%" 
                     src={"https://maps.google.com?q="+item.location.x+","+item.location.y+"&output=svembed"} /></th> 
                   </tr>
