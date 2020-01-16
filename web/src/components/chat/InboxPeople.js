@@ -11,14 +11,15 @@ function InboxPeople(props) {
     setConversationCount,
     setSelectedConversationIdx
   } = props;
+  const [conversationId, setConversationId] = useState();
 
   const [userList, setUserList] = useState([
-    { value: 1, label: "u1" },
+    /* { value: 1, label: "u1" },
     { value: 2, label: "u2" },
     { value: 3, label: "u3" },
     { value: 4, label: "user4" },
     { value: 5, label: "user5" },
-    { value: 6, label: "user6" }
+    { value: 6, label: "user6" } */
   ]);
   useEffect(() => {
     let getAllUsersParams = {
@@ -37,7 +38,7 @@ function InboxPeople(props) {
           users.push({ value: user.id, label: user.username });
           //console.log("id, name", user.id, user.username);
         });
-        //setUserList([users]);
+        setUserList(users);
         //console.log("userList", userList); //zašto se ne promjeni
         //console.log("users", users);
 
@@ -70,24 +71,37 @@ function InboxPeople(props) {
         title: conversationTitle,
         userName: ""
       };
-      //console.log("newconvparams", newConversationParams);
+      console.log("newconvparams", newConversationParams);
       fetcingFactory(
         endpoints.CREATE_USER_CONVERSATION,
         JSON.stringify(newConversationParams)
-      ).then(response => console.log("create response", response));
-      //.then(response => response.json())
-      /* .then(response => {
-          console.log("create response", response);
-          console.log(
-            "newConversationParams",
-            JSON.stringif(newConversationParams)
-          );
+      )
+        .then(response => response.json())
+        .then(response => {
+          setConversationId(response);
+          console.log("convid", response);
+          console.log("conv id", conversationId);
           // this.setState({inValidRegister: true})
-        }) */
+        });
+
       //dodati osobu u razgovor
+      let addUserToConversationParams = {
+        bandId: 0,
+        userIds: [selectedUserIds]
+      };
+      console.log("addUsetToConversation", addUserToConversationParams);
+      fetcingFactory(
+        endpoints.ADD_USER_TO_CONVERSATION,
+        JSON.stringify(addUserToConversationParams),
+        conversationId
+      )
+        .then(response => response.json())
+        .then(response => {
+          // this.setState({inValidRegister: true})
+        });
     }
 
-    console.log("submit");
+    //console.log("submit");
     //console.log("convertitle", conversationTitle);
 
     setConversationCount(conversationCount + 1);

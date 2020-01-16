@@ -79,12 +79,14 @@ export default function fetcingFactory(endpoint, params, id) {
       return getMusicianOcassion(params, endpoint);
     case Types.endpoints.GET_USER_CONVERSATIONS:
       return getUserConversations(params, endpoint);
-    case Types.endpoints.CREATE_USER_CONVERSATIONS:
+    case Types.endpoints.CREATE_USER_CONVERSATION:
       return createUserConversation(params, endpoint);
     case Types.endpoints.ADD_USER_TO_CONVERSATION:
-      return addUserToConversation(params, endpoint);
+      return addUserToConversation(params, endpoint, id);
     case Types.endpoints.GET_ALL_USERS:
       return getAllUsers(params, endpoint);
+    case Types.endpoints.SEND_MESSAGE_TO_USER:
+      return send_message_to_user(params, endpoint);
   }
 }
 
@@ -409,8 +411,8 @@ function createUserConversation(params, endpoint) {
   });
 }
 
-function addUserToConversation(params, endpoint) {
-  return fetch(API + endpoint, {
+function addUserToConversation(params, endpoint, id) {
+  return fetch(API + endpoint + id, {
     method: "POST",
     body: params,
     headers: {

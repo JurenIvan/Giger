@@ -11,14 +11,13 @@ function ChatContainer(props) {
   useEffect(() => {
     // dohvat podataka
     const getData = () => {
-      /*  fetcingFactory(endpoints.GET_USER_CONVERSATIONS, null).then(response => {
-        if (response.status === 200) {
+      /* fetcingFactory(endpoints.GET_USER_CONVERSATIONS, null)
+        .then(response => response.json())
+        .then(response => {
           console.log("convs", response);
-          setConversationList(response.data);
-        } else {
-        this.setState({inValidRegister: true})
-        }
-      }); */
+          //setConversationList(response.data);
+          //this.setState({inValidRegister: true})
+        }); */
 
       const convers = [
         {
