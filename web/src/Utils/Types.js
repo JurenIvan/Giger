@@ -27,6 +27,7 @@ export const endpoints = {
   DECLINE_BAND_INVITE: "/musicians/invitations/cancel/",
   GET_USER_CONVERSATIONS: "/conversations/get/personal",
   CREATE_USER_CONVERSATION: "/conversations/create",
+  ADD_USER_TO_CONVERSATION: "/conversations/add/", //ide para1metar conversation id nakon add/
   POST_MESSAGE: "/conversations/send/person",
   GET_ALL_USERS: "/users/findUsers"
   /*TO DO: ostali endpointi*/
