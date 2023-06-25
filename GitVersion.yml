@@ -1,0 +1,6 @@
+## Each merged branch against main will increment the version (mainline mode)
+mode: Mainline
+branches: { }
+ignore:
+  sha: [ ]
+merge-message-formats: { }
